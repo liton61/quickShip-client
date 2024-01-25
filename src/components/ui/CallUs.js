@@ -15,7 +15,7 @@ const CallUs = () => {
                     </div>
                 </div>
                 <div className="card justify-center text-left space-y-5">
-                    <h2 className="text-xl lg:text-3xl font-bold">
+                    <h2 className="text-xl lg:text-4xl font-bold">
                         Do You Want A Fast <br /> Service? Just Call Us.
                     </h2>
                     <p className="text-lg text-justify">

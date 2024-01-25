@@ -1,6 +1,5 @@
 import Lottie from 'lottie-react';
 import React from 'react';
-// import phone from '../../asstes/phone.json';
 import scooter from '../../asstes/scooter.gif';
 import Image from 'next/image';
 
@@ -10,12 +9,11 @@ const CallUs = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
                 <div className="card">
                     <div className="w-full">
-                        {/* <Lottie animationData={phone}></Lottie> */}
                         <Image src={scooter} height={500} alt="" />
                     </div>
                 </div>
                 <div className="card justify-center text-left space-y-5">
-                    <h2 className="text-xl lg:text-4xl font-bold">
+                    <h2 className="text-xl lg:text-3xl font-bold">
                         Do You Want A Fast <br /> Service? Just Call Us.
                     </h2>
                     <p className="text-lg text-justify">

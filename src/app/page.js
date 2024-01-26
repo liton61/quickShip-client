@@ -3,7 +3,6 @@
 import Banner from "@/components/ui/Banner";
 import BestCourier from "@/components/ui/BestCourier";
 import CallUs from "@/components/ui/CallUs";
-import DeliveryCalculator from "@/components/ui/DeliveryCalculator/DeliveryCalculator";
 import ContactForm from "@/components/ui/ContactForm";
 import FeaturesSection from "@/components/ui/FeaturesSection";
 import OurServices from "@/components/ui/OurServices";
@@ -21,7 +20,6 @@ const page = () => {
       <OurServices />
       <ProductDelivery />
       <BestCourier></BestCourier>
-      <DeliveryCalculator></DeliveryCalculator>
       <CallUs></CallUs>
       <FeaturesSection></FeaturesSection>
       <Stat></Stat>

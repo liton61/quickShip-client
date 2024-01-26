@@ -8,7 +8,7 @@ const PricingId = async ({ params }) => {
   console.log(price);
   console.log(params);
   return (
-    <div className="">
+    <div>
       <div className="grid lg:grid-cols-2 items-center justify-center   grid-cols-1">
         {/* delivery services part start */}
         <div className=" flex justify-center mt-10 ml-[18rem]   ">

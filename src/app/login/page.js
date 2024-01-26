@@ -7,20 +7,20 @@ import Image from "next/image";
 import Link from "next/link";
 import google from "../../asstes/google.jpg";
 import swal from "sweetalert";
+import { redirect } from "next/dist/server/api-utils";
 
 const Login = () => {
   const { signIn, googleLogin } = useContext(AuthContext);
-  // const navigate = useNavigate();
-
   const handleGoogleLogin = () => {
     googleLogin()
       .then((res) => {
         console.log(res.data);
-        // navigate("/");
+        redirect("/")
       })
       .catch((error) => {
         console.log(error);
       });
+
   };
 
   const handleLogin = (e) => {
@@ -49,8 +49,8 @@ const Login = () => {
 
   return (
     <div>
-      <div className="bg-base-200 flex items-center justify-center py-16">
-        <div className="bg-white w-96 p-8 rounded-lg shadow-lg">
+      <div className="bg-[#000C21] flex items-center justify-center py-44">
+        <div className="bg-white w-96 p-7 rounded-lg shadow-lg">
           <h2 className="text-2xl font-semibold text-gray-800 mb-4 text-center">
             Login
           </h2>

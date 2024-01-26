@@ -116,7 +116,7 @@ const ContactForm = () => {
           </label>
           <button
             type="submit"
-            className="self-center px-8 text-lg focus:ring hover:ring focus:ri rounded-full text-white focus:ri hover:ri btn btn-success "
+            className="self-center px-8 text-lg focus:ring hover:ring focus:ri rounded-full text-white focus:ri hover:ri btn bg-blue-600"
           >
             Send Email
             <FaTelegramPlane className="text-2xl text-white" />

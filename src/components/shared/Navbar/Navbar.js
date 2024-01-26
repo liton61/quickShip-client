@@ -34,11 +34,14 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar" style={{
-        position: "fixed",
-        backgroundColor: isScrolled ? "#000C21" : "transparent",
-        zIndex: 1000,
-      }}>
+      <div
+        className="navbar"
+        style={{
+          position: "fixed",
+          backgroundColor: isScrolled ? "#000C21" : "transparent",
+          zIndex: 1000,
+        }}
+      >
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -98,6 +101,9 @@ const Navbar = () => {
             <li className="text-lg mx-3 font-semibold text-blue-500">
               <Link href="/pricing">Pricing</Link>
             </li>
+            {/* <li className="text-lg mx-3 font-semibold text-blue-500">
+              <Link href="/priceTable">Pricing</Link>
+            </li> */}
           </ul>
         </div>
         <div className="navbar-end">
@@ -120,7 +126,9 @@ const Navbar = () => {
                   <p className="justify-between text-black">
                     {user?.displayName}
                   </p>
-                  <p><Link href="/dashboard">Dashboard</Link></p>
+                  <p>
+                    <Link href="/dashboard">Dashboard</Link>
+                  </p>
                 </li>
                 <li>
                   <p className="text-black">{user?.email}</p>

@@ -1,5 +1,5 @@
 export const getAllPrice = async () => {
-  const res = await fetch("http://localhost:5000/price-data");
+  const res = await fetch("http://localhost:5000/price-box");
 
   return res.json();
 };

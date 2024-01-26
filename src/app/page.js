@@ -1,9 +1,9 @@
-"use client"
-
+"use client";
 
 import Banner from "@/components/ui/Banner";
 import BestCourier from "@/components/ui/BestCourier";
 import CallUs from "@/components/ui/CallUs";
+import ContactForm from "@/components/ui/ContactForm";
 import FeaturesSection from "@/components/ui/FeaturesSection";
 import OurServices from "@/components/ui/OurServices";
 import Parcel from "@/components/ui/Parcel";
@@ -24,6 +24,7 @@ const page = () => {
       <FeaturesSection></FeaturesSection>
       <Stat></Stat>
       <WorldMap />
+      <ContactForm />
     </>
   );
 };

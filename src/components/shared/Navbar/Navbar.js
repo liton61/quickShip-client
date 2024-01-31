@@ -64,16 +64,16 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-black"
             >
               <li>
-                <p>About</p>
+                <Link href="/">Home</Link>
               </li>
               <li>
-                <p>Appointment</p>
+                <Link href="/service">Service</Link>
               </li>
               <li>
-                <p>Reviews</p>
+                <Link href="/pricing">Pricing</Link>
               </li>
               <li>
-                <p>Contact Us</p>
+                <Link href="/calculator">Calculator</Link>
               </li>
             </ul>
           </div>
@@ -101,9 +101,9 @@ const Navbar = () => {
             <li className="text-lg mx-3 font-semibold text-blue-500">
               <Link href="/pricing">Pricing</Link>
             </li>
-            {/* <li className="text-lg mx-3 font-semibold text-blue-500">
-              <Link href="/priceTable">Pricing</Link>
-            </li> */}
+            <li className="text-lg mx-3 font-semibold text-blue-500">
+              <Link href="/calculator">Calculator</Link>
+            </li>
           </ul>
         </div>
         <div className="navbar-end">
@@ -120,18 +120,18 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+                className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 font-semibold"
               >
                 <li>
                   <p className="justify-between text-black">
                     {user?.displayName}
                   </p>
-                  <p>
-                    <Link href="/dashboard">Dashboard</Link>
-                  </p>
                 </li>
                 <li>
                   <p className="text-black">{user?.email}</p>
+                  <p>
+                    <Link href="/dashboard" className="text-blue-600">Dashboard</Link>
+                  </p>
                 </li>
                 <li className="text-red-600">
                   <Link onClick={handleSignOut} href="/login">
@@ -142,7 +142,7 @@ const Navbar = () => {
             </div>
           ) : (
             <Link href="/login">
-              <button className="btn btn-neutral">Login</button>
+              <button className="btn font-bold btn-neutral">Login</button>
             </Link>
           )}
         </div>

@@ -4,11 +4,10 @@ import { FaCheck } from "react-icons/fa";
 
 const page = async () => {
   const pricing = await getAllPrice();
-  console.log(pricing);
   return (
     <div>
       <div>
-        <div className="bg-gray-100 py-10   flex items-center justify-center">
+        <div className="bg-gray-100 py-44   flex items-center justify-center">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {pricing.map((pricingData) => (
               <div

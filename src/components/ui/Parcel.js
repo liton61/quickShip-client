@@ -12,10 +12,10 @@ const Parcel = () => {
     <div className="bg-[url(https://i.ibb.co/Q9p7dfG/working-warehouse-scaled.jpg)] bg-center bg-no-repeat bg-cover py-10">
       <div className="card-body flex items-center justify-center px-0">
         <div>
-          <h5 className="text-[#ec3900] text-center mb-4 mt-5">
+          {/* <h5 className="text-[#ec3900] text-center mb-4 mt-5">
             {" "}
             --- HOW IT WORKS ---
-          </h5>
+          </h5> */}
           <h2 className="mb-10 card-title text-5xl font-bold text-white lg:px-0 px-5">
             How We Deliver Your Parcel
           </h2>

@@ -1,10 +1,15 @@
+"use client";
+import { AuthContext } from "@/app/auth/page";
 import { getPrice } from "@/components/utils/getAllPricing";
-import React from "react";
+import Link from "next/link";
+import { useContext } from "react";
 import { FaCheck } from "react-icons/fa";
 
-const PricingId = async ({ params }) => {
+const PricingId = ({ params }) => {
   const { pricingId } = params;
-  const price = await getPrice(pricingId);
+  const price = getPrice(pricingId);
+  const { user } = useContext(AuthContext);
+
   console.log(price);
   console.log(params);
   return (
@@ -53,58 +58,104 @@ const PricingId = async ({ params }) => {
           <div className="py-5 ">
             <form className="">
               <div className="flex items-center justify-center  ">
-                <div className="relative flex flex-col m-6 space-y-8 bg-white shadow-2xl rounded-2xl md:flex-row md:space-y-0">
-                  <div className="flex flex-col justify-center p-8 md:p-14">
+                <div className="relative flex flex-col m-2 space-y-8 bg-white shadow-2xl rounded-2xl md:flex-row md:space-y-0">
+                  <div className="flex flex-col justify-center  md:p-6">
                     <span className="mb-3 text-4xl text-center text-blue-500 font-bold">
                       Please, fill delivery <br /> form
                     </span>
 
-                    <div className="py-2">
-                      <span className=" font-bold text-md">Name</span>
-                      <input
-                        className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
-                        type="name"
-                        required
-                        placeholder="Enter Your Name"
-                        name="name"
-                      />
+                    {/* name and email */}
+                    <div className="flex gap-2">
+                      <div className="py-2 w-1/2">
+                        <span className=" font-bold text-md">Name</span>
+                        <input
+                          className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
+                          type="name"
+                          required
+                          placeholder="Enter Your Name"
+                          defaultValue={user?.displayName}
+                          name="name"
+                        />
+                      </div>
+                      <div className="py-2 w-1/2">
+                        <span className=" font-bold text-md">Email</span>
+                        <input
+                          className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
+                          type="email"
+                          required
+                          defaultValue={user?.email}
+                          placeholder="Enter Your email"
+                          name="email"
+                        />
+                      </div>
                     </div>
-                    <div className="py-2">
-                      <span className=" font-bold text-md">Email</span>
-                      <input
-                        className="w-full  mt-2 p-2 border border-blue-500 rounded-lg placeholder:font-light placeholder:text-gray-500"
-                        type="email"
-                        required
-                        placeholder="Enter Your Email"
-                        name="email"
-                      />
+                    {/* date and phone */}
+                    <div className="flex gap-2">
+                      <div className="py-2 w-1/2">
+                        <span className=" font-bold text-md">
+                          Delivery Date
+                        </span>
+                        <input
+                          className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
+                          type="date"
+                          required
+                          name="date"
+                        />
+                      </div>
+                      <div className="py-2 w-1/2">
+                        <span className=" font-bold text-md">Phone</span>
+                        <input
+                          className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
+                          type="text"
+                          required
+                          placeholder="Enter Your Phone"
+                          name="phone"
+                        />
+                      </div>
                     </div>
-
-                    <div className="py-2">
-                      <span className="mb-2 font-bold text-md">
-                        Phone Number
+                    {/* Price (Tk) and weight */}
+                    <div className="flex gap-2">
+                      <div className="py-2 w-1/2">
+                        <span className=" font-bold text-md">Price (Tk)</span>
+                        <input
+                          className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
+                          type="number"
+                          required
+                          placeholder="Price"
+                          name="price"
+                        />
+                      </div>
+                      <div className="py-2 w-1/2">
+                        <span className=" font-bold text-md">
+                          Parcel Weight (kg)
+                        </span>
+                        <input
+                          className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
+                          type="number"
+                          required
+                          placeholder="Enter Parcel Weight "
+                          name="weight"
+                        />
+                      </div>
+                    </div>
+                    <div className="py-2 ">
+                      <span className=" font-bold text-md">
+                        Parcel Delivery Address
                       </span>
-                      <input
+                      <textarea
+                        className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
+                        type="number"
                         required
-                        placeholder="Enter Your Phone Number"
-                        name="Number"
-                        className="w-full mt-2 p-2 border border-blue-500 rounded-lg placeholder:font-light placeholder:text-gray-500"
-                      />
-                    </div>
-                    <div className="py-2">
-                      <span className=" font-bold text-md">Adress</span>
-                      <input
-                        className="w-full  mt-2 p-2 border border-blue-500 rounded-lg placeholder:font-light placeholder:text-gray-500"
-                        type="text"
-                        required
-                        placeholder="Enter Your Adress"
-                        name="address"
+                        placeholder="Enter Parcel Delivery Address:"
+                        name="price"
                       />
                     </div>
 
-                    <button className="w-full bg-blue-500 text-white p-2 mt-5 rounded-lg mb-2  hover:bg-white hover:text-blue-500 hover:border border-blue-500 focus:outline-none focus:shadow-outline-green">
-                      Make Order
-                    </button>
+                    <Link href="/payment">
+                      <button className="w-full bg-blue-500 text-white p-2 mt-5 rounded-lg mb-2  hover:bg-white hover:text-blue-500 hover:border border-blue-500 focus:outline-none focus:shadow-outline-green">
+                        Make Order
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>

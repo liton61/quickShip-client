@@ -35,9 +35,11 @@ const Banner = () => {
                   </div>
                 </div>
                 <div className="indicator">
-                  <button className="btn rounded-l-none bg-blue-500 text-white">
-                    Track Now
-                  </button>
+                  <Link href={'/status'}>
+                    <button className="btn rounded-l-none bg-blue-500 text-white">
+                      Track Now
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

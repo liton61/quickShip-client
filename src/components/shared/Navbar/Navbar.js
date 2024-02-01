@@ -10,6 +10,7 @@ import Image from "next/image";
 import useAuth from "@/components/hooks/useAuth";
 
 
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { user, logOut } = useAuth();
@@ -92,7 +93,9 @@ const Navbar = () => {
                 <Lottie animationData={logo}></Lottie>
               </span>
             </button>
-            <p className="font-serif font-semibold italic text-xl">
+            <p className="font-serif font-semibold italic text-2xl " style={{
+                textShadow:"2px 1px 2px",
+              }}>
               <span className="text-blue-500 -ml-10 ">Quick Ship</span>
             </p>
           </div>

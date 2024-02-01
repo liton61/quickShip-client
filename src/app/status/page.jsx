@@ -8,7 +8,7 @@ function Status() {
   const [currentStatus, setCurrenStatus] = useState(1);
   const [complete, setComplete] = useState(false);
   return (
-    <div className="h-screen container m-auto justify-center items-center">
+    <div className="container m-auto justify-center items-center">
       <div className="flex justify-center text-center pt-64">
         {status?.map((state, i) => (
           <div
@@ -37,6 +37,19 @@ function Status() {
             {currentStatus === status.length ? "Finish" : "Next"}
           </button>
         )}
+      </div>
+      <div className="flex justify-between font-extrabold text-xl space-x-2 py-6">
+        <div className="w-1/4">
+          Booking:{" "}
+          <p className="text-sm">
+            1.Lorem ipsum dolor <br /> 2.sit amet consectetur <br />{" "}
+            3.adipisicing elit. <br />
+            4.Aspernatur incidunt,
+          </p>{" "}
+        </div>
+        <div className="w-1/4">Payment:</div>
+        <div className="w-1/4">On the way:</div>
+        <div className="w-1/4">Delivered:</div>
       </div>
     </div>
   );

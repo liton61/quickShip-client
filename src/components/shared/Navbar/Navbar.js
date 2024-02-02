@@ -80,7 +80,7 @@ const Navbar = () => {
                   <summary>Dashboard</summary>
                   <ul className="p-2">
                     <li><Link href="/pricing">Book Parcel</Link></li>
-                    <li><Link href="/">Return Parcel</Link></li>
+                    <li><Link href="/return">Return Parcel</Link></li>
                     <li><Link href="/">Exchange Parcel</Link></li>
                     <li><Link href="/">My Parcels</Link></li>
                     <li><Link href="/review">Add Review</Link></li>
@@ -121,7 +121,7 @@ const Navbar = () => {
                 <summary className="text-md mx-3 font-semibold text-blue-500">Dashboard</summary>
                 <ul className="p-2">
                   <li><Link href="/pricing">Book Parcel</Link></li>
-                  <li><Link href="/">Return Parcel</Link></li>
+                  <li><Link href="/return">Return Parcel</Link></li>
                   <li><Link href="/">Exchange Parcel</Link></li>
                   <li><Link href="/">My Parcels</Link></li>
                   <li><Link href="/review">Add Review</Link></li>

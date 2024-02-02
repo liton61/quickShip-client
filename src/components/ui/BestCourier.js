@@ -7,7 +7,7 @@ const BestCourier = () => {
         <div>
             <div className="flex">
                 <div className="hero bg-base-200 lg:px-0 px-5">
-                    <div className="container grid grid-cols-1 lg:grid-cols-2">
+                    <div className="container lg:px-20 grid grid-cols-1 lg:grid-cols-2">
                         <div>
                             <div className="py-10">
                                 <Image src={deliveryimg} height={500} alt="logo" />

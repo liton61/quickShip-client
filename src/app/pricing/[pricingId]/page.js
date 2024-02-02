@@ -14,9 +14,9 @@ const PricingId = ({ params }) => {
   console.log(params);
   return (
     <div>
-      <div className="grid lg:grid-cols-2 items-center justify-center   grid-cols-1">
+      <div className="grid lg:grid-cols-2 items-center justify-center   grid-cols-1 lg:w-3/4 mx-auto">
         {/* delivery services part start */}
-        <div className=" flex justify-center mt-10 ml-[18rem]   ">
+        <div className=" flex justify-center">
           <div className="text-center">
             <p className="text-4xl font-bold text-gray-800 mb-6">
               {" "}
@@ -54,19 +54,19 @@ const PricingId = ({ params }) => {
         {/* delivery services part end */}
 
         {/* delivary form section start */}
-        <div className="my-5 mr-[5rem] mt-32">
-          <div className="py-5 ">
+        <div className="py-20">
+          <div className="bg-white shadow-2xl lg:mx-0 mx-5">
             <form className="">
               <div className="flex items-center justify-center  ">
-                <div className="relative flex flex-col m-2 space-y-8 bg-white shadow-2xl rounded-2xl md:flex-row md:space-y-0">
+                <div className="relative flex flex-col m-2 space-y-8  rounded-2xl md:flex-row md:space-y-0">
                   <div className="flex flex-col justify-center  md:p-6">
-                    <span className="mb-3 text-4xl text-center text-blue-500 font-bold">
-                      Please, fill delivery <br /> form
+                    <span className="mb-3 text-3xl text-center text-blue-500 font-bold">
+                      Please, fill up the form !
                     </span>
 
                     {/* name and email */}
-                    <div className="flex gap-2">
-                      <div className="py-2 w-1/2">
+                    <div className="lg:flex md:flex gap-2">
+                      <div className="p-2">
                         <span className=" font-bold text-md">Name</span>
                         <input
                           className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
@@ -77,7 +77,7 @@ const PricingId = ({ params }) => {
                           name="name"
                         />
                       </div>
-                      <div className="py-2 w-1/2">
+                      <div className="p-2">
                         <span className=" font-bold text-md">Email</span>
                         <input
                           className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
@@ -90,8 +90,8 @@ const PricingId = ({ params }) => {
                       </div>
                     </div>
                     {/* date and phone */}
-                    <div className="flex gap-2">
-                      <div className="py-2 w-1/2">
+                    <div className="lg:flex md:flex gap-2">
+                      <div className="p-2">
                         <span className=" font-bold text-md">
                           Delivery Date
                         </span>
@@ -102,7 +102,7 @@ const PricingId = ({ params }) => {
                           name="date"
                         />
                       </div>
-                      <div className="py-2 w-1/2">
+                      <div className="p-2">
                         <span className=" font-bold text-md">Phone</span>
                         <input
                           className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
@@ -114,8 +114,8 @@ const PricingId = ({ params }) => {
                       </div>
                     </div>
                     {/* Price (Tk) and weight */}
-                    <div className="flex gap-2">
-                      <div className="py-2 w-1/2">
+                    <div className="lg:flex md:flex gap-2">
+                      <div className="p-2">
                         <span className=" font-bold text-md">Price (Tk)</span>
                         <input
                           className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
@@ -125,7 +125,7 @@ const PricingId = ({ params }) => {
                           name="price"
                         />
                       </div>
-                      <div className="py-2 w-1/2">
+                      <div className="p-2">
                         <span className=" font-bold text-md">
                           Parcel Weight (kg)
                         </span>
@@ -138,7 +138,7 @@ const PricingId = ({ params }) => {
                         />
                       </div>
                     </div>
-                    <div className="py-2 ">
+                    <div className="p-2 ">
                       <span className=" font-bold text-md">
                         Parcel Delivery Address
                       </span>

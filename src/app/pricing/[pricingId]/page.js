@@ -1,20 +1,59 @@
 "use client";
-import { AuthContext } from "@/app/auth/page";
+import useAuth from "@/components/hooks/useAuth";
+import usePublicAxios from "@/components/hooks/usePublicAxios";
 import { getPrice } from "@/components/utils/getAllPricing";
-import Link from "next/link";
-import { useContext } from "react";
+import { useState } from "react";
 import { FaCheck } from "react-icons/fa";
+import useOrder from "@/components/hooks/useOrder";
+import Link from "next/link";
+import { useRouter } from 'next/navigation'
+import toast from "react-hot-toast";
 
-const PricingId = ({ params }) => {
+const PricingId = ({params}) => {
   const { pricingId } = params;
+  // console.log(pricingId);
   const price = getPrice(pricingId);
-  const { user } = useContext(AuthContext);
+
+  const [order, refetch] = useOrder()
+
+
+  const {user} = useAuth()
+  const [deliveryDate, setDeliveryDate] = useState("");
+  const [phone, setPhone] = useState("");
+  const [productPrice, setProductPrice] = useState(0);
+  const [productWeight, setProductWeight] = useState(0);
+  const [area, setArea] = useState("");
+
+  const router = useRouter()
+
+  const publicAxios = usePublicAxios()
+
+  const addOrder = {
+    name: user?.displayName,
+    email: user?.email,
+    deliveryDate,
+    phone,
+    productPrice,
+    productWeight,
+    area
+  }
+
+  const handleOrder = async (e) => {
+    e.preventDefault();
+    const res = await publicAxios.post("/order", addOrder)
+    console.log(res.data);
+    toast.success("Successfully Order");
+    refetch()
+    router.push("/payment")
+  };
+
+
 
   return (
     <div>
-      <div className="grid lg:grid-cols-2 items-center justify-center   grid-cols-1 lg:w-3/4 mx-auto">
+      <div className="grid lg:grid-cols-2 items-center justify-center   grid-cols-1">
         {/* delivery services part start */}
-        <div className=" flex justify-center">
+        <div className=" flex justify-center mt-10 ml-[18rem]   ">
           <div className="text-center">
             <p className="text-4xl font-bold text-gray-800 mb-6">
               {" "}
@@ -22,7 +61,7 @@ const PricingId = ({ params }) => {
             </p>
             <p className="text-2xl font-bold text-blue-500 mb-6">
               {" "}
-              {price.level}
+              {/* {price.level} */}
             </p>
             <p className="my-8 text-center">
               Our delivery service employs more than 100
@@ -52,19 +91,19 @@ const PricingId = ({ params }) => {
         {/* delivery services part end */}
 
         {/* delivary form section start */}
-        <div className="py-20">
-          <div className="bg-white shadow-2xl lg:mx-0 mx-5">
-            <form className="">
+        <div className="my-5 mr-[5rem] mt-32">
+          <div className="py-5 ">
+            <form onSubmit={handleOrder}>
               <div className="flex items-center justify-center  ">
-                <div className="relative flex flex-col m-2 space-y-8  rounded-2xl md:flex-row md:space-y-0">
+                <div className="relative flex flex-col m-2 space-y-8 bg-white shadow-2xl rounded-2xl md:flex-row md:space-y-0">
                   <div className="flex flex-col justify-center  md:p-6">
-                    <span className="mb-3 text-3xl text-center text-blue-500 font-bold">
-                      Please, fill up the form !
+                    <span className="mb-3 text-4xl text-center text-blue-500 font-bold">
+                      Please, fill delivery <br /> form
                     </span>
 
                     {/* name and email */}
-                    <div className="lg:flex md:flex gap-2">
-                      <div className="p-2">
+                    <div className="flex gap-2">
+                      <div className="py-2 w-1/2">
                         <span className=" font-bold text-md">Name</span>
                         <input
                           className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
@@ -75,7 +114,7 @@ const PricingId = ({ params }) => {
                           name="name"
                         />
                       </div>
-                      <div className="p-2">
+                      <div className="py-2 w-1/2">
                         <span className=" font-bold text-md">Email</span>
                         <input
                           className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
@@ -88,23 +127,25 @@ const PricingId = ({ params }) => {
                       </div>
                     </div>
                     {/* date and phone */}
-                    <div className="lg:flex md:flex gap-2">
-                      <div className="p-2">
+                    <div className="flex gap-2">
+                      <div className="py-2 w-1/2">
                         <span className=" font-bold text-md">
                           Delivery Date
                         </span>
                         <input
                           className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
                           type="date"
+                          onBlur={(e) => setDeliveryDate(e.target.value)}
                           required
                           name="date"
                         />
                       </div>
-                      <div className="p-2">
+                      <div className="py-2 w-1/2">
                         <span className=" font-bold text-md">Phone</span>
                         <input
                           className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
                           type="text"
+                          onBlur={(e) => setPhone(e.target.value)}
                           required
                           placeholder="Enter Your Phone"
                           name="phone"
@@ -112,48 +153,53 @@ const PricingId = ({ params }) => {
                       </div>
                     </div>
                     {/* Price (Tk) and weight */}
-                    <div className="lg:flex md:flex gap-2">
-                      <div className="p-2">
+                    <div className="flex gap-2">
+                      <div className="py-2 w-1/2">
                         <span className=" font-bold text-md">Price (Tk)</span>
                         <input
                           className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
                           type="number"
+                          onBlur={(e) => setProductPrice(e.target.value)}
                           required
                           placeholder="Price"
                           name="price"
                         />
                       </div>
-                      <div className="p-2">
+                      <div className="py-2 w-1/2">
                         <span className=" font-bold text-md">
                           Parcel Weight (kg)
                         </span>
                         <input
                           className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
                           type="number"
+                          onBlur={(e) => setProductWeight(e.target.value)}
                           required
                           placeholder="Enter Parcel Weight "
                           name="weight"
                         />
                       </div>
                     </div>
-                    <div className="p-2 ">
+                    <div className="py-2 ">
                       <span className=" font-bold text-md">
                         Parcel Delivery Address
                       </span>
                       <textarea
                         className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
                         type="number"
+                        onBlur={(e) => setArea(e.target.value)}
                         required
                         placeholder="Enter Parcel Delivery Address:"
                         name="price"
                       />
                     </div>
-
-                    <Link href="/payment">
-                      <button className="w-full bg-blue-500 text-white p-2 mt-5 rounded-lg mb-2  hover:bg-white hover:text-blue-500 hover:border border-blue-500 focus:outline-none focus:shadow-outline-green">
-                        Make Order
-                      </button>
-                    </Link>
+                    <div className="flex justify-center py-5">
+                        <button
+                          type="submit"
+                          className="font-bold py-2 px-6 rounded border border-blue-700 hover:bg-blue-600"
+                        >
+                          Make Order
+                        </button>
+                    </div>
                   </div>
                 </div>
               </div>

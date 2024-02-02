@@ -7,7 +7,7 @@ const page = async () => {
   return (
     <div>
       <div>
-        <div className="bg-gray-100 py-20">
+        <div className="bg-gray-100 py-20 pt-44">
           <div className="lg:w-3/4 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:px-0 px-5 gap-8">
             {pricing.map((pricingData) => (
               <div

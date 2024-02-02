@@ -18,6 +18,8 @@ const Calculator = () => {
 
   const [calculators, refetch] = useCalculator();
 
+
+
   const addCalculator = {
     productWeight,
     sellingPrice,
@@ -133,7 +135,6 @@ const Calculator = () => {
         </div>
         <div className="flex justify-center py-5">
           <button
-            button
             type="submit"
             className="text-white font-bold py-2 px-6 rounded border border-blue-700 hover:bg-blue-600"
             onClick={openModal}

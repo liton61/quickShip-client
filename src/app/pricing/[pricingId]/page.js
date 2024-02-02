@@ -10,8 +10,6 @@ const PricingId = ({ params }) => {
   const price = getPrice(pricingId);
   const { user } = useContext(AuthContext);
 
-  console.log(price);
-  console.log(params);
   return (
     <div>
       <div className="grid lg:grid-cols-2 items-center justify-center   grid-cols-1 lg:w-3/4 mx-auto">

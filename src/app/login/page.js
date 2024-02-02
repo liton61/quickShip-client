@@ -7,20 +7,21 @@ import Image from "next/image";
 import Link from "next/link";
 import google from "../../asstes/google.jpg";
 import swal from "sweetalert";
-import { redirect } from "next/dist/server/api-utils";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
   const { signIn, googleLogin } = useContext(AuthContext);
+  const router = useRouter();
+  
   const handleGoogleLogin = () => {
     googleLogin()
       .then((res) => {
         console.log(res.data);
-        redirect("/")
+        router.push("/");
       })
       .catch((error) => {
         console.log(error);
       });
-
   };
 
   const handleLogin = (e) => {
@@ -40,7 +41,7 @@ const Login = () => {
           text: "You you have successfully login !",
           icon: "success",
         });
-        navigate("/");
+        router.push("/");
       })
       .catch((error) => {
         console.log(error);

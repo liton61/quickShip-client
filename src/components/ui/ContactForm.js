@@ -35,12 +35,15 @@ const ContactForm = () => {
       );
   };
   return (
-    <section className="py-6 text-gray-500 text-left bg-gray-300">
-      <h1 className="text-4xl font-bold text-center text-blue-500 underline">
+    <section className="py-6 text-gray-500 text-left bg-gray-300 lg:mx-0 mx-5 my-10 lg:my-0">
+      {/* <h1 className="text-2xl font-bold text-center text-blue-500">
         Contact with Us
-      </h1>
+      </h1> */}
       <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">
         <div className="py-6 md:mt-28 lg:mt-28 md:py-0 md:px-6 ml-10 ">
+        <h1 className="text-2xl font-bold text-blue-500 mb-10">
+        Contact with Us
+      </h1>
           <div className="space-y-4">
             <p className="flex items-center">
               <svg

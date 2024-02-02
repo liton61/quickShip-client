@@ -63,7 +63,7 @@ const Calculator = () => {
     parseFloat(mostRecentData?.sellingPrice) + deliveryCharges + codCharge;
 
   return (
-    <div>
+    <div className="">
       <form ref={formRef} className="card-body" onSubmit={handleAddCalculator}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full lg:w-2/3 mx-auto">
           <div className="form-control">

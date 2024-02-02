@@ -3,189 +3,173 @@ import React from "react";
 
 const OurServices = () => {
   return (
-    <div className="bg-[url(https://i.ibb.co/Q9p7dfG/working-warehouse-scaled.jpg)] bg-center bg-no-repeat bg-cover py-10">
-      <div className="container mx-auto lg:px-0 px-5 py-10">
-      <h1 className="text-center text-4xl font-bold mb-10 text-[#ec3900]">--- Our Services ---</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
-          <div className="card w-full border">
-            <div className="card-body">
-              <h2 className="card-title text-xl font-bold ">
-                {" "}
-                <Image className="w-full h-36"
-                  src="https://i.ibb.co/LPwN90M/07-removebg-preview.png"
-                  width={200}
-                  height={200}
-                  alt="logo"
-                />
-                <br />
-              </h2>
-              <div className="text-2xl font-bold text-white">
-                Swift <span className="text-[#ec3900] ">Delivery</span>{" "}
-              </div>
-              <p className="text-md text-justify text-white">
-                QuickShip, the epitome of efficiency in the realm of international
-                courier services, stands as a beacon for swift and reliable parcel
-                deliveries across borders.
-              </p>
+    <div className="bg-base-200">
+    <div className="container mx-auto lg:px-20 px-5 py-10">
+      <h1 className="text-center text-4xl font-bold mb-10">We provide services that <br></br> you can rely on</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
+        <div className="w-full border">
+          <div className="">
+            <h2 className="card-title text-xl font-bold ">
+              {" "}
+              <Image className="w-full"
+                src="https://i.ibb.co/VQfX6rN/parcel-delivery.webp"
+                width={200}
+                height={200}
+                alt="logo"
+              />
+              <br />
+            </h2>
+            <div className="text-xl font-semibold p-2">
+              Parcel <span className="text-[#ec3900] ">Delivery</span>{" "}
             </div>
+            <p className="text-md text-justify p-2">
+              First-mile pickup, last-mile delivery services for individuals (C2C), small businesses (B2C) and corporates (B2B).
+            </p>
           </div>
-          <div className="card w-full border">
-            <div className="card-body">
-              <h2 className="card-title text-xl font-bold ">
-                {" "}
-                <Image className="w-full h-36"
-                  src="https://i.ibb.co/7kRRbCR/05-removebg-preview.png"
-                  width={200}
-                  height={200}
-                  alt="logo"
-                />
-                <br />
-              </h2>
-              <div className="text-2xl font-bold text-white">
-                Trusted <span className="text-[#ec3900] ">Service</span>{" "}
-              </div>
-              <p className="text-md text-justify text-white">
-                QuickShip, the epitome of efficiency in the realm of international
-                courier services, stands as a beacon for swift and reliable parcel
-                deliveries across borders.
-              </p>
+        </div>
+        <div className="w-full border">
+          <div className="">
+            <h2 className="card-title text-xl font-bold ">
+              {" "}
+              <Image className="w-full"
+                src="https://i.ibb.co/NWxGShL/bulk-shipment.webp"
+                width={200}
+                height={200}
+                alt="logo"
+              />
+              <br />
+            </h2>
+            <div className="text-xl font-semibold p-2">
+              Bulk <span className="text-[#ec3900] ">Shipment</span>{" "}
             </div>
+            <p className="text-md text-justify p-2">
+              Specialized solutions for large items and large numbers.
+            </p>
           </div>
-          <div className="card w-full border">
-            <div className="card-body">
-              <h2 className="card-title text-xl font-bold ">
-                {" "}
-                <Image className="w-full h-36"
-                  src="https://i.ibb.co/6XYqy2J/04-removebg-preview.png"
-                  width={200}
-                  height={200}
-                  alt="logo"
-                />
-                <br />
-              </h2>
-              <div className="text-2xl font-bold text-white">
-                Vaccinated <span className="text-[#ec3900] ">Courier</span>{" "}
-              </div>
-              <p className="text-md text-justify text-white">
-                QuickShip, the epitome of efficiency in the realm of international
-                courier services, stands as a beacon for swift and reliable parcel
-                deliveries across borders.
-              </p>
+        </div>
+        <div className="w-full border">
+          <div className="">
+            <h2 className="card-title text-xl font-bold ">
+              {" "}
+              <Image className="w-full"
+                src="https://i.ibb.co/m6wqVDH/customised-solutions.webp"
+                width={200}
+                height={200}
+                alt="logo"
+              />
+              <br />
+            </h2>
+            <div className="text-xl font-semibold p-2">
+              Customized <span className="text-[#ec3900] ">Solutions</span>{" "}
             </div>
+            <p className="text-md text-justify p-2">
+              Tailor made solutions for your unique business needs.
+            </p>
           </div>
-          <div className="card w-full border">
-            <div className="card-body">
-              <h2 className="card-title text-xl font-bold ">
-                {" "}
-                <Image className="w-full h-36"
-                  src="https://i.ibb.co/GPWK6Q1/01-removebg-preview.png"
-                  width={200}
-                  height={200}
-                  alt="logo"
-                />
-                <br />
-              </h2>
-              <div className="text-2xl font-bold text-white">
-                Safety <span className="text-[#ec3900] ">Protocol</span>{" "}
-              </div>
-              <p className="text-md text-justify text-white">
-                QuickShip, the epitome of efficiency in the realm of international
-                courier services, stands as a beacon for swift and reliable parcel
-                deliveries across borders.
-              </p>
+        </div>
+        <div className="w-full border">
+          <div className="">
+            <h2 className="card-title text-xl font-bold ">
+              {" "}
+              <Image className="w-full"
+                src="https://i.ibb.co/5MbBDpr/line-haul.webp"
+                width={200}
+                height={200}
+                alt="logo"
+              />
+              <br />
+            </h2>
+            <div className="text-xl font-semibold p-2">
+              Line <span className="text-[#ec3900] ">Haul</span>{" "}
             </div>
+            <p className="text-md text-justify p-2">
+              Freight movement solutions including FTL (full truckload), LTL (less than truckload).
+            </p>
           </div>
-          <div className="card w-full border">
-            <div className="card-body">
-              <h2 className="card-title text-xl font-bold ">
-                {" "}
-                <Image className="w-full h-36"
-                  src="https://i.ibb.co/DkJBmJD/03-removebg-preview.png"
-                  width={200}
-                  height={200}
-                  alt="logo"
-                />
-                <br />
-              </h2>
-              <div className="text-2xl font-bold text-white">
-                Fast <span className="text-[#ec3900] ">Delivery</span>{" "}
-              </div>
-              <p className="text-md text-justify text-white">
-                QuickShip, the epitome of efficiency in the realm of international
-                courier services, stands as a beacon for swift and reliable parcel
-                deliveries across borders.
-              </p>
+        </div>
+        <div className="w-full border">
+          <div className="">
+            <h2 className="card-title text-xl font-bold ">
+              {" "}
+              <Image className="w-full"
+                src="https://i.ibb.co/Lv95SJR/load-unload.webp"
+                width={200}
+                height={200}
+                alt="logo"
+              />
+              <br />
+            </h2>
+            <div className="text-xl font-semibold p-2">
+              Load/ <span className="text-[#ec3900] ">Unload</span>{" "}
             </div>
+            <p className="text-md text-justify p-2">
+              Industry-specific loading/unloading services in factories, project sites, and ports.
+            </p>
           </div>
-          <div className="card w-full border">
-            <div className="card-body">
-              <h2 className="card-title text-xl font-bold ">
-                {" "}
-                <Image className="w-full h-36"
-                  src="https://i.ibb.co/vqzPYWj/02-removebg-preview.png"
-                  width={200}
-                  height={200}
-                  alt="logo"
-                />
-                <br />
-              </h2>
-              <div className="text-2xl font-bold text-white">
-                Home <span className="text-[#ec3900] ">Delivery</span>{" "}
-              </div>
-              <p className="text-md text-justify text-white">
-                QuickShip, the epitome of efficiency in the realm of international
-                courier services, stands as a beacon for swift and reliable parcel
-                deliveries across borders.
-              </p>
+        </div>
+        <div className="w-full border">
+          <div className="">
+            <h2 className="card-title text-xl font-bold ">
+              {" "}
+              <Image className="w-full"
+                src="https://i.ibb.co/bH5Ns8D/logistics-service.webp"
+                width={200}
+                height={200}
+                alt="logo"
+              />
+              <br />
+            </h2>
+            <div className="text-xl font-semibold p-2">
+              Logistics as <span className="text-[#ec3900] ">a service</span>{" "}
             </div>
+            <p className="text-md text-justify p-2">
+              Outsource logistics requirements, get a dedicated team for your company.
+            </p>
           </div>
-          <div className="card w-full border">
-            <div className="card-body">
-              <h2 className="card-title text-xl font-bold ">
-                {" "}
-                <Image className="w-full h-36"
-                  src="https://i.ibb.co/4j2wWgJ/06-removebg-preview.png"
-                  width={200}
-                  height={200}
-                  alt="logo"
-                />
-                <br />
-              </h2>
-              <div className="text-2xl font-bold text-white">
-                Fast <span className="text-[#ec3900] ">Services</span>{" "}
-              </div>
-              <p className="text-md text-justify text-white">
-                QuickShip, the epitome of efficiency in the realm of international
-                courier services, stands as a beacon for swift and reliable parcel
-                deliveries across borders.
-              </p>
+        </div>
+        <div className="w-full border">
+          <div className="">
+            <h2 className="card-title text-xl font-bold ">
+              {" "}
+              <Image className="w-full"
+                src="https://i.ibb.co/0GWxJqg/truck-rent.webp"
+                width={200}
+                height={200}
+                alt="logo"
+              />
+              <br />
+            </h2>
+            <div className="text-xl font-semibold p-2">
+              Truck <span className="text-[#ec3900] ">Rent</span>{" "}
             </div>
+            <p className="text-md text-justify p-2">
+              Open trucks and covered vans for rent any size, anywhere in BD.
+            </p>
           </div>
-          <div className="card w-full border">
-            <div className="card-body">
-              <h2 className="card-title text-xl font-bold ">
-                {" "}
-                <Image className="w-full h-36"
-                  src="https://i.ibb.co/8Pw78KQ/01-removebg-preview.png"
-                  width={200}
-                  height={200}
-                  alt="logo"
-                />
-                <br />
-              </h2>
-              <div className="text-2xl font-bold text-white">
-                Good <span className="text-[#ec3900] ">Service</span>{" "}
-              </div>
-              <p className="text-md text-justify text-white">
-                QuickShip, the epitome of efficiency in the realm of international
-                courier services, stands as a beacon for swift and reliable parcel
-                deliveries across borders.
-              </p>
+        </div>
+        <div className="w-full border">
+          <div className="">
+            <h2 className="card-title text-xl font-bold ">
+              {" "}
+              <Image className="w-full"
+                src="https://i.ibb.co/3N2R3CW/warehouse.webp"
+                width={200}
+                height={200}
+                alt="logo"
+              />
+              <br />
+            </h2>
+            <div className="text-xl font-semibold p-2">
+              Warehouse<span className="text-[#ec3900] ">house</span>{" "}
             </div>
+            <p className="text-md text-justify p-2">
+              Complete fulfillment solutions including storing, sorting, processing.
+            </p>
           </div>
         </div>
       </div>
     </div>
+  </div>
   );
 };
 

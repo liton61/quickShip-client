@@ -7,12 +7,12 @@ const page = async () => {
   return (
     <div>
       <div>
-        <div className="bg-gray-100 py-44   flex items-center justify-center">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="bg-gray-100 py-20">
+          <div className="lg:w-3/4 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:px-0 px-5 gap-8">
             {pricing.map((pricingData) => (
               <div
                 key={pricingData._id}
-                className="bg-white mt-24 rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105"
+                className="bg-white rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105"
               >
                 <Link href={`/pricing/${pricingData._id}`}>
                   <div className="p-1 bg-blue-500"></div>

@@ -52,13 +52,13 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="container m-auto">
+    <div className="m-auto">
       <div
-        className="navbar container m-auto shadow-lg shadow-[#60a5fa]"
+        className="navbar m-auto shadow-lg shadow-[#60a5fa]"
         style={{
           position: "fixed",
           backgroundColor: isScrolled ? "#FFFFFF" : "transparent",
-          borderRadius: isScrolled ? "999px" : "999px",
+          borderRadius: isScrolled ? "" : "",
           zIndex: 1000,
 
         }}

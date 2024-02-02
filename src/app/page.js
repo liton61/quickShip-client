@@ -10,6 +10,7 @@ import Parcel from "@/components/ui/Parcel";
 import ProductDelivery from "@/components/ui/ProductDelivery";
 import Stat from "@/components/ui/Stat";
 import WorldMap from "@/components/ui/WorldMap";
+import { Chat } from "@mui/icons-material";
 import React from "react";
 
 const page = () => {
@@ -24,6 +25,7 @@ const page = () => {
       <CallUs />
       <Stat />
       <WorldMap />
+      <Chat/>
       <ContactForm />
     </>
   );

@@ -1,13 +1,13 @@
 "use client";
 
-import { useContext } from "react";
-import { AuthContext } from "../auth/page";
 import swal from "sweetalert";
 import Link from "next/link";
+import useAuth from "@/components/hooks/useAuth";
+import { useRouter } from "next/navigation";
 
 const Register = () => {
-  const { createUser, profile } = useContext(AuthContext);
-  // const navigate = useNavigate();
+  const { createUser, profile } = useAuth();
+  const router = useRouter();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -29,7 +29,7 @@ const Register = () => {
           text: "You you have successfully register !",
           icon: "success",
         });
-        // navigate("/");
+        router.push("/");
       })
       .catch((error) => {
         console.log(error);

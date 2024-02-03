@@ -1,4 +1,5 @@
-import { getAllPrice } from "@/components/utils/getAllPricing";
+
+import { getAllPrice } from "@/utils/getAllPricing";
 import Link from "next/link";
 import { FaCheck } from "react-icons/fa";
 

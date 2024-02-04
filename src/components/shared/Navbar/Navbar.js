@@ -6,15 +6,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
 import logo from "../../../../public/Logo (1).json";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { user, logOut } = useContext(AuthContext);
+  const router = useRouter()
 
   const handleSignOut = () => {
     logOut()
       .then((res) => {
         console.log(res.user);
+        router.push("/")
       })
       .catch((error) => {
         console.log(error);

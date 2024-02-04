@@ -1,9 +1,11 @@
-import { getAllPrice } from "@/components/utils/getAllPricing";
-import Link from "next/link";
-import { FaCheck } from "react-icons/fa";
+"use client"
+import usePricing from '@/components/hooks/usePricing';
+import Link from 'next/link';
+import React from 'react';
+import { FaCheck } from 'react-icons/fa';
 
-const page = async () => {
-  const pricing = await getAllPrice();
+const Pricing = () => {
+  const [pricing, refetch] = usePricing()
   return (
     <div>
       <div>
@@ -58,4 +60,4 @@ const page = async () => {
   );
 };
 
-export default page;
+export default Pricing;

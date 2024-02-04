@@ -6,6 +6,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
 import logo from "../../../../public/Logo (1).json";
+import avatar from "../../../asstes/avatar.png"
+import { FaHome } from "react-icons/fa";
+import { BiLogOut, BiSolidDashboard } from "react-icons/bi";
+import { MdLogin } from "react-icons/md";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -76,16 +80,7 @@ const Navbar = () => {
                 <Link href="/calculator">Calculator</Link>
               </li>
               <li>
-                <details>
-                  <summary>Dashboard</summary>
-                  <ul className="p-2">
-                    <li><Link href="/pricing">Book Parcel</Link></li>
-                    <li><Link href="/return">Return Parcel</Link></li>
-                    <li><Link href="/">Exchange Parcel</Link></li>
-                    <li><Link href="/">My Parcels</Link></li>
-                    <li><Link href="/review">Add Review</Link></li>
-                  </ul>
-                </details>
+                <Link href="/pricing">Product Order</Link>
               </li>
             </ul>
           </div>
@@ -117,61 +112,80 @@ const Navbar = () => {
               <Link href="/calculator">Calculator</Link>
             </li>
             <li>
-              <details>
-                <summary className="text-md mx-3 font-semibold text-blue-500">Dashboard</summary>
-                <ul className="p-2">
-                  <li><Link href="/pricing">Book Parcel</Link></li>
-                  <li><Link href="/return">Return Parcel</Link></li>
-                  <li><Link href="/">Exchange Parcel</Link></li>
-                  <li><Link href="/">My Parcels</Link></li>
-                  <li><Link href="/review">Add Review</Link></li>
-                </ul>
-              </details>
-            </li>
+                <Link href="/pricing">Product Order</Link>
+              </li>
             {/* <li className="text-md mx-3 font-semibold text-blue-500">
               <Link href="/dashboard">Dashboard</Link>
             </li> */}
           </ul>
         </div>
         <div className="navbar-end">
-          {user ? (
             <div className="dropdown dropdown-end">
-              <div
-                tabIndex={0}
-                role="button"
-                className="btn btn-ghost btn-circle avatar"
-              >
-                <div className="rounded-full border border-blue-600">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                {user ? (
+                  <>
+                    <div className="rounded-full border border-blue-600">
                   <Image alt="" src={user?.photoURL} width={50} height={50} />
                 </div>
+                  </>
+                ) : (
+                  <Image src={avatar} height={50} width={50} alt="avatar"></Image>
+                )}
               </div>
-              <ul
-                tabIndex={0}
-                className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 font-semibold"
+            </label>
+            <ul
+              tabIndex={0}
+              className="mt-3 z-[1] py-2  space-y-3 px-4 bg-[#202074] text-white shadow menu menu-sm dropdown-content hover:bg-[#010313] hover:text-blue-300   rounded-md w-60"
+            >
+              <h2
+                data-aos="flip-up"
+                className="text-xs text-purple-600 font-bold"
               >
-                <li>
-                  <p className="justify-between text-black">
-                    {user?.displayName}
-                  </p>
-                </li>
-                <li>
-                  <p className="text-black">{user?.email}</p>
-                  <p>
-                    <Link href="/dashboard" className="text-blue-600">Dashboard</Link>
-                  </p>
-                </li>
-                <li className="text-red-600">
-                  <Link onClick={handleSignOut} href="/login">
-                    Sign Out
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          ) : (
-            <Link href="/login">
-              <button className="btn font-bold btn-neutral">Login</button>
-            </Link>
-          )}
+                {user ? user.displayName : "No Any User"}
+              </h2>
+              <hr className="border-gray-600" />
+
+              <Link className="hover:font-bold flex items-center" href={"/"}>
+                <span className="mr-1">
+                  <FaHome></FaHome>
+                </span>
+                Home
+              </Link>
+              <hr className="border-gray-600" />
+              <Link
+                className="hover:font-bold flex items-center"
+                href={"/dashboard/myProfile"}
+              >
+                <span className="mr-1">
+                  <BiSolidDashboard></BiSolidDashboard>
+                </span>
+                Dashboard
+              </Link>
+              <hr className="border-gray-600" />
+              {user ? (
+                <button
+                  onClick={handleSignOut}
+                  className="hover:font-bold flex items-center text-left" /* to={"/login"} */
+                >
+                  <span className="mr-1">
+                    <BiLogOut></BiLogOut>
+                  </span>
+                  Logout
+                </button>
+              ) : (
+                <Link
+                  className="hover:font-bold flex items-center"
+                  href={"/login"}
+                >
+                  <span className="mr-1">
+                    <MdLogin></MdLogin>
+                  </span>
+                  Login
+                </Link>
+              )}
+            </ul>
+          </div>
         </div>
       </div>
     </div>

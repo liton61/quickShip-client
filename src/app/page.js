@@ -1,5 +1,7 @@
 "use client";
 
+import Footer from "@/components/shared/Footer";
+import Navbar from "@/components/shared/Navbar/Navbar";
 import Banner from "@/components/ui/Banner";
 import BestCourier from "@/components/ui/BestCourier";
 import CallUs from "@/components/ui/CallUs";
@@ -11,9 +13,10 @@ import ProductDelivery from "@/components/ui/ProductDelivery";
 import Stat from "@/components/ui/Stat";
 import WorldMap from "@/components/ui/WorldMap";
 
-const page = () => {
+const HomePage = () => {
   return (
     <>
+      <Navbar></Navbar>
       <Banner />
       <Parcel />
       <OurServices />
@@ -24,8 +27,9 @@ const page = () => {
       <Stat></Stat>
       <WorldMap />
       <ContactForm />
+      <Footer></Footer>
     </>
   );
 };
 
-export default page;
+export default HomePage;

@@ -1,18 +1,15 @@
 "use client";
 import useAuth from "@/components/hooks/useAuth";
 import usePublicAxios from "@/components/hooks/usePublicAxios";
-import { getPrice } from "@/components/utils/getAllPricing";
 import { useState } from "react";
 import { FaCheck } from "react-icons/fa";
 import useOrder from "@/components/hooks/useOrder";
-import Link from "next/link";
 import { useRouter } from 'next/navigation'
 import toast from "react-hot-toast";
 
 const PricingId = ({params}) => {
   const { pricingId } = params;
   // console.log(pricingId);
-  const price = getPrice(pricingId);
 
   const [order, refetch] = useOrder()
 

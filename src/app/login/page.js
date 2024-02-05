@@ -1,28 +1,20 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 
-import { useContext } from "react";
-import { AuthContext } from "../auth/page";
-import Image from "next/image";
+
 import Link from "next/link";
-import google from "../../asstes/google.jpg";
-import swal from "sweetalert";
+// import google from "../../asstes/google.jpg";
 import { useRouter } from "next/navigation";
+import useAuth from "@/components/hooks/useAuth";
+import SocialLogin from "@/components/shared/SocialLogIn";
+import Swal from "sweetalert2";
 
 const Login = () => {
-  const { signIn, googleLogin } = useContext(AuthContext);
+  const { signIn} = useAuth();
   const router = useRouter();
-  
-  const handleGoogleLogin = () => {
-    googleLogin()
-      .then((res) => {
-        console.log(res.data);
-        router.push("/");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+
+
+
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -36,7 +28,7 @@ const Login = () => {
     signIn(email, password)
       .then((res) => {
         console.log(res.user);
-        swal.fire({
+        Swal.fire({
           title: "Good job !",
           text: "You you have successfully login !",
           icon: "success",
@@ -90,14 +82,7 @@ const Login = () => {
                 Login
               </button>
             </div>
-            <div className="mb-6 flex justify-center items-center">
-              <Image
-                onClick={handleGoogleLogin}
-                className="w-16 h-16 rounded-full cursor-pointer"
-                src={google}
-                alt=""
-              />
-            </div>
+            <SocialLogin/>
           </form>
           <p className="text-gray-600 text-sm text-center mb-2">
             Forget Password

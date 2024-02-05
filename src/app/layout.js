@@ -3,6 +3,7 @@ import "./globals.css";
 import AuthProvider from "./auth/page";
 import TanstackProvider from "@/providers/TanstackProvider";
 import { Toaster } from "react-hot-toast";
+import ChatBot from "@/components/chat/chat";
 
 const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <TanstackProvider>
           <AuthProvider>
+            <ChatBot/>
             {children}
             <Toaster />
           </AuthProvider>

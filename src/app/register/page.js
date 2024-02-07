@@ -1,13 +1,16 @@
 "use client";
 
-import { useContext } from "react";
-import { AuthContext } from "../auth/page";
-import swal from "sweetalert";
 import Link from "next/link";
+import useAuth from "@/components/hooks/useAuth";
+import usePublicAxios from "@/components/hooks/usePublicAxios";
+import { useRouter } from "next/navigation";
+import SocialLogin from "@/components/shared/SocialLogIn";
+import Swal from "sweetalert2";
 
 const Register = () => {
-  const { createUser, profile } = useContext(AuthContext);
-  // const navigate = useNavigate();
+  const { createUser } = useAuth();
+  const publicAxios = usePublicAxios();
+  const router = useRouter();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -15,26 +18,35 @@ const Register = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    const photo = form.photo.value;
 
-    const formInfo = { name, email, password, photo };
+    const formInfo = { name, email, password};
     console.log(formInfo);
+
+    // User information send to database
+    const userInfo = {
+      name,
+      email,
+      role: "user",
+    };
+    publicAxios.post("/users", userInfo);
 
     createUser(email, password)
       .then((res) => {
         console.log(res.user);
-        profile(name, photo);
-        swal.fire({
+        // profile(name);
+        Swal.fire({
           title: "Good job !",
           text: "You you have successfully register !",
           icon: "success",
         });
-        // navigate("/");
+        router.push("/");
       })
       .catch((error) => {
         console.log(error);
       });
-  };
+
+    };
+
   return (
     <div>
       <div className="bg-[#000C21] flex items-center justify-center py-44">
@@ -82,19 +94,6 @@ const Register = () => {
                 required
               />
             </div>
-            <div className="mb-4">
-              <label className="block text-gray-600 text-sm font-medium mb-2">
-                Photo URL
-              </label>
-              <input
-                type="photo"
-                id="photo"
-                name="photo"
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none"
-                placeholder="Enter your photo url"
-                required
-              />
-            </div>
             <div className="mb-2">
               <button
                 type="submit"
@@ -104,6 +103,7 @@ const Register = () => {
               </button>
             </div>
           </form>
+          <SocialLogin/>
           <p className="text-gray-600 text-sm text-center">
             Already have an account?{" "}
             <Link href="/login" className="text-blue-600">

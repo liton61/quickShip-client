@@ -8,10 +8,14 @@ import { MdRateReview } from "react-icons/md";
 import { MdWorkHistory } from "react-icons/md";
 import { VscThreeBars } from "react-icons/vsc";
 import useAuth from "@/components/hooks/useAuth";
+import useAdmin from "@/components/hooks/useAdmin";
 
 
 const DashboardLayout = ({ children }) => {
   const {user} = useAuth()
+  const [isAdmin] = useAdmin();
+
+
   const UserSidebarLinks = (
     <>
       <li id="sidebar">
@@ -66,6 +70,38 @@ const DashboardLayout = ({ children }) => {
     </>
   );
 
+
+  const AdminSidebarLinks = (
+    <>
+      <li id="sidebar">
+        <Link
+          href="/dashboard/adminProfile"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          <CgProfile></CgProfile>
+          Admin Profile
+        </Link>
+      </li>
+
+      <li id="sidebar">
+        <Link
+          href="/dashboard/userManagement"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          <MdRateReview></MdRateReview>
+          User Management
+        </Link>
+      </li>
+
+      
+    </>
+  );
+
+
   return (
     <div>
       <div className="drawer lg:drawer-open">
@@ -119,6 +155,8 @@ const DashboardLayout = ({ children }) => {
               </div>
               <div className="divider"></div>
               <div>{UserSidebarLinks}</div>
+              <div className="divider"></div>
+              {isAdmin ? AdminSidebarLinks : ""}
               <div className="divider"></div>
             </div>
             <div>

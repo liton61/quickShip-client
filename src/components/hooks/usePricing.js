@@ -10,7 +10,7 @@ const usePricing = () => {
     } = useQuery({
         queryKey: ["price"],
         queryFn: async () => {
-            const res = await publicAxios.get("/price")
+            const res = await publicAxios.get("/price-box")
             return res.data
         }
     })

@@ -38,7 +38,7 @@ const PricingId = ({params}) => {
   const handleOrder = async (e) => {
     e.preventDefault();
     const res = await publicAxios.post("/order", addOrder)
-    console.log(res.data);
+    // console.log(res.data);
     toast.success("Successfully Order");
     refetch()
     router.push("/payment")

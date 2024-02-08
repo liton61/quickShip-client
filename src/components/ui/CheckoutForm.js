@@ -4,14 +4,16 @@ import { useEffect, useState } from "react";
 import useAuth from "../hooks/useAuth";
 import usePublicAxios from "../hooks/usePublicAxios";
 import toast from "react-hot-toast";
+import { jsPDF } from "jspdf";
 
-const CheckoutForm = ({amount}) => {
-
+const CheckoutForm = ({amount,order}) => {
+console.log(order);
   const stripe = useStripe();
   const elements = useElements();
   const [error, setError]= useState('')
   const [clientSecret, setClientSecret] = useState("")
   const [transactionId, setTransactionId] = useState("");
+  const doc = new jsPDF();
 //   const ProductAmount = parseFloat(amount)
 //   console.log(ProductAmount);
   const publicAxios = usePublicAxios()
@@ -27,11 +29,12 @@ const CheckoutForm = ({amount}) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    
     if (!stripe || !elements) {
       return;
     }
     const card = elements.getElement(CardElement);
+
     if (card === null) {
       return;
     }
@@ -83,6 +86,23 @@ const CheckoutForm = ({amount}) => {
 
            
          }
+        //  doc.text('Quick Ship',100,20,null,null, "center");
+        //  doc.text(`Name :${user?.displayName}`,35, 25);
+        //  doc.text(`Email :${order?.email}`, 35, 35);
+        //  doc.text(`Phone :${order?.phone}`, 35, 45);
+        //  doc.text(`ProductPrice :${amount}`, 35, 55);
+        //  doc.text(`DeliveryDate :${order?.deliveryDate}`, 35, 65);
+        //  doc.text(`ProductWeight: :${order?.productWeight}`, 35, 75);
+        //  doc.text(`Address :${order?.area}`, 35, 85);
+        //  doc.save(`${event.name}`.pdf)
+        doc.setFontSize(20);
+  doc.text('Quick Ship', 105, 20, null, null, "center");
+  doc.setFontSize(12);
+  doc.text(`Name: ${user?.displayName}`, 20, 40);
+  doc.text(`Email: ${order?.email}`, 20, 50);
+  doc.text(`Phone: ${order?.phone}`, 20, 60);
+  doc.text(`Product Price: ${amount}`, 20, 70);
+  doc.save(`${event.name}`.pdf)
     }
   };
 

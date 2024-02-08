@@ -62,12 +62,12 @@ const PaymentPage = () => {
           </div>
         </div>
 
-        <div className="bg-[#010313] py-5 rounded-b-md shadow-md">
-          <Elements stripe={stripePromise}>
-            <CheckoutForm amount={mostRecentData?.productPrice}></CheckoutForm>
-          </Elements>
-        </div>
-      </div>
+                                <div className="bg-[#010313] py-5 rounded-b-md shadow-md">
+                                  <Elements stripe={stripePromise}>
+                                    <CheckoutForm order={mostRecentData} amount ={mostRecentData?.productPrice}></CheckoutForm>
+                                  </Elements>
+                                </div>
+                              </div>
     </div>
   );
 };

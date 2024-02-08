@@ -1,32 +1,37 @@
 "use client";
 
-import { AuthContext } from "@/app/auth/page";
 import Lottie from "lottie-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "../../../../public/Logo (1).json";
 import avatar from "../../../asstes/avatar.png"
 import { FaHome } from "react-icons/fa";
 import { BiLogOut, BiSolidDashboard } from "react-icons/bi";
 import { MdLogin } from "react-icons/md";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
+import useAuth from "@/components/hooks/useAuth";
+import auth from "@/components/Config/firebase.config";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const { user, logOut } = useContext(AuthContext);
-  const router = useRouter()
+ 
+  // const router = useRouter()
+  const { user, logout } = useAuth();
 
-  const handleSignOut = () => {
-    logOut()
-      .then((res) => {
-        console.log(res.user);
-        router.push("/")
+  const handleLogout = () => {
+    logout(auth)
+      .then((result) => {
+        // console.log(result?.user);
+        toast.success("Successfully LogOut");
+
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error?.message);
       });
   };
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
@@ -145,7 +150,7 @@ const Navbar = () => {
                 data-aos="flip-up"
                 className="text-xs text-purple-600 font-bold"
               >
-                {user ? user.displayName : "No Any User"}
+                {user ? user?.displayName : "No Any User"}
               </h2>
               <hr className="border-gray-600" />
 
@@ -168,7 +173,7 @@ const Navbar = () => {
               <hr className="border-gray-600" />
               {user ? (
                 <button
-                  onClick={handleSignOut}
+                  onClick={handleLogout}
                   className="hover:font-bold flex items-center text-left" /* to={"/login"} */
                 >
                   <span className="mr-1">

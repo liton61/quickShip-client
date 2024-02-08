@@ -23,7 +23,7 @@ const Pricing = () => {
                       {pricingData.level}
                     </h2>
                     <p className="text-gray-600 mb-6">
-                      Perfect for growing businesse
+                      Perfect for growing business
                     </p>
                     <p className="text-4xl font-bold text-gray-800 mb-6">
                       {" "}

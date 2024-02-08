@@ -86,23 +86,37 @@ console.log(order);
 
            
          }
-        //  doc.text('Quick Ship',100,20,null,null, "center");
-        //  doc.text(`Name :${user?.displayName}`,35, 25);
-        //  doc.text(`Email :${order?.email}`, 35, 35);
-        //  doc.text(`Phone :${order?.phone}`, 35, 45);
-        //  doc.text(`ProductPrice :${amount}`, 35, 55);
-        //  doc.text(`DeliveryDate :${order?.deliveryDate}`, 35, 65);
-        //  doc.text(`ProductWeight: :${order?.productWeight}`, 35, 75);
-        //  doc.text(`Address :${order?.area}`, 35, 85);
-        //  doc.save(`${event.name}`.pdf)
+         doc.rect(18, 5, 180, 100);
+         doc.setFontSize(8);
+        doc.text('Customer copy', 20, 20);
+        doc.text(`${new Date().toLocaleDateString()}`, 160, 20);
+        doc.text(`${new Date().toLocaleTimeString()}`, 175, 20);
         doc.setFontSize(20);
   doc.text('Quick Ship', 105, 20, null, null, "center");
+  doc.setFontSize(10);
+  doc.text('123 Fake street,New York', 105, 25, null, null, "center");
+ 
   doc.setFontSize(12);
-  doc.text(`Name: ${user?.displayName}`, 20, 40);
+  
+  doc.setFont("helvetica", "bold");
+  doc.text('Bill To', 20, 40);
+  doc.setFont("helvetica", "normal");
+  
+  doc.setFontSize(10);
+  doc.text(`Name: ${user?.displayName}`, 20, 45);
   doc.text(`Email: ${order?.email}`, 20, 50);
-  doc.text(`Phone: ${order?.phone}`, 20, 60);
-  doc.text(`Product Price: ${amount}`, 20, 70);
-  doc.save(`${event.name}`.pdf)
+  doc.text(`Phone: ${order?.phone}`, 20, 55);
+  doc.text(`Product Price: ${amount}`, 20, 60);
+  doc.setFontSize(10);
+  doc.text(`Delivery Date: ${order?.deliveryDate}`, 140, 45);
+  doc.text(`Tracking No: ${order?._id}`, 130, 50);
+  
+  doc.setFont("helvetica", "bold");
+  doc.text('Delivery Address', 20, 80);
+  doc.setFont("helvetica", "normal");
+  doc.text(`${order?.area}`, 20, 85);
+ 
+  doc.save("a4.pdf")
     }
   };
 

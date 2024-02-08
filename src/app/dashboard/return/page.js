@@ -6,23 +6,23 @@ const ProductReturn = () => {
   const { user } = useContext(AuthContext);
   return (
     <>
-      <div className="max-w-screen-xl mx-auto px-10 lg:px-0  py-44">
-        <div className="mr-[5rem]">
-          <div className="py-5 ">
+      <div className="max-w-screen-xl mx-auto lg:py-10">
+        <div className="">
+          <div className="">
             <form>
-              <div className="flex items-center justify-center">
+              <div className="flex items-center justify-center ">
                 <div className="relative flex flex-col m-2 space-y-8 bg-blue-300 shadow-2xl rounded-2xl md:flex-row md:space-y-0">
-                  <div className="flex flex-col justify-center  md:p-6">
-                    <span className="mb-3 text-4xl text-center text-blue-500 font-bold">
+                  <div className="flex flex-col justify-center  md:p-6 ">
+                    <span className=" text-xl md:text-2xl lg:text-4xl text-center text-blue-500 font-bold">
                       Product Return
                     </span>
 
                     {/* name and email */}
-                    <div className="flex gap-2">
-                      <div className="py-2 w-1/2">
-                        <span className=" font-bold text-md">Name</span>
+                    <div className="lg:gap-8 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 px-2 lg:px-5 ">
+                      <div className="lg:py-2 ">
+                        <span className="font-bold text-md">Name</span>
                         <input
-                          className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
+                          className="w-full my-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
                           type="name"
                           required
                           placeholder="Enter Your Name"
@@ -30,10 +30,10 @@ const ProductReturn = () => {
                           name="name"
                         />
                       </div>
-                      <div className="py-2 w-1/2">
+                      <div className="lg:py-2 ">
                         <span className=" font-bold text-md">Email</span>
                         <input
-                          className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
+                          className="w-full my-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
                           type="email"
                           required
                           defaultValue={user?.email}
@@ -43,21 +43,21 @@ const ProductReturn = () => {
                       </div>
                     </div>
                     {/* date and phone */}
-                    <div className="flex gap-2">
-                      <div className="py-2 w-1/2">
+                    <div className="lg:gap-8 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 px-2 lg:px-5 ">
+                      <div className="lg:py-2 ">
                         <span className=" font-bold text-md">Product Id</span>
                         <input
-                          className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
+                          className="w-full  my-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
                           type="number"
                           required
                           placeholder="Product Id"
                           name="productId"
                         />
                       </div>
-                      <div className="py-2 w-1/2">
+                      <div className="lg:py-2 ">
                         <span className=" font-bold text-md">Product Name</span>
                         <input
-                          className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
+                          className="w-full  my-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
                           type="text"
                           required
                           placeholder="Enter Your Product Name"
@@ -66,8 +66,8 @@ const ProductReturn = () => {
                       </div>
                     </div>
                     {/* Price (Tk) and weight */}
-                    <div className="flex gap-2">
-                      <div className="py-2 w-1/2">
+                    <div className="lg:gap-8 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 px-2 lg:px-5 ">
+                      <div className="py-2 ">
                         <span className=" font-bold text-md">Price (Tk)</span>
                         <input
                           className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
@@ -77,7 +77,7 @@ const ProductReturn = () => {
                           name="price"
                         />
                       </div>
-                      <div className="py-2 w-1/2">
+                      <div className="lg:py-2 ">
                         <span className=" font-bold text-md">
                           Product Quantity
                         </span>
@@ -91,8 +91,9 @@ const ProductReturn = () => {
                       </div>
                     </div>
 
-                    <div className="flex gap-7">
-                      <label className="form-control w-full max-w-xs">
+                    {/* Reason and payment */}
+                    <div className="lg:gap-8 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 px-2 lg:px-5">
+                      <label className="form-control w-full">
                         <div className="label">
                           <span className="font-bold text-md">
                             Select A Reason
@@ -118,7 +119,7 @@ const ProductReturn = () => {
                           </option>
                         </select>
                       </label>
-                      <label className="form-control w-full max-w-xs">
+                      <label className="form-control w-full">
                         <div className="label">
                           <span className="font-bold text-md">
                             Select Payment Option
@@ -138,8 +139,20 @@ const ProductReturn = () => {
                       </label>
                     </div>
 
-                    <div className="flex justify-center mt-8">
-                      <button className="btn btn-wide">Submit</button>
+                    {/* Comments */}
+                     <label className="form-control p-2 lg:px-5">
+                      <div className="label">
+                        <span className="label-text font-bold">Comments</span>
+                  
+                      </div>
+                      <textarea className="textarea textarea-bordered h-24" placeholder="Comments Here...."></textarea>
+                      <div className="label">
+                        
+                      </div>
+                    </label>
+
+                    <div className="flex justify-center mb-2 lg:mt-8">
+                      <button className="btn">Submit</button>
                     </div>
                   </div>
                 </div>

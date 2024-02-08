@@ -29,7 +29,7 @@ const Login = () => {
   const onLoginSubmit = async (data) => {
     await login(data?.email, data?.password)
       .then((result) => {
-        // console.log(result.user);
+        console.log(result.user);
         toast.success("Successfully Login");
         router.push("/")
       })

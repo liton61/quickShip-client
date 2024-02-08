@@ -1,6 +1,6 @@
 "use client"
 import Link from "next/link";
-import { FaHome } from "react-icons/fa";
+import { FaBoxOpen, FaHome, FaUsers } from "react-icons/fa";
 import { MdLogout } from "react-icons/md";
 import { GiReturnArrow } from "react-icons/gi";
 import { CgProfile } from "react-icons/cg";
@@ -12,8 +12,8 @@ import useAuth from "@/components/hooks/useAuth";
 
 
 const DashboardLayout = ({ children }) => {
-  const {user} = useAuth()
-  const isAdmin = true;
+  const { user } = useAuth()
+  const isAdmin = true
 
 
   const UserSidebarLinks = (
@@ -78,7 +78,7 @@ const DashboardLayout = ({ children }) => {
         </Link>
       </li>
 
-      
+
     </>
   );
 
@@ -96,20 +96,31 @@ const DashboardLayout = ({ children }) => {
           Admin Profile
         </Link>
       </li>
-
       <li id="sidebar">
         <Link
-          href="/dashboard/userManagement"
+          href="/dashboard/parcelManage"
           className={({ isActive, isPending }) =>
             isPending ? "pending" : isActive ? "active" : ""
           }
         >
-          <MdRateReview></MdRateReview>
+          <FaBoxOpen></FaBoxOpen>
+          Parcel Manage
+        </Link>
+      </li>
+
+      <li id="sidebar">
+        <Link
+          href="/dashboard/usersManage"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          <FaUsers></FaUsers>
           User Management
         </Link>
       </li>
 
-      
+
     </>
   );
 
@@ -192,7 +203,7 @@ const DashboardLayout = ({ children }) => {
                       className={({ isActive, isPending }) =>
                         isPending ? `pending` : isActive ? `active` : ""
                       }
-                      // onClick={handleLogout}
+                    // onClick={handleLogout}
                     >
                       <span>
                         <MdLogout></MdLogout>

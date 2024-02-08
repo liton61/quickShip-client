@@ -7,13 +7,13 @@ import { CgProfile } from "react-icons/cg";
 import { MdRateReview } from "react-icons/md";
 import { MdWorkHistory } from "react-icons/md";
 import { VscThreeBars } from "react-icons/vsc";
+import { FaJediOrder } from "react-icons/fa";
 import useAuth from "@/components/hooks/useAuth";
-import useAdmin from "@/components/hooks/useAdmin";
 
 
 const DashboardLayout = ({ children }) => {
   const {user} = useAuth()
-  const [isAdmin] = useAdmin();
+  const isAdmin = true;
 
 
   const UserSidebarLinks = (
@@ -51,6 +51,18 @@ const DashboardLayout = ({ children }) => {
         >
           <GiReturnArrow></GiReturnArrow>
           Return Product
+        </Link>
+      </li>
+
+      <li id="sidebar">
+        <Link
+          href="/dashboard/myOrder"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          <FaJediOrder></FaJediOrder>
+          My Order
         </Link>
       </li>
 

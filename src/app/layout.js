@@ -4,6 +4,10 @@ import AuthProvider from "./auth/page";
 import TanstackProvider from "@/providers/TanstackProvider";
 import { Toaster } from "react-hot-toast";
 import ChatBot from "@/components/chat/chat";
+import NewChatBot from "@/components/NewChat/NewChatBot";
+
+
+
 
 const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
@@ -11,13 +15,13 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-
   return (
     <html lang="en" data-theme="light">
       <body className={inter.className}>
         <TanstackProvider>
           <AuthProvider>
-            <ChatBot/>
+            <ChatBot />
+            {/* <NewChatBot/> */}
             {children}
             <Toaster />
           </AuthProvider>

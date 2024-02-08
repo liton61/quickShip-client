@@ -1,4 +1,5 @@
 "use client";
+import axios from "axios";
 import "./chat.css";
 import { useRef, useState } from "react";
 
@@ -8,83 +9,134 @@ function ChatBot() {
   const [userMessage, setUserMessage] = useState([]);
   const [isToggled, setToggled] = useState(false);
 
-  const API_KEY = "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";
+  const API_KEY = "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";
 
-  const generateResponse = () => {
+  // const generateResponse = (userMessage) => {
+  //   const API_URL = "https://api.openai.com/v1/completions";
+  //   const requestOptions = {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: `Bearer ${API_KEY}`,
+  //     },
+  //     body: JSON.stringify({
+  //       model: "gpt-3.5-turbo",
+  //       messages: [{ role: "user", content: userMessage }],
+  //     }),
+  //   };
+  //   console.log(requestOptions)
+
+  //   fetch(API_URL, requestOptions)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       if (data.choices && data.choices.length > 0) {
+  //         const aiResponse = data.choices[0].message.content.trim();
+
+  //         // Create a unique key for the new chat message
+  //         const newChatMessageKey = Date.now();
+
+  //         const incomingMessage = (
+  //           <li key={newChatMessageKey} className="chat incoming">
+  //             <span className="material-symbols-outlined">smart_toy</span>
+  //             <p>{aiResponse}</p>
+  //           </li>
+  //         );
+
+  //         setChatMessages((prevMessages) => [...prevMessages, incomingMessage]);
+  //       } else {
+  //         console.error("No choices in the API response.");
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.error("Error fetching data:", err);
+  //     });
+  // };
+
+  const processMessageToChatGPT = (userMessage) => {
     const API_URL = "https://api.openai.com/v1/chat/completions";
     const requestOptions = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${API_KEY}`,
+        "Authorization": `Bearer ${API_KEY}`,
       },
       body: JSON.stringify({
-        model: "gpt-3.5-turbo",
-        messages: [{ role: "user", content: userMessage }],
+        model: "gpt-4",
+        messages: [{ "role": "user", "content": userMessage }],
       }),
     };
+    console.log(requestOptions)
 
-    fetch(API_URL, requestOptions)
-  .then((res) => res.json())
-  .then((data) => {
-    if (data.choices && data.choices.length > 0) {
-      const aiResponse = data.choices[0].message.content.trim();
-      const incomingMessage = (
-        <li key={chatMessages.length} className="chat incoming">
-          <span className="material-symbols-outlined">smart_toy</span>
-          <p>{aiResponse}</p>
-        </li>
-      );
-      setChatMessages((prevMessages) => [...prevMessages, incomingMessage]);
-    } else {
-      // Handle the case where choices array is empty or undefined
-      console.error("No choices in the API response.");
-    }
-  })
-  .catch((err) => {
-    console.error("Error fetching data:", err);
-  });
+    axios.post(API_URL, requestOptions)
+      .then((res) => {console.log(res)})
+      .then((data) => {
+        if (data.choices && data.choices.length > 0) {
+          const aiResponse = data.choices[0].message.content.trim();
 
+          // Update chat with AI response
+          const newChatMessage = (
+            <li key={Date.now()} className="chat incoming">
+              <span className="material-symbols-outlined">smart_toy</span>
+              <p>{aiResponse}</p>
+            </li>
+          );
+          setChatMessages((prevMessages) => [...prevMessages, newChatMessage]);
+        } else {
+          console.error("No choices in the API response.");
+        }
+      })
+      .catch((err) => {
+        console.error("Error fetching data:", err);
+      });
   };
 
   const handleChat = () => {
     const message = chatInputRef.current.value.trim();
-    setUserMessage(message); // Set userMessage state
 
     if (!message) return;
 
-    // Create the chat message element using JSX
+    // Update chat with user message
     const newChatMessage = (
-      <li key={chatMessages.length} className="chat outgoing">
+      <li key={Date.now()} className="chat outgoing">
         <p>{message}</p>
       </li>
     );
-
-    // Update the chat messages state, efficiently re-rendering the list
     setChatMessages((prevMessages) => [...prevMessages, newChatMessage]);
 
-    // Clear input field
-    chatInputRef.current.value = "";
+    // Call function to send user message and receive AI response
+    processMessageToChatGPT(message);
 
-    // Simulate incoming message after a delay
-    setTimeout(() => {
-      const incomingMessage = (
-        <li key={chatMessages.length} className="chat incoming">
-          <span className="material-symbols-outlined">smart_toy</span>
-          <p>Thinking...</p>
-        </li>
-      );
-      setChatMessages((prevMessages) => [...prevMessages, incomingMessage]);
-      generateResponse(message);
-    }, 600); // Adjust the delay as needed
+    chatInputRef.current.value = "";
   };
+
+
+  // const handleChat = () => {
+  //   const message = chatInputRef.current.value.trim();
+
+  //   if (!message) return;
+
+  //   // Create a unique key for the new chat message
+  //   const newChatMessageKey = Date.now();
+
+  //   const newChatMessage = (
+  //     <li key={newChatMessageKey} className="chat outgoing">
+  //       <p>{message}</p>
+  //     </li>
+  //   );
+
+  //   setChatMessages((prevMessages) => [...prevMessages, newChatMessage]);
+
+  //   chatInputRef.current.value = "";
+
+  //   // Call generateResponse function to send user message and receive AI response
+  //   generateResponse(message);
+  // };
 
   const toggleChatbot = () => {
     setToggled(!isToggled);
-   const show = "show-chatbot"
   };
   return (
-    <div className={`body ${isToggled ? 'show-chatbot' : ''}`}>
+    <div className={`body ${isToggled ? "show-chatbot" : ""}`}>
       <button className="chatbot-toggler" onClick={toggleChatbot}>
         <span className="material-symbols-rounded">mode_comment</span>
         <span className="material-symbols-outlined">close</span>

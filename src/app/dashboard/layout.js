@@ -7,7 +7,9 @@ import { CgProfile } from "react-icons/cg";
 import { MdRateReview } from "react-icons/md";
 import { MdWorkHistory } from "react-icons/md";
 import { VscThreeBars } from "react-icons/vsc";
+import { FaJediOrder } from "react-icons/fa";
 import useAuth from "@/components/hooks/useAuth";
+import ChatBot from "@/components/chat/chat";
 
 
 const DashboardLayout = ({ children }) => {
@@ -55,6 +57,18 @@ const DashboardLayout = ({ children }) => {
 
       <li id="sidebar">
         <Link
+          href="/dashboard/myOrder"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          <FaJediOrder></FaJediOrder>
+          My Order
+        </Link>
+      </li>
+
+      <li id="sidebar">
+        <Link
           href="/dashboard/review"
           className={({ isActive, isPending }) =>
             isPending ? "pending" : isActive ? "active" : ""
@@ -62,6 +76,17 @@ const DashboardLayout = ({ children }) => {
         >
           <MdRateReview></MdRateReview>
           Product Review
+        </Link>
+      </li>
+      <li id="sidebar">
+        <Link
+          href="/pricing"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          <MdRateReview></MdRateReview>
+          Booking
         </Link>
       </li>
 
@@ -138,6 +163,7 @@ const DashboardLayout = ({ children }) => {
           </div>
           {/* Page content here */}
           {children}
+          <ChatBot/>
         </div>
         <div className="drawer-side">
           <label

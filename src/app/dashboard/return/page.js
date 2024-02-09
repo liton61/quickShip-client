@@ -1,9 +1,8 @@
 "use client";
-import { useContext } from "react";
-import { AuthContext } from "../../auth/page";
+import useAuth from "@/components/hooks/useAuth";
 
 const ProductReturn = () => {
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
   return (
     <>
       <div className="max-w-screen-xl mx-auto lg:py-10">

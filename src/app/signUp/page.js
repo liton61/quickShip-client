@@ -1,125 +1,93 @@
 "use client"
-import { FcGoogle } from "react-icons/fc";
-import { FaGithub } from "react-icons/fa";
-import img from "../assets/login.png"
+import useAuth from "@/components/hooks/useAuth";
+import signUpImg from "../assets/signUp.png";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import useAuth from "@/components/hooks/useAuth";
 import Link from "next/link";
 import Image from "next/image";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import usePublicAxios from "@/components/hooks/usePublicAxios";
 
-const Login = () => {
+const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const publicAxios = usePublicAxios();
-
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const { login, googleUser, githubUser } = useAuth();
+  const { createUser } = useAuth();
+
   const router = useRouter()
 
 
-
-  const onLoginSubmit = async (data) => {
-    await login(data?.email, data?.password)
+  const onSubmit = async (data) => {
+    console.log(data);
+    await createUser(data?.email, data?.password)
       .then((result) => {
-        console.log(result.user);
-        toast.success("Successfully Login");
+        console.log(result?.user);
+        toast.success("Successfully Sign Up");
         router.push("/")
-      })
-      .catch((error) => {
-      //  console.log(error.message);
-       toast.error("Something wrong....try agin");
-      });
-  };
-
-  const onGoogleSubmit = () => {
-    googleUser()
-      .then((result) => {
-        const userInfo = {
-          name: result?.user?.displayName,
-          email: result?.user?.email,
-          image: result?.user?.photoURL
-        };
-
-        publicAxios.post("/users", userInfo).then((res) => {
-          console.log(res.data);
-            toast.success("Successfully Login");
-            router.push("/")
-        });
-        // console.log(result.user);
-
         // const userInfo = {
-        //   name: result?.user?.displayName,
-        //   email: result?.user?.email,
-        //   image: result?.user?.photoURL
+        //   name: data?.name,
+        //   email: data?.email,
+        //   image: data?.image,
         // };
 
-        // publicAxios.post("/users", userInfo).then((res) => {
-        //   console.log(res.data);
+        // publicAxios.post("/users", userInfo)
+        // .then(res =>{
+        //   if (res?.data?.insertedId) {
         //     Swal.fire({
         //       icon: "success",
         //       title: "Wow...",
-        //       text: "Login Successfully....!!",
+        //       text: "Sign up Successfully....!!",
         //     });
-        //     navigate(form, { replace: true });
-        // });
+        //     navigate("/");
+        //   }
+        // })
+        
       })
       .catch((error) => {
-      //  console.log(error.message);
-       toast.error("Something wrong....try agin");
+        // console.log(error?.message);
+        toast.error("Something wrong....try agin");
       });
   };
 
-  const onGithubSubmit = () => {
-    githubUser()
-      .then((result) => {
-        //  console.log(result.user);
-         toast.success("Successfully Login");
-         router.push("/")
-        // const userInfo = {
-        //   name: result?.user?.displayName,
-        //   email: result?.user?.email,
-        //   image: result?.user?.photoURL,
-        // };
-
-        // publicAxios.post("/users", userInfo).then((res) => {
-        //   console.log(res.data);
-        //   Swal.fire({
-        //     icon: "success",
-        //     title: "Wow...",
-        //     text: "Login Successfully....!!",
-        //   });
-        //   navigate(form, { replace: true });
-        // });
-      })
-      .catch((error) => {
-      //  console.log(error.message);
-       toast.error("Something wrong....try agin");
-      });
-  };
   return (
-    <div className="h-screen  bg-[#010313]">
-      <div className="grid md:grid-cols-2 p-5 py-44">
-        <div className="flex justify-center items-center">
-          <Image src={img} className="w-full md:w-96" alt="login"></Image>
+    <div>
+      <div className="md:flex py-14 lg:space-x-5 lg:flex-row-reverse bg-[#010313]">
+        <div className="flex w-1/2 justify-center items-center">
+          <Image src={signUpImg} className="md:h-[500px]" alt="signUp"></Image>
         </div>
 
-        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-[#0e0d21] ">
+        <div className="card flex-shrink-0 w-1/2 max-w-sm shadow-2xl bg-[#0e0d21] ">
           <Link
             href={"/"}
             className="text-3xl mt-4 font-extrabold text-center text-[#c29a4b] text-opacity-50"
           >
-            Sign In Please
+            Sign Up Please
           </Link>
 
-          <form onSubmit={handleSubmit(onLoginSubmit)} className="card-body ">
+          <form onSubmit={handleSubmit(onSubmit)} className="card-body ">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-white">
+                  User Name <span className="text-red-700">*</span>
+                </span>
+              </label>
+              <input
+                type="text"
+                {...register("name", { required: true })}
+                name="name"
+                placeholder="Enter your full Name"
+                className="input bg-black text-white input-bordered placeholder:text-xs"
+              />
+              {errors.name && (
+                <span className="text-red-700 mt-3 text-xs">
+                  This field is required
+                </span>
+              )}
+            </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-white">
@@ -132,7 +100,6 @@ const Login = () => {
                 {...register("email", { required: true })}
                 placeholder="Enter your email"
                 className="input bg-black text-white input-bordered placeholder:text-xs"
-                required
               />
               {errors.email && (
                 <span className="text-red-700 mt-3 text-xs">
@@ -157,7 +124,6 @@ const Login = () => {
                 })}
                 placeholder="Enter your new password"
                 className="input input-bordered bg-black text-white placeholder:text-xs"
-                required
               />
               {errors.password?.type === "required" && (
                 <p className="text-red-700 mt-3 text-xs">
@@ -183,15 +149,6 @@ const Login = () => {
                   characters, digits, and lowercase letters.
                 </p>
               )}
-              <label className="label flex justify-end">
-                <a
-                  href="#"
-                  className="label-text-alt link link-hover text-blue-700 hover:text-blue-900"
-                >
-                  Forgot password?
-                </a>
-              </label>
-
               <div className="inline-flex items-center">
                 <label
                   className="relative flex cursor-pointer items-center rounded-full p-3"
@@ -231,50 +188,35 @@ const Login = () => {
                 </label>
               </div>
             </div>
-
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text text-white">
+                  Photo URl <span className="text-red-700">*</span>
+                </span>
+              </label>
+              <input
+                type="url"
+                name="image"
+                {...register("image", { required: true })}
+                placeholder="Enter your Photo Url"
+                className="input bg-black text-white input-bordered placeholder:text-xs"
+              />
+            </div>
             <div className="form-control mt-6">
-              <button
+              <input
                 type="submit"
+                value={"Sign Up"}
                 className="btn border-none text-white bg-[#2c1e6d] hover:bg-[#140d32]"
-              >
-                Log In
-              </button>
+              />
             </div>
           </form>
-
-          <span className="flex justify-center items-center px-9 -mt-6 mb-3">
-            <div className="border border-gray-800 w-full h-0"></div>{" "}
-            <span className="px-3 text-white">Or</span>{" "}
-            <div className="border border-gray-800 w-full h-0"></div>
-          </span>
-
-          <div className="text-3xl px-7 space-y-5 mb-4">
-            <button
-              onClick={onGoogleSubmit}
-              type="submit"
-              className="btn btn-outline btn-[#140d32] w-full text-white bg-[#0e0d21] hover:bg-[#140d32]"
-            >
-              <FcGoogle className="transition-all text-xl hover:scale-125"></FcGoogle>
-              <span className="normal-case text-xs">Sign in with Google</span>
-            </button>
-
-            <button
-              onClick={onGithubSubmit}
-              type="submit"
-              className="btn btn-outline btn-[#140d32] w-full text-white bg-[#0e0d21] hover:bg-[#140d32]"
-            >
-              <FaGithub className="text-xl transition-all hover:scale-125"></FaGithub>
-              <span className="normal-case text-xs">Sign in with Github</span>
-            </button>
-          </div>
-
           <p className="mb-7 flex justify-center font-sans text-sm font-light leading-normal text-inherit antialiased">
-            <span className="text-white">Do Not have an account?</span>
+            <span className="text-white">Already have an account?</span>
             <Link
-              href={"/signUp"}
+              href={"/login"}
               className="ml-1 block font-sans text-sm font-bold leading-normal text-[#c5a35e] antialiased"
             >
-              Sign Up
+              Log In
             </Link>
           </p>
         </div>
@@ -283,4 +225,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

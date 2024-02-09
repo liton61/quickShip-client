@@ -35,7 +35,7 @@ const MyOrder = () => {
                     <th>{index + 1}</th>
                     <td>{item?.name}</td>
                     <td>{item?.phone}</td>
-                    <td>{item?.productPrice}</td>
+                    <td>${item?.productPrice}</td>
                     <td>{item?.deliveryDate}</td>
                     <td>{item?.area}</td>
                     <td>

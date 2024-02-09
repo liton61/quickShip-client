@@ -7,7 +7,7 @@ import Image from "next/image";
 const MyProfile = () => {
     const {user} = useAuth()
     return (
-      <div className="px-4 py-8 bg-[#010313] text-white space-y-8">
+      <div className="px-4 py-8 h-screen bg-[#010313] text-white space-y-8">
         <h2 className="text-2xl font-bold">
           Hi, <span className="text-orange-700">Welcome Back!</span>
         </h2>

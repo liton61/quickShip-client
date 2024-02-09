@@ -1,15 +1,25 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
+import useOrder from "@/components/hooks/useOrder";
 import { getUdateOrder } from "@/components/hooks/useUpdate";
-import { useRouter } from "next/navigation";
+
 import React from "react";
 import Swal from "sweetalert2";
 
-
 const returnPage = async ({ params }) => {
-  const productReturn = await getUdateOrder(params.id);
-  // console.log(productReturn);
+  const [order] = useOrder();
 
- 
+  const productReturn = await getUdateOrder(params.id);
+
+  const urlParts = productReturn.url.split("/");
+  const orderId = urlParts[urlParts.length - 1];
+
+  console.log(orderId);
+  console.log(order);
+
+  const newOrder = order.find((order) => order._id === orderId);
+
+  console.log(newOrder);
 
   const handleReturnOrder = (event) => {
     event.preventDefault();
@@ -30,7 +40,7 @@ const returnPage = async ({ params }) => {
     };
     console.log(returnOrder);
 
-    fetch(`http://localhost:5000/order/${params.id}`, {
+    fetch(`https://quickship-04.vercel.app/order/${params.id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -46,10 +56,9 @@ const returnPage = async ({ params }) => {
             text: "Return Request Submit Successfully",
             icon: "success",
             confirmButtonText: "OK",
-            
           });
-         reset(); 
         }
+        reset();
       });
   };
   return (
@@ -58,7 +67,7 @@ const returnPage = async ({ params }) => {
         <div className="">
           <form onSubmit={handleReturnOrder}>
             <div className="flex items-center justify-center ">
-              <div className="relative flex flex-col m-2 space-y-8 bg-blue-300 shadow-2xl rounded-2xl md:flex-row md:space-y-0">
+              <div className="relative flex flex-col m-2 space-y-8 bg-base-300 shadow-2xl rounded-2xl md:flex-row md:space-y-0">
                 <div className="flex flex-col justify-center  md:p-6 ">
                   <span className=" text-xl md:text-2xl lg:text-4xl text-center text-blue-500 font-bold">
                     Product Return
@@ -71,7 +80,7 @@ const returnPage = async ({ params }) => {
                       <input
                         className="w-full my-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
                         type="name"
-                        defaultValue={productReturn?.name}
+                        defaultValue={newOrder?.name}
                         required
                         placeholder="Enter Your Name"
                         name="name"
@@ -83,7 +92,7 @@ const returnPage = async ({ params }) => {
                         className="w-full my-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
                         type="email"
                         required
-                        defaultValue={productReturn?.email}
+                        defaultValue={newOrder?.email}
                         placeholder="Enter Your email"
                         name="email"
                       />
@@ -121,7 +130,7 @@ const returnPage = async ({ params }) => {
                         className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
                         type="number"
                         required
-                        defaultValue={productReturn?.productPrice}
+                        defaultValue={newOrder?.productPrice}
                         placeholder="Price"
                         name="price"
                       />
@@ -134,7 +143,7 @@ const returnPage = async ({ params }) => {
                         className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
                         type="number"
                         required
-                        defaultValue={productReturn?.productWeight}
+                        defaultValue={newOrder?.productWeight}
                         placeholder="Enter Product Quantity "
                         name="weight"
                       />

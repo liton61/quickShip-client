@@ -11,7 +11,7 @@ const UserTable = () => {
                 <div className="overflow-x-auto mt-10 px-5">
                     <table className="table">
                         {/* head */}
-                        <thead className="bg-blue-500 text-white">
+                        <thead className="bg-blue-500 text-white z-20">
                             <tr>
                                 <th>#</th>
                                 {/* <th>Image</th> */}

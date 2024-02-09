@@ -10,13 +10,15 @@ import { VscThreeBars } from "react-icons/vsc";
 import { FaJediOrder } from "react-icons/fa";
 import useAuth from "@/components/hooks/useAuth";
 import useUser from "@/components/hooks/useUser";
+import ChatBot from "@/components/chat/chat";
 
 const DashboardLayout = ({ children }) => {
   const { user } = useAuth();
-  const isAdmin = true;
+
 
   const [users] = useUser();
-  console.log(users?.role);
+
+  // console.log(users?.role);
 
   const UserSidebarLinks = (
     <>
@@ -44,7 +46,7 @@ const DashboardLayout = ({ children }) => {
         </Link>
       </li>
 
-      <li id="sidebar">
+      {/* <li id="sidebar">
         <Link
           href="/dashboard/return"
           className={({ isActive, isPending }) =>
@@ -54,7 +56,7 @@ const DashboardLayout = ({ children }) => {
           <GiReturnArrow></GiReturnArrow>
           Return Product
         </Link>
-      </li>
+      </li> */}
 
       <li id="sidebar">
         <Link
@@ -145,6 +147,7 @@ const DashboardLayout = ({ children }) => {
           </div>
           {/* Page content here */}
           {children}
+          <ChatBot/>
         </div>
         <div className="drawer-side">
           <label

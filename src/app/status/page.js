@@ -4,7 +4,7 @@ import { TiTick } from "react-icons/ti";
 import "./state.css";
 import FeaturesSection from "@/components/ui/FeaturesSection";
 
-function Status() {
+const Status = () => {
   const status = ["Booking", "Payment", "One the way", "Delivered"];
   const [currentStatus, setCurrenStatus] = useState(1);
   const [complete, setComplete] = useState(false);
@@ -42,6 +42,6 @@ function Status() {
       <FeaturesSection></FeaturesSection>
     </div>
   );
-}
+};
 
 export default Status;

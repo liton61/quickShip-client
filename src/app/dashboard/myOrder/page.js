@@ -4,14 +4,14 @@ import useOrder from "@/components/hooks/useOrder";
 import SectionTitle from "@/components/shared/SectionTitle";
 import Link from "next/link";
 import { useContext } from "react";
-import { AuthContext } from "@/providers/AuthProvider";
+import { AuthContext } from "@/app/providers/AuthProvider";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 const MyOrder = () => {
   const { user } = useContext(AuthContext);
 
-  const [order] = useOrder();
+  const [order, refetch] = useOrder();
   // console.log(payment);
   const handleDelete = (_id) => {
     console.log(_id);
@@ -26,7 +26,7 @@ const MyOrder = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/order/${_id}`, {
+        fetch(`https://quickship-04.vercel.app/order/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -39,7 +39,7 @@ const MyOrder = () => {
                 icon: "success",
               }).then((delet) => {
                 if (delet.isConfirmed) {
-                  window.location.reload();
+                  refetch();
                 }
               });
             }
@@ -62,7 +62,7 @@ const MyOrder = () => {
             <table className="table table-zebra">
               {/* head */}
               <thead>
-                <tr className="text-black bg-gray-300">
+                <tr className="text-black bg-gray-300 z-20">
                   <th>No</th>
                   <th>User name</th>
                   <th>Phone Number</th>
@@ -74,7 +74,6 @@ const MyOrder = () => {
                   <th>Delete</th>
                   <th>Payment</th>
                   <th>Return</th>
-
                 </tr>
               </thead>
               <tbody>
@@ -120,8 +119,6 @@ const MyOrder = () => {
                         </Link>
                       </div>
                     </td>
-
-
                   </tr>
                 ))}
               </tbody>

@@ -1,11 +1,14 @@
 "use client";
+
 import { getUdateOrder } from "@/components/hooks/useUpdate";
 import React from "react";
 import Swal from "sweetalert2";
 
-const page = async ({ params }) => {
-  const update = await getUdateOrder(params.id);
-  //   console.log(update);
+const UpdatePage = ({ params }) => {
+  // const order = useUpdate();
+  const oldData = getUdateOrder(params.id);
+
+  console.log(oldData);
 
   const handleUpdateOrder = (event) => {
     event.preventDefault();
@@ -27,7 +30,7 @@ const page = async ({ params }) => {
     };
     console.log(updateOrder);
 
-    fetch(`http://localhost:5000/order/${params.id}`, {
+    fetch(`https://quickship-04.vercel.app/order/${params.id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -64,7 +67,7 @@ const page = async ({ params }) => {
               required
               placeholder="Enter Your Name"
               name="name"
-              defaultValue={update?.name}
+              defaultValue={oldData?.name}
             />
           </div>
           <div className="lg:py-2 ">
@@ -75,7 +78,7 @@ const page = async ({ params }) => {
               required
               placeholder="Enter Your email"
               name="email"
-              defaultValue={update?.email}
+              defaultValue={oldData?.email}
             />
           </div>
         </div>
@@ -88,7 +91,7 @@ const page = async ({ params }) => {
               type="text"
               required
               name="phone"
-              defaultValue={update?.phone}
+              defaultValue={oldData?.phone}
             />
           </div>
           <div className="lg:py-2 ">
@@ -98,7 +101,7 @@ const page = async ({ params }) => {
               type="text"
               required
               name="price"
-              defaultValue={update?.productPrice}
+              defaultValue={oldData?.productPrice}
             />
           </div>
         </div>
@@ -111,7 +114,7 @@ const page = async ({ params }) => {
               type="text"
               required
               name="weight"
-              defaultValue={update?.productWeight}
+              defaultValue={oldData?.productWeight}
             />
           </div>
           <div className="lg:py-2 ">
@@ -121,7 +124,7 @@ const page = async ({ params }) => {
               type="text"
               required
               name="time"
-              defaultValue={update?.time}
+              defaultValue={oldData?.time}
             />
           </div>
         </div>
@@ -142,4 +145,4 @@ const page = async ({ params }) => {
   );
 };
 
-export default page;
+export default UpdatePage;

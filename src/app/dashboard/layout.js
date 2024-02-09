@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Link from "next/link";
 import { FaBoxOpen, FaHome, FaUsers } from "react-icons/fa";
 import { MdLogout } from "react-icons/md";
@@ -12,12 +12,11 @@ import useAuth from "@/components/hooks/useAuth";
 import useUser from "@/components/hooks/useUser";
 import ChatBot from "@/components/chat/chat";
 
-
 const DashboardLayout = ({ children }) => {
-  const { user } = useAuth()
-  const isAdmin = true
+  const { user } = useAuth();
 
-  const [users] = useUser()
+
+  const [users] = useUser();
   console.log(users?.role);
 
   const UserSidebarLinks = (
@@ -66,7 +65,7 @@ const DashboardLayout = ({ children }) => {
           }
         >
           <FaJediOrder></FaJediOrder>
-          My Order
+          All Order
         </Link>
       </li>
 
@@ -81,22 +80,8 @@ const DashboardLayout = ({ children }) => {
           Product Review
         </Link>
       </li>
-      <li id="sidebar">
-        <Link
-          href="/pricing"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
-          }
-        >
-          <MdRateReview></MdRateReview>
-          Booking
-        </Link>
-      </li>
-
-
     </>
   );
-
 
   const AdminSidebarLinks = (
     <>
@@ -134,11 +119,8 @@ const DashboardLayout = ({ children }) => {
           User Management
         </Link>
       </li>
-
-
     </>
   );
-
 
   return (
     <div>
@@ -158,9 +140,7 @@ const DashboardLayout = ({ children }) => {
               href={"/"}
               className="btn btn-ghost normal-case items-center text-xs md:text-xl"
             >
-              <span>
-                {/* <img className="w-10" src={logo} alt="" /> */}
-              </span>
+              <span>{/* <img className="w-10" src={logo} alt="" /> */}</span>
               <span className="text-white">Quick Ship</span>
             </Link>
           </div>
@@ -219,7 +199,7 @@ const DashboardLayout = ({ children }) => {
                       className={({ isActive, isPending }) =>
                         isPending ? `pending` : isActive ? `active` : ""
                       }
-                    // onClick={handleLogout}
+                      // onClick={handleLogout}
                     >
                       <span>
                         <MdLogout></MdLogout>

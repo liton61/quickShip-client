@@ -16,8 +16,8 @@ const CheckoutForm = ({ amount, order }) => {
   const [transactionId, setTransactionId] = useState("");
 
   const doc = new jsPDF();
-    const ProductAmount = parseFloat(amount)
-    console.log(ProductAmount);
+  const ProductAmount = parseFloat(amount);
+  console.log(ProductAmount);
   const publicAxios = usePublicAxios();
   const { user } = useAuth();
 
@@ -28,9 +28,6 @@ const CheckoutForm = ({ amount, order }) => {
     });
   }, [publicAxios, amount]);
 
-  const handleDownloadPdf = () => {
-    UserPdf.handleDownloadPdf(order);
-  };
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -78,49 +75,47 @@ const CheckoutForm = ({ amount, order }) => {
         toast.success("Successfully Payment");
         setTransactionId(paymentIntent.id);
 
-           const payment = {
-            name: user?.displayName,
-            email: user?.email,
-            amount: amount,
-            data: new Date(),
-            transactionId: paymentIntent?.id,
-           };
-           const res = await publicAxios.post("/payment", payment);
-           console.log(res.data);
+        const payment = {
+          name: user?.displayName,
+          email: user?.email,
+          amount: amount,
+          data: new Date(),
+          transactionId: paymentIntent?.id,
+        };
+        const res = await publicAxios.post("/payment", payment);
+        console.log(res.data);
+      }
+      doc.rect(18, 5, 180, 100);
+      doc.setFontSize(8);
+      doc.text("Customer copy", 20, 20);
+      doc.text(`${new Date().toLocaleDateString()}`, 160, 20);
+      doc.text(`${new Date().toLocaleTimeString()}`, 175, 20);
+      doc.setFontSize(20);
+      doc.text("Quick Ship", 105, 20, null, null, "center");
+      doc.setFontSize(10);
+      doc.text("123 Fake street,New York", 105, 25, null, null, "center");
 
+      doc.setFontSize(12);
 
-         }
-         doc.rect(18, 5, 180, 100);
-         doc.setFontSize(8);
-        doc.text('Customer copy', 20, 20);
-        doc.text(`${new Date().toLocaleDateString()}`, 160, 20);
-        doc.text(`${new Date().toLocaleTimeString()}`, 175, 20);
-        doc.setFontSize(20);
-  doc.text('Quick Ship', 105, 20, null, null, "center");
-  doc.setFontSize(10);
-  doc.text('123 Fake street,New York', 105, 25, null, null, "center");
+      doc.setFont("helvetica", "bold");
+      doc.text("Bill To", 20, 40);
+      doc.setFont("helvetica", "normal");
 
-  doc.setFontSize(12);
+      doc.setFontSize(10);
+      doc.text(`Name: ${user?.displayName}`, 20, 45);
+      doc.text(`Email: ${order?.email}`, 20, 50);
+      doc.text(`Phone: ${order?.phone}`, 20, 55);
+      doc.text(`Product Price: ${amount}`, 20, 60);
+      doc.setFontSize(10);
+      doc.text(`Delivery Date: ${order?.deliveryDate}`, 140, 45);
+      doc.text(`Tracking No: ${order?._id}`, 130, 50);
 
-  doc.setFont("helvetica", "bold");
-  doc.text('Bill To', 20, 40);
-  doc.setFont("helvetica", "normal");
+      doc.setFont("helvetica", "bold");
+      doc.text("Delivery Address", 20, 80);
+      doc.setFont("helvetica", "normal");
+      doc.text(`${order?.area}`, 20, 85);
 
-  doc.setFontSize(10);
-  doc.text(`Name: ${user?.displayName}`, 20, 45);
-  doc.text(`Email: ${order?.email}`, 20, 50);
-  doc.text(`Phone: ${order?.phone}`, 20, 55);
-  doc.text(`Product Price: ${amount}`, 20, 60);
-  doc.setFontSize(10);
-  doc.text(`Delivery Date: ${order?.deliveryDate}`, 140, 45);
-  doc.text(`Tracking No: ${order?._id}`, 130, 50);
-
-  doc.setFont("helvetica", "bold");
-  doc.text('Delivery Address', 20, 80);
-  doc.setFont("helvetica", "normal");
-  doc.text(`${order?.area}`, 20, 85);
-
-  doc.save("a4.pdf")
+      doc.save("Receipt.pdf");
     }
   };
 
@@ -144,7 +139,6 @@ const CheckoutForm = ({ amount, order }) => {
           }}
         />
         <button
-          onClick={handleDownloadPdf}
           className="btn my-5 btn-outline w-full btn-success"
           type="submit"
           disabled={!stripe || !clientSecret}

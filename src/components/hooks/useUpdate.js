@@ -1,9 +1,6 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-import usePublicAxios from "./usePublicAxios";
-
-export async function getUpdateOrder(id) {
-  const axiosPublic = usePublicAxios();
-  const result = await axiosPublic(`/order/${id}`);
-  console.log(result);
+export async function getUdateOrder(id) {
+  const result = await fetch(`https://quickship-04.vercel.app/order/${id}`, {
+    cache: "no-store",
+  });
   return result;
 }

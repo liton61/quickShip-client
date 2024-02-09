@@ -1,9 +1,6 @@
-"use client"
+"use client";
 
-import {
-  createContext, useEffect,
-  useState
-} from "react";
+import { createContext, useEffect, useState } from "react";
 import {
   GithubAuthProvider,
   GoogleAuthProvider,
@@ -14,7 +11,7 @@ import {
   signOut,
 } from "firebase/auth";
 // import usePublicAxios from "@/components/hooks/usePublicAxios";
-import auth from "@/components/Config/firebase.config";
+import auth from "../Config/firebase.config";
 
 const Google = new GoogleAuthProvider();
 const github = new GithubAuthProvider();
@@ -22,7 +19,7 @@ const github = new GithubAuthProvider();
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
-//   const publicAxios = usePublicAxios();
+  //   const publicAxios = usePublicAxios();
 
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -45,19 +42,19 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      setIsLoading(false)
-    //   if (currentUser) {
-    //     const userInfo = { email: currentUser.email };
-    //     publicAxios.post("jwt", userInfo).then((res) => {
-    //       if (res.data.token) {
-    //         localStorage.setItem("access-token", res.data.token);
-    //         setIsLoading(false);
-    //       }
-    //     });
-    //   }else{
-    //     localStorage.removeItem("access-token")
-    //     setIsLoading(false)
-    //   }
+      setIsLoading(false);
+      //   if (currentUser) {
+      //     const userInfo = { email: currentUser.email };
+      //     publicAxios.post("jwt", userInfo).then((res) => {
+      //       if (res.data.token) {
+      //         localStorage.setItem("access-token", res.data.token);
+      //         setIsLoading(false);
+      //       }
+      //     });
+      //   }else{
+      //     localStorage.removeItem("access-token")
+      //     setIsLoading(false)
+      //   }
     });
     return () => {
       unSubscribe();

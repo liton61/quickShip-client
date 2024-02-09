@@ -1,5 +1,6 @@
 "use client";
 
+import ChatBot from "@/components/chat/chat";
 import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar/Navbar";
 import Banner from "@/components/ui/Banner";
@@ -16,13 +17,13 @@ import WorldMap from "@/components/ui/WorldMap";
 const HomePage = () => {
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <Banner />
       <Parcel />
-
+      <ChatBot />
       <OurServices />
       <ProductDelivery />
-      <BestCourier/>
+      <BestCourier />
       <CallUs></CallUs>
       {/* <FeaturesSection></FeaturesSection> */}
       <Stat></Stat>

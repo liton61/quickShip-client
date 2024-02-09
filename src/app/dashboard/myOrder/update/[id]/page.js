@@ -1,12 +1,12 @@
 "use client";
-import { getUpdateOrder } from "@/components/hooks/useUpdate";
+
+import { getUdateOrder } from "@/components/hooks/useUpdate";
 import React from "react";
 import Swal from "sweetalert2";
 
 const UpdatePage = ({ params }) => {
   // const order = useUpdate();
-  const oldData = getUpdateOrder(params.id);
-
+  const oldData = getUdateOrder(params.id);
 
   console.log(oldData);
 
@@ -30,7 +30,7 @@ const UpdatePage = ({ params }) => {
     };
     console.log(updateOrder);
 
-    fetch(`http://localhost:5000/order/${params.id}`, {
+    fetch(`https://quickship-04.vercel.app/order/${params.id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

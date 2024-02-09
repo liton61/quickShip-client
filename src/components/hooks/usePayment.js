@@ -9,7 +9,6 @@ const usePayment = () => {
     queryKey: ["payment", user?.email],
     queryFn: async () => {
       const res = await publicAxios.get(`/payment?email=${user.email}`);
-    //   console.log(res.data);
       return res.data;
     },
   });

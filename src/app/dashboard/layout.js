@@ -17,7 +17,8 @@ const DashboardLayout = ({ children }) => {
 
 
   const [users] = useUser();
-  console.log(users?.role);
+
+  // console.log(users?.role);
 
   const UserSidebarLinks = (
     <>
@@ -45,7 +46,7 @@ const DashboardLayout = ({ children }) => {
         </Link>
       </li>
 
-      <li id="sidebar">
+      {/* <li id="sidebar">
         <Link
           href="/dashboard/return"
           className={({ isActive, isPending }) =>
@@ -55,7 +56,7 @@ const DashboardLayout = ({ children }) => {
           <GiReturnArrow></GiReturnArrow>
           Return Product
         </Link>
-      </li>
+      </li> */}
 
       <li id="sidebar">
         <Link

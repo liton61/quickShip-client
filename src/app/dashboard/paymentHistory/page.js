@@ -32,7 +32,7 @@ const PaymentHistory = () => {
                     <th>{index + 1}</th>
                     <td>{item?.name}</td>
                     <td>{item?.email}</td>
-                    <td>{item?.amount}</td>
+                    <td>${item?.amount}</td>
                     <td>{item?.data}</td>
                     <td>{item?.transactionId}</td>
                   </tr>

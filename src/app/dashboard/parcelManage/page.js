@@ -8,8 +8,8 @@ const UserTable = () => {
     return (
         <div>
             <div>
-                <div className="overflow-x-auto mt-10 lg:px-0 px-5">
-                    <table className="table lg:w-3/4 mx-auto w-full">
+                <div className="overflow-x-auto mt-10 px-5">
+                    <table className="table">
                         {/* head */}
                         <thead className="bg-blue-500 text-white z-20">
                             <tr>
@@ -20,7 +20,7 @@ const UserTable = () => {
                                 <th>Phone</th>
                                 <th>Price</th>
                                 <th>Date</th>
-                                <th>weight</th>
+                                {/* <th>weight</th> */}
                                 <th>Area</th>
                                 <th>Status</th>
                                 {/* <th>Time</th> */}
@@ -46,9 +46,11 @@ const UserTable = () => {
                                     <td>{item.phone}</td>
                                     <td>${item.productPrice}</td>
                                     <td>{item.deliveryDate}</td>
-                                    <td>{item.productWeight} Kg</td>
+                                    {/* <td>{item.productWeight} Kg</td> */}
                                     <td>{item.area}</td>
-                                    <td>Confirm</td>
+                                    <td>
+                                        <button>Pending</button>
+                                    </td>
                                     {/* <td>{item.time}</td> */}
                                     {/* <td>
                                         <Link to={`/dashboard/updateItem/${item._id}`}>

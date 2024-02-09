@@ -1,8 +1,11 @@
 "use client";
 import useAuth from "@/components/hooks/useAuth";
+import { getUdateOrder } from "@/components/hooks/useUpdate";
 
-const ProductReturn = () => {
+const ProductReturn = ({ params }) => {
   const { user } = useAuth();
+  const update = getUdateOrder(params.id);
+  console.log(update);
   return (
     <>
       <div className="max-w-screen-xl mx-auto lg:py-10">
@@ -139,15 +142,15 @@ const ProductReturn = () => {
                     </div>
 
                     {/* Comments */}
-                     <label className="form-control p-2 lg:px-5">
+                    <label className="form-control p-2 lg:px-5">
                       <div className="label">
                         <span className="label-text font-bold">Comments</span>
-                  
                       </div>
-                      <textarea className="textarea textarea-bordered h-24" placeholder="Comments Here...."></textarea>
-                      <div className="label">
-                        
-                      </div>
+                      <textarea
+                        className="textarea textarea-bordered h-24"
+                        placeholder="Comments Here...."
+                      ></textarea>
+                      <div className="label"></div>
                     </label>
 
                     <div className="flex justify-center mb-2 lg:mt-8">

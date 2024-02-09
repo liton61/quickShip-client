@@ -1,11 +1,15 @@
 "use client";
 import { getUdateOrder } from "@/components/hooks/useUpdate";
+import { useRouter } from "next/navigation";
 import React from "react";
 import Swal from "sweetalert2";
+
 
 const returnPage = async ({ params }) => {
   const productReturn = await getUdateOrder(params.id);
   // console.log(productReturn);
+
+ 
 
   const handleReturnOrder = (event) => {
     event.preventDefault();
@@ -41,8 +45,10 @@ const returnPage = async ({ params }) => {
             title: "success",
             text: "Return Request Submit Successfully",
             icon: "success",
-            confirmButtonText: "Cool",
+            confirmButtonText: "OK",
+            
           });
+         reset(); 
         }
       });
   };

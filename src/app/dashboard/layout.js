@@ -9,10 +9,14 @@ import { MdWorkHistory } from "react-icons/md";
 import { VscThreeBars } from "react-icons/vsc";
 import { FaJediOrder } from "react-icons/fa";
 import useAuth from "@/components/hooks/useAuth";
+import useUser from "@/components/hooks/useUser";
 
 const DashboardLayout = ({ children }) => {
   const { user } = useAuth();
   const isAdmin = true;
+
+  const [users] = useUser();
+  console.log(users?.role);
 
   const UserSidebarLinks = (
     <>
@@ -169,7 +173,7 @@ const DashboardLayout = ({ children }) => {
               <div className="divider"></div>
               <div>{UserSidebarLinks}</div>
               <div className="divider"></div>
-              {isAdmin ? AdminSidebarLinks : ""}
+              {users?.role === "admin" ? AdminSidebarLinks : ""}
               <div className="divider"></div>
             </div>
             <div>

@@ -67,7 +67,7 @@ const MyOrder = () => {
                   <th>User name</th>
                   <th>Phone Number</th>
                   <th> Price</th>
-                  <th> Weight</th>
+
                   <th>Delivery Date</th>
 
                   <th>Update</th>
@@ -81,8 +81,7 @@ const MyOrder = () => {
                     <th>{index + 1}</th>
                     <td>{item?.name}</td>
                     <td>{item?.phone}</td>
-                    <td>{item?.productPrice}</td>
-                    <td>{item?.productWeight}</td>
+                    <td>${item?.productPrice}</td>
                     <td>{item?.deliveryDate}</td>
                     <td>
                       <Link href={`/dashboard/myOrder/update/${item?._id}`}>

@@ -72,7 +72,9 @@ const MyOrder = () => {
 
                   <th>Update</th>
                   <th>Delete</th>
-                  <th>Payment </th>
+                  <th>Payment</th>
+                  <th>Return</th>
+
                 </tr>
               </thead>
               <tbody>
@@ -110,6 +112,16 @@ const MyOrder = () => {
                         </span>
                       </Link>
                     </td>
+
+                    <td>
+                      <div className="flex justify-center ">
+                        <Link href={`/dashboard/myOrder/return/${item?._id}`}>
+                          <button className="btn bg-blue-500">Return</button>
+                        </Link>
+                      </div>
+                    </td>
+
+
                   </tr>
                 ))}
               </tbody>

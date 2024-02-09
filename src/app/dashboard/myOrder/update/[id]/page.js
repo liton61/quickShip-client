@@ -5,8 +5,8 @@ import Swal from "sweetalert2";
 
 const UpdatePage = ({ params }) => {
   // const order = useUpdate();
-  // const oldData = getUpdateOrder(params.id);
-  console.log(params.id);
+  const oldData = getUpdateOrder(params.id);
+
 
   console.log(oldData);
 

@@ -1,16 +1,19 @@
 "use client";
 
-import { getUdateOrder } from "@/components/hooks/useUpdate";
+import useAuth from "@/components/hooks/useAuth";
+import usePublicAxios from "@/components/hooks/usePublicAxios";
+import useUpdate from "@/components/hooks/useUpdate";
+
 import React from "react";
 import Swal from "sweetalert2";
 
 const UpdatePage = ({ params }) => {
-  // const order = useUpdate();
-  const oldData = getUdateOrder(params.id);
+  const { user } = useAuth();
+  const axiosPublic = usePublicAxios();
 
-  console.log(oldData);
+  const productUpdate = useUpdate(params.id)
 
-  const handleUpdateOrder = (event) => {
+  const handleUpdateOrder = async (event) => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
@@ -30,25 +33,17 @@ const UpdatePage = ({ params }) => {
     };
     console.log(updateOrder);
 
-    fetch(`https://quickship-04.vercel.app/order/${params.id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updateOrder),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.modifiedCount > 0) {
-          Swal.fire({
-            title: "success",
-            text: "Order updated successfully",
-            icon: "success",
-            confirmButtonText: "Cool",
-          });
-        }
+    const res = await axiosPublic.patch(`/order/${params.id}`, updateOrder);
+
+    console.log(res.data);
+    if (res.data.modifiedCount > 0) {
+      Swal.fire({
+        title: "success",
+        text: "Order updated successfully",
+        icon: "success",
+        confirmButtonText: "Cool",
       });
+    }
   };
 
   return (
@@ -67,7 +62,7 @@ const UpdatePage = ({ params }) => {
               required
               placeholder="Enter Your Name"
               name="name"
-              defaultValue={oldData?.name}
+              defaultValue={user?.displayName}
             />
           </div>
           <div className="lg:py-2 ">
@@ -78,7 +73,7 @@ const UpdatePage = ({ params }) => {
               required
               placeholder="Enter Your email"
               name="email"
-              defaultValue={oldData?.email}
+              defaultValue={user?.email}
             />
           </div>
         </div>
@@ -91,7 +86,7 @@ const UpdatePage = ({ params }) => {
               type="text"
               required
               name="phone"
-              defaultValue={oldData?.phone}
+              defaultValue={productUpdate?.phone}
             />
           </div>
           <div className="lg:py-2 ">
@@ -101,7 +96,7 @@ const UpdatePage = ({ params }) => {
               type="text"
               required
               name="price"
-              defaultValue={oldData?.productPrice}
+              defaultValue={productUpdate?.productPrice}
             />
           </div>
         </div>
@@ -114,24 +109,24 @@ const UpdatePage = ({ params }) => {
               type="text"
               required
               name="weight"
-              defaultValue={oldData?.productWeight}
+              defaultValue={productUpdate?.productWeight}
             />
           </div>
           <div className="lg:py-2 ">
             <span className=" font-bold text-md">Delivary Time</span>
             <input
               className="w-full my-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
-              type="text"
+              type="date"
               required
               name="time"
-              defaultValue={oldData?.time}
+              defaultValue={productUpdate?.time}
             />
           </div>
         </div>
 
         <div className="md:flex mb-5">
           <div className="form-control w-full ml-4">
-            <label className="">
+            <label>
               <input
                 type="submit"
                 value="Update Order"

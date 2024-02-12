@@ -10,9 +10,9 @@ import { FaHome } from "react-icons/fa";
 import { BiLogOut, BiSolidDashboard } from "react-icons/bi";
 import { MdLogin } from "react-icons/md";
 // import { useRouter } from "next/navigation";
-import useAuth from "@/components/hooks/useAuth";
-import auth from "../../../app/Config/firebase.config";
 import toast from "react-hot-toast";
+import useAuth from "@/components/hooks/useAuth";
+import auth from "@/app/Config/firebase.config";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,15 +20,12 @@ const Navbar = () => {
   // const router = useRouter()
   const { user, logout } = useAuth();
 
-  const handleLogout = () => {
-    logout(auth)
-      .then((result) => {
-        // console.log(result?.user);
-        toast.success("Successfully LogOut");
-      })
-      .catch((error) => {
-        // console.log(error?.message);
-      });
+  console.log(user);
+
+  const handleLogOut = () => {
+    logout()
+      .then(() => {})
+      .catch((error) => console.log(error));
   };
 
   useEffect(() => {
@@ -130,17 +127,17 @@ const Navbar = () => {
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
-                {user ? (
-                  <>
-                    <div className="rounded-full border border-blue-600">
+                {user?.photoURL ? (
+                  <div className="avatar">
+                    <div className="rounded-full border-[3px] border-blue-600">
                       <Image
-                        alt=""
+                        alt="image"
                         src={user?.photoURL}
                         width={50}
                         height={50}
                       />
                     </div>
-                  </>
+                  </div>
                 ) : (
                   <Image
                     src={avatar}
@@ -182,7 +179,7 @@ const Navbar = () => {
               <hr className="border-gray-600" />
               {user ? (
                 <button
-                  onClick={handleLogout}
+                  onClick={handleLogOut}
                   className="hover:font-bold flex items-center text-left" /* to={"/login"} */
                 >
                   <span className="mr-1">

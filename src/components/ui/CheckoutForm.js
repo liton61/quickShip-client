@@ -7,8 +7,8 @@ import toast from "react-hot-toast";
 import { jsPDF } from "jspdf";
 import UserPdf from "./pdf";
 
-const CheckoutForm = ({ amount, order }) => {
-  console.log(order);
+const CheckoutForm = ({ amount, order, findOrder }) => {
+  console.log(findOrder);
   const stripe = useStripe();
   const elements = useElements();
   const [error, setError] = useState("");
@@ -103,17 +103,17 @@ const CheckoutForm = ({ amount, order }) => {
 
       doc.setFontSize(10);
       doc.text(`Name: ${user?.displayName}`, 20, 45);
-      doc.text(`Email: ${order?.email}`, 20, 50);
-      doc.text(`Phone: ${order?.phone}`, 20, 55);
+      doc.text(`Email: ${order?.email || findOrder?.email}`, 20, 50);
+      doc.text(`Phone: ${order?.phone || findOrder?.phone}`, 20, 55);
       doc.text(`Product Price: ${amount}`, 20, 60);
       doc.setFontSize(10);
-      doc.text(`Delivery Date: ${order?.deliveryDate}`, 140, 45);
-      doc.text(`Tracking No: ${order?._id}`, 130, 50);
+      doc.text(`Delivery Date: ${order?.deliveryDate || findOrder?.deliveryDate}`, 140, 45);
+      doc.text(`Tracking No: ${order?._id || findOrder?._id}`, 130, 50);
 
       doc.setFont("helvetica", "bold");
       doc.text("Delivery Address", 20, 80);
       doc.setFont("helvetica", "normal");
-      doc.text(`${order?.area}`, 20, 85);
+      doc.text(`${order?.area || findOrder?.area}`, 20, 85);
 
       doc.save("Receipt.pdf");
     }

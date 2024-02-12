@@ -163,7 +163,7 @@ function ChatBot() {
         <span className="material-symbols-rounded">mode_comment</span>
         <span className="material-symbols-outlined">close</span>
       </button>
-      <div className="chatbot z-1000">
+      <div className="chatbot z-[1000]">
         <header>
           <h2>Help Center</h2>
           <span className="close-btn material-symbols-outlined">close</span>

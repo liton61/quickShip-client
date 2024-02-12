@@ -13,11 +13,11 @@ const PaymentHistory = () => {
           miniHeader={"All Payment history here"}
         ></SectionTitle>
         <div>
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto ">
             <table className="table table-zebra">
               {/* head */}
               <thead>
-                <tr className="text-black bg-gray-300 z-20">
+                <tr className="text-black bg-gray-300 z-20 text-2xl">
                   <th>No</th>
                   <th>User name</th>
                   <th>User email</th>
@@ -26,7 +26,7 @@ const PaymentHistory = () => {
                   <th>Transaction Id</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="text-xl">
                 {payment?.map((item, index) => (
                   <tr key={item._id}>
                     <th>{index + 1}</th>

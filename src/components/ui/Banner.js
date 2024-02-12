@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import Lottie from "lottie-react";
 import React from "react";
 import wShip from "../../../public/W ship.json";

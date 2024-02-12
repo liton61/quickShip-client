@@ -2,7 +2,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import TanstackProvider from "@/app/providers/TanstackProvider";
 import { Toaster } from "react-hot-toast";
-import ChatBot from "@/components/chat/chat";
 import AuthProvider from "@/app/providers/AuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -16,7 +15,6 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <TanstackProvider>
           <AuthProvider>
-            {/* <ChatBot/> */}
             {children}
             <Toaster />
           </AuthProvider>

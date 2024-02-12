@@ -1,6 +1,10 @@
-export async function getUdateOrder(id) {
-  const result = await fetch(`https://quickship-04.vercel.app/order/${id}`, {
-    cache: "no-store",
-  });
+"use client";
+
+import usePublicAxios from "./usePublicAxios";
+
+const useUpdate = (id) => {
+  const axiosPublic = usePublicAxios();
+  const result = axiosPublic.get(`/order/${id}`);
   return result;
-}
+};
+export default useUpdate;

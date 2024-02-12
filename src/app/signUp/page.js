@@ -45,7 +45,7 @@ const SignUp = () => {
         //     navigate("/");
         //   }
         // })
-        
+
       })
       .catch((error) => {
         // console.log(error?.message);
@@ -188,7 +188,7 @@ const SignUp = () => {
                 </label>
               </div>
             </div>
-            <div className="form-control">
+            {/* <div className="form-control">
               <label className="label">
                 <span className="label-text text-white">
                   Photo URl <span className="text-red-700">*</span>
@@ -201,7 +201,7 @@ const SignUp = () => {
                 placeholder="Enter your Photo Url"
                 className="input bg-black text-white input-bordered placeholder:text-xs"
               />
-            </div>
+            </div> */}
             <div className="form-control mt-6">
               <input
                 type="submit"

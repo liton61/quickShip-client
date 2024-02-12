@@ -4,10 +4,10 @@ import CheckoutForm from "@/components/ui/CheckoutForm";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import Image from "next/image";
-import React from "react";
+
 
 const OrderPayment = ({params}) => {
-    console.log(params);
+
   const stripePromise = loadStripe("pk_test_51OEHKpItrEdLuT7QfJHV2vlSDSSTfGMzIXNJB08KN1pKingZdzESWEK2XOcaPf3CZ9NULcS3IiaGMzijEfAVz70o00WYZHsRGz");
 
   const [order] = useOrder()
@@ -54,7 +54,7 @@ const OrderPayment = ({params}) => {
 
                                 <div className="bg-[#010313] py-5 rounded-b-md shadow-md">
                                   <Elements stripe={stripePromise}>
-                                    <CheckoutForm amount ={findOrder?.productPrice}></CheckoutForm>
+                                    <CheckoutForm amount ={findOrder?.productPrice} findOrder={findOrder}></CheckoutForm>
                                   </Elements>
                                 </div>
                               </div>

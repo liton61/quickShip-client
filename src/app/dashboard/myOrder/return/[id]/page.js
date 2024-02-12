@@ -1,27 +1,21 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 import useOrder from "@/components/hooks/useOrder";
-import { getUdateOrder } from "@/components/hooks/useUpdate";
+import usePublicAxios from "@/components/hooks/usePublicAxios";
+
 
 import React from "react";
 import Swal from "sweetalert2";
 
-const returnPage = async ({ params }) => {
+const returnPage = ({ params }) => {
+  const axiosPublic = usePublicAxios();
   const [order] = useOrder();
 
-  const productReturn = await getUdateOrder(params.id);
+  const productReturn = params.id;
 
-  const urlParts = productReturn.url.split("/");
-  const orderId = urlParts[urlParts.length - 1];
+  const newOrder = order.find((order) => order._id === productReturn);
 
-  console.log(orderId);
-  console.log(order);
-
-  const newOrder = order.find((order) => order._id === orderId);
-
-  console.log(newOrder);
-
-  const handleReturnOrder = (event) => {
+  const handleReturnOrder = async (event) => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
@@ -34,32 +28,23 @@ const returnPage = async ({ params }) => {
     const returnOrder = {
       name,
       email,
-      // phone,
+      phone: newOrder.phone,
       price,
       weight,
     };
     console.log(returnOrder);
 
-    fetch(`https://quickship-04.vercel.app/order/${params.id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(returnOrder),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.modifiedCount > 0) {
-          Swal.fire({
-            title: "success",
-            text: "Return Request Submit Successfully",
-            icon: "success",
-            confirmButtonText: "OK",
-          });
-        }
-        reset();
+    const res = await axiosPublic.post(`/return`, returnOrder);
+
+    console.log(res.data);
+    if (res.data.acknowledged === true) {
+      Swal.fire({
+        title: "success",
+        text: "Return Request Submit Successfully",
+        icon: "success",
+        confirmButtonText: "OK",
       });
+    }
   };
   return (
     <div className="max-w-screen-xl mx-auto lg:py-10">

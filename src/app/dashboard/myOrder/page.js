@@ -26,7 +26,7 @@ const MyOrder = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://quickship-04.vercel.app/order/${_id}`, {
+        fetch(`http://localhost:5000/order/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

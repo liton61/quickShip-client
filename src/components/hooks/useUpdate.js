@@ -2,9 +2,9 @@
 
 import usePublicAxios from "./usePublicAxios";
 
-const useUpdate = (id) => {
+const useUpdate = async (id) => {
   const axiosPublic = usePublicAxios();
-  const result = axiosPublic.get(`/order/${id}`);
-  return result;
+  await axiosPublic.get(`/order/${id}`)
+  .then(res => console.log(res.data))
 };
 export default useUpdate;

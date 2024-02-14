@@ -1,48 +1,42 @@
 "use client";
-
 import useAuth from "@/components/hooks/useAuth";
+import useOrder from "@/components/hooks/useOrder";
 import usePublicAxios from "@/components/hooks/usePublicAxios";
-import useUpdate from "@/components/hooks/useUpdate";
-
-import React from "react";
-import Swal from "sweetalert2";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 const UpdatePage = ({ params }) => {
   const { user } = useAuth();
   const axiosPublic = usePublicAxios();
 
-  const productUpdate = useUpdate(params.id)
+  const [order] = useOrder()
+  const router = useRouter()
+
+  const productUpdate = order?.find((item) => item?._id === params?.id)
+  console.log(productUpdate);
+
+  // console.log(params.id);
 
   const handleUpdateOrder = async (event) => {
     event.preventDefault();
     const form = event.target;
-    const name = form.name.value;
-    const email = form.email.value;
     const phone = form.phone.value;
     const price = form.price.value;
     const weight = form.weight.value;
     const time = form.time.value;
 
     const updateOrder = {
-      name,
-      email,
       phone,
       price,
       weight,
       time,
     };
-    console.log(updateOrder);
-
-    const res = await axiosPublic.patch(`/order/${params.id}`, updateOrder);
-
-    console.log(res.data);
+    // console.log(updateOrder);
+    const res = await axiosPublic.put(`/order/${params.id}`, updateOrder);
+    // console.log(res.data);
     if (res.data.modifiedCount > 0) {
-      Swal.fire({
-        title: "success",
-        text: "Order updated successfully",
-        icon: "success",
-        confirmButtonText: "Cool",
-      });
+      toast.success("Product Update Successfully")
+      router.push("/dashboard/myOrder")
     }
   };
 
@@ -63,6 +57,7 @@ const UpdatePage = ({ params }) => {
               placeholder="Enter Your Name"
               name="name"
               defaultValue={user?.displayName}
+              disabled
             />
           </div>
           <div className="lg:py-2 ">
@@ -74,6 +69,7 @@ const UpdatePage = ({ params }) => {
               placeholder="Enter Your email"
               name="email"
               defaultValue={user?.email}
+              disabled
             />
           </div>
         </div>
@@ -119,7 +115,7 @@ const UpdatePage = ({ params }) => {
               type="date"
               required
               name="time"
-              defaultValue={productUpdate?.time}
+              defaultValue={productUpdate?.deliveryDate}
             />
           </div>
         </div>

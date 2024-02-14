@@ -5,7 +5,7 @@ import useAuth from "../hooks/useAuth";
 import usePublicAxios from "../hooks/usePublicAxios";
 import toast from "react-hot-toast";
 import { jsPDF } from "jspdf";
-import UserPdf from "./pdf";
+// import UserPdf from "./pdf";
 
 const CheckoutForm = ({ amount, order, findOrder }) => {
   console.log(findOrder);
@@ -17,13 +17,13 @@ const CheckoutForm = ({ amount, order, findOrder }) => {
 
   const doc = new jsPDF();
   const ProductAmount = parseFloat(amount);
-  console.log(ProductAmount);
+  // console.log(ProductAmount);
   const publicAxios = usePublicAxios();
   const { user } = useAuth();
 
   useEffect(() => {
     publicAxios.post("/create-payment-intent", { amount }).then((res) => {
-      console.log(res.data.clientSecret);
+      // console.log(res.data.clientSecret);
       setClientSecret(res.data.clientSecret);
     });
   }, [publicAxios, amount]);

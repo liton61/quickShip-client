@@ -123,6 +123,22 @@ const DashboardLayout = ({ children }) => {
     </>
   );
 
+   const deliverySidebarLinks = (
+    <>
+      <li id="sidebar">
+        <Link
+          href="/"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          <CgProfile></CgProfile>
+          Delivery men Profile
+        </Link>
+      </li>
+    </>
+  );
+
   return (
     <div>
       <div className="drawer lg:drawer-open">
@@ -177,6 +193,8 @@ const DashboardLayout = ({ children }) => {
               <div>{UserSidebarLinks}</div>
               <div className="divider"></div>
               {users?.role === "admin" ? AdminSidebarLinks : ""}
+              <div className="divider"></div>
+              {users?.role === "deliveryMen" || "admin" ? deliverySidebarLinks : ""}
               <div className="divider"></div>
             </div>
             <div>

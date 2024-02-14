@@ -1,5 +1,6 @@
-"use client";
 import Calculator from "./Calculator";
+import DeliveryCharge from "./DeliveryCharge";
+
 
 const DeliveryCalculator = () => {
   return (
@@ -12,6 +13,7 @@ const DeliveryCalculator = () => {
       </div>
       <div>
         <Calculator></Calculator>
+        <DeliveryCharge></DeliveryCharge>
       </div>
     </div>
   );

@@ -3,6 +3,7 @@
 import ChatBot from "@/components/chat/chat";
 import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar/Navbar";
+import Area from "@/app/coverageArea/Area/Area";
 import Banner from "@/components/ui/Banner";
 import BestCourier from "@/components/ui/BestCourier";
 import CallUs from "@/components/ui/CallUs";
@@ -27,6 +28,7 @@ const HomePage = () => {
       {/* <FeaturesSection></FeaturesSection> */}
       <Stat></Stat>
       <WorldMap />
+      <Area></Area>
       <ContactForm />
       <Footer></Footer>
     </>

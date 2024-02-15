@@ -113,7 +113,7 @@ header h2 {
   text-align: center;
   line-height: 32px;
   align-self: flex-end;
-  background: #2563EB;
+  /* background: #2563EB; */
   border-radius: 4px;
   margin: 0 10px 7px 0;
 }

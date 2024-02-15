@@ -14,7 +14,7 @@ import usePublicAxios from "@/components/hooks/usePublicAxios";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const publicAxios = usePublicAxios();
-  
+
   const {
     register,
     handleSubmit,
@@ -54,7 +54,7 @@ const Login = () => {
             router.push("/")
         });
         // console.log(result.user);
-        
+
         // const userInfo = {
         //   name: result?.user?.displayName,
         //   email: result?.user?.email,
@@ -105,8 +105,8 @@ const Login = () => {
       });
   };
   return (
-    <div>
-      <div className="grid md:grid-cols-2 p-5 py-14 bg-[#010313]">
+    <div className="h-screen  bg-[#010313]">
+      <div className="grid md:grid-cols-2 p-5 py-44">
         <div className="flex justify-center items-center">
           <Image src={img} className="w-full md:w-96" alt="login"></Image>
         </div>

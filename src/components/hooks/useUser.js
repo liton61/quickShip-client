@@ -4,18 +4,18 @@ import { useQuery } from "@tanstack/react-query";
 import usePublicAxios from "./usePublicAxios";
 import useAuth from "./useAuth";
 
-const usePayment = () => {
+const useUser = () => {
   const publicAxios = usePublicAxios();
   const { user } = useAuth();
-  const { refetch, data: payment = [] } = useQuery({
-    queryKey: ["payment", user?.email],
+  const { data: users = [] } = useQuery({
+    queryKey: ["users", user?.email],
     queryFn: async () => {
-      const res = await publicAxios.get(`/payment?email=${user.email}`);
+      const res = await publicAxios.get(`/users?email=${user?.email}`);
       return res.data;
     },
   });
 
-  return [payment, refetch];
+  return users;
 };
 
-export default usePayment;
+export default useUser;

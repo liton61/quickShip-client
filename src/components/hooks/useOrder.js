@@ -1,3 +1,4 @@
+"use client"
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "./useAuth";
 import usePublicAxios from "./usePublicAxios";
@@ -8,7 +9,9 @@ const useOrder = () => {
   const { refetch, data: order = [] } = useQuery({
     queryKey: ["order", user?.email],
     queryFn: async () => {
-      const res = await publicAxios.get(`/order?email=${user.email}`);
+      const res = await publicAxios.get(`/order?email=${user.email}`, {
+        cache: "no-store",
+      });
       return res.data;
     },
   });

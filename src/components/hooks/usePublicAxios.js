@@ -1,3 +1,5 @@
+"use client";
+
 import axios from "axios";
 // https://quick-ship-server.vercel.app
 export const instance = axios.create({

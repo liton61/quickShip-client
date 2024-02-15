@@ -4,26 +4,26 @@ import usePublicAxios from "@/components/hooks/usePublicAxios";
 import { useState } from "react";
 import { FaCheck } from "react-icons/fa";
 import useOrder from "@/components/hooks/useOrder";
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
-const PricingId = ({params}) => {
+const PricingId = ({ params }) => {
   const { pricingId } = params;
   // console.log(pricingId);
 
-  const [order, refetch] = useOrder()
+  const [order, refetch] = useOrder();
 
-
-  const {user} = useAuth()
+  const { user } = useAuth();
   const [deliveryDate, setDeliveryDate] = useState("");
   const [phone, setPhone] = useState("");
   const [productPrice, setProductPrice] = useState(0);
   const [productWeight, setProductWeight] = useState(0);
   const [area, setArea] = useState("");
+  const status = "pending";
 
-  const router = useRouter()
+  const router = useRouter();
 
-  const publicAxios = usePublicAxios()
+  const publicAxios = usePublicAxios();
 
   const addOrder = {
     name: user?.displayName,
@@ -32,19 +32,18 @@ const PricingId = ({params}) => {
     phone,
     productPrice,
     productWeight,
-    area
-  }
+    area,
+    status
+  };
 
   const handleOrder = async (e) => {
     e.preventDefault();
-    const res = await publicAxios.post("/order", addOrder)
+    const res = await publicAxios.post("/order", addOrder);
     // console.log(res.data);
     toast.success("Successfully Order");
-    refetch()
-    router.push("/payment")
+    refetch();
+    router.push("/payment");
   };
-
-
 
   return (
     <div>
@@ -190,12 +189,12 @@ const PricingId = ({params}) => {
                       />
                     </div>
                     <div className="flex justify-center py-5">
-                        <button
-                          type="submit"
-                          className="font-bold py-2 px-6 rounded border border-blue-700 hover:bg-blue-600"
-                        >
-                          Make Order
-                        </button>
+                      <button
+                        type="submit"
+                        className="font-bold py-2 px-6 rounded border border-blue-700 hover:bg-blue-600"
+                      >
+                        Make Order
+                      </button>
                     </div>
                   </div>
                 </div>

@@ -3,9 +3,11 @@ import { FaCommentDots, FaUserFriends } from "react-icons/fa";
 import { SiTask } from "react-icons/si";
 import useAuth from "@/components/hooks/useAuth";
 import Image from "next/image";
+import useOrder from "@/components/hooks/useOrder";
 
 const MyProfile = () => {
     const {user} = useAuth()
+    const [order] = useOrder()
     return (
       <div className="px-4 py-8 h-screen bg-[#010313] text-white space-y-8">
         <h2 className="text-2xl font-bold">
@@ -20,7 +22,7 @@ const MyProfile = () => {
               <SiTask></SiTask>
             </span>
             <div>
-              <h2 className="text-2xl font-bold">00</h2>
+              <h2 className="text-2xl font-bold">{order.length}</h2>
               <p className="text-lg font-bold">Orders</p>
             </div>
           </div>
@@ -32,7 +34,7 @@ const MyProfile = () => {
               <FaUserFriends></FaUserFriends>
             </span>
             <div>
-              <h2 className="text-2xl font-bold">00</h2>
+              <h2 className="text-2xl font-bold">06</h2>
               <p className="text-lg font-bold">Users</p>
             </div>
           </div>
@@ -44,7 +46,7 @@ const MyProfile = () => {
               <FaCommentDots></FaCommentDots>
             </span>
             <div>
-              <h2 className="text-2xl font-bold">00</h2>
+              <h2 className="text-2xl font-bold">10</h2>
               <p className="text-lg font-bold">Reviews</p>
             </div>
           </div>

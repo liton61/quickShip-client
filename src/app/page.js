@@ -24,13 +24,12 @@ const HomePage = () => {
       <OurServices />
       <ProductDelivery />
       <BestCourier />
-      <CallUs></CallUs>
-      {/* <FeaturesSection></FeaturesSection> */}
-      <Stat></Stat>
+      {/* <CallUs/> */}
+      <Stat/>
+      <Area/>
       <WorldMap />
-      <Area></Area>
       <ContactForm />
-      <Footer></Footer>
+      <Footer/>
     </>
   );
 };

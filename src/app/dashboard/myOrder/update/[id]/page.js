@@ -2,6 +2,7 @@
 import useAuth from "@/components/hooks/useAuth";
 import useOrder from "@/components/hooks/useOrder";
 import usePublicAxios from "@/components/hooks/usePublicAxios";
+import SectionTitle from "@/components/shared/SectionTitle";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
@@ -41,7 +42,9 @@ const UpdatePage = ({ params }) => {
   };
 
   return (
-    <div className="lg:w-3/4 mx-auto mt-10 bg-gray-200 p-10 rounded">
+   <div className="pt-44">
+    <SectionTitle header={"Update your parcel"} miniHeader={"Update"}/>
+     <div className="lg:w-3/4 mx-auto mt-10 bg-gray-200 p-10 rounded">
       <h2 className="text-center text-4xl">Update Order</h2>
       <form onSubmit={handleUpdateOrder} className="my-10">
         {/* form name and email row */}
@@ -133,6 +136,7 @@ const UpdatePage = ({ params }) => {
         </div>
       </form>
     </div>
+   </div>
   );
 };
 

@@ -29,12 +29,10 @@ const Login = () => {
   const onLoginSubmit = async (data) => {
     await login(data?.email, data?.password)
       .then((result) => {
-        console.log(result.user);
-        toast.success("Successfully Login");
-        router.push("/")
+        console.log(result?.user);
       })
       .catch((error) => {
-      //  console.log(error.message);
+       console.log(error.message);
        toast.error("Something wrong....try agin");
       });
   };
@@ -45,7 +43,6 @@ const Login = () => {
         const userInfo = {
           name: result?.user?.displayName,
           email: result?.user?.email,
-          image: result?.user?.photoURL
         };
 
         publicAxios.post("/users", userInfo).then((res) => {
@@ -53,26 +50,9 @@ const Login = () => {
             toast.success("Successfully Login");
             router.push("/")
         });
-        // console.log(result.user);
-
-        // const userInfo = {
-        //   name: result?.user?.displayName,
-        //   email: result?.user?.email,
-        //   image: result?.user?.photoURL
-        // };
-
-        // publicAxios.post("/users", userInfo).then((res) => {
-        //   console.log(res.data);
-        //     Swal.fire({
-        //       icon: "success",
-        //       title: "Wow...",
-        //       text: "Login Successfully....!!",
-        //     });
-        //     navigate(form, { replace: true });
-        // });
       })
       .catch((error) => {
-      //  console.log(error.message);
+       console.log(error.message);
        toast.error("Something wrong....try agin");
       });
   };
@@ -80,32 +60,24 @@ const Login = () => {
   const onGithubSubmit = () => {
     githubUser()
       .then((result) => {
-        //  console.log(result.user);
-         toast.success("Successfully Login");
-         router.push("/")
-        // const userInfo = {
-        //   name: result?.user?.displayName,
-        //   email: result?.user?.email,
-        //   image: result?.user?.photoURL,
-        // };
+        const userInfo = {
+          name: result?.user?.displayName,
+          email: result?.user?.email,
+        };
 
-        // publicAxios.post("/users", userInfo).then((res) => {
-        //   console.log(res.data);
-        //   Swal.fire({
-        //     icon: "success",
-        //     title: "Wow...",
-        //     text: "Login Successfully....!!",
-        //   });
-        //   navigate(form, { replace: true });
-        // });
+        publicAxios.post("/users", userInfo).then((res) => {
+          console.log(res.data);
+            toast.success("Successfully Login");
+            router.push("/")
+        });
       })
       .catch((error) => {
-      //  console.log(error.message);
+       console.log(error.message);
        toast.error("Something wrong....try agin");
       });
   };
   return (
-    <div className="h-screen  bg-[#010313]">
+    <div className="bg-[#010313]">
       <div className="grid md:grid-cols-2 p-5 py-44">
         <div className="flex justify-center items-center">
           <Image src={img} className="w-full md:w-96" alt="login"></Image>

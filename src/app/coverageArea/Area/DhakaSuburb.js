@@ -4,7 +4,7 @@ const DhakaSuburb = ({suburbDhaka}) => {
             <table className="table">
                 {/* head */}
                 <thead className="text-white">
-                <tr tr className = "bg-[#0D0D21]" >
+                <tr className = "bg-[#0D0D21]" >
                     <th>No</th>
                     <th>District</th>
                     <th>Area</th>
@@ -20,7 +20,7 @@ const DhakaSuburb = ({suburbDhaka}) => {
                 <tbody>
                 {/* row 1 */}
                 {suburbDhaka?.map((item, index) => (
-                    <tr key={item?._id} className = "border-b-gray-800 hover:bg-[#0D0D21]" >
+                <tr key={item?._id} className = "border-b-gray-800 hover:bg-[#0D0D21]" >
                     <th>{index + 1}</th>
                     <td>{item?.district}</td>
                     <td>{item?.area}</td>

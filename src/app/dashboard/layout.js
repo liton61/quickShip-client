@@ -120,6 +120,18 @@ const DashboardLayout = ({ children }) => {
           User Management
         </Link>
       </li>
+
+      <li id="sidebar">
+        <Link
+          href="/dashboard/returnOrder"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          <GiReturnArrow />
+          Return Order
+        </Link>
+      </li>
     </>
   );
 

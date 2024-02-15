@@ -6,7 +6,7 @@ const PaymentHistory = () => {
     const [payment] = usePayment()
     // console.log(payment);
   return (
-    <div>
+    <div className = "bg-[#010313] text-white" >
       <div className="py-8 px-5 ">
         <SectionTitle
           header={"Payment history"}
@@ -14,10 +14,10 @@ const PaymentHistory = () => {
         ></SectionTitle>
         <div>
           <div className="overflow-x-auto ">
-            <table className="table table-zebra">
+            <table className="table">
               {/* head */}
-              <thead>
-                <tr className="text-black bg-gray-300 z-20 text-md">
+              <thead className = "text-white" >
+                <tr className = "bg-[#0D0D21]" >
                   <th>No</th>
                   <th>User name</th>
                   <th>User email</th>
@@ -28,7 +28,10 @@ const PaymentHistory = () => {
               </thead>
               <tbody className="text-sm">
                 {payment?.map((item, index) => (
-                  <tr key={item._id}>
+                  <tr key = {
+                    item._id
+                  }
+                  className = "border-b-gray-800 hover:bg-[#0D0D21]" >
                     <th>{index + 1}</th>
                     <td>{item?.name}</td>
                     <td>{item?.email}</td>

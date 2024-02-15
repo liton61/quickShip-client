@@ -36,6 +36,7 @@ const PricingId = ({ params }) => {
     productPrice,
     productWeight,
     area,
+    status: "pending"
   };
 
   const handleOrder = async (e) => {

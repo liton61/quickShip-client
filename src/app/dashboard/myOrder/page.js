@@ -23,7 +23,7 @@ const MyOrder = () => {
   };
 
   return (
-    <div>
+    <div className = "bg-[#010313] text-white h-screen" >
       <div className="py-8 px-5 ">
         <SectionTitle
           header={"Order history"}
@@ -31,10 +31,10 @@ const MyOrder = () => {
         ></SectionTitle>
         <div>
           <div className="overflow-x-auto">
-            <table className="table table-zebra">
+            <table className="table">
               {/* head */}
-              <thead>
-                <tr className="text-black bg-gray-300 z-20">
+              <thead className = "text-white" >
+                <tr className = "bg-[#0D0D21]" >
                   <th>No</th>
                   <th>User name</th>
                   <th>Phone Number</th>
@@ -47,7 +47,10 @@ const MyOrder = () => {
               </thead>
               <tbody>
                 {order?.map((item, index) => (
-                  <tr key={item._id}>
+                  <tr className = "border-b-gray-800 hover:bg-[#0D0D21]"
+                  key = {
+                    item._id
+                  } >
                     <th>{index + 1}</th>
                     <td>{item?.name}</td>
                     <td>{item?.phone}</td>

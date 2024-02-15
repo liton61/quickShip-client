@@ -19,6 +19,7 @@ const PricingId = ({ params }) => {
   const [productPrice, setProductPrice] = useState(0);
   const [productWeight, setProductWeight] = useState(0);
   const [area, setArea] = useState("");
+  const status = "pending";
 
   const router = useRouter();
 
@@ -32,6 +33,7 @@ const PricingId = ({ params }) => {
     productPrice,
     productWeight,
     area,
+    status
   };
 
   const handleOrder = async (e) => {

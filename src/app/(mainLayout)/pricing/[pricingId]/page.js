@@ -6,10 +6,14 @@ import { FaCheck } from "react-icons/fa";
 import useOrder from "@/components/hooks/useOrder";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import usePricing from "@/components/hooks/usePricing";
 
 const PricingId = ({ params }) => {
   const { pricingId } = params;
-  // console.log(pricingId);
+  const [pricing] = usePricing()
+
+  const findPrice = pricing?.find((item) => item?._id === pricingId)
+  console.log(findPrice);
 
   const [order, refetch] = useOrder();
 
@@ -33,7 +37,7 @@ const PricingId = ({ params }) => {
     productPrice,
     productWeight,
     area,
-    status
+    status: "pending"
   };
 
   const handleOrder = async (e) => {
@@ -159,6 +163,7 @@ const PricingId = ({ params }) => {
                           required
                           placeholder="Price"
                           name="price"
+                          defaultValue={findPrice?.price}
                         />
                       </div>
                       <div className="py-2 w-1/2">

@@ -142,6 +142,34 @@ const DashboardLayout = ({ children }) => {
           Application
         </Link>
       </li>
+
+      <li id="sidebar">
+        <Link
+          href="/dashboard/returnOrder"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          <GiReturnArrow />
+          Return Order
+        </Link>
+      </li>
+    </>
+  );
+
+   const deliverySidebarLinks = (
+    <>
+      <li id="sidebar">
+        <Link
+          href="/"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          <CgProfile></CgProfile>
+          Delivery men Profile
+        </Link>
+      </li>
     </>
   );
 
@@ -199,6 +227,8 @@ const DashboardLayout = ({ children }) => {
               <div>{UserSidebarLinks}</div>
               <div className="divider"></div>
               {users?.role === "admin" ? AdminSidebarLinks : ""}
+              <div className="divider"></div>
+              {users?.role === "deliveryMen" || "admin" ? deliverySidebarLinks : ""}
               <div className="divider"></div>
             </div>
             <div>

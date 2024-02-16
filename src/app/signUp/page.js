@@ -7,9 +7,11 @@ import Link from "next/link";
 import Image from "next/image";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import usePublicAxios from "@/components/hooks/usePublicAxios";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const publicAxios = usePublicAxios()
   const {
     register,
     handleSubmit,
@@ -26,41 +28,33 @@ const SignUp = () => {
     await createUser(data?.email, data?.password)
       .then((result) => {
         console.log(result?.user);
-        toast.success("Successfully Sign Up");
-        router.push("/")
-        // const userInfo = {
-        //   name: data?.name,
-        //   email: data?.email,
-        //   image: data?.image,
-        // };
+       const userInfo = {
+          name: data?.name,
+          email: data?.email,
+        };
 
-        // publicAxios.post("/users", userInfo)
-        // .then(res =>{
-        //   if (res?.data?.insertedId) {
-        //     Swal.fire({
-        //       icon: "success",
-        //       title: "Wow...",
-        //       text: "Sign up Successfully....!!",
-        //     });
-        //     navigate("/");
-        //   }
-        // })
+        publicAxios.post("/users", userInfo).then((res) => {
+          console.log(res.data);
+            toast.success("Successfully Sign Up");
+            router.push("/")
+        });
+      
 
       })
       .catch((error) => {
-        // console.log(error?.message);
+        console.log(error?.message);
         toast.error("Something wrong....try agin");
       });
   };
 
   return (
     <div>
-      <div className="md:flex py-14 lg:space-x-5 lg:flex-row-reverse bg-[#010313]">
-        <div className="flex w-1/2 justify-center items-center">
-          <Image src={signUpImg} className="md:h-[500px]" alt="signUp"></Image>
+      <div className = "grid md:grid-cols-2 p-5 py-44 bg-[#010313]" >
+        <div className = "flex justify-center items-center" >
+          <Image src={signUpImg} className="w-full md:w-96" alt="signUp"></Image>
         </div>
 
-        <div className="card flex-shrink-0 w-1/2 max-w-sm shadow-2xl bg-[#0e0d21] ">
+        <div className = "card flex-shrink-0 w-full max-w-sm shadow-2xl bg-[#0e0d21] " >
           <Link
             href={"/"}
             className="text-3xl mt-4 font-extrabold text-center text-[#c29a4b] text-opacity-50"

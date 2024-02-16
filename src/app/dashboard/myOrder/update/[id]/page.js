@@ -112,7 +112,7 @@ const UpdatePage = ({ params }) => {
             />
           </div>
           <div className="lg:py-2 ">
-            <span className=" font-bold text-md">Delivary Time</span>
+            <span className=" font-bold text-md">Delivery Time</span>
             <input
               className="w-full my-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
               type="date"

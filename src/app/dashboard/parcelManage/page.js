@@ -1,8 +1,5 @@
 "use client"
-
-import useParcel from "@/components/hooks/useParcel";
-import usePublicAxios from "@/components/hooks/usePublicAxios";
-import toast from "react-hot-toast";
+import useOrder from "@/components/hooks/useOrder";
 
 
 const UserTable = () => {
@@ -25,17 +22,14 @@ const UserTable = () => {
                         {/* head */}
                         <thead className="bg-blue-300 text-white z-20">
                             <tr>
-                                <th>No</th>
-                                {/* <th>Image</th> */}
+                                <th>#</th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
                                 <th>Price</th>
                                 <th>Date</th>
-                                {/* <th>weight</th> */}
                                 <th>Area</th>
                                 <th>Status</th>
-                                {/* <th>Time</th> */}
                             </tr>
                         </thead>
                         <tbody className="text-xs">
@@ -46,36 +40,13 @@ const UserTable = () => {
                                     <td>
                                         {index + 1}
                                     </td>
-                                    {/* <td>
-                                        <div className="flex items-center gap-3">
-                                            <div className="avatar">
-                                                <div className="rounded-full w-12 h-12">
-                                                    <Image src={item.image} alt="Avatar Tailwind CSS Component" width={500} height={500}/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td> */}
-                                    <td>{item?.name}</td>
-                                    <td>{item?.email}</td>
-                                    <td>{item?.phone}</td>
-                                    <td>${item?.productPrice}</td>
-                                    <td>{item?.deliveryDate}</td>
-                                    {/* <td>{item.productWeight} Kg</td> */}
-                                    <td>{item?.area}</td>
-                                    <td>
-                                        {
-                                            item?.status === "pending" ? <button onClick={() => handlePending(item?._id)} className="badge badge-secondary badge-outline">{item?.status}</button> : <button className="badge badge-success badge-outline">{item?.status}</button>
-                                        }
-                                    </td>
-                                    {/* <td>{item.time}</td> */}
-                                    {/* <td>
-                                        <Link to={`/dashboard/updateItem/${item._id}`}>
-                                            <button><i className="fas fa-edit text-xl text-green-600 mt-3"></i></button>
-                                        </Link>
-                                    </td> */}
-                                    {/* <td>
-                                        <button onClick={() => handleDeleteItem(item)}><i className="fa-solid fa-trash-can text-xl text-red-600 mt-3"></i></button>
-                                    </td> */}
+                                    <td>{item.name}</td>
+                                    <td>{item.email}</td>
+                                    <td>{item.phone}</td>
+                                    <td>${item.productPrice}</td>
+                                    <td>{item.deliveryDate}</td>
+                                    <td>{item.area}</td>
+                                    <td className="text-red-600">{item.status}</td>
                                 </tr>)
                             }
                         </tbody>

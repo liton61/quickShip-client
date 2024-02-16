@@ -32,10 +32,8 @@ const UserTable = () => {
                                 <th>Phone</th>
                                 <th>Price</th>
                                 <th>Date</th>
-                                {/* <th>weight</th> */}
                                 <th>Area</th>
                                 <th>Status</th>
-                                {/* <th>Time</th> */}
                             </tr>
                         </thead>
                         <tbody className="text-xs">

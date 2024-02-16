@@ -105,7 +105,7 @@ const DashboardLayout = ({ children }) => {
           }
         >
           <FaBoxOpen></FaBoxOpen>
-          Parcel Manage
+          Manage Parcel
         </Link>
       </li>
 
@@ -117,7 +117,29 @@ const DashboardLayout = ({ children }) => {
           }
         >
           <FaUsers></FaUsers>
-          User Management
+          Manage User
+        </Link>
+      </li>
+      <li id="sidebar">
+        <Link
+          href="/dashboard/deliveryBoy"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          <FaUsers></FaUsers>
+          Delivery Boy
+        </Link>
+      </li>
+      <li id="sidebar">
+        <Link
+          href="/dashboard/application"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          <FaUsers></FaUsers>
+          Application
         </Link>
       </li>
 
@@ -175,7 +197,7 @@ const DashboardLayout = ({ children }) => {
           </div>
           {/* Page content here */}
           {children}
-          <ChatBot/>
+          <ChatBot />
         </div>
         <div className="drawer-side">
           <label
@@ -230,7 +252,7 @@ const DashboardLayout = ({ children }) => {
                       className={({ isActive, isPending }) =>
                         isPending ? `pending` : isActive ? `active` : ""
                       }
-                      // onClick={handleLogout}
+                    // onClick={handleLogout}
                     >
                       <span>
                         <MdLogout></MdLogout>

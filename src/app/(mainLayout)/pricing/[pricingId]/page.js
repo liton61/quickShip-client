@@ -23,6 +23,7 @@ const PricingId = ({ params }) => {
   const [productPrice, setProductPrice] = useState(0);
   const [productWeight, setProductWeight] = useState(0);
   const [area, setArea] = useState("");
+  const status = "pending";
 
   const router = useRouter();
 

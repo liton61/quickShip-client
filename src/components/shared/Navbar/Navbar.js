@@ -24,32 +24,26 @@ const Navbar = () => {
 
   const handleLogOut = () => {
     logout()
-      .then(() => {})
+      .then(() => { })
       .catch((error) => console.log(error));
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const isNavbarScrolled = scrollTop > 0;
-      setIsScrolled(isNavbarScrolled);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const scrollTop = window.scrollY;
+  //     const isNavbarScrolled = scrollTop > 0;
+  //     setIsScrolled(isNavbarScrolled);
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   return (
     <div>
       <div
-        className="navbar"
-        style={{
-          position: "fixed",
-          backgroundColor: isScrolled ? "#000C21" : "transparent",
-          zIndex: 1000,
-        }}
-      >
+        className="navbar bg-[#000C21]">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -84,7 +78,7 @@ const Navbar = () => {
                 <Link href="/calculator">Calculator</Link>
               </li>
               <li>
-                <Link href="/pricing">Product Order</Link>
+                <Link href="/pricing">Booking</Link>
               </li>
             </ul>
           </div>
@@ -118,9 +112,15 @@ const Navbar = () => {
             <li className="text-md mx-3 font-semibold text-blue-500">
               <Link href="/pricing">Booking</Link>
             </li>
-            {/* <li className="text-md mx-3 font-semibold text-blue-500">
-              <Link href="/dashboard">Dashboard</Link>
-            </li> */}
+            <>
+              {
+                user && (
+                  <li className="text-md mx-3 font-semibold text-blue-500">
+                    <Link href="/job">Jobs</Link>
+                  </li>
+                )
+              }
+            </>
           </ul>
         </div>
         <div className="navbar-end">

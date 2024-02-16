@@ -21,10 +21,8 @@ const Banner = () => {
                 Reliable Service <br />
                 Every Time
               </h1>
-              <p className="">
-                Nullam ac aliquam purus. Donec tempor, metus sed porttitor
-                posuere, elit sapien rutrum elit, eget tincidunt nisl tortor nec
-                metus. Donec tempor rhoncus convallis.
+              <p>
+                QuickShip, the epitome of efficiency in the realm of international courier services, stands as a beacon for swift and reliable parcel deliveries across borders.
               </p>
               <div className="join">
                 <div>

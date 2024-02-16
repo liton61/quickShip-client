@@ -3,6 +3,7 @@ import "./globals.css";
 import TanstackProvider from "@/app/providers/TanstackProvider";
 import { Toaster } from "react-hot-toast";
 import AuthProvider from "@/app/providers/AuthProvider";
+import Provider from "./providers/NextUIProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
@@ -15,7 +16,9 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <TanstackProvider>
           <AuthProvider>
-            {children}
+            <Provider>
+              {children}
+            </Provider>
             <Toaster />
           </AuthProvider>
         </TanstackProvider>

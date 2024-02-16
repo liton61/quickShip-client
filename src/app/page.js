@@ -13,6 +13,8 @@ import Parcel from "@/components/ui/Parcel";
 import ProductDelivery from "@/components/ui/ProductDelivery";
 import Stat from "@/components/ui/Stat";
 import WorldMap from "@/components/ui/WorldMap";
+import FaqSection from "@/components/ui/FaqSection";
+
 
 const HomePage = () => {
   return (
@@ -27,6 +29,7 @@ const HomePage = () => {
       {/* <CallUs/> */}
       <Stat/>
       <Area/>
+      <FaqSection/>
       <WorldMap />
       <ContactForm />
       <Footer/>

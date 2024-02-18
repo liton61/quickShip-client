@@ -30,28 +30,22 @@ const Navbar = () => {
       toast.error("Log out from this site")
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const isNavbarScrolled = scrollTop > 0;
-      setIsScrolled(isNavbarScrolled);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const scrollTop = window.scrollY;
+  //     const isNavbarScrolled = scrollTop > 0;
+  //     setIsScrolled(isNavbarScrolled);
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   return (
     <div>
       <div
-        className="navbar"
-        style={{
-          position: "fixed",
-          backgroundColor: isScrolled ? "#000C21" : "transparent",
-          zIndex: 1000,
-        }}
-      >
+        className="navbar bg-[#000C21]">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -86,7 +80,7 @@ const Navbar = () => {
                 <Link href="/calculator">Calculator</Link>
               </li>
               <li>
-                <Link href="/pricing">Product Order</Link>
+                <Link href="/pricing">Booking</Link>
               </li>
             </ul>
           </div>

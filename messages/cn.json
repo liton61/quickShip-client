@@ -1,0 +1,46 @@
+{
+  "Index": {
+    "title": "每次都可靠的服务",
+    "subTitle": "快船, 作为国际快递服务领域中效率的典范，是跨越国界的快速可靠包裹递送的标志。",
+    "track": "立即跟踪",
+    "trackId": "您的追踪号..."
+  },
+  "Works": {
+    "heading": "我们如何交付您的包裹",
+    "subHeading": "它是如何工作的",
+    "Parcel Register": "包裹注册",
+    "Parcel Loading": "包裹装载",
+    "Parcel In-transit": "包裹在途",
+    "Parcel Delivery": "包裹投递",
+    "Parcel Register description": "跟踪和有效管理货物详细信息的关键组成部分。",
+    "Parcel Loading description": "高效处理货物装载到运输车辆上的关键部分。",
+    "Parcel In-transit description": "确保物流网络内顺利过渡的重要阶段。",
+    "Parcel Delivery description": "确保为满意的客户及时交付的最后一步。"
+  },
+
+  "Service": {
+    "title": "我们的相关服务",
+    "miniHeader": "我们的服务",
+    "Parcel Delivery": "包裹投递",
+    "Bulk Shipment": "批量装运",
+    "Customized Solutions": "定制解决方案",
+    "Line Haul": "线路运输",
+    "Load/Unload": "装载/卸载",
+    "Logistics as a service": "物流服务",
+    "Truck Rent": "卡车租赁",
+    "Warehouse": "仓库",
+    "Parcel Delivery description": "为个人(C2C)、小型企业 (B2C) 和公司 (B2B) 提供的第一英里取件、最后一英里投递服务。",
+    "Bulk Shipment description": "针对大件物品和大批量的专业解决方案。",
+    "Customized Solutions description": "为您独特的业务需求量身定制的解决方案。",
+    "Line Haul description": "包括 FTL(整车货运）和 LTL(零担货运）在内的货运解决方案。",
+    "Load/Unload description": "工厂、项目现场和港口的行业特定装卸服务。",
+    "Logistics as a service description": "外包物流需求，为您的公司提供专属团队。",
+    "Truck Rent description": "在孟加拉国任何地方以任何大小租用开放卡车和有盖货车。",
+    "Warehouse description": "包括存储、分类、加工等完整的履行解决方案。"
+  },
+  "Area": {
+    "text": "Quick Ship在孟加拉国的所有64个区和493个子区以及整个世界提供物流支持。",
+    "subText": "无论您的物流需求如何，我们都保证在全国范围内提供最快的服务。",
+    "button": "查看我们的覆盖区域"
+  }
+}

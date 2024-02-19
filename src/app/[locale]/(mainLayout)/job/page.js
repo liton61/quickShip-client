@@ -15,13 +15,13 @@ const page = () => {
         const email = form.email.value;
         const name = form.name.value;
         const age = form.age.value;
-        const image = form.image.value;
+        const address = form.address.value;
         const salary = form.salary.value;
         const experience = form.experience.value;
         const description = form.description.value;
         const role = "user";
 
-        const userInfo = { email, age, name, image, salary, experience, description, role, }
+        const userInfo = { email, age, name, address, salary, experience, description, role, }
         console.log(userInfo);
 
         // send data to the server
@@ -45,10 +45,10 @@ const page = () => {
     }
 
     return (
-        <div className="py-32 bg-gray-100 lg:px-0 px-5">
+        <div className="py-14 bg-gray-100 lg:px-0 px-5">
             <div className="pb-5">
                 <h1 className="text-center text-2xl font-bold">Wanna Be a Delivery Boy ?</h1>
-                <p className="text-center font-medium text-blue-600">Please fill up the form</p>
+                <p className="text-center font-medium text-blue-600">Please fill up the form !</p>
             </div>
             <form onSubmit={handleApplied} className="lg:w-3/4 mx-auto bg-white lg:p-10 p-5 py-5 rounded">
                 <div className='lg:flex gap-5 justify-center mb-4'>
@@ -57,7 +57,7 @@ const page = () => {
                             <span className='label-text font-bold'>Full Name</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name='name' placeholder="Your Full Name" className="input input-bordered focus:outline-none w-full" />
+                            <input type="text" name='name' placeholder="Your Full Name" className="input input-bordered focus:outline-none w-full" required />
                         </label>
                     </div>
                     <div className="form-control lg:w-1/2 w-full">
@@ -75,15 +75,15 @@ const page = () => {
                             <span className='label-text font-bold'>Your Age</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name='age' placeholder="Enter Your Age" className="input input-bordered focus:outline-none w-full" />
+                            <input type="text" name='age' placeholder="Your Age" className="input input-bordered focus:outline-none w-full" required />
                         </label>
                     </div>
                     <div className="form-control lg:w-1/2 w-full">
                         <label className="label">
-                            <span className='label-text font-bold'>Image URL</span>
+                            <span className='label-text font-bold'>Your Address</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name='image' placeholder="Enter image URL" className="input input-bordered focus:outline-none w-full" />
+                            <input type="text" name='address' placeholder="Your Address" className="input input-bordered focus:outline-none w-full" required />
                         </label>
                     </div>
                 </div>
@@ -94,7 +94,7 @@ const page = () => {
                             </span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name='experience' placeholder="Year of experience" className="input input-bordered focus:outline-none w-full" />
+                            <input type="text" name='experience' placeholder="Year of experience" className="input input-bordered focus:outline-none w-full" required />
                         </label>
                     </div>
                     <div className="form-control lg:w-1/2 w-full">
@@ -103,7 +103,7 @@ const page = () => {
                             </span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name='salary' placeholder="Salary" className="input input-bordered focus:outline-none w-full" />
+                            <input type="text" name='salary' placeholder="Salary" className="input input-bordered focus:outline-none w-full" required />
                         </label>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { FaBoxOpen, FaHome, FaUsers } from "react-icons/fa";
+import { FaBoxOpen, FaBriefcase, FaHome, FaUser, FaUsers } from "react-icons/fa";
 import { MdLogout } from "react-icons/md";
 import { GiReturnArrow } from "react-icons/gi";
 import { CgProfile } from "react-icons/cg";
@@ -105,7 +105,7 @@ const DashboardLayout = ({ children }) => {
           }
         >
           <FaBoxOpen></FaBoxOpen>
-          Manage Parcel
+          Manage Parcels
         </Link>
       </li>
 
@@ -117,7 +117,7 @@ const DashboardLayout = ({ children }) => {
           }
         >
           <FaUsers></FaUsers>
-          Manage User
+          Manage Users
         </Link>
       </li>
       <li id="sidebar">
@@ -127,7 +127,7 @@ const DashboardLayout = ({ children }) => {
             isPending ? "pending" : isActive ? "active" : ""
           }
         >
-          <FaUsers></FaUsers>
+          <FaUser></FaUser>
           Delivery Boy
         </Link>
       </li>
@@ -138,7 +138,7 @@ const DashboardLayout = ({ children }) => {
             isPending ? "pending" : isActive ? "active" : ""
           }
         >
-          <FaUsers></FaUsers>
+          <FaBriefcase></FaBriefcase>
           Application
         </Link>
       </li>
@@ -157,7 +157,7 @@ const DashboardLayout = ({ children }) => {
     </>
   );
 
-   const deliverySidebarLinks = (
+  const deliverySidebarLinks = (
     <>
       <li id="sidebar">
         <Link

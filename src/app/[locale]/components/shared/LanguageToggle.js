@@ -5,20 +5,8 @@ import { useEffect, useState } from 'react';
 
 const LanguageToggle = () => {
     const router = useRouter();
-    const [selectedLanguage, setSelectedLanguage] = useState();
-
-    const getLanguageCode = () => {
-        if (typeof window !== 'undefined') {
-            const currentPathname = window.location.pathname;
-            const languageCode = currentPathname.split("/")[1];
-            return languageCode;
-        }
-        return null; // Return a default value or handle the case where window is not available
-    };
-
-    const languageCode = getLanguageCode();
-
-    console.log(languageCode)
+    const [selectedLanguage, setSelectedLanguage] = useState("en");
+    console.log(router)
 
     useEffect(() => {
         if (router.pathname) {
@@ -26,7 +14,6 @@ const LanguageToggle = () => {
 
             if (language && ['en', 'bn', 'hi', 'ar', 'cn'].includes(language)) {
                 setSelectedLanguage(language);
-
             }
         }
     }, [router.pathname]);
@@ -35,8 +22,9 @@ const LanguageToggle = () => {
         e.preventDefault();
         const nextLocale = e.target.value;
         setSelectedLanguage(nextLocale);
-        router.push(`/${nextLocale}`);
+        router.push(`/${nextLocale}`, undefined, { shallow: true });
     };
+
 
 
     return (
@@ -45,8 +33,9 @@ const LanguageToggle = () => {
             onChange={onSelectChange}
             value={selectedLanguage}
         >
+            <option disabled selected>
 
-            <option disabled selected>{languageCode?.toString()?.toUpperCase()}</option>
+            </option>
             <option value="en">EN</option>
             <option value="bn">বাং</option>
             <option value="ar">AR</option>

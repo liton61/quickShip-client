@@ -16,6 +16,7 @@ import WorldMap from "@/components/ui/WorldMap";
 import FaqSection from "@/components/ui/FaqSection";
 
 
+
 const HomePage = () => {
   return (
     <>
@@ -26,7 +27,7 @@ const HomePage = () => {
       <OurServices />
       <ProductDelivery />
       <BestCourier />
-      {/* <CallUs/> */}
+      <CallUs/>
       <Stat/>
       <Area/>
       <FaqSection/>

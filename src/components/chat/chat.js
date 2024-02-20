@@ -2,7 +2,7 @@
 import "./chat.css";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import avatar from '../../asstes/avatar.png';
+import avatar from '../../assets/avatar.png';
 
 function ChatBot() {
   const chatInputRef = useRef(null);
@@ -42,7 +42,6 @@ function ChatBot() {
       "more information": "Please, contact us with Mob:+8801660166344 or gmail:quickship@qship.com",
       "information": "Please, contact us with Mob:+8801660166344 or gmail:quickship@qship.com",
       "i want to know more information about this": "Please, contact us with Mob:+8801660166344 or gmail:quickship@qship.com",
-
     };
 
     // Check if the user's message matches any predefined question

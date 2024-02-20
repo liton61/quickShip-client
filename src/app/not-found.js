@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import ErrorImg from "../asstes/404-best2.gif";
+import ErrorImg from "../assets/404-best2.gif";
 
 const notFound = () => {
   return (

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import deliveryimg from "../../asstes/delivery.png";
+import deliveryimg from "../../assets/delivery.png";
 
 const ProductDelivery = () => {
   return (

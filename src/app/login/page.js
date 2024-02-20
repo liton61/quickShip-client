@@ -1,7 +1,7 @@
 "use client"
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
-import img from "../assets/login.png"
+import img from "../../assets/login.png"
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../components/hooks/useAuth";

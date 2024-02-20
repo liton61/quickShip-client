@@ -1,9 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
 import Lottie from 'lottie-react';
 import React from 'react';
-import fast from '../../asstes/fast-delivery.json';
-import safety from '../../asstes/safety.json';
-import author from '../../asstes/author.json';
+import fast from '../../assets/fast-delivery.json';
+import safety from '../../assets/safety.json';
+import author from '../../assets/author.json';
 
 const FeaturesSection = () => {
     return (

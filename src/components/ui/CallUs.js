@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import scooter from "../../asstes/scooter.gif";
+import scooter from "../../assets/scooter.gif";
 import Image from "next/image";
 
 const CallUs = () => {

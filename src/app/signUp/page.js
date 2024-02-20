@@ -1,6 +1,6 @@
 "use client"
 import useAuth from "../../components/hooks/useAuth";
-import signUpImg from "../assets/signUp.png";
+import signUpImg from "../../assets/signUp.png";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Link from "next/link";

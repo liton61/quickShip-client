@@ -11,6 +11,8 @@ import { FaJediOrder } from "react-icons/fa";
 import useAuth from "../../components/hooks/useAuth";
 import useUser from "../../components/hooks/useUser";
 import ChatBot from "../../components/chat/chat";
+import LottieEffect from "@/components/shared/Lottie";
+import logo from '../../../public/Logo (1).json';
 
 const DashboardLayout = ({ children }) => {
   const { user } = useAuth();
@@ -191,8 +193,7 @@ const DashboardLayout = ({ children }) => {
               href={"/"}
               className="btn btn-ghost normal-case items-center text-xs md:text-xl"
             >
-              <span>{/* <img className="w-10" src={logo} alt="" /> */}</span>
-              <span className="text-white">Quick Ship</span>
+                <span className="text-white">Quick Ship</span>
             </Link>
           </div>
           {/* Page content here */}
@@ -211,16 +212,12 @@ const DashboardLayout = ({ children }) => {
               <div>
                 <Link
                   href={"/"}
-                  className="flex space-x-2 font-bold mt-5 normal-case items-center text-xs md:text-xl"
+                  className="flex flex-col space-x-2 font-bold mt-5 normal-case items-center text-xs md:text-xl"
                 >
-                  <span>
-                    {/* <img
-                      className="w-10"
-                      src={logo}
-                      alt=""
-                    /> */}
+                  <span className="w-32">
+                  <LottieEffect image={logo} />
                   </span>
-                  <span className="text-white">Quick Ship</span>
+                  <span className="text-blue-600 hover:text-white italic">Quick Ship</span>
                 </Link>
               </div>
               <div className="divider"></div>

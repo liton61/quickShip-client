@@ -1,5 +1,5 @@
 import React from 'react';
-import deliveryimg from '../../asstes/delivery-boy.png';
+import deliveryimg from '../../assets/delivery-boy.png';
 import Image from 'next/image';
 
 const BestCourier = () => {

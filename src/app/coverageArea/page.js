@@ -1,10 +1,10 @@
 "use client"
-import useArea from "@/components/hooks/useArea";
-import Container from "@/components/shared/Container";
-import CoverageNav from "@/app/coverageArea/Area/CoverageNav";
-import DhakaSuburb from "@/app/coverageArea/Area/DhakaSuburb";
-import InsideDhaka from "@/app/coverageArea/Area/InsideDhaka";
-import OutsideDhaka from "@/app/coverageArea/Area/OutsideDhaka";
+import useArea from "../../components/hooks/useArea";
+import Container from "../../components/shared/Container";
+import CoverageNav from "./Area/CoverageNav";
+import DhakaSuburb from "./Area/DhakaSuburb";
+import InsideDhaka from "./Area/InsideDhaka";
+import OutsideDhaka from "./Area/OutsideDhaka";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 

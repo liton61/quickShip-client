@@ -1,7 +1,7 @@
 "use client";
 
-import useCalculator from "@/components/hooks/useCalculator";
-import usePublicAxios from "@/components/hooks/usePublicAxios";
+import useCalculator from "../../../components/hooks/useCalculator";
+import usePublicAxios from "../../../components/hooks/usePublicAxios";
 import { useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { BiReset } from "react-icons/bi";

@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client"
-import usePublicAxios from '@/components/hooks/usePublicAxios';
+import usePublicAxios from '../../../components/hooks/usePublicAxios';
 import { useQuery } from '@tanstack/react-query';
 import { FaTrash, FaUser } from 'react-icons/fa';
 import Swal from 'sweetalert2';

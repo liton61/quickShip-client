@@ -1,6 +1,6 @@
 "use client"
-import useOrder from "@/components/hooks/useOrder";
-import CheckoutForm from "@/components/ui/CheckoutForm";
+import useOrder from "../../../../components/hooks/useOrder";
+import CheckoutForm from "../../../../components/ui/CheckoutForm";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import Image from "next/image";

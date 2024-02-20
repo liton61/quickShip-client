@@ -11,8 +11,9 @@ import { BiLogOut, BiSolidDashboard } from "react-icons/bi";
 import { MdLogin } from "react-icons/md";
 // import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import useAuth from "@/components/hooks/useAuth";
-import auth from "@/app/Config/firebase.config";
+import useAuth from "../../hooks/useAuth";
+
+
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -20,12 +21,12 @@ const Navbar = () => {
   // const router = useRouter()
   const { user, logout } = useAuth();
 
-  console.log(user);
 
   const handleLogOut = () => {
     logout()
       .then(() => { })
       .catch((error) => console.log(error));
+    toast.error("Log out from this site")
   };
 
   // useEffect(() => {
@@ -112,18 +113,12 @@ const Navbar = () => {
             <li className="text-md mx-3 font-semibold text-blue-500">
               <Link href="/pricing">Booking</Link>
             </li>
-            <>
-              {
-                user && (
-                  <li className="text-md mx-3 font-semibold text-blue-500">
-                    <Link href="/job">Jobs</Link>
-                  </li>
-                )
-              }
-            </>
+            <li className="text-md mx-3 font-semibold text-blue-500">
+              <Link href="/job">Job</Link>
+            </li>
           </ul>
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end gap-2">
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">

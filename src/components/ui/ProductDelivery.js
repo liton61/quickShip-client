@@ -1,11 +1,11 @@
 import Image from "next/image";
-import deliveryimg from "@/asstes/delivery.png";
+import deliveryimg from "../../asstes/delivery.png";
 
 const ProductDelivery = () => {
   return (
     <div>
-      <div className="flex">
-        <div className="hero bg-base-200 lg:px-0 px-5">
+      <div className="flex mt-12">
+        <div className="hero lg:px-0 px-5">
           <div className="container lg:px-20 grid grid-cols-1 lg:grid-cols-2">
             <div className="flex justify-center items-center">
               <div>

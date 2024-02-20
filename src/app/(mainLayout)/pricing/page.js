@@ -1,5 +1,5 @@
 "use client";
-import usePricing from "@/components/hooks/usePricing";
+import usePricing from "../../../components/hooks/usePricing";
 import Link from "next/link";
 import React from "react";
 import { FaCheck } from "react-icons/fa";

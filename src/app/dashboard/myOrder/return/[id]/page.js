@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
-import useAuth from "@/components/hooks/useAuth";
-import useOrder from "@/components/hooks/useOrder";
-import usePublicAxios from "@/components/hooks/usePublicAxios";
+import useAuth from "../../../../../components/hooks/useAuth";
+import useOrder from "../../../../../components/hooks/useOrder";
+import usePublicAxios from "../../../../../components/hooks/usePublicAxios";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 

@@ -1,12 +1,12 @@
 "use client";
 import { FaSackDollar } from "react-icons/fa6";
-import useOrder from "@/components/hooks/useOrder";
-import SectionTitle from "@/components/shared/SectionTitle";
+import useOrder from "../../../components/hooks/useOrder";
+import SectionTitle from "../../../components/shared/SectionTitle";
 import Link from "next/link";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
-import usePublicAxios from "@/components/hooks/usePublicAxios";
+import usePublicAxios from "../../../components/hooks/usePublicAxios";
 import { HiDotsVertical } from "react-icons/hi";
 import { TbTruckReturn } from "react-icons/tb";
 

@@ -37,12 +37,12 @@ const Parcel = () => {
             <p className="text-center text-gray-500 mb-2">
               One of the key components of best logistics solutions industry
             </p>
-            {/* <p className="flex items-center justify-center gap-2">
+            <p className="flex items-center justify-center gap-2">
               Learn More{" "}
               <span>
                 <FaArrowRight />
               </span>
-            </p> */}
+            </p>
           </div>
 
           <div className="bg-white rounded-md shadow-lg p-5">
@@ -60,12 +60,12 @@ const Parcel = () => {
             <p className="text-center text-gray-500 mb-2">
               One of the key components of best logistics solutions industry
             </p>
-            {/* <p className="flex items-center justify-center gap-2">
+            <p className="flex items-center justify-center gap-2">
               Learn More{" "}
               <span>
                 <FaArrowRight />
               </span>
-            </p> */}
+            </p>
           </div>
 
           <div className="bg-white rounded-md shadow-lg p-5">
@@ -83,12 +83,12 @@ const Parcel = () => {
             <p className="text-center text-gray-500 mb-2">
               One of the key components of best logistics solutions industy
             </p>
-            {/* <p className="flex items-center justify-center gap-2">
+            <p className="flex items-center justify-center gap-2">
               Learn More{" "}
               <span>
                 <FaArrowRight />
               </span>
-            </p> */}
+            </p>
           </div>
 
           <div className="bg-white rounded-md shadow-lg p-5">
@@ -106,12 +106,12 @@ const Parcel = () => {
             <p className="text-center text-gray-500 mb-2">
               One of the key components of best logistics solutions industy
             </p>
-            {/* <p className="flex items-center justify-center gap-2">
+            <p className="flex items-center justify-center gap-2">
               Learn More{" "}
               <span>
                 <FaArrowRight />
               </span>
-            </p> */}
+            </p>
           </div>
         </div>
       </div>

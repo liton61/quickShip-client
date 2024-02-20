@@ -1,11 +1,10 @@
 "use client"
 import { Accordion, AccordionItem } from '@nextui-org/react';
-
-import Gallery from './Gallery';
 import SectionTitle from '../shared/SectionTitle';
+import Gallery from './Gallery';
 const FaqSection = () => {
     return (
-        <div className='container m-auto mt-16'>
+        <div className='container m-auto'>
             <SectionTitle header={"most commonly asked questions."} miniHeader={"Still have questions?"} />
             <div className=' justify-center items-center grid grid-cols-1 lg:grid-cols-2'>
                 <Gallery />

@@ -4,12 +4,12 @@ import { FaGithub } from "react-icons/fa";
 import img from "../assets/login.png"
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import useAuth from "@/components/hooks/useAuth";
+import useAuth from "../../components/hooks/useAuth";
 import Link from "next/link";
 import Image from "next/image";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import usePublicAxios from "@/components/hooks/usePublicAxios";
+import usePublicAxios from "../../components/hooks/usePublicAxios";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -32,8 +32,8 @@ const Login = () => {
         console.log(result?.user);
       })
       .catch((error) => {
-       console.log(error.message);
-       toast.error("Something wrong....try agin");
+        console.log(error.message);
+        toast.error("Something wrong....try agin");
       });
   };
 
@@ -47,13 +47,13 @@ const Login = () => {
 
         publicAxios.post("/users", userInfo).then((res) => {
           console.log(res.data);
-            toast.success("Successfully Login");
-            router.push("/")
+          toast.success("Successfully Login");
+          router.push("/")
         });
       })
       .catch((error) => {
-       console.log(error.message);
-       toast.error("Something wrong....try agin");
+        console.log(error.message);
+        toast.error("Something wrong....try agin");
       });
   };
 
@@ -67,13 +67,13 @@ const Login = () => {
 
         publicAxios.post("/users", userInfo).then((res) => {
           console.log(res.data);
-            toast.success("Successfully Login");
-            router.push("/")
+          toast.success("Successfully Login");
+          router.push("/")
         });
       })
       .catch((error) => {
-       console.log(error.message);
-       toast.error("Something wrong....try agin");
+        console.log(error.message);
+        toast.error("Something wrong....try agin");
       });
   };
   return (
@@ -183,12 +183,12 @@ const Login = () => {
                       viewBox="0 0 20 20"
                       fill="currentColor"
                       stroke="currentColor"
-                      // stroke-width="1"
+                    // stroke-width="1"
                     >
                       <path
                         //   fill-rule="evenodd"
                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        //   clip-rule="evenodd"
+                      //   clip-rule="evenodd"
                       ></path>
                     </svg>
                   </span>

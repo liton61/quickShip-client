@@ -1,7 +1,7 @@
 "use client"
 
-import useParcel from "@/components/hooks/useParcel";
-import usePublicAxios from "@/components/hooks/usePublicAxios";
+import useParcel from "../../../components/hooks/useParcel";
+import usePublicAxios from "../../../components/hooks/usePublicAxios";
 import toast from "react-hot-toast";
 
 

@@ -7,12 +7,12 @@ const Area = () => {
     return (
         <div className="bg-[#000000] text-[#FCFCFC]" >
             <Container>
-                <div className="flex flex-col md:flex-row justify-center items-center py-6">
-                    <div className="lg:w-1/2">
+                <div className="flex justify-between items-center">
+                    <div className="w-1/2">
                         <Image src={map} alt="map"></Image>
                     </div>
-                    <div className="lg:w-1/2">
-                        <h1 className="text-3xl font-extrabold ">Quick Ship provides logistics support in all 64 districts and 493 sub districts across Bangladesh</h1>
+                    <div className="w-1/2">
+                        <h1 className="text-4xl font-extrabold ">Quick Ship provides logistics support in all 64 districts and 493 sub districts across Bangladesh</h1>
                         <p className="text-lg text-gray-400 my-8">Whatever your logistics need, we guarantee the fastest service all over the country</p>
                         <Link
                             href={"/coverageArea"}

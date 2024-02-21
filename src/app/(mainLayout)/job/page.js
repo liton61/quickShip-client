@@ -21,7 +21,7 @@ const page = () => {
         const description = form.description.value;
         const role = "user";
 
-        const userInfo = { email, age, name, image, salary, experience, description, role, }
+        const userInfo = { email, age, name, image, salary, experience, description, role }
         console.log(userInfo);
 
         // send data to the server

@@ -13,6 +13,7 @@ import { MdLogin } from "react-icons/md";
 import toast from "react-hot-toast";
 import useAuth from "@/components/hooks/useAuth";
 import auth from "@/app/Config/firebase.config";
+import Notifications from "@/components/ui/Notifications";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -124,6 +125,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
+          <Notifications></Notifications>
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">

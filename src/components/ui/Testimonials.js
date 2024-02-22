@@ -12,14 +12,14 @@ import { useQuery } from "@tanstack/react-query";
 
 
 const page = () => {
-    // const axiosPublic = usePublicAxios();
-    // const { data: reviews = [], refetch } = useQuery({
-    //     queryKey: ['user'],
-    //     queryFn: async () => {
-    //         const res = await axiosPublic.get('/reviews');
-    //         return res.data;
-    //     }
-    // })
+    const axiosPublic = usePublicAxios();
+    const { data: reviews = [], refetch } = useQuery({
+        queryKey: ['user'],
+        queryFn: async () => {
+            const res = await axiosPublic.get('/reviews');
+            return res.data;
+        }
+    })
 
     return (
         <div className="bg-base-200 py-20">

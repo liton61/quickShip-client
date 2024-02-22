@@ -32,8 +32,8 @@ const MainHome = () => {
       <Stat />
       <CallUs />
       <FaqSection />
-      <WorldMap />
       <ContactForm />
+      <WorldMap />
       <Footer />
     </Providers>
   );

@@ -6,6 +6,7 @@ import useApplication from "../hooks/useApplication";
 
 const Notifications = () => {
     const [order,refetch] = useOrder()
+    console.log(order)
     const [payment] = usePayment()
    const [application] = useApplication()
    refetch()

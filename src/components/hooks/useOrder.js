@@ -15,6 +15,7 @@ const useOrder = () => {
       return res.data;
     },
   });
+  console.log(order)
 
   return [order, refetch];
 };

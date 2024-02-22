@@ -72,7 +72,6 @@ const Banner = () => {
 
       {/* Modal for showing parcel status */}
       {modalOpen && (
-
         <dialog id="my_modal_1" className="modal" open>
           <div className="modal-box text-black">
             <h3 className="font-bold text-lg">Your Parcel Status</h3>
@@ -81,9 +80,7 @@ const Banner = () => {
               <ShowStatus trackingId={trackingId} />
             </div>
             <div className="modal-action">
-
               <button className="btn btn-outline btn-black" onClick={() => setModalOpen(false)}>Close</button>
-
             </div>
           </div>
         </dialog>

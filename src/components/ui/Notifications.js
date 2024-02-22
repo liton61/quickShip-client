@@ -13,7 +13,7 @@ const Notifications = () => {
     console.log(order, payment, application)
     return (
         <div>
-            {order.length && payment.length && application.length === 0 ? (<IoIosNotifications className="text-blue-600 text-4xl relative" />) : (<details className="dropdown  dropdown-end">
+            {order.length && payment.length && application.length === 0 ? (<IoIosNotifications className="text-blue-600 text-xl lg:text-4xl relative" />) : (<details className="dropdown  dropdown-end">
                 <summary className="m-1 btn btn-ghost"><IoIosNotifications className="text-blue-600 text-4xl relative" />
                     <span className="text-white absolute top-2 right-6">{order?.length + payment?.length + application?.length}</span>
                 </summary>
@@ -21,12 +21,10 @@ const Notifications = () => {
                    
                 <h1 className="text-xl font-bold">Notifications</h1>
                     {order?.map((item) => (<div key={item._id} className="flex justify-start items-center"><MdNotificationsActive className="text-xl" /><li className="p-2 text-lg shadow block">Your product is {item.status}</li></div>))}
-                    {order?.map((item) => (<div key={item._id} className="flex justify-start items-center"><MdNotificationsActive className="text-xl" /><li className="p-2  text-xs lg:text-lg shadow block">Your product is {item.status}</li></div>))}
+                    
 
-                    {payment?.map((item) => (<div key={item._id} className="flex justify-start items-center"><MdNotificationsActive className="text-xl" /><li className="p-2 text-lg  shadow block">Your payment are {item.payment} done</li></div>))}
                     {payment?.map((item) => (<div key={item._id} className="flex justify-start items-center"><MdNotificationsActive className="text-xl" /><li className="p-2 text-xs lg:text-lg shadow block">Your payment are {item.payment} done</li></div>))}
 
-                    {application?.map((item) => (<div key={item._id} className="flex justify-start items-center"><MdNotificationsActive className="text-xl" /><li className="p-2 text-lg  shadow block">{item.role === 'user' ? " your  application successfully applied " : " You become a delivery Boy"}</li></div>))}
                     {application?.map((item) => (<div key={item._id} className="flex justify-start items-center"><MdNotificationsActive className="text-xl" /><li className="p-2 text-xs lg:text-lg  shadow block">{item.role === 'user' ? " your  application successfully applied " : " You become a delivery Boy"}</li></div>))}
 
 

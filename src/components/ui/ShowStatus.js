@@ -4,39 +4,43 @@ import useOrder from '../hooks/useOrder';
 import usePayment from '../hooks/usePayment';
 
 const ShowStatus = ({ trackingId }) => {
-    const [order] = useOrder().filter(order => order._id === trackingId);
-    const [payment] = usePayment().filter(payment => payment.payment === "pending");
-
+    console.log(trackingId)
+    const [order] = useOrder()
+    const OrderId = order.find(order => order._id === trackingId);
+    // const [payment] = usePayment().find(payment => payment.payment === "successfully");
+    console.log(OrderId?.status)
     const getStatusStep = () => {
-        if (order && payment) {
+        if (OrderId?.status === "success") {
+            return 4; // Delivered
+        } else if (OrderId?.status === "success") {
             return 3; // On the way
-        } else if (order) {
+        } else if (OrderId?.status === "success") {
             return 2; // Payment
-        } else {
+        } else if (OrderId?.status === "pending") {
             return 1; // Booking
         }
     };
 
     const getContent = () => {
-        return getStatusStep() === 1 ? "✓" : "";
+        return getStatusStep() ;
     };
 
     return (
         <div>
-            <ul className="steps steps-vertical lg:steps-horizontal w-full h-full">
-                <li data-content={getContent()} className={`step ${getStatusStep() >= 1 ? 'step-info' : ''}`}>
-                    <span className='flex justify-center items-center gap-2 font-semibold lg:flex-col'><FaRegClipboard className='text-xl' /> Booking</span>
+          {OrderId ? ( <ul className="steps steps-vertical lg:steps-horizontal w-full h-full">
+                <li data-content={getContent() === 1 ? "✓" : ""} className={`step ${getStatusStep() >= 1 ? 'step-info' : ''}`}>
+                    <span className='flex justify-center items-center gap-2 font-semibold lg:flex-col'><FaRegClipboard className='text-xl text-red-600' /> Booking</span>
                 </li>
-                <li className={`step ${getStatusStep() >= 2 ? 'step-info' : ''}`}>
-                    <span className='flex justify-center items-center gap-2 lg:flex-col font-semibold'><FaCreditCard className='text-xl' /> Payment</span>
+                <li data-content={getStatusStep() === 2 ? "✓" : ""} className={`step ${getStatusStep() >= 2 ? 'step-info' : ''}`}>
+                    <span className='flex justify-center items-center gap-2 lg:flex-col font-semibold'><FaCreditCard className='text-xl text-red-600' /> Payment</span>
                 </li>
-                <li className={`step ${getStatusStep() >= 3 ? 'step-info' : ''}`}>
-                    <span className="flex justify-center items-center gap-2 lg:flex-col font-semibold"><FaShippingFast className='text-xl' /> On the way</span>
+                <li data-content={getStatusStep() === 3 ? "✓" : ""} className={`step ${getStatusStep() >= 3 ? 'step-info' : ''}`}>
+                    <span className="flex justify-center items-center gap-2 lg:flex-col font-semibold"><FaShippingFast className='text-xl text-red-600' /> On the way</span>
                 </li>
-                <li className="step">
-                    <span className='flex justify-center items-center gap-2 lg:flex-col font-semibold'><FaHome className='text-xl' /> Delivered</span>
+                <li data-content={getStatusStep() === 4 ? "✓" : ""} className={`step ${getStatusStep() >= 4 ? 'step-info' : ''}`}>
+                    <span className='flex justify-center items-center gap-2 lg:flex-col font-semibold'><FaHome className='text-xl text-red-600' /> Delivered</span>
                 </li>
-            </ul>
+            </ul>): (<p className='text-red-600 font-semibold text-lg'>Please, provide valid tracking Id !</p>)}
         </div>
     );
 };

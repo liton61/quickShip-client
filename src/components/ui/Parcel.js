@@ -89,6 +89,7 @@ const Parcel = () => {
               One of the key components of best logistics solutions industy
             </p>
           </div>
+
         </div>
       </div>
     </div>

@@ -25,7 +25,7 @@ const Notifications = () => {
 
                     {payment?.map((item) => (<div key={item._id} className="flex justify-start items-center"><MdNotificationsActive className="text-xl" /><li className="p-2 text-xs lg:text-lg shadow block">Your payment are {item.payment} done</li></div>))}
 
-                    {application?.map((item) => (<div key={item._id} className="flex justify-start items-center"><MdNotificationsActive className="text-xl" /><li className="p-2 text-xs lg:text-lg  shadow block">{item.role === 'user' ? " your  application successfully applied " : " You become a delivery Boy"}</li></div>))}
+                    {application?.map((item) => (<div key={item._id} className="flex justify-start items-center"><MdNotificationsActive className="text-4xl" /><li className="p-2 text-xs lg:text-lg  shadow block">{item.role === 'user' ? " your  application successfully applied " : " You become a delivery Boy"}</li></div>))}
 
 
                 </ul>

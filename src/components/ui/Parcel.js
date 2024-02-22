@@ -22,6 +22,7 @@ const Parcel = () => {
           </h2>
         </div>
         <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 lg:px-20 px-5">
+
           <div className="bg-white rounded-md shadow-lg p-5">
             <div className="text-center rounded-full">
               <div className="mb-4 ">
@@ -89,6 +90,7 @@ const Parcel = () => {
               One of the key components of best logistics solutions industy
             </p>
           </div>
+
         </div>
       </div>
     </div>

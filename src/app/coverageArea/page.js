@@ -1,10 +1,10 @@
 "use client"
-import useArea from "@/components/hooks/useArea";
-import Container from "@/components/shared/Container";
-import CoverageNav from "@/app/coverageArea/Area/CoverageNav";
-import DhakaSuburb from "@/app/coverageArea/Area/DhakaSuburb";
-import InsideDhaka from "@/app/coverageArea/Area/InsideDhaka";
-import OutsideDhaka from "@/app/coverageArea/Area/OutsideDhaka";
+import useArea from "../../components/hooks/useArea";
+import Container from "../../components/shared/Container";
+import CoverageNav from "./Area/CoverageNav";
+import DhakaSuburb from "./Area/DhakaSuburb";
+import InsideDhaka from "./Area/InsideDhaka";
+import OutsideDhaka from "./Area/OutsideDhaka";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 
@@ -23,39 +23,39 @@ const CoverageArea = () => {
             <hr className="border-gray-600"></hr>
             <div className="py-10">
                 <Tabs>
-                <TabList className={"flex gap-2 md:gap-5 mb-8"}>
-                    <Tab
-                    className={
-                        "text-white font-bold py-2 px-4 rounded border border-purple-700 text-sm hover:bg-purple-700"
-                    }
-                    >
-                    Inside Dhaka
-                    </Tab>
-                    <Tab
-                    className={
-                        "text-white font-bold py-2 px-4 rounded border border-purple-700 text-sm hover:bg-purple-700"
-                    }
-                    >
-                    Dhaka Suburb
-                    </Tab>
-                    <Tab
-                    className={
-                        "text-white font-bold py-2 px-4 rounded border border-purple-700 text-sm hover:bg-purple-700"
-                    }
-                    >
-                    Outside Dhaka
-                    </Tab>
-                </TabList>
+                    <TabList className={"flex gap-2 md:gap-5 mb-8"}>
+                        <Tab
+                            className={
+                                "text-white font-bold py-2 px-4 rounded border border-purple-700 text-sm hover:bg-purple-700"
+                            }
+                        >
+                            Inside Dhaka
+                        </Tab>
+                        <Tab
+                            className={
+                                "text-white font-bold py-2 px-4 rounded border border-purple-700 text-sm hover:bg-purple-700"
+                            }
+                        >
+                            Dhaka Suburb
+                        </Tab>
+                        <Tab
+                            className={
+                                "text-white font-bold py-2 px-4 rounded border border-purple-700 text-sm hover:bg-purple-700"
+                            }
+                        >
+                            Outside Dhaka
+                        </Tab>
+                    </TabList>
 
-                <TabPanel>
-                    <InsideDhaka insideDhaka={insideDhaka}></InsideDhaka>
-                </TabPanel>
-                <TabPanel>
-                    <DhakaSuburb suburbDhaka={suburbDhaka}></DhakaSuburb>
-                </TabPanel>
-                <TabPanel>
-                    <OutsideDhaka outsideDhaka={outsideDhaka}></OutsideDhaka>
-                </TabPanel>
+                    <TabPanel>
+                        <InsideDhaka insideDhaka={insideDhaka}></InsideDhaka>
+                    </TabPanel>
+                    <TabPanel>
+                        <DhakaSuburb suburbDhaka={suburbDhaka}></DhakaSuburb>
+                    </TabPanel>
+                    <TabPanel>
+                        <OutsideDhaka outsideDhaka={outsideDhaka}></OutsideDhaka>
+                    </TabPanel>
                 </Tabs>
             </div>
 

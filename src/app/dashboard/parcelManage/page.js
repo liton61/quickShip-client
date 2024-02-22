@@ -1,7 +1,7 @@
 "use client"
 
-import useParcel from "@/components/hooks/useParcel";
-import usePublicAxios from "@/components/hooks/usePublicAxios";
+import useParcel from "../../../components/hooks/useParcel";
+import usePublicAxios from "../../../components/hooks/usePublicAxios";
 import toast from "react-hot-toast";
 
 
@@ -9,8 +9,8 @@ const UserTable = () => {
     const [parcel, refetch] = useParcel();
     const publicAxios = usePublicAxios()
 
-    const handlePending = async (id) =>{
-        const success = {status: "success"}
+    const handlePending = async (id) => {
+        const success = { status: "success" }
         const res = await publicAxios.patch(`/order/${id}`, success)
         console.log(res.data);
         toast.success("Order Successfully Complete")
@@ -23,7 +23,7 @@ const UserTable = () => {
                 <div className="overflow-x-auto mt-10 px-5">
                     <table className="table">
                         {/* head */}
-                        <thead className="bg-blue-300 text-white z-20">
+                        <thead className="bg-blue-600 text-white z-20 rounded-t-3xl">
                             <tr>
                                 <th>No</th>
                                 {/* <th>Image</th> */}
@@ -38,9 +38,9 @@ const UserTable = () => {
                         </thead>
                         <tbody className="text-xs">
                             {
-                                parcel.map((item, index) => <tr tr key = {
-                                            item?._id
-                                        } >
+                                parcel.map((item, index) => <tr key={
+                                    item?._id
+                                } >
                                     <td>
                                         {index + 1}
                                     </td>

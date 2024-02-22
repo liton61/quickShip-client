@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import ErrorImg from "../asstes/404-best2.gif";
+import ErrorImg from "../assets/404-best2.gif";
 
-const NotFoundPage = () => {
+const notFound = () => {
   return (
     <div
       className="text-center flex justify-center items-center"
@@ -35,4 +35,4 @@ const NotFoundPage = () => {
   );
 };
 
-export default NotFoundPage;
+export default notFound;

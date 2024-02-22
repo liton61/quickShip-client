@@ -1,11 +1,11 @@
 "use client"
 
-import useReturn from "@/components/hooks/useReturn";
-import SectionTitle from "@/components/shared/SectionTitle";
+import useReturn from "../../../components/hooks/useReturn";
+import SectionTitle from "../../../components/shared/SectionTitle";
 
 const ReturnOrder = () => {
-    const [returnProduct] = useReturn()
-    // console.log(returnProduct);
+  const [returnProduct] = useReturn()
+  // console.log(returnProduct);
   return (
     <div>
       <div className="py-8 px-5 ">

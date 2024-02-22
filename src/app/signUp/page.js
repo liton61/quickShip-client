@@ -1,6 +1,6 @@
 "use client"
-import useAuth from "@/components/hooks/useAuth";
-import signUpImg from "../assets/signUp.png";
+import useAuth from "../../components/hooks/useAuth";
+import signUpImg from "../../assets/signUp.png";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
@@ -28,17 +28,17 @@ const SignUp = () => {
     await createUser(data?.email, data?.password)
       .then((result) => {
         console.log(result?.user);
-       const userInfo = {
+        const userInfo = {
           name: data?.name,
           email: data?.email,
         };
 
         publicAxios.post("/users", userInfo).then((res) => {
           console.log(res.data);
-            toast.success("Successfully Sign Up");
-            router.push("/")
+          toast.success("Successfully Sign Up");
+          router.push("/")
         });
-      
+
 
       })
       .catch((error) => {
@@ -48,13 +48,13 @@ const SignUp = () => {
   };
 
   return (
-    <div>
-      <div className = "grid md:grid-cols-2 p-5 py-44 bg-[#010313]" >
-        <div className = "flex justify-center items-center" >
+    <div className="bg-[#010313] h-screen">
+      <div className="grid md:grid-cols-2 p-5 py-44 " >
+        <div className="flex justify-center items-center" >
           <Image src={signUpImg} className="w-full md:w-96" alt="signUp"></Image>
         </div>
 
-        <div className = "card flex-shrink-0 w-full max-w-sm shadow-2xl bg-[#0e0d21] " >
+        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-[#0e0d21] " >
           <Link
             href={"/"}
             className="text-3xl mt-4 font-extrabold text-center text-[#c29a4b] text-opacity-50"
@@ -162,12 +162,12 @@ const SignUp = () => {
                       viewBox="0 0 20 20"
                       fill="currentColor"
                       stroke="currentColor"
-                      // stroke-width="1"
+                    // stroke-width="1"
                     >
                       <path
                         //   fill-rule="evenodd"
                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        //   clip-rule="evenodd"
+                      //   clip-rule="evenodd"
                       ></path>
                     </svg>
                   </span>

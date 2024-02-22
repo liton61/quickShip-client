@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { FaBoxOpen, FaHome, FaUsers } from "react-icons/fa";
+import { FaBoxOpen, FaBriefcase, FaHome, FaUser, FaUsers } from "react-icons/fa";
 import { MdLogout } from "react-icons/md";
 import { GiReturnArrow } from "react-icons/gi";
 import { CgProfile } from "react-icons/cg";
@@ -8,9 +8,11 @@ import { MdRateReview } from "react-icons/md";
 import { MdWorkHistory } from "react-icons/md";
 import { VscThreeBars } from "react-icons/vsc";
 import { FaJediOrder } from "react-icons/fa";
-import useAuth from "@/components/hooks/useAuth";
-import useUser from "@/components/hooks/useUser";
-import ChatBot from "@/components/chat/chat";
+import useAuth from "../../components/hooks/useAuth";
+import useUser from "../../components/hooks/useUser";
+import ChatBot from "../../components/chat/chat";
+import LottieEffect from "@/components/shared/Lottie";
+import logo from '../../../public/Logo (1).json';
 
 const DashboardLayout = ({ children }) => {
   const { user } = useAuth();
@@ -105,7 +107,7 @@ const DashboardLayout = ({ children }) => {
           }
         >
           <FaBoxOpen></FaBoxOpen>
-          Manage Parcel
+          Manage Parcels
         </Link>
       </li>
 
@@ -117,7 +119,7 @@ const DashboardLayout = ({ children }) => {
           }
         >
           <FaUsers></FaUsers>
-          Manage User
+          Manage Users
         </Link>
       </li>
       <li id="sidebar">
@@ -127,7 +129,7 @@ const DashboardLayout = ({ children }) => {
             isPending ? "pending" : isActive ? "active" : ""
           }
         >
-          <FaUsers></FaUsers>
+          <FaUser></FaUser>
           Delivery Boy
         </Link>
       </li>
@@ -138,7 +140,7 @@ const DashboardLayout = ({ children }) => {
             isPending ? "pending" : isActive ? "active" : ""
           }
         >
-          <FaUsers></FaUsers>
+          <FaBriefcase></FaBriefcase>
           Application
         </Link>
       </li>
@@ -157,7 +159,7 @@ const DashboardLayout = ({ children }) => {
     </>
   );
 
-   const deliverySidebarLinks = (
+  const deliverySidebarLinks = (
     <>
       <li id="sidebar">
         <Link
@@ -191,8 +193,7 @@ const DashboardLayout = ({ children }) => {
               href={"/"}
               className="btn btn-ghost normal-case items-center text-xs md:text-xl"
             >
-              <span>{/* <img className="w-10" src={logo} alt="" /> */}</span>
-              <span className="text-white">Quick Ship</span>
+                <span className="text-white">Quick Ship</span>
             </Link>
           </div>
           {/* Page content here */}
@@ -211,16 +212,12 @@ const DashboardLayout = ({ children }) => {
               <div>
                 <Link
                   href={"/"}
-                  className="flex space-x-2 font-bold mt-5 normal-case items-center text-xs md:text-xl"
+                  className="flex flex-col space-x-2 font-bold mt-5 normal-case items-center text-xs md:text-xl"
                 >
-                  <span>
-                    {/* <img
-                      className="w-10"
-                      src={logo}
-                      alt=""
-                    /> */}
+                  <span className="w-32">
+                  <LottieEffect image={logo} />
                   </span>
-                  <span className="text-white">Quick Ship</span>
+                  <span className="text-blue-600 hover:text-white italic">Quick Ship</span>
                 </Link>
               </div>
               <div className="divider"></div>

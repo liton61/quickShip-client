@@ -1,8 +1,12 @@
-import { Inter } from "next/font/google";
-import "./globals.css";
-import TanstackProvider from "@/app/providers/TanstackProvider";
+
 import { Toaster } from "react-hot-toast";
-import AuthProvider from "@/app/providers/AuthProvider";
+import AuthProvider from "./providers/AuthProvider";
+import TanstackProvider from "./providers/TanstackProvider";
+import { Inter } from "next/font/google";
+import './globals.css';
+
+import { Providers } from "./providers/NextUIProviders";
+
 
 const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
@@ -10,12 +14,17 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
+
+
   return (
     <html lang="en" data-theme="light">
       <body className={inter.className}>
         <TanstackProvider>
           <AuthProvider>
-            {children}
+            <Providers>
+              {children}
+            </Providers>
             <Toaster />
           </AuthProvider>
         </TanstackProvider>

@@ -1,12 +1,12 @@
 "use client";
-import useAuth from "@/components/hooks/useAuth";
-import usePublicAxios from "@/components/hooks/usePublicAxios";
+import useAuth from "../../../../components/hooks/useAuth";
+import usePublicAxios from "../../../../components/hooks/usePublicAxios";
 import { useState } from "react";
 import { FaCheck } from "react-icons/fa";
-import useOrder from "@/components/hooks/useOrder";
+import useOrder from "../../../../components/hooks/useOrder";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import usePricing from "@/components/hooks/usePricing";
+import usePricing from "../../../../components/hooks/usePricing";
 
 const PricingId = ({ params }) => {
   const { pricingId } = params;

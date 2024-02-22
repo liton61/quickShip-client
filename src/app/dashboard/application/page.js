@@ -1,6 +1,6 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-"use client";
-import usePublicAxios from "@/components/hooks/usePublicAxios";
+"use client"
+import { useState } from "react";
+import usePublicAxios from "../../../components/hooks/usePublicAxios";
 import { useQuery } from "@tanstack/react-query";
 import { FaEye } from "react-icons/fa";
 import Swal from "sweetalert2";
@@ -15,6 +15,9 @@ const Page = () => {
             return filteredData;
         }
     });
+
+    const [selectedUser, setSelectedUser] = useState(null);
+    // State to store the selected user
 
     const handleAccept = user => {
         axiosPublic.patch(`/application/user/${user._id}`)
@@ -41,15 +44,15 @@ const Page = () => {
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
+            confirmButtonText: "Yes, reject it!"
         }).then((result) => {
             if (result.isConfirmed) {
                 axiosPublic.delete(`/application/${application._id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             Swal.fire({
-                                title: "Deleted!",
-                                text: "Your file has been deleted.",
+                                title: "Rejected!",
+                                text: "Your file has been rejected.",
                                 icon: "success"
                             });
                             refetch();
@@ -61,6 +64,7 @@ const Page = () => {
             }
         });
     };
+
 
     return (
         <div className="lg:w-3/4 mx-auto lg:px-0 px-5">
@@ -93,7 +97,11 @@ const Page = () => {
                                         <td>{user.name}</td>
                                         <td>{user.email}</td>
                                         <td>{user.role}</td>
-                                        <td><button className="" onClick={() => document.getElementById('my_modal_5').showModal()}><FaEye></FaEye></button></td>
+                                        <td>
+                                            <button className="" onClick={() => setSelectedUser(user)}>
+                                                <FaEye />
+                                            </button>
+                                        </td>
                                         <td className="flex lg:block">
                                             {user.role === 'Delivery Boy' ? '' : <button
                                                 onClick={() => handleAccept(user)} className="text-green-500">Accept
@@ -110,19 +118,22 @@ const Page = () => {
                 <p className="text-3xl font-bold flex justify-center items-center h-screen">No application !</p>
             )}
 
-            {/* Open the modal using document.getElementById('ID').showModal() method */}
-            <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
-                <div className="modal-box">
-                    <h3 className="font-bold text-lg">Hello!</h3>
-                    <p className="py-4">Press ESC key or click the button below to close</p>
-                    <div className="modal-action">
-                        <form method="dialog">
-                            {/* if there is a button in form, it will close the modal */}
-                            <button className="btn">Close</button>
-                        </form>
+            {/* Open the modal using dialog element */}
+            {selectedUser && (
+                <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle" open>
+                    <div className="modal-box">
+                        <h3 className="font-bold text-lg mb-2">Details</h3>
+                        <p>Description : {selectedUser.description}</p>
+                        <p>Address : {selectedUser.address}</p>
+                        <div className="modal-action">
+                            <form method="dialog">
+                                {/* if there is a button in form, it will close the modal */}
+                                <button className="btn" onClick={() => setSelectedUser(null)}>Close</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
-            </dialog>
+                </dialog>
+            )}
         </div>
     );
 };

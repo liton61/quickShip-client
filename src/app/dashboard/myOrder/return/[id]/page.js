@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
-import useAuth from "@/components/hooks/useAuth";
-import useOrder from "@/components/hooks/useOrder";
-import usePublicAxios from "@/components/hooks/usePublicAxios";
+import useAuth from "../../../../../components/hooks/useAuth";
+import useOrder from "../../../../../components/hooks/useOrder";
+import usePublicAxios from "../../../../../components/hooks/usePublicAxios";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 
@@ -12,7 +12,7 @@ const returnPage = ({ params }) => {
   const [productPayment, setProductPayment] = useState("")
   const [productComment, setProductComment] = useState("")
 
-  const {user} = useAuth()
+  const { user } = useAuth()
   const axiosPublic = usePublicAxios();
   const [order] = useOrder();
 
@@ -20,24 +20,24 @@ const returnPage = ({ params }) => {
 
   const newOrder = order.find((order) => order._id === params.id);
   const returnOrder = {
-      name: user?.displayName,
-      email: user?.email,
-      productId: newOrder?._id,
-      productName,
-      productPrice: newOrder?.productPrice,
-      productWeight: newOrder?.productWeight,
-      productReason,
-      productPayment,
-      productComment
-    };
-    console.log(returnOrder);
+    name: user?.displayName,
+    email: user?.email,
+    productId: newOrder?._id,
+    productName,
+    productPrice: newOrder?.productPrice,
+    productWeight: newOrder?.productWeight,
+    productReason,
+    productPayment,
+    productComment
+  };
+
 
   const handleReturnOrder = async (event) => {
     event.preventDefault();
 
     const res = await axiosPublic.post(`/return`, returnOrder);
 
-    console.log(res.data);
+
     if (res.data.acknowledged === true) {
       toast.success("Return Request Submit Successfully")
     }
@@ -143,10 +143,10 @@ const returnPage = ({ params }) => {
                           Select A Reason
                         </span>
                       </div>
-                      <select select onBlur = {
+                      <select select onBlur={
                         (e) => setProductReason(e.target.value)
                       }
-                      className = "select select-bordered w-full" >
+                        className="select select-bordered w-full" >
                         <option disabled selected>
                           Select Reason
                         </option>
@@ -172,10 +172,10 @@ const returnPage = ({ params }) => {
                           Select Payment Option
                         </span>
                       </div>
-                      <select select onBlur = {
+                      <select select onBlur={
                         (e) => setProductPayment(e.target.value)
                       }
-                      className = "select select-bordered" >
+                        className="select select-bordered" >
                         <option disabled selected>
                           Select Payment
                         </option>

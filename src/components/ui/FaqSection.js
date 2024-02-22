@@ -9,7 +9,7 @@ const FaqSection = () => {
                 <SectionTitle header={"most commonly asked questions."} miniHeader={"Still have questions?"} />
                 <div className=' justify-center items-center grid grid-cols-1 lg:grid-cols-2 gap-10'>
                     <Gallery />
-                    <Accordion variant="splitted">
+                    <Accordion variant="splitted" className='px-0'>
                         <AccordionItem key="1" aria-label="Accordion 1" title="What is QuickShip?">
                             {"QuickShip is a tech-based logistics company operating nationwide and offering end-to-end services like parcel deliveries for SMEs, documents and parcel couriers for individuals and enterprise logistics solutions for corporate companies."}
                         </AccordionItem>

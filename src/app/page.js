@@ -30,8 +30,8 @@ const MainHome = () => {
       <ProductDelivery />
       <Area />
       <Stat />
-      <FaqSection />
       <CallUs />
+      <FaqSection />
       <WorldMap />
       <ContactForm />
       <Footer />

@@ -80,7 +80,7 @@ const DashboardLayout = ({ children }) => {
           }
         >
           <MdRateReview></MdRateReview>
-          Product Review
+          Review
         </Link>
       </li>
     </>

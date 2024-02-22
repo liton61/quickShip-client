@@ -27,7 +27,7 @@ const Services = () => {
                   alt="logo"
                 />
               </div>
-              {/* <div className="content">
+              <div className="content">
                 <div className="details">
                   <h2 className="font-bold text-2xl  ">{services.title}</h2>
                   <div className="data">
@@ -38,7 +38,7 @@ const Services = () => {
                     </p>
                   </div>
                   <div className="readMore mt-5">
-                    <button className="btn bg-blue-500 ">
+                    <button className="btn bg-blue-500 text-white ">
                       Read More{" "}
                       <span>
                         <FaArrowRight />
@@ -46,7 +46,7 @@ const Services = () => {
                     </button>
                   </div>
                 </div>
-              </div> */}
+              </div>
             </div>
           ))}
         </div>

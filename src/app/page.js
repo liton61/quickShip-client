@@ -27,10 +27,10 @@ const MainHome = () => {
       <ChatBot />
       <OurServices />
       <BestCourier />
+      <ProductDelivery />
       <Area />
       <Stat />
       <FaqSection />
-      <ProductDelivery />
       <CallUs />
       <WorldMap />
       <ContactForm />

@@ -74,7 +74,7 @@ const Banner = () => {
       {modalOpen && (
         <dialog id="my_modal_1" className="modal glass" open>
           <div className="modal-box text-black">
-            <h3 className="font-bold text-lg">Your Parcel Status</h3>
+            <h3 className="font-bold text-xl text-center mb-3">My Parcel Status:</h3>
             <div className="py-4 w-full">
               {/* Pass the trackingId to ShowStatus */}
               <ShowStatus trackingId={trackingId} />

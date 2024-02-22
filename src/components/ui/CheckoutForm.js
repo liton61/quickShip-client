@@ -73,7 +73,6 @@ const CheckoutForm = ({ amount, order, findOrder }) => {
       if (paymentIntent.status === "succeeded") {
         console.log(paymentIntent.id);
         toast.success("Successfully Payment");
-
         setTransactionId(paymentIntent.id);
 
         const payment = {
@@ -85,6 +84,8 @@ const CheckoutForm = ({ amount, order, findOrder }) => {
           payment: "successfully",
         };
         const res = await publicAxios.post("/payment", payment);
+   
+       
         console.log(res.data);
       }
       doc.rect(18, 5, 180, 100);

@@ -4,13 +4,13 @@ import deliveryimg from "../../assets/delivery.png";
 const ProductDelivery = () => {
   return (
     <div>
-      <div className="flex mt-12">
-        <div className="hero lg:px-0 px-5">
+      <div className="flex">
+        <div className="hero bg-base-200 lg:px-0 px-5 py-12">
           <div className="container lg:px-20 grid grid-cols-1 lg:grid-cols-2">
             <div className="flex justify-center items-center">
               <div>
                 <h1 className="text-3xl font-bold text-center py-5">
-                  GET THE <span className="text-[#f5ab35]">FASTEST </span>
+                  GET THE <span className="text-[#ec3900]">FASTEST </span>
                   DELIVERY{" "}
                 </h1>
                 <p className="text-justify lg:mr-10">

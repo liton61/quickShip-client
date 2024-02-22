@@ -1,12 +1,16 @@
 "use client"
+
 /* eslint-disable react-hooks/rules-of-hooks */
 import useAuth from "@/components/hooks/useAuth";
 import usePublicAxios from "@/components/hooks/usePublicAxios";
+import { useRouter } from "next/navigation";
+
 import Swal from "sweetalert2";
 
 
 const page = () => {
     const axiosPublic = usePublicAxios();
+    const router = useRouter()
     const { user } = useAuth();
     // const navigate = useNavigate();
     const handleApplied = event => {
@@ -36,6 +40,7 @@ const page = () => {
                         timer: 1500
                     });
                     form.reset();
+                   router.push('/')
                     // navigate('/trainer')
                 }
             })

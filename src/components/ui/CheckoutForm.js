@@ -9,6 +9,8 @@ import { jsPDF } from "jspdf";
 
 const CheckoutForm = ({ amount, order, findOrder }) => {
   console.log(order);
+  console.log(amount);
+  console.log(findOrder);
   const stripe = useStripe();
   const elements = useElements();
   const [error, setError] = useState("");
@@ -75,7 +77,14 @@ const CheckoutForm = ({ amount, order, findOrder }) => {
         toast.success("Successfully Payment");
         setTransactionId(paymentIntent.id);
 
+        // Payment create based on order parcel _id
+        const orderId = order ? order?._id : null;
+        const findOrderId = findOrder ? findOrder?._id : null;
+
+
+        const paymentId = orderId || findOrderId;
         const payment = {
+          _id: paymentId,
           name: user?.displayName,
           email: user?.email,
           amount: amount,
@@ -84,8 +93,8 @@ const CheckoutForm = ({ amount, order, findOrder }) => {
           payment: "successfully",
         };
         const res = await publicAxios.post("/payment", payment);
-   
-       
+
+
         console.log(res.data);
       }
       doc.rect(18, 5, 180, 100);

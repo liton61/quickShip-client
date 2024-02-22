@@ -29,7 +29,7 @@ const Banner = () => {
                   <div>
                     <input
                       className="input input-bordered join-item lg:w-96 md:w-96 w-32"
-                      placeholder="Your tracking id..."
+                      placeholder="Tracking ID..."
                     />
                   </div>
                 </div>

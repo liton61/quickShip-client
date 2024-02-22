@@ -23,7 +23,7 @@ const PricingId = ({ params }) => {
   const [productPrice, setProductPrice] = useState(0);
   const [productWeight, setProductWeight] = useState(0);
   const [area, setArea] = useState("");
-  const status = "pending";
+
 
   const router = useRouter();
 
@@ -37,13 +37,12 @@ const PricingId = ({ params }) => {
     productPrice,
     productWeight,
     area,
-    status: "pending"
+    status: "pending",
   };
 
   const handleOrder = async (e) => {
     e.preventDefault();
     const res = await publicAxios.post("/order", addOrder);
-    // console.log(res.data);
     toast.success("Successfully Order");
     refetch();
     router.push("/payment");
@@ -78,7 +77,7 @@ const PricingId = ({ params }) => {
               </li>
               <li className="mb-3 flex font-bold items-center gap-2">
                 <FaCheck className="text-blue-500" />
-                8:00 – 22:00 Every day
+                8:00 - 22:00 Every day
               </li>
             </ul>
             <div className="p-4">

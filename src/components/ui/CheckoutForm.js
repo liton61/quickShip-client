@@ -8,7 +8,7 @@ import { jsPDF } from "jspdf";
 // import UserPdf from "./pdf";
 
 const CheckoutForm = ({ amount, order, findOrder }) => {
-  console.log(findOrder);
+  console.log(order);
   const stripe = useStripe();
   const elements = useElements();
   const [error, setError] = useState("");
@@ -81,8 +81,11 @@ const CheckoutForm = ({ amount, order, findOrder }) => {
           amount: amount,
           data: new Date(),
           transactionId: paymentIntent?.id,
+          payment: "successfully",
         };
         const res = await publicAxios.post("/payment", payment);
+   
+       
         console.log(res.data);
       }
       doc.rect(18, 5, 180, 100);
@@ -117,7 +120,11 @@ const CheckoutForm = ({ amount, order, findOrder }) => {
 
       doc.save("Receipt.pdf");
     }
+
   };
+
+
+
 
   return (
     <div>

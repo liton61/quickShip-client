@@ -14,6 +14,8 @@ import toast from "react-hot-toast";
 import useAuth from "../../hooks/useAuth";
 import LottieEffect from "../Lottie";
 
+import Notifications from "@/components/ui/Notifications";
+
 
 
 const Navbar = () => {
@@ -122,6 +124,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end gap-2">
+{user && <Notifications></Notifications>}
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">

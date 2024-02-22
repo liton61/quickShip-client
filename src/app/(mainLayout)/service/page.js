@@ -6,7 +6,6 @@ import useServices from "@/components/hooks/useService";
 
 const Services = () => {
   const [services] = useServices();
-  console.log(services);
 
   return (
     <div className="bg-base-200 ">

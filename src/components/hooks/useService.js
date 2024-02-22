@@ -11,7 +11,7 @@ const useServices = () => {
       return res.data;
     },
   });
-  console.log(services);
+
   return [services, refetch];
 };
 

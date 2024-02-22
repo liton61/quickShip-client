@@ -31,7 +31,7 @@ const Services = () => {
                 <div className="details">
                   <h2 className="font-bold text-2xl  ">{services.title}</h2>
                   <div className="data">
-                    <p className="">
+                    <p>
                       This mode of transportation is known for its speed and
                       efficiency, making it ideal for time-sensitive shipments
                       or goods that need to travel long distances quickly

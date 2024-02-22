@@ -1,10 +1,25 @@
 "use client"
 import Lottie from "lottie-react";
-import React from "react";
+import { useRef, useState } from "react";
 import wShip from "../../../public/W ship.json";
 import Link from "next/link";
 
+
 const Banner = () => {
+  const inputRef = useRef(null);
+  const [trackingId, setTrackingId] = useState("");
+
+  const handleInputChange = (e) => {
+    setTrackingId(e.target.value);
+
+  };
+
+  const handleStatus = () => {
+    console.log(trackingId);
+    setTrackingId("");
+    inputRef.current.value = "";
+  };
+
   return (
     <div>
       <div
@@ -24,23 +39,27 @@ const Banner = () => {
               <p>
                 QuickShip, the epitome of efficiency in the realm of international courier services, stands as a beacon for swift and reliable parcel deliveries across borders.
               </p>
-              <div className="join">
+              <form className="join">
                 <div>
                   <div>
                     <input
-                      className="input input-bordered join-item lg:w-96 md:w-96 w-32"
-                      placeholder="Your tracking id..."
+                      ref={inputRef}
+                      className="input input-bordered join-item text-slate-600 lg:w-96 md:w-96 w-32"
+                      placeholder="Your tracking id...."
+                      value={trackingId}
+                      onChange={handleInputChange}
+                      required
                     />
                   </div>
                 </div>
                 <div className="indicator">
-                  <Link href={'/status'}>
-                    <button className="btn rounded-l-none bg-blue-500 text-white">
-                      Track Now
-                    </button>
+                  <button onClick={handleStatus} className="btn rounded-l-none bg-blue-500 text-white">
+                  <Link href={`/status/${trackingId}`}>
+                    Track Now
                   </Link>
+                  </button>
                 </div>
-              </div>
+              </form>
             </div>
             <div className="card  w-full max-w-xl  ">
               <div className="col-span-4">

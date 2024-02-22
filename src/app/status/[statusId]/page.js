@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { TiTick } from "react-icons/ti";
 import "./state.css";
+import { useParams } from "next/navigation";
+import useOrder from "@/components/hooks/useOrder";
 
 
 const Status = () => {
@@ -12,24 +14,24 @@ const Status = () => {
   const [complete, setComplete] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [order] = useState()
+  const [order] = useOrder()
+  const { trackingId } = useParams()
+console.log(trackingId)
+  const newStatus = order.find((ord) => ord._id === trackingId);
 
-
+  console.log(newStatus)
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        setData(order);
-        console.log(order)
-        setLoading(false);
-      } catch (error) {
-        console.error(error);
-        setError(error);
-        setLoading(false);
-      }
-    };
-    fetchData();
+
+    try {
+      setLoading(true);
+      setData(newStatus);
+      setLoading(false);
+    } catch (error) {
+      console.error(error);
+      setError(error);
+      setLoading(false);
+    }
   }, []);
 
 

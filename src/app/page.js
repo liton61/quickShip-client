@@ -14,6 +14,7 @@ import Footer from "../components/shared/Footer";
 import { Providers } from "./providers/NextUIProviders";
 import Area from "./coverageArea/Area/Area";
 import FaqSection from "../components/ui/FaqSection";
+import Testimonials from "../components/ui/Testimonials";
 
 
 
@@ -32,6 +33,7 @@ const MainHome = () => {
       <Stat />
       <CallUs />
       <FaqSection />
+      <Testimonials></Testimonials>
       <ContactForm />
       <WorldMap />
       <Footer />

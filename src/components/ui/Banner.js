@@ -48,8 +48,8 @@ const Banner = () => {
                   <div>
                     <input
                       ref={inputRef}
-                      className="input input-bordered join-item text-slate-600 lg:w-96 md:w-96 w-32"
-                      placeholder="Your tracking id...."
+                      className="input input-bordered join-item text-slate-600 lg:w-80 md:w-80 w-44"
+                      placeholder="Your tracking id..."
                       value={trackingId}
                       onChange={handleInputChange}
                       required

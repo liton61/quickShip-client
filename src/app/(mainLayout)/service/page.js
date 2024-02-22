@@ -1,15 +1,58 @@
+"use client";
+import Image from "next/image";
+import "./service.css";
+import { FaArrowRight } from "react-icons/fa";
+import useServices from "@/components/hooks/useService";
 
-import SectionTitle from '../../../components/shared/SectionTitle';
-import OurServices from '../../../components/ui/OurServices';
+const Services = () => {
+  const [services] = useServices();
+  console.log(services);
 
-
-const Service = () => {
-    return (
-        <div className='container m-auto py-10'>
-            <SectionTitle header={"The Service We Provide"} miniHeader={"Our Relabel Contribution"} />
-            <OurServices />
+  return (
+    <div className="bg-base-200 ">
+      <div className="container mx-auto lg:px-20 px-5 py-10">
+        <h2 className="text-center mb-8 text-4xl font-bold">Our Services</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {services?.map((services) => (
+            <div
+              key={services._id}
+              className=" bg-white my-10  border relative cardOne"
+            >
+              <div className="imgbx ">
+                <Image
+                  className="w-full"
+                  src={services.images}
+                  width={200}
+                  height={200}
+                  alt="logo"
+                />
+              </div>
+              <div className="content">
+                <div className="details">
+                  <h2 className="font-bold text-2xl  ">{services.title}</h2>
+                  <div className="data">
+                    <p className="">
+                      This mode of transportation is known for its speed and
+                      efficiency, making it ideal for time-sensitive shipments
+                      or goods that need to travel long distances quickly
+                    </p>
+                  </div>
+                  <div className="readMore mt-5">
+                    <button className="btn bg-blue-500 ">
+                      Read More{" "}
+                      <span>
+                        <FaArrowRight />
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
-export default Service;
+export default Services;

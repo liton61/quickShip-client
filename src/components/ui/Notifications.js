@@ -6,14 +6,13 @@ import useApplication from "../hooks/useApplication";
 
 const Notifications = () => {
     const [order,refetch] = useOrder()
-    console.log(order)
     const [payment] = usePayment()
    const [application] = useApplication()
    refetch()
     return (
         <div>
              
-            { order.length || payment.length || application.length === 0? <IoIosNotifications className="text-blue-600 text-4xl relative" />: <details className="dropdown  dropdown-end">
+            { order.length && payment.length && application.length === 0? <IoIosNotifications className="text-blue-600 text-4xl relative" />: <details className="dropdown  dropdown-end">
                 <summary className="m-1 btn btn-ghost"><IoIosNotifications className="text-blue-600 text-4xl relative" />
                     {<span className="text-white absolute top-2 right-6">{order.length + payment.length + application.length}</span>}
                 </summary>

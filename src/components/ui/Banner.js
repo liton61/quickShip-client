@@ -48,8 +48,8 @@ const Banner = () => {
                   <div>
                     <input
                       ref={inputRef}
-                      className="input input-bordered join-item text-slate-600 lg:w-96 md:w-96 w-32"
-                      placeholder="Your tracking id...."
+                      className="input input-bordered join-item text-slate-600 lg:w-80 md:w-80 w-44"
+                      placeholder="Your tracking id..."
                       value={trackingId}
                       onChange={handleInputChange}
                       required
@@ -74,7 +74,7 @@ const Banner = () => {
       {modalOpen && (
         <dialog id="my_modal_1" className="modal glass" open>
           <div className="modal-box text-black">
-            <h3 className="font-bold text-lg">Your Parcel Status</h3>
+            <h3 className="font-bold text-xl text-center mb-3">My Parcel Status:</h3>
             <div className="py-4 w-full">
               {/* Pass the trackingId to ShowStatus */}
               <ShowStatus trackingId={trackingId} />

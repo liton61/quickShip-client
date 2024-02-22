@@ -1,6 +1,5 @@
 
 import {
-  FaArrowRight,
   FaBiking,
   FaEdit,
   FaRegAddressCard,

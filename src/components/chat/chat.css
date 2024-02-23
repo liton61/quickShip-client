@@ -135,7 +135,7 @@ header h2 {
 }
 .chatbox .incoming p {
   color: #000;
-  background: #f2f2f2;
+  background: #e8e7e7;
 }
 .chatbot .chat-input {
   display: flex;

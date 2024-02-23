@@ -46,7 +46,7 @@ const Navbar = () => {
   return (
     <div className="bg-[#000C21]">
       <div
-        className="navbar  container m-auto">
+        className="navbar container m-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -97,13 +97,13 @@ const Navbar = () => {
           </div>
           <div className="flex justify-center items-center">
             <div className="flex justify-center items-center">
-              <button className="w-40 justify-center items-center">
+              <button className="w-40 justify-center items-center hidden sm:flex">
                 <span>
                   <LottieEffect image={logo} />
                 </span>
               </button>
               <p className="font-serif font-semibold italic text-xl">
-                <span className="text-blue-500 -ml-10">Quick Ship</span>
+                <span className="text-blue-500 sm:-ml-10 ">Quick Ship</span>
               </p>
             </div>
           </div>

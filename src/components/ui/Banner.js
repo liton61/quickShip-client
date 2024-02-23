@@ -1,10 +1,29 @@
 "use client"
 import Lottie from "lottie-react";
-import React from "react";
+import { useRef, useState } from "react";
 import wShip from "../../../public/W ship.json";
-import Link from "next/link";
+import ShowStatus from "./ShowStatus";
+import toast from "react-hot-toast";
 
 const Banner = () => {
+  const inputRef = useRef(null);
+  const [trackingId, setTrackingId] = useState("");
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handleInputChange = (e) => {
+    setTrackingId(e.target.value);
+  };
+
+  const handleStatus = () => {
+    inputRef.current.value = "";
+    if (trackingId) {
+      setModalOpen(true);
+
+    } else {
+      toast.error("Please enter a tracking ID.");
+    }
+
+  };
   return (
     <div>
       <div
@@ -28,21 +47,21 @@ const Banner = () => {
                 <div>
                   <div>
                     <input
-                      className="input input-bordered join-item lg:w-96 md:w-96 w-32"
+                      ref={inputRef}
+                      className="input input-bordered join-item text-slate-600 lg:w-80 md:w-80 w-44"
                       placeholder="Your tracking id..."
+                      value={trackingId}
+                      onChange={handleInputChange}
+                      required
                     />
                   </div>
                 </div>
                 <div className="indicator">
-                  <Link href={'/status'}>
-                    <button className="btn rounded-l-none bg-blue-500 text-white">
-                      Track Now
-                    </button>
-                  </Link>
+                  <button className="btn rounded-l-none bg-blue-500 text-white" onClick={handleStatus}>Track Now</button>
                 </div>
               </div>
             </div>
-            <div className="card  w-full max-w-xl  ">
+            <div className="card w-full max-w-xl">
               <div className="col-span-4">
                 <Lottie loop={true} animationData={wShip}></Lottie>
               </div>
@@ -50,8 +69,26 @@ const Banner = () => {
           </div>
         </div>
       </div>
+
+      {/* Modal for showing parcel status */}
+      {modalOpen && (
+        <dialog id="my_modal_1" className="modal glass" open>
+          <div className="modal-box text-black">
+            <h3 className="font-bold text-xl text-center mb-3">My Parcel Status:</h3>
+            <div className="py-4 w-full">
+              {/* Pass the trackingId to ShowStatus */}
+              <ShowStatus trackingId={trackingId} />
+            </div>
+            <div className="modal-action glass">
+              <button className="btn btn-outline btn-black" onClick={() => setModalOpen(false)}>Close</button>
+            </div>
+          </div>
+        </dialog>
+
+      )}
     </div>
   );
 };
 
 export default Banner;
+

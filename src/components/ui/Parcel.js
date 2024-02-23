@@ -1,6 +1,5 @@
 
 import {
-  FaArrowRight,
   FaBiking,
   FaEdit,
   FaRegAddressCard,
@@ -22,11 +21,11 @@ const Parcel = () => {
           </h2>
         </div>
         <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 lg:px-20 px-5">
-          <div className="bg-white rounded-md shadow-lg p-5">
+          <div className="bg-white rounded shadow-lg p-5">
             <div className="text-center rounded-full">
               <div className="mb-4 ">
                 <span className="flex justify-center items-center">
-                  <FaEdit className="bg-white p-5 text-center text-7xl rounded-lg  text-[#ec3900] "></FaEdit>
+                  <FaEdit className="bg-white p-5 text-center text-8xl text-[#ec3900] "></FaEdit>
                 </span>
               </div>{" "}
             </div>
@@ -37,19 +36,13 @@ const Parcel = () => {
             <p className="text-center text-gray-500 mb-2">
               One of the key components of best logistics solutions industry
             </p>
-            <p className="flex items-center justify-center gap-2">
-              Learn More{" "}
-              <span>
-                <FaArrowRight />
-              </span>
-            </p>
           </div>
 
-          <div className="bg-white rounded-md shadow-lg p-5">
+          <div className="bg-white rounded shadow-lg p-5">
             <div className="text-center rounded-full">
               <div className="mb-4 ">
                 <span className="flex justify-center items-center    ">
-                  <FaUpload className="bg-white p-5 text-center text-7xl rounded-lg  text-[#ec3900] "></FaUpload>
+                  <FaUpload className="bg-white p-5 text-center text-8xl text-[#ec3900] "></FaUpload>
                 </span>
               </div>{" "}
             </div>
@@ -60,19 +53,13 @@ const Parcel = () => {
             <p className="text-center text-gray-500 mb-2">
               One of the key components of best logistics solutions industry
             </p>
-            <p className="flex items-center justify-center gap-2">
-              Learn More{" "}
-              <span>
-                <FaArrowRight />
-              </span>
-            </p>
           </div>
 
-          <div className="bg-white rounded-md shadow-lg p-5">
+          <div className="bg-white rounded shadow-lg p-5">
             <div className="text-center rounded-full">
               <div className="mb-4 ">
                 <span className="flex justify-center items-center    ">
-                  <FaRegAddressCard className="bg-white p-5 text-center text-7xl rounded-lg  text-[#ec3900] "></FaRegAddressCard>
+                  <FaRegAddressCard className="bg-white p-5 text-center text-8xl text-[#ec3900] "></FaRegAddressCard>
                 </span>
               </div>{" "}
             </div>
@@ -83,19 +70,13 @@ const Parcel = () => {
             <p className="text-center text-gray-500 mb-2">
               One of the key components of best logistics solutions industy
             </p>
-            <p className="flex items-center justify-center gap-2">
-              Learn More{" "}
-              <span>
-                <FaArrowRight />
-              </span>
-            </p>
           </div>
 
-          <div className="bg-white rounded-md shadow-lg p-5">
+          <div className="bg-white rounded shadow-lg p-5">
             <div className="text-center rounded-full">
               <div className="mb-4 ">
                 <span className="flex justify-center items-center    ">
-                  <FaBiking className="bg-white p-5 text-center text-7xl rounded-lg  text-[#ec3900] "></FaBiking>
+                  <FaBiking className="bg-white p-5 text-center text-8xl text-[#ec3900] "></FaBiking>
                 </span>
               </div>{" "}
             </div>
@@ -106,13 +87,8 @@ const Parcel = () => {
             <p className="text-center text-gray-500 mb-2">
               One of the key components of best logistics solutions industy
             </p>
-            <p className="flex items-center justify-center gap-2">
-              Learn More{" "}
-              <span>
-                <FaArrowRight />
-              </span>
-            </p>
           </div>
+
         </div>
       </div>
     </div>

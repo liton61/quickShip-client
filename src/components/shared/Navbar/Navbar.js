@@ -1,6 +1,5 @@
 "use client";
 
-
 import Image from "next/image";
 import Link from "next/link";
 // import { useEffect, useState } from "react";
@@ -84,6 +83,16 @@ const Navbar = () => {
               <li>
                 <Link href="/pricing">Booking</Link>
               </li>
+              {
+              user ? <li>
+                <Link href="/job">Job</Link>
+              </li> : ""
+
+            }
+
+              <li>
+                <Link href="/blog">Blogs</Link>
+              </li>
             </ul>
           </div>
           <div className="flex justify-center items-center">
@@ -121,6 +130,10 @@ const Navbar = () => {
                 <Link href="/job">Job</Link>
               </li> : ""
             }
+
+            <li className="text-md mx-3 font-semibold text-blue-500 hover:text-white">
+              <Link href="/blog">Blog</Link>
+            </li>
           </ul>
         </div>
         <div className="navbar-end gap-2">

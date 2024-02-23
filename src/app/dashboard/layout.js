@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { FaBoxOpen, FaBriefcase, FaHome, FaUser, FaUsers } from "react-icons/fa";
-import { MdLogout } from "react-icons/md";
+import { MdLogin, MdLogout } from "react-icons/md";
 import { GiReturnArrow } from "react-icons/gi";
 import { CgProfile } from "react-icons/cg";
 import { MdRateReview } from "react-icons/md";
@@ -13,12 +13,22 @@ import useUser from "../../components/hooks/useUser";
 import ChatBot from "../../components/chat/chat";
 import LottieEffect from "@/components/shared/Lottie";
 import logo from '../../../public/Logo (1).json';
+import { FaSignsPost } from "react-icons/fa6";
+import { BiLogOut } from "react-icons/bi";
+import toast from "react-hot-toast";
 
 const DashboardLayout = ({ children }) => {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
 
 
   const [users] = useUser();
+
+  const handleLogOut = () => {
+    logout()
+      .then(() => { })
+      .catch((error) => console.log(error));
+    toast.success("Log out successfully")
+  };
 
   // console.log(users?.role);
 
@@ -68,7 +78,7 @@ const DashboardLayout = ({ children }) => {
           }
         >
           <FaJediOrder></FaJediOrder>
-          All Order
+          My Order
         </Link>
       </li>
 
@@ -97,6 +107,18 @@ const DashboardLayout = ({ children }) => {
         >
           <CgProfile></CgProfile>
           Admin Profile
+        </Link>
+      </li>
+
+      <li id="sidebar">
+        <Link
+          href="/dashboard/addPost"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          <FaSignsPost></FaSignsPost>
+          Blog Add
         </Link>
       </li>
       <li id="sidebar">
@@ -172,6 +194,18 @@ const DashboardLayout = ({ children }) => {
           Delivery men Profile
         </Link>
       </li>
+
+      <li id="sidebar">
+        <Link
+          href="/dashboard/manageReturn"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          <CgProfile></CgProfile>
+          Manage Return
+        </Link>
+      </li>
     </>
   );
 
@@ -242,25 +276,29 @@ const DashboardLayout = ({ children }) => {
                   Home
                 </Link>
               </li>
-              <div>
-                <li id="sidebar">
-                  {user ? (
-                    <button
-                      className={({ isActive, isPending }) =>
-                        isPending ? `pending` : isActive ? `active` : ""
-                      }
-                    // onClick={handleLogout}
-                    >
-                      <span>
-                        <MdLogout></MdLogout>
-                      </span>
-                      Logout
-                    </button>
-                  ) : (
-                    ""
-                  )}
-                </li>
-              </div>
+              <li id="sidebar">
+                {user ? (
+                <button
+                  onClick={handleLogOut}
+                  className="hover:font-bold flex items-center" /* to={"/login"} */
+                >
+                  <span className="">
+                    <BiLogOut></BiLogOut>
+                  </span>
+                  Logout
+                </button>
+              ) : (
+                <Link
+                  className="hover:font-bold flex items-center"
+                  href={"/login"}
+                >
+                  <span className="">
+                    <MdLogin></MdLogin>
+                  </span>
+                  Login
+                </Link>
+              )}
+              </li>
             </div>
           </ul>
         </div>

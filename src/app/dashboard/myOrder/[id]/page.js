@@ -46,7 +46,7 @@ const OrderPayment = ({ params }) => {
             <p className="  text-sm font-normal text-blue-200">
               Product Price :{" "}
               <span className="text-md text-white font-bold ">
-                {findOrder?.productPrice}
+                {parseFloat(findOrder?.productWeight) * 99 + parseFloat(findOrder?.productPrice)}
               </span>
             </p>
           </div>

@@ -1,11 +1,32 @@
 "use client"
 
+import usePublicAxios from "@/components/hooks/usePublicAxios";
 import useReturn from "../../../components/hooks/useReturn";
 import SectionTitle from "../../../components/shared/SectionTitle";
+import toast from "react-hot-toast";
+import { FaTrashAlt } from "react-icons/fa";
 
 const ReturnOrder = () => {
-  const [returnProduct] = useReturn()
+  const [returnProduct, refetch] = useReturn()
   // console.log(returnProduct);
+
+  const publicAxios = usePublicAxios()
+
+  const handlePending = async (id) => {
+        const success = { status: "Accepted" }
+        const res = await publicAxios.patch(`/return/${id}`, success)
+        console.log(res.data);
+        toast.success("Return Successfully Accepted")
+        refetch()
+    }
+
+    const handleDelete = async (id) => {
+    const res = await publicAxios.delete(`/return/${id}`)
+    if (res.data.deletedCount > 0) {
+      toast.success("Return Delete Successfully")
+      refetch()
+    }
+  };
   return (
     <div>
       <div className="py-8 px-5 ">
@@ -26,6 +47,8 @@ const ReturnOrder = () => {
                   <th>Reason</th>
                   <th>Comments</th>
                   <th>Action</th>
+                  <th>Delete</th>
+
 
                 </tr>
               </thead>
@@ -38,7 +61,20 @@ const ReturnOrder = () => {
                     <td>${item?.productPrice}</td>
                     <td>{item?.productReason}</td>
                     <td>{item?.productComment}</td>
-                    <td>Pending</td>
+                    <td>
+                      {
+                        item?.status === "pending" ? <button onClick={() => handlePending(item?._id)} className="badge badge-secondary badge-outline">{item?.status}</button> : <button className="badge badge-success badge-outline">{item?.status}</button>
+                      }
+                    </td>
+
+                    <td className="text-center">
+                      <button
+                                onClick={() => handleDelete(item?._id)}
+                                className="text-red-600 btn border-none rounded-full hover:bg-purple-900 btn-sm"
+                              >
+                                <FaTrashAlt />
+                              </button>
+                    </td>
                   </tr>
                 ))}
               </tbody>

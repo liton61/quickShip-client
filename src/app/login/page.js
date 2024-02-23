@@ -9,7 +9,7 @@ import Link from "next/link";
 import Image from "next/image";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import usePublicAxios from "../../components/hooks/usePublicAxios";
+import usePublicAxios from "@/components/hooks/usePublicAxios";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);

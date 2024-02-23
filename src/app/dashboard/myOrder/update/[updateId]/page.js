@@ -1,7 +1,7 @@
 "use client";
+import usePublicAxios from "@/components/hooks/usePublicAxios";
 import useAuth from "../../../../../components/hooks/useAuth";
 import useOrder from "../../../../../components/hooks/useOrder";
-import usePublicAxios from "../../../../../components/hooks/usePublicAxios";
 import SectionTitle from "../../../../../components/shared/SectionTitle";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
@@ -13,7 +13,7 @@ const UpdatePage = ({ params }) => {
   const [order] = useOrder()
   const router = useRouter()
 
-  const productUpdate = order?.find((item) => item?._id === params?.id)
+  const productUpdate = order?.find((item) => item?._id === params?.updateId)
   console.log(productUpdate);
 
   // console.log(params.id);
@@ -22,18 +22,16 @@ const UpdatePage = ({ params }) => {
     event.preventDefault();
     const form = event.target;
     const phone = form.phone.value;
-    const price = form.price.value;
     const weight = form.weight.value;
     const time = form.time.value;
 
     const updateOrder = {
       phone,
-      price,
       weight,
-      time,
+      time
     };
-    // console.log(updateOrder);
-    const res = await axiosPublic.put(`/order/${params.id}`, updateOrder);
+    console.log(updateOrder);
+    const res = await axiosPublic.put(`/order/${params.updateId}`, updateOrder);
     // console.log(res.data);
     if (res.data.modifiedCount > 0) {
       toast.success("Product Update Successfully")
@@ -93,7 +91,7 @@ const UpdatePage = ({ params }) => {
               <input
                 className="w-full my-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
                 type="text"
-                required
+                disabled
                 name="price"
                 defaultValue={productUpdate?.productPrice}
               />

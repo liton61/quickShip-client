@@ -28,7 +28,8 @@ const returnPage = ({ params }) => {
     productWeight: newOrder?.productWeight,
     productReason,
     productPayment,
-    productComment
+    productComment,
+    status: "pending"
   };
 
 

@@ -33,7 +33,7 @@ const MainHome = () => {
       <Stat />
       <CallUs />
       <FaqSection />
-      <Testimonials></Testimonials>
+      <Testimonials/>
       <ContactForm />
       <WorldMap />
       <Footer />

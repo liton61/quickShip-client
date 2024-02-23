@@ -34,7 +34,7 @@ const Statistics = () => {
     }, []);
 
     return (
-        <div>
+        <div className="flex justify-center items-center w-full md:w-2/4 2xl:w-1/2 lg:shadow-xl">
             <div>
                 <BarChart data={bookingsPerDay} />
             </div>

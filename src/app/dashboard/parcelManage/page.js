@@ -44,15 +44,7 @@ const UserTable = () => {
                                     <td>
                                         {index + 1}
                                     </td>
-                                    {/* <td>
-                                        <div className="flex items-center gap-3">
-                                            <div className="avatar">
-                                                <div className="rounded-full w-12 h-12">
-                                                    <Image src={item.image} alt="Avatar Tailwind CSS Component" width={500} height={500}/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td> */}
+                                    
                                     <td>{item?.name}</td>
                                     <td>{item?.email}</td>
                                     <td>{item?.phone}</td>

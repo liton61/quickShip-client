@@ -13,7 +13,7 @@
     border-radius: 50%;
     background: #baeb25;
     transition: all 0.2s ease;
-    z-index: 1000; /* Ensure it's above other content */
+    z-index: 40; /* Ensure it's above other content */
     color: #ffffff;
     font-size: 16px;
   }

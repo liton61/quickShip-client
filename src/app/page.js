@@ -29,13 +29,14 @@ const MainHome = () => {
       <Banner />
       <Parcel />
       <ChatBot />
+      <ScrollUp/>
       <OurServices />
       <BestCourier />
       <ProductDelivery />
       <Area />
       <Stat />
       <CallUs />
-      <FaqSection />     
+      <FaqSection />
       <Testimonials/>
       <ContactForm />
       <WorldMap />

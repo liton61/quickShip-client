@@ -2,7 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import BarChart from "./BarChart";
-import usePublicAxios from "@/components/hooks/usePublicAxios";
+import usePublicAxios from "../../hooks/usePublicAxios";
 
 const Statistics = () => {
     const publicAxios = usePublicAxios()
@@ -32,6 +32,7 @@ const Statistics = () => {
 
         return acc;
     }, []);
+    console.log(bookingsPerDay)
 
     return (
         <div className="flex justify-center items-center w-full md:w-2/4 2xl:w-1/2 lg:shadow-xl">

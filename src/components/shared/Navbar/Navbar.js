@@ -79,6 +79,9 @@ const Navbar = () => {
                 <Link href="/">Home</Link>
               </li>
               <li>
+                <Link href="/about">About Us</Link>
+              </li>
+              <li>
                 <Link href="/service">Service</Link>
               </li>
               {/* <li>
@@ -109,6 +112,9 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">
             <li className="text-md mx-3 font-semibold text-blue-500">
               <Link href="/">Home</Link>
+            </li>
+            <li className="text-md mx-3 font-semibold text-blue-500">
+              <Link href="/about">About Us</Link>
             </li>
             <li className="text-md mx-3 font-semibold text-blue-500">
               <Link href="/service">Services</Link>

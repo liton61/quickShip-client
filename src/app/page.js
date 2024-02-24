@@ -16,18 +16,18 @@ import WorldMap from "@/components/ui/WorldMap";
 const HomePage = () => {
   return (
     <>
-      <Navbar></Navbar>
+      <Navbar/>
       <Banner />
       <Parcel />
       <OurServices />
       <ProductDelivery />
-      <BestCourier></BestCourier>
-      <CallUs></CallUs>
-      {/* <FeaturesSection></FeaturesSection> */}
-      <Stat></Stat>
+      <BestCourier/>
+      <CallUs/>
+      {/* <FeaturesSection/> */}
+      <Stat/>
       <WorldMap />
       <ContactForm />
-      <Footer></Footer>
+      <Footer/>
     </>
   );
 };

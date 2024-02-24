@@ -2,26 +2,67 @@
 
 import Image from "next/image";
 import Link from "next/link";
-// import { useEffect, useState } from "react";
 import logo from "../../../../public/Logo (1).json";
 import avatar from "../../../assets/avatar.png";
 import { FaHome } from "react-icons/fa";
 import { BiLogOut, BiSolidDashboard } from "react-icons/bi";
 import { MdLogin } from "react-icons/md";
-// import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import useAuth from "../../hooks/useAuth";
 import LottieEffect from "../Lottie";
 import Notifications from "@/components/ui/Notifications";
-
-
+import { usePathname } from "next/navigation";
+import "./Navbar.css"
+import { FaServicestack } from "react-icons/fa";
+import { MdCalculate } from "react-icons/md";
+import { FaBookmark } from "react-icons/fa";
+import { FaBlog } from "react-icons/fa6";
+import { ImBlog } from "react-icons/im";
+import { FaClipboardCheck } from "react-icons/fa";
 
 
 const Navbar = () => {
-  // const [isScrolled, setIsScrolled] = useState(false);
-
-  // const router = useRouter()
   const { user, logout } = useAuth();
+  const pathname = usePathname()
+  const links = (
+      <>
+        <li>
+          <Link href="/">
+            <span className={`nav-link ${pathname === '/' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center'}`}>
+              <span className="mr-1"><FaHome></FaHome></span>Home</span>
+          </Link>
+        </li>
+        <li>
+          <Link href="/service">
+            <span className={`nav-link ${pathname === '/service' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center'}`}><span className="mr-1"><FaServicestack></FaServicestack></span>Service</span>
+          </Link>
+        </li>
+
+        <li>
+          <Link Link href = "/calculator" >
+            <span className={`nav-link ${pathname === '/calculator' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center'}`}><span className="mr-1"><MdCalculate></MdCalculate></span>Calculator</span>
+          </Link>
+        </li>
+        <li>
+          <Link href="/pricing">
+            <span className={`nav-link ${pathname === '/pricing' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center'}`}><span className="mr-1"><FaClipboardCheck></FaClipboardCheck></span>Booking</span>
+          </Link>
+        </li>
+
+        <li>
+          {
+            user ? <Link href="/job">
+            <span className={`nav-link ${pathname === '/job' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center'}`}><span className="mr-1"><ImBlog></ImBlog></span>Job</span>
+          </Link> : ""
+          }
+        </li>
+        <li>
+          <Link href="/blog">
+            <span className={`nav-link ${pathname === '/blog' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center'}`}><span className="mr-1"><FaBlog></FaBlog></span>Blog</span>
+          </Link>
+        </li>
+      </>
+    );
 
 
   const handleLogOut = () => {
@@ -31,22 +72,9 @@ const Navbar = () => {
     toast.success("Log out successfully")
   };
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const scrollTop = window.scrollY;
-  //     const isNavbarScrolled = scrollTop > 0;
-  //     setIsScrolled(isNavbarScrolled);
-  //   };
-  //   window.addEventListener("scroll", handleScroll);
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
-
   return (
-    <div className="bg-[#000C21]">
       <div
-        className="navbar  container m-auto">
+        className="navbar bg-[#000C21] w-full h-20 fixed z-50">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -68,34 +96,7 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-black"
             >
-              <li>
-                <Link href="/">Home</Link>
-              </li>
-              <li>
-                <Link href="/about">About Us</Link>
-              </li>
-              <li>
-                <Link href="/service">Service</Link>
-              </li>
-              {/* <li>
-                <Link href="/pricing">Pricing</Link>
-              </li> */}
-              <li>
-                <Link href="/calculator">Calculator</Link>
-              </li>
-              <li>
-                <Link href="/pricing">Booking</Link>
-              </li>
-              {
-              user ? <li>
-                <Link href="/job">Job</Link>
-              </li> : ""
-
-            }
-
-              <li>
-                <Link href="/blog">Blogs</Link>
-              </li>
+              {links}
             </ul>
           </div>
           <div className="flex justify-center items-center">
@@ -111,38 +112,12 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li className="text-md mx-3 font-semibold text-blue-500 hover:text-white">
-              <Link href="/">Home</Link>
-            </li>
-            <li className="text-md mx-3 font-semibold text-blue-500 hover:text-white">
-              <Link href="/about">About Us</Link>
-            </li>
-            <li className="text-md mx-3 font-semibold text-blue-500 hover:text-white">
-              <Link href="/service">Services</Link>
-            </li>
-            {/* <li className="text-md mx-3 font-semibold text-blue-500">
-              <Link href="/pricing">Pricing</Link>
-            </li> */}
-            <li className="text-md mx-3 font-semibold text-blue-500 hover:text-white">
-              <Link href="/calculator">Calculator</Link>
-            </li>
-            <li className="text-md mx-3 font-semibold text-blue-500 hover:text-white">
-              <Link href="/pricing">Booking</Link>
-            </li>
-            {
-              user ? <li className="text-md mx-3 font-semibold text-blue-500 hover:text-white">
-                <Link href="/job">Job</Link>
-              </li> : ""
-            }
-
-            <li className="text-md mx-3 font-semibold text-blue-500 hover:text-white">
-              <Link href="/blog">Blog</Link>
-            </li>
+        <div className="navbar-center gap-2">
+          <div className="hidden lg:flex">
+          <ul className="menu menu-horizontal text-white px-1">
+           {links}
           </ul>
         </div>
-        <div className="navbar-end gap-2">
           {user && <Notifications />}
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
@@ -224,7 +199,6 @@ const Navbar = () => {
         <div>
         </div>
       </div>
-    </div>
   );
 };
 

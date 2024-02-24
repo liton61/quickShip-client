@@ -81,7 +81,7 @@ const Footer = () => {
             <a className="link link-hover mb-5 p-3">TESTIMONIAL</a>
           </div>
           <p className="text-center my-4 text-gray-500">
-            Copyright © 2023 Automotive Quick-Ship . All Rights Reserved.
+          Copyright © {new Date().getFullYear()} Automotive Quick-Ship. All Rights Reserved.
           </p>
           <div className="flex justify-center items-center text-4xl gap-3">
             <FaCcVisa className="text-[#fdbb0a]"></FaCcVisa>

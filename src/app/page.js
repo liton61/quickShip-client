@@ -19,6 +19,7 @@ import Navbar from "@/components/shared/Navbar/Navbar";
 
 
 
+
 const MainHome = () => {
 
   return (
@@ -33,8 +34,8 @@ const MainHome = () => {
       <Area />
       <Stat />
       <CallUs />
-      <FaqSection />
-      <Testimonials></Testimonials>
+      <FaqSection />     
+      <Testimonials/>
       <ContactForm />
       <WorldMap />
       <Footer />

@@ -23,7 +23,7 @@ const Notifications = () => {
                         <span className="text-white absolute top-2 right-3">{order?.length + payment?.length + application?.length}</span>
                     </label>
                 </div>
-                <div className="drawer-side z-50 mt-16 h-[95vh] md:mt-[80px] md:h-[92vh] ">
+                <div className="drawer-side z-50 mt-16 md:mt-[80px]">
                     <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay opacity-0"></label>
                     <ul className="menu p-4 w-72 md:w-96 min-h-full bg-base-200 text-base-content">
                         <h1 className="text-xl font-bold">Notifications</h1>

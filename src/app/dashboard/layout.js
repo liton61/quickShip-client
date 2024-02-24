@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { FaBoxOpen, FaBriefcase, FaHome, FaUser, FaUsers } from "react-icons/fa";
-import { MdLogin, MdLogout } from "react-icons/md";
+import { MdLogin } from "react-icons/md";
 import { GiReturnArrow } from "react-icons/gi";
 import { CgProfile } from "react-icons/cg";
 import { MdRateReview } from "react-icons/md";
@@ -16,12 +16,15 @@ import logo from '../../../public/Logo (1).json';
 import { FaSignsPost } from "react-icons/fa6";
 import { BiLogOut } from "react-icons/bi";
 import toast from "react-hot-toast";
+import { usePathname } from "next/navigation";
+import "./Dashboard.css"
 
 const DashboardLayout = ({ children }) => {
   const { user, logout } = useAuth();
 
 
   const [users] = useUser();
+  const pathname = usePathname()
 
   const handleLogOut = () => {
     logout()
@@ -30,182 +33,115 @@ const DashboardLayout = ({ children }) => {
     toast.success("Log out successfully")
   };
 
-  // console.log(users?.role);
-
   const UserSidebarLinks = (
-    <>
-      <li id="sidebar">
-        <Link
-          href="/dashboard/myProfile"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
-          }
-        >
-          <CgProfile></CgProfile>
-          My Profile
-        </Link>
-      </li>
+      <>
+        <li>
+          <Link href = "/dashboard/myProfile" >
+            <span span className = {
+              `nav-link ${pathname === '/dashboard/myProfile' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center gap-1'}`
+            } >
+              <CgProfile></CgProfile>My Profile</span>
+          </Link>
+        </li>
+        <li>
+          <Link href="/dashboard/paymentHistory">
+            <span className={`nav-link ${pathname === '/dashboard/paymentHistory' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center gap-1'}`}><MdWorkHistory></MdWorkHistory>
+          Payment History</span>
+          </Link>
+        </li>
 
-      <li id="sidebar">
-        <Link
-          href="/dashboard/paymentHistory"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
-          }
-        >
-          <MdWorkHistory></MdWorkHistory>
-          Payment History
-        </Link>
-      </li>
+        <li>
+          <Link Link href = "/dashboard/myOrder" >
+            <span className={`nav-link ${pathname === '/dashboard/myOrder' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center gap-1'}`}><FaJediOrder></FaJediOrder>
+          My Order</span>
+          </Link>
+        </li>
+        <li>
+          <Link href="/dashboard/review">
+            <span className={`nav-link ${pathname === '/dashboard/review' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center gap-1'}`}><MdRateReview></MdRateReview>
+          Review</span>
+          </Link>
+        </li>
+      </>
+    );
 
-      {/* <li id="sidebar">
-        <Link
-          href="/dashboard/return"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
-          }
-        >
-          <GiReturnArrow></GiReturnArrow>
-          Return Product
-        </Link>
-      </li> */}
+    const AdminSidebarLinks = (
+      <>
+        <li>
+          <Link href = "/dashboard/adminProfile" >
+            <span span className = {
+              `nav-link ${pathname === '/dashboard/adminProfile' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center gap-1'}`
+            } >
+              <CgProfile></CgProfile>
+          Admin Profile</span>
+          </Link>
+        </li>
 
-      <li id="sidebar">
-        <Link
-          href="/dashboard/myOrder"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
-          }
-        >
-          <FaJediOrder></FaJediOrder>
-          My Order
-        </Link>
-      </li>
+        <li>
+          <Link href="/dashboard/addPost">
+            <span className={`nav-link ${pathname === '/dashboard/addPost' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center gap-1'}`}><FaSignsPost></FaSignsPost>
+          Blog Add</span>
+          </Link>
+        </li>
 
-      <li id="sidebar">
-        <Link
-          href="/dashboard/review"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
-          }
-        >
-          <MdRateReview></MdRateReview>
-          Review
-        </Link>
-      </li>
-    </>
-  );
+        <li>
+          <Link Link href = "/dashboard/parcelManage" >
+            <span className={`nav-link ${pathname === '/dashboard/parcelManage' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center gap-1'}`}><FaBoxOpen></FaBoxOpen>
+          Parcels Manage</span>
+          </Link>
+        </li>
 
-  const AdminSidebarLinks = (
-    <>
-      <li id="sidebar">
-        <Link
-          href="/dashboard/adminProfile"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
-          }
-        >
-          <CgProfile></CgProfile>
-          Admin Profile
-        </Link>
-      </li>
+        <li>
+          <Link href="/dashboard/usersManage">
+            <span className={`nav-link ${pathname === '/dashboard/usersManage' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center gap-1'}`}><FaUsers></FaUsers>
+          Users Manage</span>
+          </Link>
+        </li>
 
-      <li id="sidebar">
-        <Link
-          href="/dashboard/addPost"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
-          }
-        >
-          <FaSignsPost></FaSignsPost>
-          Blog Add
-        </Link>
-      </li>
-      <li id="sidebar">
-        <Link
-          href="/dashboard/parcelManage"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
-          }
-        >
-          <FaBoxOpen></FaBoxOpen>
-          Manage Parcels
-        </Link>
-      </li>
+        <li>
+          <Link href="/dashboard/deliveryBoy">
+            <span className={`nav-link ${pathname === '/dashboard/deliveryBoy' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center gap-1'}`}><FaUser></FaUser>
+          Delivery Boy</span>
+          </Link>
+        </li>
 
-      <li id="sidebar">
-        <Link
-          href="/dashboard/usersManage"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
-          }
-        >
-          <FaUsers></FaUsers>
-          Manage Users
-        </Link>
-      </li>
-      <li id="sidebar">
-        <Link
-          href="/dashboard/deliveryBoy"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
-          }
-        >
-          <FaUser></FaUser>
-          Delivery Boy
-        </Link>
-      </li>
-      <li id="sidebar">
-        <Link
-          href="/dashboard/application"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
-          }
-        >
-          <FaBriefcase></FaBriefcase>
-          Application
-        </Link>
-      </li>
+        <li>
+          <Link href="/dashboard/application">
+            <span className={`nav-link ${pathname === '/dashboard/application' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center gap-1'}`}> <FaBriefcase></FaBriefcase>
+          Application</span>
+          </Link>
+        </li>
 
-      <li id="sidebar">
-        <Link
-          href="/dashboard/returnOrder"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
-          }
-        >
-          <GiReturnArrow />
-          Return Order
-        </Link>
-      </li>
-    </>
-  );
+        <li>
+          <Link href="/dashboard/returnOrder">
+            <span className={`nav-link ${pathname === '/dashboard/returnOrder' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center gap-1'}`}><GiReturnArrow />
+          Return Order</span>
+          </Link>
+        </li>
+        
+      </>
+    );
+
 
   const deliverySidebarLinks = (
     <>
-      <li id="sidebar">
-        <Link
-          href="/"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
-          }
-        >
-          <CgProfile></CgProfile>
-          Delivery men Profile
-        </Link>
-      </li>
+      <li>
+          <Link href = "/dashboard/deliveryMenProfile" >
+            <span span className = {
+              `nav-link ${pathname === '/dashboard/deliveryMenProfile' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center gap-1'}`
+            } >
+              <CgProfile></CgProfile>delivery Men Profile</span>
+          </Link>
+        </li>
 
-      <li id="sidebar">
-        <Link
-          href="/dashboard/manageReturn"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "active" : ""
-          }
-        >
-          <CgProfile></CgProfile>
-          Manage Return
-        </Link>
-      </li>
+        <li>
+          <Link href = "/dashboard/manageReturn" >
+            <span span className = {
+              `nav-link ${pathname === '/dashboard/manageReturn' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center gap-1'}`
+            } >
+              <CgProfile></CgProfile>Manage Return</span>
+          </Link>
+        </li>
     </>
   );
 
@@ -263,33 +199,28 @@ const DashboardLayout = ({ children }) => {
               <div className="divider"></div>
             </div>
             <div>
-              <li id="sidebar">
-                <Link
-                  href="/"
-                  className={({ isActive, isPending }) =>
-                    isPending ? `pending` : isActive ? `active` : ""
-                  }
-                >
-                  <span>
-                    <FaHome></FaHome>
-                  </span>
-                  Home
+              <li>
+                <Link href = "/" >
+                  <span span className = {
+                    `nav-link ${pathname === '/' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center gap-1'}`
+                  } >
+                    <FaHome></FaHome>Home</span>
                 </Link>
               </li>
-              <li id="sidebar">
+              <li className="">
                 {user ? (
                 <button
                   onClick={handleLogOut}
-                  className="hover:font-bold flex items-center" /* to={"/login"} */
+                  className="rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center gap-1"
                 >
-                  <span className="">
+                  <span>
                     <BiLogOut></BiLogOut>
                   </span>
                   Logout
                 </button>
               ) : (
                 <Link
-                  className="hover:font-bold flex items-center"
+                  className="rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center gap-1"
                   href={"/login"}
                 >
                   <span className="">

@@ -21,7 +21,6 @@ import ScrollUp from "@/components/shared/Scroll/ScrollUp";
 
 
 
-
 const MainHome = () => {
 
   return (
@@ -41,6 +40,7 @@ const MainHome = () => {
       <Testimonials/>
       <ContactForm />
       <WorldMap />
+      <ScrollUp/>
       <Footer />
     </Providers>
   );

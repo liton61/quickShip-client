@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 
 // import Statistics from "../../../components/ui/BarChart/Statistics";
 // import DonutChart from "../../../components/ui/PieChart/DonutChart";

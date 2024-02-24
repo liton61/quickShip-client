@@ -5,8 +5,8 @@ import { FaCheck } from "react-icons/fa";
 const About = () => {
     return (
         <div>
-      <div className=" mb-5 mx-auto max-w-screen-xl  ">
-        <div className="flex pb-8 mt-16 gap-10 flex-col  lg:flex-row">
+      <div className="mb-5 mx-auto max-w-screen-xl py-24">
+        <div className="flex pb-8 pt-16 gap-10 flex-col  lg:flex-row">
           <div className="lg:w-1/2 space-y-5 px-4">
             <h3 className="text-xl text-blue-500 font-bold">About Us</h3>
             <h1 className="text-3xl font-bold">

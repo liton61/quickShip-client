@@ -54,7 +54,7 @@ const BlogDetails = ({params}) => {
             }
     };
     return (
-        <div className = 'max-w-[2520px] grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 mx-auto lg:px-20 md:px-10 sm:px-2 px-4 py-7' >
+        <div className = 'max-w-[2520px] grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 mx-auto lg:px-20 md:px-10 sm:px-2 px-4 py-7 ' >
             <div className='lg:col-span-2 space-y-10'>
                 <div>
                     <div className="">

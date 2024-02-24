@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import logo from "../../../../public/Logo (1).json";
 import avatar from "../../../assets/avatar.png";
-import { FaHome } from "react-icons/fa";
+import { FaHome, FaUserTag } from "react-icons/fa";
 import { BiLogOut, BiSolidDashboard } from "react-icons/bi";
 import { MdLogin } from "react-icons/md";
 import toast from "react-hot-toast";
@@ -29,6 +29,11 @@ const Navbar = () => {
           <Link href="/">
             <span className={`nav-link ${pathname === '/' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center'}`}>
               <span className="mr-1"><FaHome></FaHome></span>Home</span>
+          </Link>
+        </li>
+        <li>
+          <Link href="/about">
+            <span className={`nav-link ${pathname === '/about' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center'}`}><span className="mr-1"><FaUserTag></FaUserTag></span>About Us</span>
           </Link>
         </li>
         <li>
@@ -100,18 +105,18 @@ const Navbar = () => {
           </div>
           <div className="flex justify-center items-center">
             <div className="flex justify-center items-center">
-              <button className="w-40 justify-center items-center">
+              <button className="w-40 justify-center items-center hidden sm:flex">
                 <span>
                   <LottieEffect image={logo} />
                 </span>
               </button>
               <p className="font-serif font-semibold italic text-xl">
-                <span className="text-blue-500 -ml-10">Quick Ship</span>
+                <span className="text-blue-500 sm:-ml-10 ">Quick Ship</span>
               </p>
             </div>
           </div>
         </div>
-        <div className="navbar-center gap-2">
+        <div className="navbar-end gap-2">
           <div className="hidden lg:flex">
           <ul className="menu menu-horizontal text-white px-1">
            {links}

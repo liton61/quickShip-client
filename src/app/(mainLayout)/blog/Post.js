@@ -13,7 +13,7 @@ const Post = ({post}) => {
             <div className="">
                 <h2 className="text-2xl font-bold text-gray-600 text-justify">{post?.title}</h2>
                 <p className="text-sm text-gray-400 text-justify mt-2 my-4">{post?.time} <span className="px-2">|</span> <span>{filterComments?.length} Comments</span></p>
-                <Image className="w-full h-96" src={post?.image} alt="post" height={20} width={600}></Image>
+                <Image className="w-full h-96 2xl:h-[600px]" src={post?.image} alt="post" height={20} width={600}></Image>
                 <p className="text-sm text-justify text-gray-500 py-7">{post?.description}</p>
                 <div>
                     <Link href={`/blog/${post?._id}`} className="bg-blue-800 hover:bg-orange-800 text-white font-bold py-2 px-10 text-sm rounded-full">Read more</Link>

@@ -4,6 +4,8 @@ import { useRef, useState } from "react";
 import wShip from "../../../public/W ship.json";
 import ShowStatus from "./ShowStatus";
 import toast from "react-hot-toast";
+import { FaPaste } from "react-icons/fa";
+import { FaX } from "react-icons/fa6";
 
 const Banner = () => {
   const inputRef = useRef(null);
@@ -15,7 +17,7 @@ const Banner = () => {
   };
 
   const handleStatus = () => {
-    inputRef.current.value = "";
+
     if (trackingId) {
       setModalOpen(true);
 
@@ -24,6 +26,21 @@ const Banner = () => {
     }
 
   };
+
+  const handlePaste = () => {
+    navigator.clipboard.readText()
+      .then(text => {
+        setTrackingId(text);
+      })
+      .catch(error => {
+        console.error('Failed to paste:', error);
+      });
+  };
+
+  const handleClean = () => {
+    inputRef.current.value = "";
+  }
+
   return (
     <div>
       <div
@@ -33,7 +50,7 @@ const Banner = () => {
         }}
       >
         <div className="hero-overlay bg-opacity-60 bg-black"></div>
-        <div className="hero-content text-center text-neutral-content">
+        <div className=" text-center text-neutral-content">
           <div className="hero-content flex-col lg:flex-row gap-10">
             <div className="text-center lg:text-left space-y-6">
               <h1 className="text-3xl lg:text-7xl font-bold ">
@@ -49,14 +66,20 @@ const Banner = () => {
                     <input
                       ref={inputRef}
                       className="input input-bordered join-item text-slate-600 lg:w-80 md:w-80 w-44"
-                      placeholder="Your tracking id..."
+                      placeholder="Tracking id..."
                       value={trackingId}
                       onChange={handleInputChange}
                       required
                     />
                   </div>
                 </div>
-                <div className="indicator">
+                <div className="indicator flex justify-center items-center">
+                  <button className="absolute  text-red-300  mr-52" onClick={handleClean}>
+                    <FaX className="text-sm" />
+                  </button>
+                  <button className="absolute text-gray-500 mr-36" onClick={handlePaste}>
+                    <FaPaste />
+                  </button>
                   <button className="btn rounded-l-none bg-blue-500 text-white" onClick={handleStatus}>Track Now</button>
                 </div>
               </div>

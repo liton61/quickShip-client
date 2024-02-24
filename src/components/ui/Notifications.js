@@ -13,11 +13,20 @@ const Notifications = () => {
     console.log(order, payment, application)
     return (
         <div>
-            {order.length && payment.length && application.length === 0 ? (<IoIosNotifications className="text-blue-600 text-4xl relative" />) : (<details className="dropdown  dropdown-end">
-                <summary className="m-1 btn btn-ghost"><IoIosNotifications className="text-blue-600 text-4xl relative" />
-                    <span className="text-white absolute top-2 right-6">{order?.length + payment?.length + application?.length}</span>
-                </summary>
-                <ul className="p-2  w-64 lg:w-96 shadow menu dropdown-content z-[1] bg-base-100 rounded-box max-h-[700px] grid grid-cols-1 overflow-y-scroll">
+        <div className="dropdown dropdown-end">
+      <div div tabIndex = {
+          0
+      }
+      role = "button"
+      className = "btn btn-ghost text-blue-600 btn-circle" >
+        <div className="indicator">
+          <span><IoIosNotifications className="w-6 h-6 "></IoIosNotifications></span>
+          <span className="badge badge-xs bg-red-700 text-white indicator-item">{order?.length + payment?.length + application?.length}</span>
+        </div>
+      </div>
+      <div tabIndex={0} className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
+        <div className="card-body">
+          <ul className="p-2  w-64 lg:w-96 shadow menu dropdown-content z-[1] bg-base-100 rounded-box max-h-[700px] grid grid-cols-1 overflow-y-scroll">
                    
                 <h1 className="text-xl font-bold">Notifications</h1>
                     {order?.map((item) => (<div key={item._id} className="flex justify-start items-center"><MdNotificationsActive className="text-xl" /><li className="p-2 text-lg shadow block">Your product is {item.status}</li></div>))}
@@ -31,8 +40,9 @@ const Notifications = () => {
 
 
                 </ul>
-            </details>)}
-
+        </div>
+      </div>
+    </div>
         </div>
     );
 };

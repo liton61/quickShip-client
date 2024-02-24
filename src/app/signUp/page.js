@@ -48,8 +48,8 @@ const SignUp = () => {
   };
 
   return (
-    <div className="bg-[#010313] h-screen">
-      <div className="grid md:grid-cols-2 p-5 py-24 xl:py-44" >
+    <div className="bg-[#010313]">
+      <div className="grid md:grid-cols-2 p-5" >
         <div className="flex justify-center items-center" >
           <Image src={signUpImg} className="w-full md:w-96" alt="signUp"></Image>
         </div>

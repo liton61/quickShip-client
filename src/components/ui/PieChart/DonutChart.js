@@ -1,37 +1,47 @@
+
 "use client"
 
 
-import useOrder from '@/components/hooks/useOrder';
+import useApplication from '../../hooks/useApplication';
+import useOrder from '../../hooks/useOrder';
+import usePayment from '../../hooks/usePayment';
 import ApexCharts from 'react-apexcharts';
-const DonutChart = () => {
+
+
+const DonutChart =  () => {
+
   const [order] = useOrder();
+  const [payment] = usePayment()
+  const [application] = useApplication()
+
 
   const chartOptions = {
-    series: [44, 55, 41, 17, 15],
+    series: [order.length, application.length, payment.length],
     chart: {
       type: 'donut',
       width: '100%' // Ensure full-width responsiveness
     },
-    responsive: [{
-      breakpoint: 480, // Adjust breakpoint as needed
-      options: {
-        chart: {
-          width: '100%', // Consider a wider width for smaller screens
-        },
-        legend: {
-          position: 'bottom',
-          offsetX: 0, // Center legend horizontally
-          offsetY: 0, // Position legend at the bottom edge
-        },
-      },
-    }],
-    labels: ['Apples', 'Bananas', 'Oranges', 'Grapes', 'Other'],
+    // responsive: [{
+    //   breakpoint: 480, // Adjust breakpoint as needed
+    //   options: {
+    //     chart: {
+    //       width: '100%', // Consider a wider width for smaller screens
+    //     },
+    //     legend: {
+    //       position: 'bottom',
+    //       offsetX: 0, // Center legend horizontally
+    //       offsetY: 0, // Position legend at the bottom edge
+    //     },
+    //   },
+    // }],
+    labels: ['Order', 'Apply', 'Payment'],
     legend: {
       show: true, // Optionally display legend
       position: 'right', // Adjust position as desired
       offsetX: 0, // Optionally center legend horizontally
       offsetY: 0, // Optionally position legend vertically
     },
+    colors: ['#3e8ef7', '#36c5b4', '#ff0000']
   };
 
   return (

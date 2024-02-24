@@ -1,4 +1,4 @@
-// BarChart.js
+"use client"
 import Chart from "react-apexcharts";
 
 const BarChart = ({ data }) => {

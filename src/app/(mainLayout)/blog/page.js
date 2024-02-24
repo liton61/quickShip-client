@@ -5,11 +5,11 @@ import Post from './Post';
 import { GoTriangleRight } from "react-icons/go";
 import { IoSearchOutline } from "react-icons/io5";
 import { useState } from 'react';
-import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import useLatestPosts from '@/components/hooks/useLatestPosts';
 import Image from 'next/image';
 import Link from 'next/link';
+import Calendar from 'react-calendar';
 
 
 const Blog = () => {
@@ -17,7 +17,7 @@ const Blog = () => {
     const [latestPosts] = useLatestPosts()
 
     const [value, onChange] = useState(new Date());
-    
+
     return (
         <div className = 'max-w-[2520px] grid grid-cols-1 md:grid-cols-2 gap-5 lg:grid-cols-3 mx-auto lg:px-20 md:px-10 sm:px-2 px-4 py-7' >
             <div className='lg:col-span-2 space-y-10'>

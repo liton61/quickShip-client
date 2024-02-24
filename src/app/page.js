@@ -18,6 +18,7 @@ import Testimonials from "../components/ui/Testimonials";
 
 
 
+
 const MainHome = () => {
 
   return (
@@ -32,7 +33,7 @@ const MainHome = () => {
       <Area />
       <Stat />
       <CallUs />
-      <FaqSection />
+      <FaqSection />     
       <Testimonials/>
       <ContactForm />
       <WorldMap />

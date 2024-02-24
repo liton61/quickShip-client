@@ -8,6 +8,7 @@ import './globals.css';
 import { Providers } from "./providers/NextUIProviders";
 
 
+
 const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Quick Ship",

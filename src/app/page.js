@@ -15,6 +15,8 @@ import Area from "./coverageArea/Area/Area";
 import FaqSection from "../components/ui/FaqSection";
 import Testimonials from "../components/ui/Testimonials";
 import Navbar from "@/components/shared/Navbar/Navbar";
+import ScrollUp from "@/components/shared/Scroll/ScrollUp";
+
 
 
 
@@ -28,13 +30,14 @@ const MainHome = () => {
       <Banner />
       <Parcel />
       <ChatBot />
+      <ScrollUp/>
       <OurServices />
       <BestCourier />
       <ProductDelivery />
       <Area />
       <Stat />
       <CallUs />
-      <FaqSection />     
+      <FaqSection />
       <Testimonials/>
       <ContactForm />
       <WorldMap />

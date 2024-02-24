@@ -18,13 +18,11 @@ const UserTable = () => {
     }
 
     return (
-        <div>
-            <div>
-                <div className="overflow-x-auto mt-10 px-5">
+        <div className = "overflow-x-auto pt-10 px-5 bg-[#010313] text-white" >
                     <table className="table">
                         {/* head */}
-                        <thead className="bg-blue-600 text-white z-20 rounded-t-3xl">
-                            <tr>
+                        <thead className = "bg-[#0D0D21] text-white z-20 rounded-t-3xl" >
+                            <tr >
                                 <th>No</th>
                                 {/* <th>Image</th> */}
                                 <th>Name</th>
@@ -40,11 +38,10 @@ const UserTable = () => {
                             {
                                 parcel.map((item, index) => <tr key={
                                     item?._id
-                                } >
+                                }  className="border-b-gray-800 hover:bg-[#0D0D21]" >
                                     <td>
                                         {index + 1}
                                     </td>
-                                    
                                     <td>{item?.name}</td>
                                     <td>{item?.email}</td>
                                     <td>{item?.phone}</td>
@@ -57,15 +54,6 @@ const UserTable = () => {
                                             item?.status === "pending" ? <button onClick={() => handlePending(item?._id)} className="badge badge-secondary badge-outline">{item?.status}</button> : <button className="badge badge-success badge-outline">{item?.status}</button>
                                         }
                                     </td>
-                                    {/* <td>{item.time}</td> */}
-                                    {/* <td>
-                                        <Link to={`/dashboard/updateItem/${item._id}`}>
-                                            <button><i className="fas fa-edit text-xl text-green-600 mt-3"></i></button>
-                                        </Link>
-                                    </td> */}
-                                    {/* <td>
-                                        <button onClick={() => handleDeleteItem(item)}><i className="fa-solid fa-trash-can text-xl text-red-600 mt-3"></i></button>
-                                    </td> */}
                                 </tr>)
                             }
                         </tbody>
@@ -73,8 +61,6 @@ const UserTable = () => {
 
                     </table>
                 </div>
-            </div>
-        </div>
     );
 };
 

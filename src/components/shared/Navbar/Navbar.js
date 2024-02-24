@@ -15,7 +15,6 @@ import { usePathname } from "next/navigation";
 import "./Navbar.css"
 import { FaServicestack } from "react-icons/fa";
 import { MdCalculate } from "react-icons/md";
-import { FaBookmark } from "react-icons/fa";
 import { FaBlog } from "react-icons/fa6";
 import { ImBlog } from "react-icons/im";
 import { FaClipboardCheck } from "react-icons/fa";

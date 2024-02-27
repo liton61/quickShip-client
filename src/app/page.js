@@ -16,6 +16,7 @@ import FaqSection from "../components/ui/FaqSection";
 import Testimonials from "../components/ui/Testimonials";
 import Navbar from "@/components/shared/Navbar/Navbar";
 import ScrollUp from "@/components/shared/Scroll/ScrollUp";
+import OurTeams from "@/components/ui/OurTeams/OurTeams";
 
 
 
@@ -36,6 +37,7 @@ const MainHome = () => {
       <Area />
       <Stat />
       <CallUs />
+      <OurTeams></OurTeams>
       <FaqSection />
       <Testimonials/>
       <ContactForm />

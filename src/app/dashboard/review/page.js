@@ -1,5 +1,6 @@
 "use client"
 import usePublicAxios from '@/components/hooks/usePublicAxios';
+import SectionTitle from '@/components/shared/SectionTitle';
 import React from 'react';
 import Swal from 'sweetalert2';
 
@@ -30,7 +31,8 @@ const Review = () => {
     }
     return (
         <div>
-            <div div className = "py-12 lg:px-0 px-5 bg-[#010313]" >
+            <div div className = "py-12 lg:px-0 px-5 h-screen xl:py-36 bg-[#010313] text-white" >
+                <SectionTitle header={"Add your valuable review"} miniHeader={'Put Review here'}/>
                 <div div className = "lg:w-3/4 mx-auto bg-[#0D0D21] text-white p-10 rounded" >
                     <h2 className="text-2xl font-semibold mb-4">Leave a Review</h2>
                     <form onSubmit={handleSubmit}>

@@ -118,7 +118,7 @@ const DashboardLayout = ({ children }) => {
           Return Order</span>
           </Link>
         </li>
-        
+
       </>
     );
 
@@ -195,7 +195,7 @@ const DashboardLayout = ({ children }) => {
               <div className="divider"></div>
               {users?.role === "admin" ? AdminSidebarLinks : ""}
               <div className="divider"></div>
-              {users?.role === "deliveryMen" || "admin" ? deliverySidebarLinks : ""}
+              {users?.role === "admin" ? deliverySidebarLinks : ""}
               <div className="divider"></div>
             </div>
             <div>

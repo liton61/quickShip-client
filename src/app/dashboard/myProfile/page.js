@@ -11,7 +11,7 @@ const MyProfile = () => {
   return (
     <div className="px-4 py-8 h-screen bg-[#010313] text-white space-y-8">
       <h2 className="text-2xl font-bold">
-        Hi, <span className="text-orange-700">Welcome Back!</span>
+        Hi, <span className="text-orange-700">{user?.displayName ? user?.displayName : "There"}</span> Welcome Back!
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -22,7 +22,7 @@ const MyProfile = () => {
             <SiTask></SiTask>
           </span>
           <div>
-            <h2 className="text-2xl font-bold">{order.length}</h2>
+            <h2 className="text-2xl font-bold">{order?.length}</h2>
             <p className="text-lg font-bold">Orders</p>
           </div>
         </div>
@@ -57,20 +57,20 @@ const MyProfile = () => {
       >
         <div className="h-24 lg:w-2/3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"></div>
         <div className="h-72 lg:w-2/3 flex flex-col justify-center items-center">
-          <Image className="rounded-full lg:-mt-32" src={user?.photoURL} width={60} height={20} alt="User Image"></Image>
+          <Image className="rounded-full lg:-mt-32" src={user?.photoURL ? user?.photoURL : "https://i.ibb.co/SKhSR0W/avatardefault-92824.png"} width={60} height={20} alt="User Image"></Image>
           <div className="badge mt-2 badge-accent badge-outline">User</div>
           <h2 className="py-5">
             <span className="font-bold mr-2">User Id:</span>
-            <span className="text-md text-purple-400">{user?.uid}</span>
+            <span className="text-md text-purple-400">{user?.uid ? user?.uid : "Your Id Not found"}</span>
           </h2>
           <div className="grid lg:grid-cols-3 gap-5 justify-center">
             <div className="space-y-2">
               <p className="font-bold">Name</p>
-              <p className="text-xs text-purple-400">{user?.displayName}</p>
+              <p className="text-xs text-purple-400">{user?.displayName ? user?.displayName : "Name Not Found"}</p>
             </div>
             <div className="space-y-2">
               <p className="font-bold">Email:</p>
-              <p className="text-xs text-purple-400">{user?.email}</p>
+              <p className="text-xs text-purple-400">{user?.email ? user?.email : "Email Not Found"}</p>
             </div>
             <div className="space-y-2">
               <button className="text-white text-xs mr-2 font-bold py-2 px-4 rounded border border-purple-700  hover:bg-purple-700">

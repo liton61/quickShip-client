@@ -19,7 +19,7 @@ const Notifications = () => {
             {order.length && payment.length && application.length === 0 ? (<IoIosNotifications className="text-blue-600 text-4xl relative" />) : (<div className="drawer drawer-end">
                 <input id="my-drawer-4" type="checkbox" onClick={() => setShowAll(false)} className="drawer-toggle" />
                 <div className="drawer-content">
-                    <label htmlFor="my-drawer-4" className="drawer-button btn btn-ghost"><IoIosNotifications className="text-blue-600 text-4xl relative" />
+                    <label htmlFor="my-drawer-4" className="drawer-button btn btn-ghost"><IoIosNotifications className="text-blue-600 text-3xl relative" />
                         <span className="text-white absolute top-2 right-3">{order?.length + payment?.length + application?.length}</span>
                     </label>
                 </div>

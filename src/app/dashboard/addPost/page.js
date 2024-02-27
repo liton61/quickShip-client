@@ -31,7 +31,7 @@ const AddPost = () => {
   };
 
   return (
-    <div className="py-8 bg-[#010313] overflow-x-auto 2xl:h-screen 2xl:py-36">
+    <div className="py-8 bg-[#010313] text-white overflow-x-auto 2xl:h-screen 2xl:py-36">
       <SectionTitle
         header={"Add Post"}
         miniHeader={"User any post added here"}

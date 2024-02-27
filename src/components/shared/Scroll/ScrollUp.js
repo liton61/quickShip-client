@@ -20,7 +20,7 @@ const ScrollUp = () => {
   // Function to handle the scroll event and toggle button visibility
   const handleScroll = () => {
     const scrollPosition = window.pageYOffset;
-    if (scrollPosition > 300) { // Adjust this value as needed
+    if (scrollPosition > 400) { // Adjust this value as needed
       setIsVisible(true);
     } else {
       setIsVisible(false);

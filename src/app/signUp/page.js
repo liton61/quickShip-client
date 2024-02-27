@@ -18,7 +18,7 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
 
-  const { createUser } = useAuth();
+  const { createUser, updateUserProfile } = useAuth();
 
   const router = useRouter()
 
@@ -26,19 +26,22 @@ const SignUp = () => {
   const onSubmit = async (data) => {
     console.log(data);
     await createUser(data?.email, data?.password)
+    await updateUserProfile(data?.name)
       .then((result) => {
-        console.log(result?.user);
-        const userInfo = {
-          name: data?.name,
-          email: data?.email,
-          password: data?.password
-        };
 
-        publicAxios.post("/users", userInfo).then((res) => {
-          console.log(res.data);
-          toast.success("Successfully Sign Up");
-          router.push("/")
-        });
+        console.log(result?.user);
+
+
+        // const userInfo = {
+        //   name: data?.name,
+        //   email: data?.email,
+        // };
+
+        // publicAxios.post("/users", userInfo).then((res) => {
+        //   console.log(res.data);
+        toast.success("Successfully Sign Up");
+        router.push("/")
+        // });
 
 
       })

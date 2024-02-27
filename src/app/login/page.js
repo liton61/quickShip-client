@@ -30,6 +30,8 @@ const Login = () => {
     await login(data?.email, data?.password)
       .then((result) => {
         console.log(result?.user);
+        toast.success("Log in successfully")
+        router.push('/')
       })
       .catch((error) => {
         console.log(error.message);
@@ -40,6 +42,7 @@ const Login = () => {
   const onGoogleSubmit = () => {
     googleUser()
       .then((result) => {
+
         const userInfo = {
           name: result?.user?.displayName,
           email: result?.user?.email,
@@ -60,6 +63,7 @@ const Login = () => {
   const onGithubSubmit = () => {
     githubUser()
       .then((result) => {
+
         const userInfo = {
           name: result?.user?.displayName,
           email: result?.user?.email,

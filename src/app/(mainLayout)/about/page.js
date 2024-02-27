@@ -1,10 +1,11 @@
+
 import Image from "next/image";
 import { FaCheck } from "react-icons/fa";
 
 
 const About = () => {
-    return (
-        <div>
+  return (
+    <div>
       <div className="mb-5 mx-auto max-w-screen-xl py-24">
         <div className="flex pb-8 pt-16 gap-10 flex-col  lg:flex-row">
           <div className="lg:w-1/2 space-y-5 px-4">
@@ -13,7 +14,7 @@ const About = () => {
               World’s Leading Contract Logistics Provider.
             </h1>
             <p className="py-3">
-            QuickShip, the epitome of efficiency in the realm of international courier services, stands as a beacon for swift and reliable parcel deliveries across borders.
+              QuickShip, the epitome of efficiency in the realm of international courier services, stands as a beacon for swift and reliable parcel deliveries across borders.
             </p>
             <p className="flex items-center gap-2">
               <FaCheck className="text-blue-500"></FaCheck>
@@ -82,7 +83,7 @@ const About = () => {
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default About;

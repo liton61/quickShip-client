@@ -49,7 +49,7 @@ const page = () => {
     }
 
     return (
-        <div className="py-14 bg-gray-100 lg:px-0 px-5">
+        <div className="py-14 bg-gray-100 lg:px-0 px-5 pt-24 xl:py-36">
             <div className="pb-5">
                 <h1 className="text-center text-2xl font-bold">Wanna Be a Delivery Boy ?</h1>
                 <p className="text-center font-medium text-blue-600">Please fill up the form !</p>

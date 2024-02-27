@@ -165,7 +165,7 @@ function ChatBot() {
       <div className="chatbot z-[1000]">
         <header>
           <h2>Help Center</h2>
-          <span className="close-btn material-symbols-outlined">close</span>
+          <span className={`close-btn material-symbols-outlined`} onClick={toggleChatbot}>close</span>
         </header>
         <ul className="chatbox">
           <li className="chat incoming">

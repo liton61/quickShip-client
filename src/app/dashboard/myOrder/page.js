@@ -22,7 +22,7 @@ const MyOrder = () => {
   };
 
   return (
-    <div className="bg-[#010313] text-white h-screen" >
+    <div className="bg-[#010313] text-white" >
       <div className="py-8 px-5 ">
         <SectionTitle
           header={"Order history"}

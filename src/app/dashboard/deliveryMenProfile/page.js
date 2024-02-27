@@ -1,9 +1,15 @@
+import SectionTitle from '@/components/shared/SectionTitle';
 import React from 'react';
 
 const DeliveryMenProfile = () => {
     return (
-        <div>
-            Hi Delivery Men
+        <div  className="bg-[#010313] text-white h-screen">
+          <div className='pt-24'>
+          <SectionTitle
+          header={"Delivery Management"}
+          miniHeader={"My Delivery management here"}
+        ></SectionTitle>
+          </div>
         </div>
     );
 };

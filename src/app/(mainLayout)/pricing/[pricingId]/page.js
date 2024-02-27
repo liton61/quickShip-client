@@ -49,10 +49,10 @@ const PricingId = ({ params }) => {
   };
 
   return (
-    <div>
-      <div className="grid lg:grid-cols-2 items-center justify-center   grid-cols-1">
+    <div className="hero min-h-screen bg-base-200 pt-24">
+      <div className="hero-content flex-col lg:flex-row">
         {/* delivery services part start */}
-        <div className=" flex justify-center mt-10 ml-[18rem]   ">
+        <div className="">
           <div className="text-center">
             <p className="text-4xl font-bold text-gray-800 mb-6">
               {" "}
@@ -90,12 +90,13 @@ const PricingId = ({ params }) => {
         {/* delivery services part end */}
 
         {/* delivary form section start */}
-        <div className="my-5 mr-[5rem] mt-32">
-          <div className="py-5 ">
+        <div className="card shrink-0 w-full max-w-2xl shadow-2xl bg-base-100">
+
+          <div >
             <form onSubmit={handleOrder}>
-              <div className="flex items-center justify-center  ">
-                <div className="relative flex flex-col m-2 space-y-8 bg-white shadow-2xl rounded-2xl md:flex-row md:space-y-0">
-                  <div className="flex flex-col justify-center  md:p-6">
+              <div className="flex items-center justify-center">
+                <div >
+                  <div className="flex flex-col justify-center p-2 md:p-6">
                     <span className="mb-3 text-4xl text-center text-blue-500 font-bold">
                       Please, fill delivery <br /> form
                     </span>
@@ -205,6 +206,7 @@ const PricingId = ({ params }) => {
               </div>
             </form>
           </div>
+
         </div>
         {/* delivary form section start */}
       </div>

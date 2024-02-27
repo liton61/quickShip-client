@@ -10,6 +10,7 @@ import useLatestPosts from '@/components/hooks/useLatestPosts';
 import Image from 'next/image';
 import Link from 'next/link';
 import Calendar from 'react-calendar';
+import ScrollUp from '@/components/shared/Scroll/ScrollUp';
 
 
 const Blog = () => {
@@ -19,14 +20,14 @@ const Blog = () => {
     const [value, onChange] = useState(new Date());
 
     return (
-        <div className = 'max-w-[2520px] grid grid-cols-1 md:grid-cols-2 gap-5 lg:grid-cols-3 mx-auto lg:px-20 md:px-10 sm:px-2 px-4 py-7' >
+        <div className = 'max-w-[2520px] grid grid-cols-1 md:grid-cols-2 gap-5 lg:grid-cols-3 mx-auto lg:px-20 md:px-10 sm:px-2 px-4 py-7 pt-24' >
             <div className='lg:col-span-2 space-y-10'>
                 {
                     posts?.map((post) => <Post key={post._id} post={post}></Post>)
                 }
             </div>
 
-            <div className='lg:col-span-1 bg-base-300 w-full mt-7 px-10 py-6 space-y-5 rounded-md'>
+            <div className='lg:col-span-1 bg-base-300 w-full mt-7 px-8 py-6 space-y-5 rounded-md'>
                 <div>
                     <h2 className='py-5 text-2xl text-gray-600 font-bold'>Search</h2>
 
@@ -115,6 +116,7 @@ const Blog = () => {
                     </div>
                 </div>
             </div>
+            <ScrollUp/>
         </div>
     );
 };

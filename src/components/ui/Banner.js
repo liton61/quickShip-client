@@ -42,7 +42,7 @@ const Banner = () => {
   }
 
   return (
-    <div>
+    <div className="pt-20">
       <div
         className="hero min-h-[800px]"
         style={{

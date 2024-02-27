@@ -24,49 +24,48 @@ const Navbar = () => {
   const { user, logout } = useAuth();
   const pathname = usePathname()
   const links = (
-      <>
-        <li>
-          <Link href="/">
-            <span className={`nav-link ${pathname === '/' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center'}`}>
-              <span className="mr-1"><FaHome></FaHome></span>Home</span>
-          </Link>
-        </li>
-        <li>
-          <Link href="/about">
-            <span className={`nav-link ${pathname === '/about' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center'}`}><span className="mr-1"><FaUserTag></FaUserTag></span>About Us</span>
-          </Link>
-        </li>
-        <li>
-          <Link href="/service">
-            <span className={`nav-link ${pathname === '/service' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center'}`}><span className="mr-1"><FaServicestack></FaServicestack></span>Service</span>
-          </Link>
-        </li>
+    <>
+      <li>
+        <Link href="/">
+          <span className={`nav-link ${pathname === '/' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center'}`}>
+            <span className="mr-1"><FaHome></FaHome></span>Home</span>
+        </Link>
+      </li>
+      <li>
+        <Link href="/about">
+          <span className={`nav-link ${pathname === '/about' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center'}`}><span className="mr-1"><FaUserTag></FaUserTag></span>About Us</span>
+        </Link>
+      </li>
+      <li>
+        <Link href="/service">
+          <span className={`nav-link ${pathname === '/service' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center'}`}><span className="mr-1"><FaServicestack></FaServicestack></span>Service</span>
+        </Link>
+      </li>
 
-        <li>
-          <Link Link href = "/calculator" >
-            <span className={`nav-link ${pathname === '/calculator' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center'}`}><span className="mr-1"><MdCalculate></MdCalculate></span>Calculator</span>
-          </Link>
-        </li>
-        <li>
-          <Link href="/pricing">
-            <span className={`nav-link ${pathname === '/pricing' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center'}`}><span className="mr-1"><FaClipboardCheck></FaClipboardCheck></span>Booking</span>
-          </Link>
-        </li>
-
-        <li>
-          {
-            user ? <Link href="/job">
+      <li>
+        <Link Link href="/calculator" >
+          <span className={`nav-link ${pathname === '/calculator' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center'}`}><span className="mr-1"><MdCalculate></MdCalculate></span>Calculator</span>
+        </Link>
+      </li>
+      <li>
+        <Link href="/pricing">
+          <span className={`nav-link ${pathname === '/pricing' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center'}`}><span className="mr-1"><FaClipboardCheck></FaClipboardCheck></span>Booking</span>
+        </Link>
+      </li>
+      <li>
+        <Link href="/blog">
+          <span className={`nav-link ${pathname === '/blog' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center'}`}><span className="mr-1"><FaBlog></FaBlog></span>Blog</span>
+        </Link>
+      </li>
+      <li>
+        {
+          user ? <Link href="/job">
             <span className={`nav-link ${pathname === '/job' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center'}`}><span className="mr-1"><ImBlog></ImBlog></span>Job</span>
           </Link> : ""
-          }
-        </li>
-        <li>
-          <Link href="/blog">
-            <span className={`nav-link ${pathname === '/blog' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center'}`}><span className="mr-1"><FaBlog></FaBlog></span>Blog</span>
-          </Link>
-        </li>
-      </>
-    );
+        }
+      </li>
+    </>
+  );
 
 
   const handleLogOut = () => {
@@ -77,8 +76,8 @@ const Navbar = () => {
   };
 
   return (
-      <div
-        className="navbar bg-[#000C21] w-full h-20 fixed z-50">
+    <div
+      className="navbar bg-[#000C21] w-full h-20 fixed z-50 shadow-xl">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -116,12 +115,12 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <div className="navbar-end gap-2">
+        <div className="navbar-center 2xl:navbar-end gap-1 xl:gap-2">
           <div className="hidden lg:flex">
-          <ul className="menu menu-horizontal text-white px-1">
-           {links}
-          </ul>
-        </div>
+            <ul className="menu menu-horizontal text-white px-1">
+              {links}
+            </ul>
+          </div>
           {user && <Notifications />}
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
@@ -149,7 +148,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="mt-3 z-[1] py-2  space-y-3 px-4 bg-[#202074] text-white shadow menu menu-sm dropdown-content hover:bg-[#010313] hover:text-blue-300   rounded-md w-60"
+              className="mt-3 z-[1] py-1 xl:py-2  space-y-3 px-4 bg-[#202074] text-white shadow menu menu-sm dropdown-content hover:bg-[#010313] hover:text-blue-300   rounded-md w-60"
             >
               <h2
                 data-aos="flip-up"
@@ -202,7 +201,7 @@ const Navbar = () => {
         </div>
         <div>
         </div>
-      </div>
+    </div>
   );
 };
 

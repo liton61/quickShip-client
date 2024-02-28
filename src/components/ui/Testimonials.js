@@ -11,7 +11,7 @@ import { useQuery } from "@tanstack/react-query";
 // import Image from "next/image";
 
 
-const page = () => {
+const Testimonials = () => {
     const axiosPublic = usePublicAxios();
     const { data: reviews = [], refetch } = useQuery({
         queryKey: ['user'],
@@ -53,4 +53,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default Testimonials;

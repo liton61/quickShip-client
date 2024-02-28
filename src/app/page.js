@@ -20,9 +20,6 @@ import OurTeams from "@/components/ui/OurTeams/OurTeams";
 import ContactUs from "@/components/ui/ContactUs";
 
 
-
-
-
 const MainHome = () => {
 
   return (

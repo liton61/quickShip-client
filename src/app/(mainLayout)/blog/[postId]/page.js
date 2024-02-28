@@ -41,7 +41,7 @@ const BlogDetails = ({params}) => {
                 name: user?.displayName,
                 email: user?.email,
                 image: user?.photoURL,
-                comment: data ?.comment,
+                comment: data?.comment,
                 postId: params?.postId
             };
             console.log(commentInfo);

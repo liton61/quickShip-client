@@ -20,7 +20,7 @@ const Blog = () => {
     const [value, onChange] = useState(new Date());
 
     return (
-        <div className = 'max-w-[2520px] grid grid-cols-1 md:grid-cols-2 gap-5 lg:grid-cols-3 mx-auto lg:px-20 md:px-10 sm:px-2 px-4 py-7 pt-24' >
+        <div className = 'max-w-[2520px] grid grid-cols-1 md:grid-cols-2 gap-5 lg:grid-cols-3 mx-auto lg:px-20 md:px-10 sm:px-2 px-4 py-7 pt-28' >
             <div className='lg:col-span-2 space-y-10'>
                 {
                     posts?.map((post) => <Post key={post._id} post={post}></Post>)
@@ -88,7 +88,7 @@ const Blog = () => {
                         latestPosts?.map((item) => <div key={item?._id}>
                             <div className="hero">
                                 <div className="hero-content">
-                                    <Image className='rounded-sm' src={item?.image} alt='images' width={110} height={110}></Image>
+                                    <Image className='rounded-sm w-24 h-14' src={item?.image} alt='images' width={110} height={110}></Image>
                                 <div className="">
                                     <Link href={`/blog/${item?._id}`} className="text-xs cursor-pointer text-justify hover:text-blue-600 font-bold">{item?.title}</Link>
                                     <p className="text-xs text-justify text-gray-400">{item?.time}</p>

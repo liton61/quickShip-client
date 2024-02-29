@@ -26,7 +26,14 @@ const PaymentPage = () => {
     }
   });
 
-  console.log(mostRecentData);
+   const deliveryCharges = 99 * parseFloat(mostRecentData?.productWeight);
+  const codCharge = 0.44;
+
+  const totalCharges =
+    parseFloat(mostRecentData?.productPrice) + deliveryCharges + codCharge;
+
+
+  console.log(totalCharges);
 
   return (
     <div className="w-full h-screen flex justify-center items-center bg-[#0E0D21]">
@@ -56,7 +63,7 @@ const PaymentPage = () => {
             <p className="  text-sm font-normal text-blue-200">
               Product Price :{" "}
               <span className="text-md text-white font-bold ">
-                {mostRecentData?.productPrice}
+                {totalCharges}
               </span>
             </p>
           </div>

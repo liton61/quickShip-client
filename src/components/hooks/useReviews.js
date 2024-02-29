@@ -2,17 +2,17 @@
 import { useQuery } from "@tanstack/react-query";
 import usePublicAxios from "./usePublicAxios";
 
-const usePosts = () => {
+const userReviews = () => {
   const publicAxios = usePublicAxios();
-  const { refetch, data: posts = [] } = useQuery({
-    queryKey: ["posts"],
+  const { refetch, data: reviews = [] } = useQuery({
+    queryKey: ["reviews"],
     queryFn: async () => {
-      const res = await publicAxios.get(`/posts`);
+      const res = await publicAxios.get(`/reviews`);
       return res.data;
     },
   });
 
-  return [posts, refetch];
+  return [reviews, refetch];
 };
 
-export default usePosts;
+export default userReviews;

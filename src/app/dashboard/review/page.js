@@ -1,4 +1,5 @@
 "use client"
+import useAuth from '@/components/hooks/useAuth';
 import usePublicAxios from '@/components/hooks/usePublicAxios';
 import SectionTitle from '@/components/shared/SectionTitle';
 import React from 'react';
@@ -6,6 +7,7 @@ import Swal from 'sweetalert2';
 
 const Review = () => {
     const axiosPublic = usePublicAxios();
+    const {user} = useAuth()
     const handleSubmit = e => {
         e.preventDefault();
         const form = e.target;
@@ -13,7 +15,7 @@ const Review = () => {
         const rating = form.rating.value;
         const details = form.details.value;
 
-        const userReviews = { name, rating, details };
+        const userReviews = { name, rating, details, userName: user?.displayName, userImage: user?.photoURL };
         console.log(userReviews);
 
         axiosPublic.post('/reviews', userReviews)
@@ -31,7 +33,7 @@ const Review = () => {
     }
     return (
         <div>
-            <div div className = "py-12 lg:px-0 px-5 h-screen xl:py-36 bg-[#010313] text-white" >
+            <div div className = "py-12 lg:px-0 px-5 lg:py-10 bg-[#010313] text-white" >
                 <SectionTitle header={"Add your valuable review"} miniHeader={'Put Review here'}/>
                 <div div className = "lg:w-3/4 mx-auto bg-[#0D0D21] text-white p-10 rounded" >
                     <h2 className="text-2xl font-semibold mb-4">Leave a Review</h2>

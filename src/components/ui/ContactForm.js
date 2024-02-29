@@ -38,8 +38,8 @@ const ContactForm = () => {
       );
   };
   return (
-    <section className="text-gray-500 bg-base-200 py-16 lg:px-0 px-5">
-      <div className="container mx-auto lg:px-20 grid grid-cols-1 lg:grid-cols-2 border-t-2">
+    <section className="text-gray-500 bg-base-200 py-5 pb-10 lg:px-0 px-5">
+      <div className="container mx-auto lg:px-20 grid grid-cols-1 lg:grid-cols-2">
         <div className="flex items-center lg:justify-start justify-center">
           <div className="lg:pt-0 pt-7">
             <h1 className="text-2xl font-bold text-blue-500 mb-10">

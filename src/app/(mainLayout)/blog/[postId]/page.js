@@ -54,7 +54,7 @@ const BlogDetails = ({params}) => {
             }
     };
     return (
-        <div className = 'max-w-[2520px] grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 mx-auto lg:px-20 md:px-10 sm:px-2 px-4 py-7 ' >
+        <div className = 'max-w-[2520px] grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 mx-auto lg:px-20 md:px-10 sm:px-2 px-4 py-28 ' >
             <div className='lg:col-span-2 space-y-10'>
                 <div>
                     <div className="">
@@ -106,7 +106,7 @@ const BlogDetails = ({params}) => {
                             filterComments?.map((item) => <div key={item?._id} className="hero bg-base-200 gap-5">
                                 <div className="hero-content">
                                     {
-                                        item?.image ? <Image className='rounded-sm' src={item?.image} alt='images' width={110} height={120}></Image> : <Image className='rounded-sm' src={profileImg} alt='images' width={110} height={120}></Image>
+                                        item?.image ? <Image className='rounded-full w-28 h-28' src={item?.image} alt='images' width={110} height={120}></Image> : <Image className='rounded-full w-28 h-28' src={profileImg} alt='images' width={110} height={120}></Image>
                                     }
                                 <div className="space-y-2 ">
                                     {/* <p className="text-gray-500 font-semibold text-sm">About</p> */}
@@ -198,7 +198,7 @@ const BlogDetails = ({params}) => {
                         latestPosts?.map((item) => <div key={item?._id}>
                             <div className="hero">
                                 <div className="hero-content">
-                                    <Image className='rounded-sm' src={item?.image} alt='images' width={110} height={110}></Image>
+                                    <Image className='rounded-sm w-24 h-14' src={item?.image} alt='images' width={110} height={110}></Image>
                                 <div className="">
                                     <Link href={`/blog/${item?._id}`} className="text-xs cursor-pointer text-justify hover:text-blue-600 font-bold">{item?.title}</Link>
                                     <p className="text-xs text-justify text-gray-400">{item?.time}</p>

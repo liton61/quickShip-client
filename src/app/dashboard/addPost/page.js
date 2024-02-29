@@ -4,15 +4,19 @@ import SectionTitle from "@/components/shared/SectionTitle";
 import usePublicAxios from "@/components/hooks/usePublicAxios";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import useAuth from "@/components/hooks/useAuth";
 
 
 const AddPost = () => {
   const publicAxios = usePublicAxios()
   const router = useRouter()
+  const {user} = useAuth()
 
   const { register, handleSubmit } = useForm();
   const onSubmit = async (data) => {
     const postInfo = {
+      name: user?.displayName,
+      userImg: user?.photoURL,
       title: data?.title,
       description: data?.description,
       category: data?.category,

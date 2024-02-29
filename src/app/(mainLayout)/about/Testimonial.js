@@ -60,7 +60,7 @@ const Testimonial = () => {
                     <div className="flex gap-5 px-2 pt-5">
                                     <div>
                                         {
-                                        item?.userImage ? <Image className='rounded-full border-5 border-white' src={item?.userImage} alt='images' width={50} height={50}></Image> : <Image className='rounded-full border-5 border-white' src={profileImg} alt='images' width={50} height={50}></Image>
+                                        item?.userImage ? <Image className='rounded-full border-5 border-white w-16 h-16' src={item?.userImage} alt='images' width={100} height={100}></Image> : <Image className='rounded-full border-5 border-white w-16 h-16' src={profileImg} alt='images' width={100} height={100}></Image>
                                     }
                                     </div>
                                 <div className="space-y-2">

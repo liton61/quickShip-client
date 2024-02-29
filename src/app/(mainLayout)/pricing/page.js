@@ -4,6 +4,7 @@ import usePricing from "../../../components/hooks/usePricing";
 import Link from "next/link";
 import React from "react";
 import { FaCheck } from "react-icons/fa";
+import Parcel from "@/components/ui/Parcel";
 
 const Pricing = () => {
   const [pricing] = usePricing();
@@ -55,6 +56,7 @@ const Pricing = () => {
           </div>
         ))}
       </div>
+      <Parcel />
     </div>
 
 

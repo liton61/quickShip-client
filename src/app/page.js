@@ -19,6 +19,7 @@ import ScrollUp from "@/components/shared/Scroll/ScrollUp";
 import OurTeams from "@/components/ui/OurTeams/OurTeams";
 import ContactUs from "@/components/ui/ContactUs";
 import Testimonial from "./(mainLayout)/about/Testimonial";
+import Posts from "@/components/ui/Posts/Posts";
 
 
 const MainHome = () => {
@@ -27,6 +28,7 @@ const MainHome = () => {
     <Providers>
       <Navbar />
       <Banner />
+      <Posts />
       <Parcel />
       <ChatBot />
       <ScrollUp/>

@@ -115,13 +115,14 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <div className="navbar-center 2xl:navbar-end gap-1 xl:gap-2">
+        <div className="navbar-center 2xl:navbar-end gap-1 xl:gap-2 ml-20 md:ml-60 lg:ml-0">
           <div className="hidden lg:flex">
             <ul className="menu menu-horizontal text-white px-1">
               {links}
             </ul>
           </div>
-          {user && <Notifications />}
+
+         {user && <Notifications />}
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
@@ -154,7 +155,7 @@ const Navbar = () => {
                 data-aos="flip-up"
                 className="text-xs text-purple-600 font-bold"
               >
-                {user ? user?.displayName : "No Any User"}
+                {user ? user?.displayName : "User Not Available"}
               </h2>
               <hr className="border-gray-600" />
 
@@ -198,6 +199,7 @@ const Navbar = () => {
               )}
             </ul>
           </div>
+
         </div>
         <div>
         </div>

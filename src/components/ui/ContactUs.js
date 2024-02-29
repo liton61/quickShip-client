@@ -30,7 +30,6 @@ const ContactUs = () => {
         (result) => {
           console.log(result.text);
           toast.success("Email Sent Successfully")
-          form("")
         },
         (error) => {
           console.log(error.text);

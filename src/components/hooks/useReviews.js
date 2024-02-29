@@ -7,7 +7,7 @@ const userReviews = () => {
   const { refetch, data: reviews = [] } = useQuery({
     queryKey: ["reviews"],
     queryFn: async () => {
-      const res = await publicAxios.get(`/reviews`, {});
+      const res = await publicAxios.get(`/reviews`);
       return res.data;
     },
   });

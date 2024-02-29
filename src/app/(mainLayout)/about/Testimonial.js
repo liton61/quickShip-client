@@ -10,7 +10,7 @@ import '@smastrom/react-rating/style.css'
 // import './styles.css';
 
 // import required modules
-import { Pagination } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 import Image from "next/image";
 import userReviews from "@/components/hooks/useReviews";
 import { Rating } from "@smastrom/react-rating";
@@ -18,7 +18,7 @@ const Testimonial = () => {
     const [reviews] = userReviews()
     console.log(reviews);
     return (
-        <div div className = "md:px-6 bg-[#F7F6F2] py-10" >
+        <div div className = "md:px-6 bg-[#F7F6F2] pt-10" >
             <SectionTitle SectionTitle header = {
                 "Testimonials"
             }
@@ -30,11 +30,24 @@ const Testimonial = () => {
                 <Swiper
         slidesPerView={2}
         spaceBetween={30}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Pagination]}
+        // pagination={{
+        //   clickable: true,
+        // }}
+        modules={[Pagination, Autoplay]}
         className="mySwiper"
+        autoplay={{delay: 2000}}
+        breakpoints={{
+                        // when window width is >= 640px
+                        375: {
+                            slidesPerView: 1,
+                            spaceBetween: 20
+                        },
+                        // when window width is >= 768px
+                        768: {
+                            slidesPerView: 2,
+                            spaceBetween: 30
+                        },
+                    }}
       >
          {
             reviews?.map((item) => <SwiperSlide key={item?._id}>
@@ -44,7 +57,7 @@ const Testimonial = () => {
                     for swift and reliable parcel deliveries across borders.</p>
                 </div>
 
-                    <div className="flex gap-5 py-5">
+                    <div className="flex gap-5 px-2 pt-5">
                                     <div>
                                         {
                                         item?.userImage ? <Image className='rounded-full border-5 border-white' src={item?.userImage} alt='images' width={50} height={50}></Image> : <Image className='rounded-full border-5 border-white' src={profileImg} alt='images' width={50} height={50}></Image>

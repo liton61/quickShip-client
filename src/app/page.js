@@ -8,16 +8,17 @@ import BestCourier from "../components/ui/BestCourier";
 import CallUs from "../components/ui/CallUs";
 import Stat from "../components/ui/Stat";
 import WorldMap from "../components/ui/WorldMap";
-import ContactForm from "../components/ui/ContactForm";
+// import ContactForm from "../components/ui/ContactForm";
 import Footer from "../components/shared/Footer";
 import { Providers } from "./providers/NextUIProviders";
 import Area from "./coverageArea/Area/Area";
 import FaqSection from "../components/ui/FaqSection";
-import Testimonials from "../components/ui/Testimonials";
+// import Testimonials from "../components/ui/Testimonials";
 import Navbar from "@/components/shared/Navbar/Navbar";
 import ScrollUp from "@/components/shared/Scroll/ScrollUp";
 import OurTeams from "@/components/ui/OurTeams/OurTeams";
 import ContactUs from "@/components/ui/ContactUs";
+import Testimonial from "./(mainLayout)/about/Testimonial";
 
 
 const MainHome = () => {
@@ -32,14 +33,14 @@ const MainHome = () => {
       <OurServices />
       <BestCourier />
       <ProductDelivery />
-      <Area />
-      <Stat />
-      <CallUs />
       <OurTeams></OurTeams>
       <FaqSection />
-      <Testimonials/>
-      <ContactForm />
+      {/* <ContactForm /> */}
+      <Area />
+      <Testimonial/>
       <ContactUs />
+      <Stat />
+      <CallUs />
       <WorldMap />
       <ScrollUp/>
       <Footer />

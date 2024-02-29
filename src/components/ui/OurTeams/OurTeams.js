@@ -6,7 +6,7 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 
 import './OurTeams.css';
-import { EffectCoverflow, Pagination } from 'swiper/modules';
+import { Autoplay, EffectCoverflow, Pagination } from 'swiper/modules';
 import Image from 'next/image';
 import team1 from "@/assets/OurTeams/team-member-opt-1.jpg"
 import team2 from "@/assets/OurTeams/team-member-opt-2.jpg"
@@ -26,7 +26,7 @@ const OurTeams = () => {
                 effect={'coverflow'}
                 grabCursor={true}
                 centeredSlides={true}
-                slidesPerView={'auto'}
+                slidesPerView={"auto"}
                 coverflowEffect={{
                 rotate: 50,
                 stretch: 0,
@@ -35,12 +35,13 @@ const OurTeams = () => {
                 slideShadows: true,
                 }}
                 pagination={true}
-                modules={[EffectCoverflow, Pagination]}
+                modules={[EffectCoverflow, Pagination, Autoplay]}
                 className="mySwiper"
+                autoplay={{delay: 2000}}
             >
                 <SwiperSlide>
                     <div className = "flex flex-col items-center justify-center px-10 pb-5 bg-[#FEF8F8]" >
-                            <Image className='rounded-full transition-all hover:border-r-5 -mt-10 hover:border-red-700' src={team1} alt='team1' width={30} height={30}></Image>
+                            <Image className='rounded-full transition-all hover:border-r-5 -mt-10 hover:border-red-700' src={team1} alt='team1' width={300} height={300}></Image>
 
                             <div div className = 'space-y-2 flex flex-col items-center justify-center' >
                                 <h1 className="mt-3 text-2xl font-bold hover:text-red-800">Liton Mia</h1>
@@ -57,7 +58,7 @@ const OurTeams = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                 <div className = "flex flex-col items-center justify-center px-10 pb-5 bg-[#FEF8F8]" >
-                            <Image className='rounded-full transition-all hover:border-r-5 -mt-10 hover:border-red-700' src={team2} alt='team1' width={30} height={30}></Image>
+                            <Image className='rounded-full transition-all hover:border-r-5 -mt-10 hover:border-red-700' src={team2} alt='team1' width={300} height={300}></Image>
 
                             <div div className = 'space-y-2 flex flex-col items-center justify-center' >
                                 <h1 className="mt-3 text-2xl font-bold hover:text-red-800">Antar Rani Priya</h1>
@@ -74,7 +75,7 @@ const OurTeams = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                 <div className = "flex flex-col items-center justify-center px-10 pb-5 bg-[#FEF8F8]" >
-                            <Image className='rounded-full transition-all hover:border-r-5 -mt-10 hover:border-red-700' src={team3} alt='team1' width={30} height={30}></Image>
+                            <Image className='rounded-full transition-all hover:border-r-5 -mt-10 hover:border-red-700' src={team3} alt='team1' width={300} height={300}></Image>
 
                             <div div className = 'space-y-2 flex flex-col items-center justify-center' >
                                 <h1 className="mt-3 text-2xl font-bold hover:text-red-800">Junayed Talukdar</h1>
@@ -91,7 +92,7 @@ const OurTeams = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                 <div className = "flex flex-col items-center justify-center px-10 pb-5 bg-[#FEF8F8]" >
-                            <Image className='rounded-full transition-all hover:border-r-5 -mt-10 hover:border-red-700' src={team4} alt='team1' width={30} height={30}></Image>
+                            <Image className='rounded-full transition-all hover:border-r-5 -mt-10 hover:border-red-700' src={team4} alt='team1' width={300} height={300}></Image>
 
                             <div div className = 'space-y-2 flex flex-col items-center justify-center' >
                                 <h1 className="mt-3 text-2xl font-bold hover:text-red-800">Shah Alam</h1>
@@ -108,7 +109,7 @@ const OurTeams = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                 <div className = "flex flex-col items-center justify-center px-10 pb-5 bg-[#FEF8F8]" >
-                            <Image className='rounded-full transition-all hover:border-r-5 -mt-10 hover:border-red-700' src={team5} alt='team1' width={30} height={30}></Image>
+                            <Image className='rounded-full transition-all hover:border-r-5 -mt-10 hover:border-red-700' src={team5} alt='team1' width={300} height={300}></Image>
 
                             <div div className = 'space-y-2 flex flex-col items-center justify-center' >
                                 <h1 className="mt-3 text-2xl font-bold hover:text-red-800">Ayrin Rahat Promi</h1>
@@ -125,7 +126,7 @@ const OurTeams = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                 <div className = "flex flex-col items-center justify-center px-10 pb-5 bg-[#FEF8F8]" >
-                            <Image className='rounded-full transition-all hover:border-r-5 -mt-10 hover:border-red-700' src={team6} alt='team1' width={30} height={30}></Image>
+                            <Image className='rounded-full transition-all hover:border-r-5 -mt-10 hover:border-red-700' src={team6} alt='team1' width={300} height={300}></Image>
 
                             <div div className = 'space-y-2 flex flex-col items-center justify-center' >
                                 <h1 className="mt-3 text-2xl font-bold hover:text-red-800">Suhanur Rahman</h1>

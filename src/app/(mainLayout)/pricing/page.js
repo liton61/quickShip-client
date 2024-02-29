@@ -6,9 +6,8 @@ import React from "react";
 import { FaCheck } from "react-icons/fa";
 
 const Pricing = () => {
-  const [pricing, refetch] = usePricing();
+  const [pricing] = usePricing();
   return (
-
 
     <div className="bg-gray-100 py-20 xl:py-44">
       <SectionTitle header={"Book your desire products"} miniHeader={"Bookings"} />

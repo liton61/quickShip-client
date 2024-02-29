@@ -3,24 +3,21 @@ import useAuth from "../../../../components/hooks/useAuth";
 import usePublicAxios from "../../../../components/hooks/usePublicAxios";
 import { useState } from "react";
 import { FaCheck } from "react-icons/fa";
-import useOrder from "../../../../components/hooks/useOrder";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import usePricing from "../../../../components/hooks/usePricing";
 
 const PricingId = ({ params }) => {
   const { pricingId } = params;
-  const [pricing] = usePricing()
+  const [pricing, refetch] = usePricing()
 
   const findPrice = pricing?.find((item) => item?._id === pricingId)
-  console.log(findPrice);
+  // console.log(findPrice);
 
-  const [order, refetch] = useOrder();
 
   const { user } = useAuth();
   const [deliveryDate, setDeliveryDate] = useState("");
   const [phone, setPhone] = useState("");
-  const [productPrice, setProductPrice] = useState(0);
   const [productWeight, setProductWeight] = useState(0);
   const [area, setArea] = useState("");
 
@@ -34,7 +31,7 @@ const PricingId = ({ params }) => {
     email: user?.email,
     deliveryDate,
     phone,
-    productPrice,
+    productPrice: findPrice?.price,
     productWeight,
     area,
     status: "pending",
@@ -108,9 +105,9 @@ const PricingId = ({ params }) => {
                         <input
                           className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
                           type="name"
-                          required
                           placeholder="Enter Your Name"
                           defaultValue={user?.displayName}
+                          disabled
                           name="name"
                         />
                       </div>
@@ -119,10 +116,10 @@ const PricingId = ({ params }) => {
                         <input
                           className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
                           type="email"
-                          required
                           defaultValue={user?.email}
                           placeholder="Enter Your email"
                           name="email"
+                          disabled
                         />
                       </div>
                     </div>
@@ -159,11 +156,10 @@ const PricingId = ({ params }) => {
                         <input
                           className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
                           type="number"
-                          onBlur={(e) => setProductPrice(e.target.value)}
-                          required
                           placeholder="Price"
                           name="price"
                           defaultValue={findPrice?.price}
+                          disabled
                         />
                       </div>
                       <div className="py-2 w-1/2">

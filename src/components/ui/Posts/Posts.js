@@ -60,11 +60,14 @@ const Posts = () => {
                                         <p className="text-xs text-gray-400 text-justify ">{item?.time}</p>
                                     </div>
                             </div>
-                        <Link href={`/blog/${item?._id}`} className="card-title w-full h-16 hover:text-blue-700">{item?.title}</Link>
+                        <Link href={`/blog/${item?._id}`} className="card-title w-full h-16 hover:text-blue-700">{item?.title
+                            .split(' ')
+                            .splice(0, 5)
+                            .join(' ')}...</Link>
                         <hr  className="border-dashed border border-gray-300"/>
                         <p className="text-justify text-sm text-gray-600">{item?.description
-                            .split(' ') 
-                            .splice(0, 10)
+                            .split(' ')
+                            .splice(0, 12)
                             .join(' ')}....</p>
                         <div className="card-actions justify-start">
                              <Link href={`/blog/${item?._id}`} className="text-blue-800 hover:text-purple-700 flex items-center  font-bold">Read More <span className="ml-2"><FaArrowRightFromBracket></FaArrowRightFromBracket></span></Link>

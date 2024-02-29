@@ -81,13 +81,13 @@ const Login = () => {
       });
   };
   return (
-    <div className="bg-[#010313]">
-      <div className="grid md:grid-cols-2 p-5 py-24">
+    <div className="bg-[#010313] hero min-h-screen">
+      <div className="hero-content flex-col lg:flex-row">
         <div className="flex justify-center items-center">
           <Image src={img} className="w-full md:w-96" alt="login"></Image>
         </div>
 
-        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-[#0e0d21] ">
+        <div className="card flex-shrink-0 w-96 min-w-72 shadow-2xl bg-[#0e0d21] ">
           <Link
             href={"/"}
             className="text-3xl mt-4 font-extrabold text-center text-[#c29a4b] text-opacity-50"

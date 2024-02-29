@@ -32,16 +32,16 @@ const SignUp = () => {
         console.log(result?.user);
 
 
-        // const userInfo = {
-        //   name: data?.name,
-        //   email: data?.email,
-        // };
+        const userInfo = {
+          name: data?.name,
+          email: data?.email,
+        };
 
-        // publicAxios.post("/users", userInfo).then((res) => {
-        //   console.log(res.data);
+        publicAxios.post("/users", userInfo).then((res) => {
+          console.log(res.data);
         toast.success("Successfully Sign Up");
         router.push("/")
-        // });
+        });
 
 
       })
@@ -52,13 +52,13 @@ const SignUp = () => {
   };
 
   return (
-    <div className="bg-[#010313]">
-      <div className="grid md:grid-cols-2 p-5" >
+    <div className="bg-[#010313] w-full hero min-h-screen">
+      <div className="hero-content flex-col lg:flex-row" >
         <div className="flex justify-center items-center" >
-          <Image src={signUpImg} className="w-full md:w-96" alt="signUp"></Image>
+          <Image src={signUpImg} className="w-full " alt="signUp"></Image>
         </div>
 
-        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-[#0e0d21] " >
+        <div className="card flex-shrink-0 w-96 min-w-72 shadow-2xl bg-[#0e0d21] " >
           <Link
             href={"/"}
             className="text-3xl mt-4 font-extrabold text-center text-[#c29a4b] text-opacity-50"

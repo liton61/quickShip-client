@@ -16,6 +16,8 @@ import FaqSection from "../components/ui/FaqSection";
 // import Testimonials from "../components/ui/Testimonials";
 import Navbar from "@/components/shared/Navbar/Navbar";
 import ScrollUp from "@/components/shared/Scroll/ScrollUp";
+import NewService from "@/components/ui/NewService/NewService";
+
 import OurTeams from "@/components/ui/OurTeams/OurTeams";
 import ContactUs from "@/components/ui/ContactUs";
 import Testimonial from "./(mainLayout)/about/Testimonial";
@@ -28,11 +30,10 @@ const MainHome = () => {
     <Providers>
       <Navbar />
       <Banner />
+      <NewService/>
       <Posts />
       <Parcel />
       <ChatBot />
-      <ScrollUp/>
-      <OurServices />
       <BestCourier />
       <ProductDelivery />
       <OurTeams></OurTeams>
@@ -42,7 +43,7 @@ const MainHome = () => {
       <Testimonial/>
       <ContactUs />
       <Stat />
-      <CallUs />
+      {/* <CallUs /> */}
       <WorldMap />
       <ScrollUp/>
       <Footer />

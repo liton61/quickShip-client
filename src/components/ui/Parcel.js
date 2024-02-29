@@ -51,7 +51,7 @@ const Parcel = () => {
               Parcel Loading
             </h2>
             <p className="text-center text-gray-500 mb-2">
-              One of the key components of best logistics solutions industry
+              Two of the key components of best logistics solutions industry
             </p>
           </div>
 
@@ -68,7 +68,7 @@ const Parcel = () => {
               Parcel In-transit
             </h2>
             <p className="text-center text-gray-500 mb-2">
-              One of the key components of best logistics solutions industy
+              Three of the key components of best logistics solutions industy
             </p>
           </div>
 
@@ -85,7 +85,7 @@ const Parcel = () => {
               Parcel Delivery
             </h2>
             <p className="text-center text-gray-500 mb-2">
-              One of the key components of best logistics solutions industy
+              Four of the key components of best logistics solutions industy
             </p>
           </div>
 

@@ -16,14 +16,14 @@ const Notifications = () => {
 
     return (
         <div>
-            {order.length && payment.length && application.length === 0 ? (<IoIosNotifications className="text-blue-600 text-4xl relative" />) : (<div className="drawer drawer-end">
+            {order?.length === 0 && payment?.length === 0 && application?.length === 0 ? (<IoIosNotifications className="text-blue-600 text-4xl relative" />) : (<div className="drawer drawer-end">
                 <input id="my-drawer-4" type="checkbox" onClick={() => setShowAll(false)} className="drawer-toggle" />
                 <div className="drawer-content">
                     <label htmlFor="my-drawer-4" className="drawer-button btn btn-ghost"><IoIosNotifications className="text-blue-600 text-3xl relative" />
                         <span className="text-white absolute top-2 right-3">{order?.length + payment?.length + application?.length}</span>
                     </label>
                 </div>
-                <div className="drawer-side z-50 mt-16 md:mt-[80px]">
+                <div className="drawer-side z-50 mt-20 ">
                     <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay opacity-0"></label>
                     <ul className="menu p-4 w-72 md:w-96 min-h-full bg-base-200 text-base-content">
                         <h1 className="text-xl font-bold">Notifications</h1>
@@ -35,13 +35,13 @@ const Notifications = () => {
                             <h5 className="text-xs text-end">Tracking Id</h5>
                         </div>)}
                         {order
-                            ?.sort((a, b) => new Date(b.data) - new Date(a.data))
-                            .slice(0, showAll ? order.length : 5)
+                            ?.sort((a, b) => new Date(a?.data) - new Date(b?.data))
+                            .slice(0, showAll ? order?.length : 5)
                             .map((item) => (
-                                <div key={item._id} className="flex justify-start items-center shadow-md rounded-xl">
+                                <div key={item?._id} className="flex justify-start items-center shadow-md rounded-xl">
                                     <MdNotificationsActive className="text-xl text-blue-600" />
                                     <li className="text-lg">
-                                        <p className="flex justify-end">Your Parcel is {item.status}<p className="text-xs hidden md:flex pl-3">{item.deliveryDate}</p> <ClipBoard id={item._id} text={`text-gray-600`} hover={`hover:bg-blue-200`} /></p>
+                                        <p className="flex justify-end">Your Parcel is {item?.status}<p className="text-xs hidden md:flex pl-3">{item.deliveryDate}</p> <ClipBoard id={item._id} text={`text-gray-600`} hover={`hover:bg-blue-200`} /></p>
                                     </li>
                                 </div>
                             ))}
@@ -54,23 +54,23 @@ const Notifications = () => {
 
                         {/* ===================Payment=================== */}
 
-                        <div className="font-semibold pt-8 flex justify-between items-center">
+                        {payment?.length !== 0 ?  (<div className="font-semibold pt-8 flex justify-between items-center">
                             <h3 className="text-lg">Payment</h3>
                             <h5 className="text-xs text-end">Tracking Id</h5>
-                        </div>
+                        </div>) : "" }
                         {payment
                             ?.sort((a, b) => new Date(b.data) - new Date(a.data))
                             .slice(0, showAll ? payment.length : 5)
                             .map((item) => (
-                                <div key={item._id} className="flex justify-start items-center shadow-md rounded-xl">
+                                <div key={item?._id} className="flex justify-start items-center shadow-md rounded-xl">
                                     <MdNotificationsActive className="text-xl text-blue-600" />
                                     <li className=" text-lg">
                                         <p className="flex justify-end">
-                                            Payment {item.payment}
+                                            Payment {item?.payment}
                                             <p className="text-xs hidden md:flex pl-3">
-                                                {item.data.split("T")[0]}
+                                                {item?.data.split("T")[0]}
                                             </p>
-                                            <ClipBoard id={item._id} text={`text-gray-600`} hover={`hover:bg-blue-200`} />
+                                            <ClipBoard id={item?._id} text={`text-gray-600`} hover={`hover:bg-blue-200`} />
                                         </p>
                                     </li>
                                 </div>
@@ -84,12 +84,12 @@ const Notifications = () => {
 
                         {/* =============Apply============== */}
 
-                        <h3 className="text-lg font-semibold pt-8">Apply</h3>
+                        {application?.length === 0 ? "" : (<h3 className="text-lg font-semibold pt-8">Apply</h3>)}
                         {application?.slice(0, showAll ? application.length : 2).map((item) => (
-                            <div key={item._id} className="flex mt-4 justify-start items-center shadow-md rounded-xl">
+                            <div key={item?._id} className="flex mt-4 justify-start items-center shadow-md rounded-xl">
                                 <MdNotificationsActive className="text-xl text-blue-600" />
                                 <li className="p-2 text-lg">
-                                    {item.role === 'user' ? "Your application was successfully applied" : "You became a delivery boy"}
+                                    {item?.role === 'user' ? "Your application is applied" : "You became a delivery boy"}
                                 </li>
                             </div>
                         ))}

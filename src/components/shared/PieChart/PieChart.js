@@ -1,69 +1,63 @@
 "use client"
 
-import usePublicAxios from '@/components/hooks/usePublicAxios';
-import { useQuery } from '@tanstack/react-query';
-import React from 'react';
-import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
+import useOrder from "@/components/hooks/useOrder";
+import { Chart as ChartJS } from "chart.js/auto";
+import { Doughnut } from "react-chartjs-2";
 
+const PieChart = () => {
+  const [order] = useOrder();
 
-const RADIAN = Math.PI / 180;
-const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
-  const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-  const x = cx + radius * Math.cos(-midAngle * RADIAN);
-  const y = cy + radius * Math.sin(-midAngle * RADIAN);
+  const bookingsPerDay = order?.reduce((acc, item) => {
+      const date = item?.deliveryDate;
+      const existingEntry = acc.find((entry) => entry.date === date);
+
+      if (existingEntry) {
+          existingEntry.bookingCount += 1;
+      } else {
+          acc.push({
+              date,
+              bookingCount: 1,
+          });
+      }
+
+      return acc;
+  }, []);
+
+  const labels = bookingsPerDay?.map((data) => data.date);
+  const data = bookingsPerDay?.map((data) => data.bookingCount);
 
   return (
-    <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
-      {`${(percent * 100).toFixed(0)}%`}
-    </text>
+    <Doughnut
+      data={{
+        labels: ['Users', "Order", "Payment", "Return"],
+        datasets: [
+          {
+            label: "Count",
+            data: data,
+            backgroundColor: [
+              "rgba(43, 63, 229, 0.8)",
+              "rgba(250, 192, 19, 0.8)",
+              "rgba(253, 135, 135, 0.8)",
+              "rgba(353, 135, 135, 0.8)"
+            ],
+            borderColor: [
+              "rgba(43, 63, 229, 0.8)",
+              "rgba(250, 192, 19, 0.8)",
+              "rgba(253, 135, 135, 0.8)",
+              "rgba(350, 135, 135, 0.8)"
+            ],
+          },
+        ],
+      }}
+      options={{
+        plugins: {
+          title: {
+            text: "Revenue Sources",
+          },
+        },
+      }}
+    />
   );
 };
 
-const SimplePieChart = () => {
-
-    const publicAxios = usePublicAxios();
-  const { refetch, data: stats = [] } = useQuery({
-    queryKey: ["admin-stats"],
-    queryFn: async () => {
-      const res = await publicAxios.get(`/admin-stats`, {
-      });
-      return res.data;
-    },
-  });
-
-console.log(stats)
-
-    const data = [
-        { name: 'Orders', value: stats?.orders },
-        { name: 'Payment', value: stats?.payment },
-        { name: 'Users', value: stats?.users },
-        { name: 'Application', value: stats?.application },
-      ];
-
-      const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
-
-
-  return (
-    <ResponsiveContainer width="50%" height={400}>
-      <PieChart width={400} height={400}>
-        <Pie
-         data={data}
-         cx="50%"
-         cy="50%"
-         labelLine={false} // Disables default labels
-         label={renderCustomizedLabel} // Uses the custom label function
-         outerRadius={80}
-         fill="#8884d8"
-         dataKey="value"
-
-        >
-          {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-          ))}
-        </Pie>
-      </PieChart>
-    </ResponsiveContainer>
-  );
-};
-
-export default SimplePieChart;
+export default PieChart;

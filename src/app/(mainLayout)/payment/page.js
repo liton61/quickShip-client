@@ -26,12 +26,14 @@ const PaymentPage = () => {
     }
   });
 
-   const deliveryCharges = 99 * parseFloat(mostRecentData?.productWeight);
+  const deliveryCharges = 99 * parseFloat(mostRecentData?.productWeight);
   const codCharge = 0.44;
 
-  const totalCharges =
-    parseFloat(mostRecentData?.productPrice) + deliveryCharges + codCharge;
-
+  const totalCharges = (
+    parseFloat(mostRecentData?.productPrice) +
+    deliveryCharges +
+    codCharge
+  ).toFixed(2);
 
   console.log(totalCharges);
 

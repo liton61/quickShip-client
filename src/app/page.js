@@ -22,6 +22,7 @@ import OurTeams from "@/components/ui/OurTeams/OurTeams";
 import ContactUs from "@/components/ui/ContactUs";
 import Testimonial from "./(mainLayout)/about/Testimonial";
 import Posts from "@/components/ui/Posts/Posts";
+import Info from "@/components/ui/Info";
 
 
 const MainHome = () => {
@@ -45,6 +46,7 @@ const MainHome = () => {
       <Stat />
       {/* <CallUs /> */}
       <WorldMap />
+      <Info></Info>
       <ScrollUp/>
       <Footer />
     </Providers>

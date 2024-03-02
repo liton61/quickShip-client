@@ -23,6 +23,7 @@ import ContactUs from "@/components/ui/ContactUs";
 import Testimonial from "./(mainLayout)/about/Testimonial";
 import Posts from "@/components/ui/Posts/Posts";
 import ContactForm from "@/components/ui/ContactForm";
+import Info from "@/components/ui/Info";
 
 
 const MainHome = () => {
@@ -37,6 +38,7 @@ const MainHome = () => {
       <Posts />
       {/* <BestCourier /> */}
       {/* <ProductDelivery /> */}
+      <Info />
       <FaqSection />
       <Area />
       <Testimonial />
@@ -47,6 +49,7 @@ const MainHome = () => {
       <ScrollUp />
       <ContactForm />
       {/* <ContactUs /> */}
+      <ScrollUp />
       <Footer />
     </Providers>
   );

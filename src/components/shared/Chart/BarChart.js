@@ -35,8 +35,10 @@ const BarChart = () => {
                     {
                         label: "Bookings Per Day",
                         data: data,
-                        borderRadius:5
+                        borderRadius: 5,
+                        color: 'white' // Set text color inside data to white
                     },
+
                 ],
             }}
         />

@@ -22,6 +22,7 @@ import OurTeams from "@/components/ui/OurTeams/OurTeams";
 import ContactUs from "@/components/ui/ContactUs";
 import Testimonial from "./(mainLayout)/about/Testimonial";
 import Posts from "@/components/ui/Posts/Posts";
+import ContactForm from "@/components/ui/ContactForm";
 import Info from "@/components/ui/Info";
 
 
@@ -31,23 +32,24 @@ const MainHome = () => {
     <Providers>
       <Navbar />
       <Banner />
-      <NewService/>
-      <Posts />
+      <NewService />
       <Parcel />
       <ChatBot />
-      <BestCourier />
-      <ProductDelivery />
-      <OurTeams></OurTeams>
+      <Posts />
+      {/* <BestCourier /> */}
+      {/* <ProductDelivery /> */}
+      <Info />
       <FaqSection />
-      {/* <ContactForm /> */}
       <Area />
-      <Testimonial/>
-      <ContactUs />
-      <Stat />
+      <Testimonial />
+      <OurTeams></OurTeams>
       {/* <CallUs /> */}
+      <Stat />
       <WorldMap />
-      <Info></Info>
-      <ScrollUp/>
+      <ScrollUp />
+      <ContactForm />
+      {/* <ContactUs /> */}
+      <ScrollUp />
       <Footer />
     </Providers>
   );

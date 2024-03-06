@@ -16,9 +16,8 @@ import userReviews from "@/components/hooks/useReviews";
 import { Rating } from "@smastrom/react-rating";
 const Testimonial = () => {
     const [reviews] = userReviews()
-    console.log(reviews);
     return (
-        <div div className = "md:px-6 bg-[#F7F6F2] pt-10" >
+        <div div className = "md:px-6 pt-10" >
             <SectionTitle SectionTitle header = {
                 "Testimonials"
             }
@@ -52,7 +51,7 @@ const Testimonial = () => {
          {
             reviews?.map((item) => <SwiperSlide key={item?._id}>
             <div>
-                <div className="bg-white rounded-md p-10 text-sm text-gray-700 text-justify">
+                <div className="bg-[#F7F6F2] rounded-md p-10 text-sm text-gray-700 text-justify">
                     <p className=""> QuickShip, the epitome of efficiency in the realm of international courier services, stands as a beacon
                     for swift and reliable parcel deliveries across borders.</p>
                 </div>
@@ -65,7 +64,7 @@ const Testimonial = () => {
                                     </div>
                                 <div className="space-y-2">
                                     <p className="text-gray-500 font-semibold text-md">{item?.userName}</p>
-                                    
+
                                     <div>
                                         <Rating
                                     style={{ maxWidth: 100 }}

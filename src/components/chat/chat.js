@@ -157,7 +157,7 @@ function ChatBot() {
     setToggled(!isToggled);
   };
   return (
-    <div className={`body ${isToggled ? "show-chatbot" : ""}`}>
+    <div className={`body ${isToggled ? "show-chatbot" : ""} z-[1000]`}>
       <button className="chatbot-toggler" onClick={toggleChatbot}>
         <span className="material-symbols-rounded">mode_comment</span>
         <span className="material-symbols-outlined">close</span>

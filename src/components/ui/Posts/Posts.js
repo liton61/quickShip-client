@@ -13,7 +13,7 @@ import Link from "next/link";
 const Posts = () => {
     const [posts] = usePosts()
     return (
-        <div className = "bg-[#FEF8F8] lg:px-20 md:px-10 sm:px-2 px-4 py-7" >
+        <div className = "lg:px-20 md:px-10 sm:px-2 px-4 py-7 z-1" >
             <SectionTitle header={"RECENT ARTICLES "} miniHeader={"What News Do We Have Today, Latest Blog"}></SectionTitle>
             <div className="-mt-10">
                 <Swiper
@@ -46,9 +46,9 @@ const Posts = () => {
       >
          {
             posts?.map((item) => <SwiperSlide SwiperSlide key = {item?._id} >
-            <div key={item?._id} className="card bg-base-100 rounded-sm shadow-xl">
-                    <figure><Image className="rounded-sm w-full h-52" src={item?.image} alt="image" width={300} height={300}></Image></figure>
-                    <div className="card-body">
+            <div key={item?._id} className="card bg-base-100 rounded-sm shadow-xl h-[500px] ">
+                    <figure className="w-full h-80"><Image className="rounded-sm w-full h-80 overflow-hidden" src={item?.image} alt="image" width={500} height={400}></Image></figure>
+                    <div className="card-body z-1">
                         <div className="flex gap-3 items-center">
                                 <div>
                                     {

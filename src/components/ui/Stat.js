@@ -2,7 +2,7 @@
 
 const Stat = () => {
   return (
-    <div className="bg-base-200 py-20">
+    <div className="py-20">
       <div className="container mx-auto lg:px-20 px-5 my-10 mt-14">
         <div className="stats stats-vertical lg:stats-horizontal shadow w-full">
           <div className="stat place-items-center">

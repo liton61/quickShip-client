@@ -3,7 +3,7 @@ import { Accordion, AccordionItem } from '@nextui-org/react';
 import Gallery from './Gallery';
 const FaqSection = () => {
     return (
-        <div className='bg-base-200 py-10'>
+        <div className=' py-10'>
             <div className='container mx-auto lg:px-20 px-5'>
                 <div className=' justify-center items-center grid grid-cols-1 lg:grid-cols-2 gap-10'>
                     <Gallery />
@@ -41,7 +41,7 @@ const FaqSection = () => {
                             title = "What kind of products does Quick Ship deliver?" >
                                 <p className='text-sm text-justify text-gray-600 font-normal'>We deliver all valid portable products. Quick Ship is a courier service and parcel delivery service that offers the flexibility merchants and customers need.</p>
                             </AccordionItem>
-                            
+
                         </Accordion>
                     </div>
                 </div>

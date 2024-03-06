@@ -80,7 +80,7 @@ const NewService = () => {
                     {services.map((service) => (
                         <div
                             key={service.id}
-                            className="w-[370px] h-[440px] bg-cover bg-center relative"
+                            className="w-[370px] h-[440px] bg-cover bg-center relative shadow-2xl"
                             style={{ backgroundImage: `url('${service.image}')` }}
                             onMouseEnter={() => handleMouseEnter(service.id)}
                             onMouseLeave={handleMouseLeave}

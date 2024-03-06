@@ -24,6 +24,7 @@ import Testimonial from "./(mainLayout)/about/Testimonial";
 import Posts from "@/components/ui/Posts/Posts";
 import ContactForm from "@/components/ui/ContactForm";
 import Info from "@/components/ui/Info";
+import Testimonials from "@/components/ui/Testimonials";
 
 
 const MainHome = () => {
@@ -32,21 +33,22 @@ const MainHome = () => {
     <Providers>
       <Navbar />
       <Banner />
-      <NewService />
       <Parcel />
+      <OurServices/>
+      {/* <NewService /> */}
+      <CallUs />
       <ChatBot />
-      <Posts />
       {/* <BestCourier /> */}
       {/* <ProductDelivery /> */}
       <Info />
       <FaqSection />
       <Area />
-      <Testimonial />
-      <OurTeams></OurTeams>
-      {/* <CallUs /> */}
       <Stat />
-      <WorldMap />
+      <Posts />
+      {/* <WorldMap /> */}
       <ScrollUp />
+      <OurTeams></OurTeams>
+      <Testimonials />
       <ContactForm />
       {/* <ContactUs /> */}
       <ScrollUp />

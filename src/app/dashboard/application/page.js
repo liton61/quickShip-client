@@ -67,19 +67,19 @@ const Page = () => {
 
 
     return (
-        <div className = "lg:px-20 px-5 pt-14 bg-[#010313] text-white" >
+        <div className="lg:px-20 px-5 pt-14" >
             {application.length > 0 ? (
                 <div>
                     <div className="stats shadow flex justify-center text-center my-10">
-                        <div className = "stat bg-[#0D0D21]" >
-                            <div className="stat-title text-white">Total Application</div>
+                        <div className="stat" >
+                            <div className="stat-title">Total Application</div>
                             <div className="stat-value text-blue-600">{application.length}</div>
                         </div>
                     </div>
                     <div className="overflow-x-auto">
                         <table className="table">
                             {/* Table headers */}
-                            <thead className = "bg-[#0D0D21] text-white" >
+                            <thead className="bg-blue-600 text-white" >
                                 <tr>
                                     <th>#</th>
                                     <th>Name</th>
@@ -92,10 +92,10 @@ const Page = () => {
                             <tbody>
                                 {/* Render application */}
                                 {application.map((user, index) => (
-                                    <tr className = "border-b-gray-800 hover:bg-[#0D0D21]"
-                                    key = {
-                                        user._id
-                                    } >
+                                    <tr className="border-b-gray-800"
+                                        key={
+                                            user._id
+                                        } >
                                         <th>{index + 1}</th>
                                         <td>{user.name}</td>
                                         <td>{user.email}</td>
@@ -124,7 +124,7 @@ const Page = () => {
             {/* Open the modal using dialog element */}
             {selectedUser && (
                 <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle" open>
-                    <div className="modal-box bg-black text-white">
+                    <div className="modal-box">
                         <h3 className="font-bold text-lg mb-2">Details</h3>
                         <p>Description : {selectedUser.description}</p>
                         <p>Address : {selectedUser.address}</p>

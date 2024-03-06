@@ -6,18 +6,18 @@ const PaymentHistory = () => {
   const [payment] = usePayment()
   // console.log(payment);
   return (
-    <div className="bg-[#0D0D21] text-white" >
+    <div className="" >
       <div className="py-8 px-5 ">
         <SectionTitle
           header={"Payment history"}
-          miniHeader={"All Payment history here"}
+          miniHeader={"All payment history here"}
         ></SectionTitle>
 
         <div className="overflow-x-auto ">
           <table className="table">
             {/* head */}
             <thead className="text-white" >
-              <tr className="bg-[#0D0D21]" >
+              <tr className="bg-blue-600" >
                 <th>No</th>
                 <th>User name</th>
                 <th>User email</th>
@@ -31,7 +31,7 @@ const PaymentHistory = () => {
                 <tr key={
                   item._id
                 }
-                  className="border-b-gray-800 hover:bg-[#0D0D21]" >
+                  className="border-b-gray-800" >
                   <th>{index + 1}</th>
                   <td>{item?.name}</td>
                   <td>{item?.email}</td>

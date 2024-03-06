@@ -1,10 +1,11 @@
 "use client";
-import Image from "next/image";
+// import Image from "next/image";
 import "./service.css";
-import { FaArrowRight } from "react-icons/fa";
+// import { FaArrowRight } from "react-icons/fa";
 import useServices from "@/components/hooks/useService";
 import OurServices from "@/components/ui/OurServices";
-import NewService from "@/components/ui/NewService/NewService";
+import Parcel from "@/components/ui/Parcel";
+// import NewService from "@/components/ui/NewService/NewService";
 
 const Services = () => {
   const [services] = useServices();
@@ -12,8 +13,9 @@ const Services = () => {
   return (
     <div className="bg-base-200">
       <div className="container mx-auto  px-5 lg:py-20 2xl:py-24">
+      <Parcel></Parcel>
       <OurServices/>
-      <NewService/>
+      {/* <NewService/> */}
         {/* <h2 className="text-center mb-8 text-4xl font-bold">Our Services</h2> */}
         {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {services?.map((services) => (

@@ -1,11 +1,10 @@
 "use client"
 
 
-import SectionTitle from "@/components/shared/SectionTitle";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { FaAngleRight } from "react-icons/fa";
+import { FaAngleRight, FaArrowRight } from "react-icons/fa";
 import { FaPeopleCarryBox, FaShip, FaTrainSubway, FaTruck } from "react-icons/fa6";
 import { GiCargoCrate, GiCommercialAirplane } from "react-icons/gi";
 
@@ -24,15 +23,13 @@ const NewService = () => {
 
     return (
         <>
-            <SectionTitle header={"Our services"} miniHeader={"Our services"} />
-            <div className="container m-auto flex justify-center items-center">
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-12">
-
-
+            <div className="bg-base-200">
+                <h1 className="text-center text-5xl font-bold py-10">Our Services</h1>
+                <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 lg:px-20 px-5">
 
                     {/* 1 */}
                     <div
-                        className="w-[370px] h-[440px] bg-cover bg-center relative"
+                        className="h-[440px] bg-cover bg-center relative"
                         style={{ backgroundImage: `url('https://i.ibb.co/58Py329/m-b-actros-010.jpg')` }}
                         onMouseEnter={() => setIsHovering(true)}
                         onMouseLeave={() => setIsHovering(false)}
@@ -46,10 +43,10 @@ const NewService = () => {
                                     <p className="text-2xl font-bold">Road Freight <br />Service</p>
                                 </div>
                                 <div className=" py-6 bg-white  px-4 space-y-3">
-                                    <p>
+                                    <p className="text-justify">
                                         Road freight service is a mode of transporting various goods by road using trucks that can handle different loads and distances.</p>
-                                    <Link href={`/service`}><button className="btn bg-black text-white rounded-none uppercase hover:bg-blue-600">
-                                        Read More <FaAngleRight />
+                                    <Link href={`/service`}><button className="btn bg-black text-white rounded-none uppercase hover:bg-blue-600 mt-5">
+                                        Learn More <FaArrowRight />
                                     </button></Link>
                                 </div>
                             </div>
@@ -82,7 +79,7 @@ const NewService = () => {
                     </div>
                     {/* 2 */}
                     <div
-                        className="w-[370px] h-[440px] bg-cover bg-center relative"
+                        className="h-[440px] bg-cover bg-center relative"
                         style={{ backgroundImage: `url('https://i.ibb.co/cXzpnkP/front-view-bow-large-blue-600nw-1892071042.webp')` }}
                         onMouseEnter={() => setIsHovering2(true)}
                         onMouseLeave={() => setIsHovering2(false)}
@@ -96,11 +93,11 @@ const NewService = () => {
                                     <p className="text-2xl font-bold">Sea Freight <br />Service</p>
                                 </div>
                                 <div className=" py-6 bg-white  px-4 space-y-2">
-                                    <p>
+                                    <p className="text-justify">
                                         Sea freight service is shipping goods overseas by sea using cargo ships of different sizes and capacities.By sea using cargo ships.
                                     </p>
-                                    <Link href={`/service`}><button className="btn bg-black text-white rounded-none uppercase hover:bg-blue-600">
-                                        Read More <FaAngleRight />
+                                    <Link href={`/service`}><button className="btn bg-black text-white rounded-none uppercase hover:bg-blue-600 mt-5">
+                                        Learn More <FaArrowRight />
                                     </button></Link>
                                 </div>
                             </div>
@@ -130,7 +127,7 @@ const NewService = () => {
                     </div>
                     {/* 3 */}
                     <div
-                        className="w-[370px] h-[440px] bg-cover bg-center relative"
+                        className="h-[440px] bg-cover bg-center relative"
                         style={{ backgroundImage: `url('https://i.ibb.co/6mrwfWW/main-qimg.jpg')` }}
                         onMouseEnter={() => setIsHovering3(true)}
                         onMouseLeave={() => setIsHovering3(false)}
@@ -144,11 +141,11 @@ const NewService = () => {
                                     <p className="text-2xl font-bold">Train Freight <br />Service</p>
                                 </div>
                                 <div className=" py-6 bg-white  px-4 space-y-2">
-                                    <p>
+                                    <p className="text-justify">
                                         Train freight service is transporting goods by rail using freight cars of different types and capacities.By rail using freight cars.
                                     </p>
-                                    <Link href={`/service`}><button className="btn bg-black text-white rounded-none uppercase hover:bg-blue-600">
-                                        Read More <FaAngleRight />
+                                    <Link href={`/service`}><button className="btn bg-black text-white rounded-none uppercase hover:bg-blue-600 mt-5">
+                                        Learn More <FaArrowRight />
                                     </button></Link>
                                 </div>
                             </div>
@@ -172,7 +169,7 @@ const NewService = () => {
                     </div>
                     {/* =====4==== */}
                     <div
-                        className="w-[370px] h-[440px] bg-cover bg-center relative"
+                        className="h-[440px] bg-cover bg-center relative"
                         style={{ backgroundImage: `url('https://i.ibb.co/7pNhMbY/01-06-16-small-13813.jpg')` }}
                         onMouseEnter={() => setIsHovering4(true)}
                         onMouseLeave={() => setIsHovering4(false)}
@@ -186,11 +183,11 @@ const NewService = () => {
                                     <p className="text-2xl font-bold">Cargo Freight <br />Service</p>
                                 </div>
                                 <div className=" py-6 bg-white  px-4 space-y-2">
-                                    <p>
-                                    Cargo Freight Service: Efficient global transport for goods via air, sea, and land, ensuring timely delivery, secure handling, and personalized solutions.
+                                    <p className="text-justify">
+                                        Cargo Freight Service: Efficient global transport for goods via air, sea, and land, ensuring timely delivery, secure handling, and personalized solutions.
                                     </p>
-                                    <Link href={`/service`}><button className="btn bg-black text-white rounded-none uppercase hover:bg-blue-600">
-                                        Read More <FaAngleRight />
+                                    <Link href={`/service`}><button className="btn bg-black text-white rounded-none uppercase hover:bg-blue-600 mt-5">
+                                        Learn More <FaArrowRight />
                                     </button></Link>
                                 </div>
                             </div>
@@ -215,7 +212,7 @@ const NewService = () => {
 
                     {/* 5 */}
                     <div
-                        className="w-[370px] h-[440px] bg-cover bg-center relative"
+                        className="h-[440px] bg-cover bg-center relative"
                         style={{ backgroundImage: `url('https://i.ibb.co/7z3s0s5/HD-wallpaper-take-off-plane-sunset-view.jpg')` }}
                         onMouseEnter={() => setIsHovering5(true)}
                         onMouseLeave={() => setIsHovering5(false)}
@@ -229,12 +226,12 @@ const NewService = () => {
                                     <p className="text-2xl font-bold">Plane Freight <br />Service</p>
                                 </div>
                                 <div className=" py-6 bg-white  px-4 space-y-2">
-                                    <p>
+                                    <p className="text-justify">
 
                                         Plane Freight Service: Fast, reliable air transport for cargo, facilitating global trade with efficient logistics and secure handling.
                                     </p>
-                                    <Link href={`/service`}><button className="btn bg-black text-white rounded-none uppercase hover:bg-blue-600">
-                                        Read More <FaAngleRight />
+                                    <Link href={`/service`}><button className="btn bg-black text-white rounded-none uppercase hover:bg-blue-600 mt-5">
+                                        Learn More <FaArrowRight />
                                     </button></Link>
                                 </div>
                             </div>
@@ -258,7 +255,7 @@ const NewService = () => {
                     </div>
                     {/* 6 */}
                     <div
-                        className="w-[370px] h-[440px] bg-cover bg-center relative"
+                        className="h-[440px] bg-cover bg-center relative"
                         style={{ backgroundImage: `url('https://i.ibb.co/rbW3FR9/Parcel-Delivery.jpg')` }}
                         onMouseEnter={() => setIsHovering6(true)}
                         onMouseLeave={() => setIsHovering6(false)}
@@ -272,11 +269,11 @@ const NewService = () => {
                                     <p className="text-2xl font-bold">Man Freight <br />Service</p>
                                 </div>
                                 <div className=" py-6 bg-white  px-4 space-y-2">
-                                    <p>
-                                    Man Freight Service: Dedicated transportation solutions for heavy machinery and equipment, ensuring safe and timely delivery.
+                                    <p className="text-justify">
+                                        Man Freight Service: Dedicated transportation solutions for heavy machinery and equipment, ensuring safe and timely delivery.
                                     </p>
-                                    <Link href={`/service`}><button className="btn bg-black text-white rounded-none uppercase hover:bg-blue-600">
-                                        Read More <FaAngleRight />
+                                    <Link href={`/service`}><button className="btn bg-black text-white rounded-none uppercase hover:bg-blue-600 mt-5">
+                                        Learn More <FaArrowRight />
                                     </button></Link>
                                 </div>
                             </div>

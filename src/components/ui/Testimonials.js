@@ -22,9 +22,9 @@ const Testimonials = () => {
     })
 
     return (
-        <div className="bg-base-200 py-20">
+        <div className="bg-base-200 py-12">
             <div className="lg:w-3/4 mx-auto lg:px-0 px-5">
-                <div className='w-64 mx-auto py-10'>
+                <div className='w-64 mx-auto py-5'>
                     <p className='text-blue-600 text-center font-semibold mb-2'>---What Our Clients Say---</p>
                     <h3 className='text-xl font-semibold border-y-4 text-center py-3'>TESTIMONIALS</h3>
                 </div>

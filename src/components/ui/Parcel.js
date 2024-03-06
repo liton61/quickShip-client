@@ -12,13 +12,13 @@ const Parcel = () => {
     <div className="bg-base-200">
       <div className="card-body flex items-center justify-center px-0">
         <div>
-          <h5 className="text-[#ec3900] text-center mb-4 mt-5">
+          <h3 className="text-[#ec3900] text-center mb-4 mt-10 text-2xl font-bold">
             {" "}
-            --- HOW IT WORKS ---
-          </h5>
-          <h2 className="mb-10 card-title text-5xl font-bold lg:px-0 px-5">
+            --- HOW DOES IT WORKS ---
+          </h3>
+          {/* <h2 className="mb-10 card-title text-5xl font-bold lg:px-0 px-5">
             How We Deliver Your Parcel
-          </h2>
+          </h2> */}
         </div>
         <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 lg:px-20 px-5">
           <div className="bg-white rounded shadow-lg p-5">

@@ -9,8 +9,8 @@ import {
 
 const Parcel = () => {
   return (
-    <div className="bg-base-200">
-      <div className="card-body flex items-center justify-center px-0">
+    <div className="">
+      <div className="card-body flex items-center justify-center px-0 ">
         <div>
           <h3 className="text-[#ec3900] text-center mb-4 mt-10 text-2xl font-bold">
             {" "}
@@ -21,7 +21,7 @@ const Parcel = () => {
           </h2> */}
         </div>
         <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 lg:px-20 px-5">
-          <div className="bg-white rounded shadow-lg p-5">
+          <div className="rounded shadow-xl hover:shadow-foreground p-5">
             <div className="text-center rounded-full">
               <div className="mb-4 ">
                 <span className="flex justify-center items-center">
@@ -38,7 +38,7 @@ const Parcel = () => {
             </p>
           </div>
 
-          <div className="bg-white rounded shadow-lg p-5">
+          <div className="bg-white rounded shadow-xl p-5 hover:shadow-foreground">
             <div className="text-center rounded-full">
               <div className="mb-4 ">
                 <span className="flex justify-center items-center    ">
@@ -55,7 +55,7 @@ const Parcel = () => {
             </p>
           </div>
 
-          <div className="bg-white rounded shadow-lg p-5">
+          <div className="bg-white rounded shadow-xl p-5 hover:shadow-foreground">
             <div className="text-center rounded-full">
               <div className="mb-4 ">
                 <span className="flex justify-center items-center    ">
@@ -72,7 +72,7 @@ const Parcel = () => {
             </p>
           </div>
 
-          <div className="bg-white rounded shadow-lg p-5">
+          <div className="bg-white rounded shadow-xl p-5 hover:shadow-foreground">
             <div className="text-center rounded-full">
               <div className="mb-4 ">
                 <span className="flex justify-center items-center    ">

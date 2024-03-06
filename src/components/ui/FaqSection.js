@@ -41,7 +41,7 @@ const FaqSection = () => {
                             title = "What kind of products does Quick Ship deliver?" >
                                 <p className='text-sm text-justify text-gray-600 font-normal'>We deliver all valid portable products. Quick Ship is a courier service and parcel delivery service that offers the flexibility merchants and customers need.</p>
                             </AccordionItem>
-                            
+
                         </Accordion>
                     </div>
                 </div>

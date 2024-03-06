@@ -11,13 +11,13 @@ const ManageReturn = () => {
 
   const filterReturn = returnProduct?.filter((item) => item?.status === "Accepted")
 
-   const handlePending = async (id) => {
-        const success = { status: "Completed" }
-        const res = await publicAxios.patch(`/return/${id}`, success)
-        console.log(res.data);
-        toast.success("Return Successfully Accepted")
-        refetch()
-    }
+  const handlePending = async (id) => {
+    const success = { status: "Completed" }
+    const res = await publicAxios.patch(`/return/${id}`, success)
+    console.log(res.data);
+    toast.success("Return Successfully Accepted")
+    refetch()
+  }
 
   const handleDelete = async (id) => {
     const res = await publicAxios.delete(`/return/${id}`)
@@ -28,18 +28,18 @@ const ManageReturn = () => {
   };
 
   return (
-    <div className="bg-[#010313] text-white h-screen" >
+    <div className="h-screen" >
       <div className="py-8 px-5 ">
         <SectionTitle
           header={"Return Management"}
-          miniHeader={"All Return management here"}
+          miniHeader={"All return management here"}
         ></SectionTitle>
         <div>
           <div className="overflow-x-auto">
             <table className="table">
               {/* head */}
               <thead className="text-white" >
-                <tr className="bg-[#0D0D21]" >
+                <tr className="bg-blue-600" >
                   <th>No</th>
                   <th>User name</th>
                   <th>Reason</th>
@@ -51,36 +51,36 @@ const ManageReturn = () => {
               </thead>
               {
                 filterReturn.length === 0 ? <div class="flex w-full mx-auto justify-center items-center h-screen">
-                <h2 class="text-2xl font-bold">All Order Completed</h2>
-              </div> : <tbody>
-                {filterReturn?.map((item, index) => (
-                  <tr className="border-b-gray-800 hover:bg-[#0D0D21]"
-                    key={
-                      item._id
-                    } >
-                    <th>{index + 1}</th>
-                    <td>{item?.name}</td>
-                    <td>{item?.productReason}</td>
-                    <td>${item?.productPrice}</td>
-                    <td>{item?.productComment}</td>
+                  <h2 class="text-2xl font-bold">All Order Completed</h2>
+                </div> : <tbody>
+                  {filterReturn?.map((item, index) => (
+                    <tr className="border-b-gray-800"
+                      key={
+                        item._id
+                      } >
+                      <th>{index + 1}</th>
+                      <td>{item?.name}</td>
+                      <td>{item?.productReason}</td>
+                      <td>${item?.productPrice}</td>
+                      <td>{item?.productComment}</td>
 
-                    <td>
-                      {
-                        item?.status === "Accepted" ? <button onClick={() => handlePending(item?._id)} className="badge badge-secondary badge-outline">{item?.status}</button> : ''
-                      }
-                    </td>
+                      <td>
+                        {
+                          item?.status === "Accepted" ? <button onClick={() => handlePending(item?._id)} className="badge badge-success badge-outline">{item?.status}</button> : ''
+                        }
+                      </td>
 
-                    <td className="text-center">
-                      <button
-                                onClick={() => handleDelete(item?._id)}
-                                className="text-red-600 btn border-none rounded-full bg-[#1c1c4b] hover:bg-purple-900 btn-sm"
-                              >
-                                <FaTrashAlt />
-                              </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
+                      <td className="text-center">
+                        <button
+                          onClick={() => handleDelete(item?._id)}
+                          className="text-red-600 text-xl"
+                        >
+                          <FaTrashAlt />
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
               }
             </table>
           </div>

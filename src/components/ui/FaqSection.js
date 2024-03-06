@@ -3,7 +3,7 @@ import { Accordion, AccordionItem } from '@nextui-org/react';
 import Gallery from './Gallery';
 const FaqSection = () => {
     return (
-        <div className=' py-10'>
+        <div className='bg-base-200 pt-10 pb-20'>
             <div className='container mx-auto lg:px-20 px-5'>
                 <div className=' justify-center items-center grid grid-cols-1 lg:grid-cols-2 gap-10'>
                     <Gallery />

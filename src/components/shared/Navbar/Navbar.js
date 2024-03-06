@@ -36,11 +36,11 @@ const Navbar = () => {
           <span className={`nav-link ${pathname === '/about' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center'}`}><span className="mr-1"><FaUserTag></FaUserTag></span>About Us</span>
         </Link>
       </li>
-      <li>
+      {/* <li>
         <Link href="/service">
           <span className={`nav-link ${pathname === '/service' ? 'active' : ' rounded-lg hover:underline hover:scale-110 hover:shadow-lg transition delay-150 duration-300 ease-in-out flex items-center'}`}><span className="mr-1"><FaServicestack></FaServicestack></span>Service</span>
         </Link>
-      </li>
+      </li> */}
 
       <li>
         <Link Link href="/calculator" >

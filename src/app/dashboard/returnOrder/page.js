@@ -13,14 +13,14 @@ const ReturnOrder = () => {
   const publicAxios = usePublicAxios()
 
   const handlePending = async (id) => {
-        const success = { status: "Accepted" }
-        const res = await publicAxios.patch(`/return/${id}`, success)
-        console.log(res.data);
-        toast.success("Return Successfully Accepted")
-        refetch()
-    }
+    const success = { status: "Accepted" }
+    const res = await publicAxios.patch(`/return/${id}`, success)
+    console.log(res.data);
+    toast.success("Return Successfully Accepted")
+    refetch()
+  }
 
-    const handleDelete = async (id) => {
+  const handleDelete = async (id) => {
     const res = await publicAxios.delete(`/return/${id}`)
     if (res.data.deletedCount > 0) {
       toast.success("Return Delete Successfully")
@@ -29,17 +29,17 @@ const ReturnOrder = () => {
   };
   return (
     <div>
-      <div className = "py-8 px-5 bg-[#010313] text-white" >
+      <div className="py-8 px-5" >
         <SectionTitle
           header={"Return Products"}
-          miniHeader={"All Return history here"}
+          miniHeader={"All return history here"}
         ></SectionTitle>
         <div>
           <div className="overflow-x-auto ">
             <table className="table">
               {/* head */}
               <thead>
-                <tr tr className = "bg-[#0D0D21] text-white z-20 text-md" >
+                <tr tr className="bg-blue-600 text-white z-20 text-md" >
                   <th>No</th>
                   <th>User name</th>
                   <th>User email</th>
@@ -54,10 +54,10 @@ const ReturnOrder = () => {
               </thead>
               <tbody className="text-sm">
                 {returnProduct?.map((item, index) => (
-                  <tr className = "border-b-gray-800 hover:bg-[#0D0D21]"
-                  key = {
-                    item._id
-                  } >
+                  <tr className="border-b-gray-800"
+                    key={
+                      item._id
+                    } >
                     <th>{index + 1}</th>
                     <td>{item?.name}</td>
                     <td>{item?.email}</td>
@@ -72,11 +72,11 @@ const ReturnOrder = () => {
 
                     <td className="text-center">
                       <button
-                                onClick={() => handleDelete(item?._id)}
-                                className="text-red-600 bg-[#010313] btn border-none rounded-full hover:bg-purple-900 btn-sm"
-                              >
-                                <FaTrashAlt />
-                              </button>
+                        onClick={() => handleDelete(item?._id)}
+                        className="text-red-600 border-none text-xl"
+                      >
+                        <FaTrashAlt />
+                      </button>
                     </td>
                   </tr>
                 ))}

@@ -59,11 +59,11 @@ const CoverageArea = () => {
                 </Tabs>
             </div>
 
-            <footer className="footer footer-center p-4 text-purple-200">
+            {/* <footer className="footer footer-center p-4 text-purple-200">
                 <aside>
                     <p>Copyright © 2024 - All right reserved by Quick Ship Ltd</p>
                 </aside>
-            </footer>
+            </footer> */}
         </Container>
     );
 };

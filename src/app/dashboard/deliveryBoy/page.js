@@ -45,17 +45,17 @@ const page = () => {
     }
 
     return (
-        <div className = "lg:px-20 px-5 pt-14 bg-[#010313] text-white" >
+        <div className = "lg:px-20 px-5 pt-14" >
             <div className="stats shadow-lg flex justify-center text-center">
-                <div className = "stat bg-[#0D0D21]" >
-                    <div className="stat-title text-white">Total Delivery Boy</div>
+                <div className = "stat" >
+                    <div className="stat-title">Total Delivery Boy</div>
                     <div className="stat-value text-blue-600">{user.length}</div>
                 </div>
             </div>
             <div className="overflow-x-auto mt-10">
                 <table className="table">
                     {/* head */}
-                    <thead className = "bg-[#0D0D21] text-white" >
+                    <thead className = "bg-blue-600 text-white" >
                         <tr>
                             <th>#</th>
                             <th>Name</th>
@@ -66,7 +66,7 @@ const page = () => {
                     </thead>
                     <tbody>
                         {
-                            user.map((user, index) => <tr className = "border-b-gray-800 hover:bg-[#0D0D21]"
+                            user.map((user, index) => <tr className = "border-b-gray-800"
                                     key = {
                                         user._id
                                     } >

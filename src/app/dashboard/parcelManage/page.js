@@ -18,10 +18,10 @@ const UserTable = () => {
     }
 
     return (
-        <div className = "overflow-x-auto pt-10 px-5 bg-[#010313] text-white" >
+        <div className = "overflow-x-auto pt-10 px-5" >
                     <table className="table">
                         {/* head */}
-                        <thead className = "bg-[#0D0D21] text-white z-20 rounded-t-3xl" >
+                        <thead className = "z-20 rounded-t-3xl bg-blue-600 text-white" >
                             <tr >
                                 <th>No</th>
                                 {/* <th>Image</th> */}
@@ -38,7 +38,7 @@ const UserTable = () => {
                             {
                                 parcel.map((item, index) => <tr key={
                                     item?._id
-                                }  className="border-b-gray-800 hover:bg-[#0D0D21]" >
+                                }  className="border-b-gray-800" >
                                     <td>
                                         {index + 1}
                                     </td>

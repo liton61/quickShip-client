@@ -19,21 +19,21 @@ const MyOrder = () => {
       toast.success("Product Delete Successfully")
       refetch()
     }
-  };
+  }
 
   return (
-    <div className="bg-[#010313] text-white" >
+    <div className="" >
       <div className="py-8 px-5 ">
         <SectionTitle
           header={"Order history"}
-          miniHeader={"All My Order history here"}
+          miniHeader={"All my order history here"}
         ></SectionTitle>
         <div>
           <div className="overflow-x-auto">
             <table className="table">
               {/* head */}
               <thead className="text-white" >
-                <tr className="bg-[#0D0D21]" >
+                <tr className="bg-blue-600" >
                   <th>No</th>
                   <th>User name</th>
                   <th> Price</th>
@@ -53,7 +53,7 @@ const MyOrder = () => {
                 </div>
                   : <tbody>
                     {order?.map((item, index) => (
-                      <tr className="border-b-gray-800 hover:bg-[#0D0D21]"
+                      <tr className="border-b-gray-800"
                         key={
                           item._id
                         } >

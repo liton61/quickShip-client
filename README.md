@@ -1,6 +1,6 @@
 # Quick Ship - Seamless Parcel Delivery App/Website
 
-Welcome to Delivery Express, your go-to platform for efficient and secure parcel delivery. This README provides a quick overview of our application's key features.
+Welcome to Quick Ship, your go-to platform for efficient and secure parcel delivery. This README provides a quick overview of our application's key features.
 
 ## Features
 
@@ -63,7 +63,7 @@ Welcome to Delivery Express, your go-to platform for efficient and secure parcel
 
 ## Conclusion
 
-Delivery Express is not just an app; it's a complete ecosystem for efficient, secure, and user-friendly parcel delivery. Join us in revolutionizing the delivery experience!
+Quick Ship is not just an app; it's a complete ecosystem for efficient, secure, and user-friendly parcel delivery. Join us in revolutionizing the delivery experience!
 
 ## Uses Technology
 

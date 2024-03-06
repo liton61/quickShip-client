@@ -68,7 +68,7 @@ const Calculator = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full lg:w-2/3 mx-auto">
           <div className="form-control">
             <label className="label">
-              <span className="label-text text-white">
+              <span className="label-text ">
                 Product weight<span className="text-red-700">*</span>
               </span>
             </label>
@@ -77,14 +77,14 @@ const Calculator = () => {
               type="number"
               name="title"
               placeholder="Enter the weight of the product"
-              className="input bg-black text-white input-bordered placeholder:text-xs"
+              className="input input-bordered placeholder:text-xs"
               required
             />
           </div>
 
           <div className="form-control">
             <label className="label">
-              <span className="label-text text-white">
+              <span className="label-text ">
                 Selling price of the product
                 <span className="text-red-700">*</span>
               </span>
@@ -94,14 +94,14 @@ const Calculator = () => {
               type="number"
               name="title"
               placeholder="Enter the Selling price of the product"
-              className="input bg-black text-white input-bordered placeholder:text-xs"
+              className="input  input-bordered placeholder:text-xs"
               required
             />
           </div>
 
           <div className="form-control">
             <label className="label">
-              <span className="label-text text-white">
+              <span className="label-text ">
                 Pick-up area<span className="text-red-700">*</span>
               </span>
             </label>
@@ -110,14 +110,14 @@ const Calculator = () => {
               type="text"
               name="title"
               placeholder="Name of Pick-up area"
-              className="input bg-black text-white input-bordered placeholder:text-xs"
+              className="input  input-bordered placeholder:text-xs"
               required
             />
           </div>
 
           <div className="form-control">
             <label className="label">
-              <span className="label-text text-white">
+              <span className="label-text ">
                 Delivery area<span className="text-red-700">*</span>
               </span>
             </label>
@@ -126,7 +126,7 @@ const Calculator = () => {
               type="text"
               name="title"
               placeholder="Name of delivery area"
-              className="input bg-black text-white input-bordered placeholder:text-xs"
+              className="input  input-bordered placeholder:text-xs"
               required
             />
           </div>
@@ -135,7 +135,7 @@ const Calculator = () => {
           <button
             button
             type="submit"
-            className="text-white font-bold py-2 px-6 rounded border border-blue-700 hover:bg-blue-600"
+            className=" font-bold py-2 px-6 rounded border border-blue-700 hover:bg-blue-600"
             onClick={openModal}
           >
             See delivery charges
@@ -151,15 +151,15 @@ const Calculator = () => {
                 className="modal modal-bottom sm:modal-middle"
                 open
               >
-                <div className="modal-box bg-black text-white">
+                <div className="modal-box ">
                   <h2 className="text-2xl font-bold text-center mb-6">
                     Delivery Calculator Details
                   </h2>
-                  <div className="bg-[#0E0D21] py-4 px-5 text-center rounded-t-md shadow-md space-y-3">
+                  <div className=" py-4 px-5 text-center rounded-t-md shadow-md space-y-3">
                     <div className="flex justify-center">
                       <p className="text-sm font-normal text-blue-200">
                         Product weight :{" "}
-                        <span className="text-md text-white font-bold ">
+                        <span className="text-md font-bold ">
                           {" "}
                           {mostRecentData?.productWeight}kg
                         </span>
@@ -167,7 +167,7 @@ const Calculator = () => {
 
                       <p className="  text-sm font-normal text-blue-200">
                         Selling price :{" "}
-                        <span className="text-md text-white font-bold ">
+                        <span className="text-md  font-bold ">
                           {" "}
                           {mostRecentData?.sellingPrice}Tk
                         </span>
@@ -176,7 +176,7 @@ const Calculator = () => {
 
                     <p className="  text-sm font-normal text-blue-200">
                       Pick-up area :{" "}
-                      <span className="text-md text-white font-bold ">
+                      <span className="text-md  font-bold ">
                         {" "}
                         {mostRecentData?.pickupArea}
                       </span>
@@ -184,14 +184,14 @@ const Calculator = () => {
 
                     <p className="  text-sm font-normal text-blue-200">
                       Delivery area :{" "}
-                      <span className="text-md text-white font-bold ">
+                      <span className="text-md font-bold ">
                         {" "}
                         {mostRecentData?.deliveryArea}
                       </span>
                     </p>
                   </div>
 
-                  <div className="bg-[#010313] py-5 px-5 rounded-b-md shadow-md">
+                  <div className=" py-5 px-5 rounded-b-md shadow-md">
                     <div className="flex justify-between items-center">
                       <h2 className="text-3xl font-bold">Tk.{totalCharges}</h2>
                       <button
@@ -211,7 +211,7 @@ const Calculator = () => {
                       <h2 className="text-sm font-normal text-blue-200">
                         Delivery charges
                       </h2>
-                      <h4 className="text-lg text-white font-bold">
+                      <h4 className="text-lg  font-bold">
                         {deliveryCharges}Tk
                       </h4>
                     </div>
@@ -220,7 +220,7 @@ const Calculator = () => {
                       <h2 className="text-sm font-normal text-blue-200">
                         COD Charge (1%)
                       </h2>
-                      <h4 className="text-lg text-white font-bold">
+                      <h4 className="text-lg  font-bold">
                         {codCharge}Tk
                       </h4>
                     </div>

@@ -4,13 +4,11 @@ import usePricing from "../../../components/hooks/usePricing";
 import Link from "next/link";
 import React from "react";
 import { FaCheck } from "react-icons/fa";
-import Parcel from "@/components/ui/Parcel";
 
 const Pricing = () => {
   const [pricing] = usePricing();
   return (
-
-    <div className="bg-gray-100 py-20 xl:py-44">
+    <div className="bg-gray-100 py-24 xl:py-44">
       <SectionTitle header={"Book your desire products"} miniHeader={"Bookings"} />
       <div className="lg:w-3/4 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:px-0 px-5 gap-8">
         {pricing.map((pricingData) => (
@@ -56,7 +54,6 @@ const Pricing = () => {
           </div>
         ))}
       </div>
-      <Parcel />
     </div>
 
 

@@ -103,7 +103,7 @@ const Banner = () => {
               <ShowStatus trackingId={trackingId} />
             </div>
             <div className="modal-action glass">
-              <button className="btn btn-outline btn-black" onClick={() => setModalOpen(false)}>Close</button>
+              <button className="btn  btn-black" onClick={() => setModalOpen(false)}>Close</button>
             </div>
           </div>
         </dialog>

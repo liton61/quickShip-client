@@ -34,8 +34,8 @@ const MainHome = () => {
       <Navbar />
       <Banner />
       <Parcel />
-      <OurServices/>
-      {/* <NewService /> */}
+      {/* <OurServices/> */}
+      <NewService />
       <CallUs />
       <ChatBot />
       {/* <BestCourier /> */}
@@ -47,7 +47,7 @@ const MainHome = () => {
       <Posts />
       {/* <WorldMap /> */}
       <ScrollUp />
-      <OurTeams></OurTeams>
+      <OurTeams/>
       <Testimonials />
       <ContactForm />
       {/* <ContactUs /> */}

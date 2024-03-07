@@ -143,10 +143,8 @@ const CheckoutForm = ({ amount, order, findOrder }) => {
             style: {
               base: {
                 fontSize: "16px",
-                color: "#5A47EF",
-                "::placeholder": {
-                  color: "#FFF",
-                },
+                
+
               },
               invalid: {
                 color: "#9e2146",

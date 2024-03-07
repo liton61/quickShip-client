@@ -36,7 +36,7 @@ const DeliveryMenProfile = () => {
   ];
 
   return (
-    <div className="bg-[#010313] text-white py-5 space-y-7 p-5">
+    <div className=" py-5 space-y-7 p-5">
       <h2 className="text-2xl font-bold">
         Hi, <span className="text-blue-600">{user?.displayName ? user.displayName : "There"}</span> Welcome Back!
       </h2>
@@ -73,10 +73,10 @@ const DeliveryMenProfile = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-5 justify-center items-center">
         <div className="col-span-2">
           <h2 className="text-2xl font-bold pb-4">Product Overview</h2>
-          <BarChart className = "bg-[#0D0D21] py-5 pr-5 rounded-md shadow-xl"
+          <BarChart className = " py-5 pr-5 rounded-md shadow-xl"
           width = {
             450
           }
@@ -105,17 +105,17 @@ const DeliveryMenProfile = () => {
         </div>
         <div className="col-span-2">
           <h2 className="text-2xl font-bold pb-4">Total Earnings</h2>
-          <div className = "card bg-[#0D0D21] py-10 rounded-md shadow-xl" >
+          <div className = "card  py-10 rounded-md shadow-xl" >
             <figure className="">
               <span className="text-7xl rounded-full p-5 bg-black text-purple-600"><FaHandHoldingDollar></FaHandHoldingDollar></span>
             </figure>
               <p className="text-2xl font-bold text-center py-1">120$</p>
-              <p className="text-xs text-center text-gray-400 py-1">All Time Total Earnings</p>
+              <p className="text-xs text-center  py-1">All Time Total Earnings</p>
               <div className="px-10 py-3">
                 <hr className="border-gray-700"/>
               </div>
-              <p className="py-2 text-sm text-center text-gray-300">Total revenue : 1203$</p>
-              <p className="text-center py-2 text-sm text-gray-300">My Earnings : 120$</p>
+              <p className="py-2 text-sm text-center ">Total revenue : 1203$</p>
+              <p className="text-center py-2 text-sm ">My Earnings : 120$</p>
 
           </div>
         </div>

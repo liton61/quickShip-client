@@ -4,8 +4,8 @@ import SectionTitle from "@/components/shared/SectionTitle";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { FaAngleRight, FaShip, FaTruck } from "react-icons/fa";
-import { FaPeopleCarryBox, FaTrainSubway } from "react-icons/fa6";
+import {  FaArrowRight, FaShip, FaTruck } from "react-icons/fa";
+import {   FaPeopleCarryBox, FaTrainSubway, } from "react-icons/fa6";
 import { GiCargoCrate, GiCommercialAirplane } from "react-icons/gi";
 
 const NewService = () => {
@@ -35,7 +35,7 @@ const NewService = () => {
             logo: <FaTrainSubway className="text-6xl text-blue-600" />,
             image: "https://i.ibb.co/6mrwfWW/main-qimg.jpg",
             icon: <FaTrainSubway className="text-6xl" />,
-            description: "Train freight service is transporting goods by rail using freight cars of different types and capacities.By rail using freight cars.",
+            description: "Train freight service is transporting goods by rail using freight cars of different types and capacities.By rail using cars.",
         },
         {
             id: 4,
@@ -43,7 +43,7 @@ const NewService = () => {
             logo: <GiCargoCrate className="text-6xl text-blue-600" />,
             image: "https://i.ibb.co/7pNhMbY/01-06-16-small-13813.jpg",
             icon: <GiCargoCrate className="text-6xl" />,
-            description: "Cargo Freight Service: Efficient global transport for goods via air, sea, and land, ensuring timely delivery, secure handling, and personalized solutions.",
+            description: "Cargo Freight Service: Efficient global transport for goods via air, sea, and land, ensuring timely delivery, secure handling solutions.",
         },
         {
             id: 5,
@@ -62,6 +62,7 @@ const NewService = () => {
             description: "Man Freight Service: Dedicated transportation solutions for heavy machinery and equipment, ensuring safe and timely delivery.",
         },
 
+
     ];
 
     const handleMouseEnter = (serviceId) => {
@@ -73,14 +74,14 @@ const NewService = () => {
     };
 
     return (
-        <>
+        <div className="bg-base-200">
             <SectionTitle header={"Our services"} miniHeader={"Our services"} />
-            <div className="container m-auto flex justify-center items-center">
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-12">
+            <div className=" m-auto flex justify-center items-center">
+                <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-4 lg:gap-7 p-2 xl:p-0">
                     {services.map((service) => (
                         <div
                             key={service.id}
-                            className="w-[370px] h-[440px] bg-cover bg-center relative shadow-2xl"
+                            className="w-[370px] lg:w-[300px] xl:w-[370px] h-[440px] bg-cover bg-center relative shadow-2xl"
                             style={{ backgroundImage: `url('${service.image}')` }}
                             onMouseEnter={() => handleMouseEnter(service.id)}
                             onMouseLeave={handleMouseLeave}
@@ -88,15 +89,15 @@ const NewService = () => {
                             <div className="p-6">
                                 {/* Show service details by default */}
                                 <div className={`${hoveredService === service.id ? "" : "hidden"}`}>
-                                    <div className="flex flex-col justify-center items-center py-12 text-center bg-blue-600 text-white w-full">
+                                    <div className="flex flex-col justify-center items-center  py-12  text-center bg-blue-600 text-white w-full">
                                         {service.icon}
-                                        <p className="text-2xl font-bold">{service.name}</p>
+                                        <p className="text-2xl lg:text-lg xl:text-2xl font-bold">{service.name}</p>
                                     </div>
-                                    <div className="py-8 bg-white px-4 text-center h-52">
-                                        <p className="pb-4">{service.description}</p>
+                                    <div className="py-8 lg:py-0 xl:py-8 bg-white px-4 text-center h-52">
+                                        <p className="pb-4 lg:pb-1 xl:pb-4 text-justify overflow-hidden">{service.description}</p>
                                         <Link href={`/service`}>
                                             <button className="btn bg-black text-white rounded-none uppercase hover:bg-blue-600">
-                                                Read More <FaAngleRight />
+                                                Learn More <FaArrowRight />
                                             </button>
                                         </Link>
                                     </div>
@@ -131,7 +132,7 @@ const NewService = () => {
                     ))}
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 

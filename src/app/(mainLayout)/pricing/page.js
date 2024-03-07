@@ -19,13 +19,13 @@ const Pricing = () => {
             <Link href={`/pricing/${pricingData._id}`}>
               <div className="p-1 bg-blue-500"></div>
               <div className="p-8">
-                <h2 className="text-3xl font-bold text-gray-800 mb-4">
+                <h2 className="text-2xl font-bold text-gray-800 mb-4">
                   {pricingData.level}
                 </h2>
                 <p className="text-gray-600 mb-6">
                   Perfect for growing business
                 </p>
-                <p className="text-4xl font-bold text-gray-800 mb-6">
+                <p className="text-2xl font-bold text-gray-800 mb-6">
                   {" "}
                   $ {pricingData.price}{" "}
                   <span className="text-sm font-normal">/ once</span>{" "}

@@ -35,18 +35,18 @@ const AddPost = () => {
   };
 
   return (
-    <div className="py-8 bg-[#010313] text-white overflow-x-auto 2xl:h-screen 2xl:py-36">
+    <div className="py-8 bg-base-200 overflow-x-auto 2xl:h-screen 2xl:py-36">
       <SectionTitle
         header={"Add Post"}
         miniHeader={"User any post added here"}
       ></SectionTitle>
 
-      <div>
+      <div className="px-10">
         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-7 items-center">
             <div className="form-control">
               <label className="label">
-                <span className="label-text text-white">
+                <span className="label-text ">
                   Post Title <span className="text-red-700">*</span>
                 </span>
               </label>
@@ -54,14 +54,14 @@ const AddPost = () => {
                 type="text"
                 {...register("title", { required: true })}
                 placeholder="Enter your Post Title"
-                className="input bg-black text-white input-bordered placeholder:text-xs"
+                className="input  input-bordered placeholder:text-xs"
               />
             </div>
 
 
             <div className="form-control">
               <label className="label">
-                <span className="label-text text-white">
+                <span className="label-text ">
                   Post Image <span className="text-red-700">*</span>
                 </span>
               </label>
@@ -69,18 +69,18 @@ const AddPost = () => {
                 type="url"
                 {...register("image", { required: true })}
                 placeholder="Enter your Post Image"
-                className="input bg-black text-white input-bordered placeholder:text-xs"
+                className="input  input-bordered placeholder:text-xs"
               />
             </div>
 
             <div className="form-control w-full my-6">
               <label className="label">
-                <span className="label-text text-white">Category <span className="text-red-700">*</span></span>
+                <span className="label-text ">Category <span className="text-red-700">*</span></span>
               </label>
               <select
                 defaultValue="default"
                 {...register("category", { required: true })}
-                className="select bg-black text-white select-bordered w-full"
+                className="select  select-bordered w-full"
               >
                 <option disabled value="default">
                   Select a Tag
@@ -97,12 +97,12 @@ const AddPost = () => {
 
             <div className="form-control w-full my-6">
               <label className="label">
-                <span className="label-text text-white">Tags <span className="text-red-700">*</span></span>
+                <span className="label-text ">Tags <span className="text-red-700">*</span></span>
               </label>
               <select
                 defaultValue="default"
                 {...register("tag", { required: true })}
-                className="select bg-black text-white select-bordered w-full"
+                className="select  select-bordered w-full"
               >
                 <option disabled value="default">
                   Select a Tag
@@ -119,7 +119,7 @@ const AddPost = () => {
           </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text text-white">
+              <span className="label-text ">
                 Post Description <span className="text-red-700">*</span>
               </span>
             </label>
@@ -127,7 +127,7 @@ const AddPost = () => {
               type="text"
               {...register("description", { required: true })}
               placeholder="Enter your Post Description"
-              className="input bg-black text-white input-bordered placeholder:text-xs"
+              className="textarea textarea-bordered placeholder:text-xs"
             />
           </div>
 
@@ -135,7 +135,7 @@ const AddPost = () => {
             <input
               type="submit"
               value={"Add Post"}
-              className="btn border-none text-white bg-[#2c1e6d] hover:bg-[#140d32]"
+              className="btn border-none text-white bg-blue-600"
             />
           </div>
         </form>

@@ -36,12 +36,12 @@ const AboutDetails = () => {
               Brilliant Services and all user management
             </p>
            </div>
-            <button
+            {/* <button
             type="submit"
             className="text-blue-700 hover:text-white font-bold py-2 px-6 rounded border border-blue-700 hover:bg-blue-600"
           >
             Contact Us
-          </button>
+          </button> */}
           </div>
           <div className="lg:w-1/2 md:mb-6 relative mt-20">
             {/* <Image

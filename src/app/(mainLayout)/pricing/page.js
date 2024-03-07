@@ -4,13 +4,11 @@ import usePricing from "../../../components/hooks/usePricing";
 import Link from "next/link";
 import React from "react";
 import { FaCheck } from "react-icons/fa";
-import Parcel from "@/components/ui/Parcel";
 
 const Pricing = () => {
   const [pricing] = usePricing();
   return (
-
-    <div className="bg-gray-100 py-20 xl:py-44">
+    <div className="bg-gray-100 py-24 xl:py-44">
       <SectionTitle header={"Book your desire products"} miniHeader={"Bookings"} />
       <div className="lg:w-3/4 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:px-0 px-5 gap-8">
         {pricing.map((pricingData) => (
@@ -21,13 +19,13 @@ const Pricing = () => {
             <Link href={`/pricing/${pricingData._id}`}>
               <div className="p-1 bg-blue-500"></div>
               <div className="p-8">
-                <h2 className="text-3xl font-bold text-gray-800 mb-4">
+                <h2 className="text-2xl font-bold text-gray-800 mb-4">
                   {pricingData.level}
                 </h2>
                 <p className="text-gray-600 mb-6">
                   Perfect for growing business
                 </p>
-                <p className="text-4xl font-bold text-gray-800 mb-6">
+                <p className="text-2xl font-bold text-gray-800 mb-6">
                   {" "}
                   $ {pricingData.price}{" "}
                   <span className="text-sm font-normal">/ once</span>{" "}
@@ -56,7 +54,6 @@ const Pricing = () => {
           </div>
         ))}
       </div>
-      <Parcel />
     </div>
 
 

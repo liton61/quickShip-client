@@ -33,6 +33,7 @@ const Review = () => {
     }
     return (
         <div>
+            <SectionTitle header={"Give your review here"} miniHeader={"Your Review"}/>
             <div className="my-12 lg:px-0 px-5">
                 <div className="lg:w-3/4 mx-auto bg-gray-200 p-10 rounded">
                     <h2 className="text-2xl font-semibold mb-4">Leave a Review</h2>

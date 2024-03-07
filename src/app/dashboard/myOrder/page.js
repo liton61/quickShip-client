@@ -59,43 +59,43 @@ const MyOrder = () => {
                         } >
                         <th>{index + 1}</th>
                         <td>{item?.name}</td>
-                        <td className="text-center">${item?.productPrice}</td>
+                        <td>${item?.productPrice}</td>
                         <td>{item?.deliveryDate}</td>
-                        <td className="text-center">{item?.productWeight}</td>
-                        <td><ClipBoard id={item?._id} text={`text-white`} hover={`hover:bg-purple-900`}/></td>
-                        <td className="text-center">
+                        <td>{item?.productWeight}</td>
+                        <td><ClipBoard id={item?._id} text={`text-black`} hover={`hover:bg-blue-200`}/></td>
+                        <td >
                           <Link
                             href={`/dashboard/myOrder/${item?._id}`}
-                            className="btn border-none rounded-full bg-[#1c1c4b] hover:bg-purple-900 text-white btn-sm"
+                            className="btn border-none rounded-full  hover:bg-blue-200 btn-sm"
                           >
-                            <span className="text-xs">
+                            <span className="text-2xl">
                               <FaSackDollar></FaSackDollar>
                             </span>
                           </Link>
                         </td>
 
-                        <td className="text-center">
+                        <td>
                           <Link href={
                             `/dashboard/myOrder/update/${item?._id}`
                           } >
-                            <button className="text-green-600 btn border-none rounded-full bg-[#1c1c4b] hover:bg-purple-900 btn-sm" >
+                            <button className="text-green-600 text-lg btn border-none rounded-full  hover:bg-blue-200 btn-sm" >
                               <FaEdit />
                             </button>
                           </Link>
                         </td>
 
-                        <td className="text-center">
+                        <td>
                           <Link href={`/dashboard/myOrder/return/${item?._id}`}>
-                            <button className="text-blue-200 btn border-none rounded-full bg-[#1c1c4b] hover:bg-purple-900 btn-sm" >
+                            <button className="text-2xl btn border-none rounded-full  hover:bg-blue-200 btn-sm" >
                               <TbTruckReturn />
                             </button>
                           </Link>
                         </td>
 
-                        <td className="text-center">
+                        <td>
                           <button
                             onClick={() => handleDelete(item?._id)}
-                            className="text-red-600 btn border-none rounded-full bg-[#1c1c4b] hover:bg-purple-900 btn-sm"
+                            className="text-red-600 btn text-lg border-none rounded-full  hover:bg-blue-200 btn-sm"
                           >
                             <FaTrashAlt />
                           </button>

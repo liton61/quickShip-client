@@ -49,7 +49,7 @@ const PricingId = ({ params }) => {
     <div className="hero min-h-screen bg-base-200 pt-24">
       <div className="hero-content flex-col lg:flex-row">
         {/* delivery services part start */}
-        <div className="">
+        <div className="lg:pr-12 ">
           <div className="text-center">
             <p className="text-4xl font-bold text-gray-800 mb-6">
               {" "}
@@ -77,11 +77,11 @@ const PricingId = ({ params }) => {
                 8:00 - 22:00 Every day
               </li>
             </ul>
-            <div className="p-4">
+            {/* <div className="p-4">
               <button className="w-full font-bold bg-blue-500 text-white rounded-full px-4 py-2 hover:bg-white hover:text-blue-500 hover:border border-blue-500 focus:outline-none focus:shadow-outline-green ">
-                Read More
+                Read more
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
         {/* delivery services part end */}

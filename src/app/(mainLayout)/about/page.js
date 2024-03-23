@@ -5,7 +5,7 @@ import { FaCheck } from "react-icons/fa";
 const About = () => {
     return (
         <div>
-      <div className="mb-5 mx-auto max-w-screen-xl py-24">
+      <div className="lg:mb-5 mx-auto max-w-screen-xl pt-5 lg:py-24">
         <div className="flex pb-8 pt-16 gap-10 flex-col  lg:flex-row">
           <div className="lg:w-1/2 space-y-5 px-4">
             <h3 className="text-xl text-blue-500 font-bold">About Us</h3>
@@ -48,9 +48,9 @@ const About = () => {
               height={20}
             ></Image> */}
 
-            <div className="stats bg-blue-500 lg:ml-[45px]  stats-vertical lg:stats-horizontal w-5/6 absolute -mt-16 rounded-none">
-              <div className="stat place-items-center">
-                <div className="stat-value p-4 text-white">
+            <div className="stats  lg:ml-[45px]  stats-vertical lg:stats-horizontal w-5/6 absolute -mt-16 rounded-none">
+              <div className="stat place-items-center bg-blue-500 mb-10 lg:mb-auto ml-12 lg:ml-auto">
+                <div className="stat-value lg:p-4 text-white">
                   31{" "}
                   <span className="text-xl">
                     + Years
@@ -59,8 +59,8 @@ const About = () => {
                 </div>
               </div>
 
-              <div className="stat place-items-center">
-                <div className="stat-value p-4 text-white">
+              <div className="stat place-items-center bg-blue-500 ml-12 lg:ml-auto">
+                <div className="stat-value lg:p-4 text-white">
                   31k{" "}
                   <span className="text-xl">
                     Satisfied
@@ -72,7 +72,7 @@ const About = () => {
             </div>
 
             <Image
-              className="rounded-sm "
+              className="rounded-sm mt-60 lg:mt-auto"
               src="https://i.ibb.co/vdpVCsN/about-img-2-1.jpg"
               alt="images"
               width={600}

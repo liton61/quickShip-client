@@ -15,6 +15,7 @@ import Area from "./coverageArea/Area/Area";
 import FaqSection from "../components/ui/FaqSection";
 import Testimonials from "../components/ui/Testimonials";
 import Navbar from "@/components/shared/Navbar/Navbar";
+import ScrollUp from "@/components/shared/Scroll/ScrollUp";
 
 
 
@@ -38,6 +39,7 @@ const MainHome = () => {
       <Testimonials/>
       <ContactForm />
       <WorldMap />
+      <ScrollUp/>
       <Footer />
     </Providers>
   );

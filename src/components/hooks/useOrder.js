@@ -1,3 +1,4 @@
+"use client"
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "./useAuth";
 import usePublicAxios from "./usePublicAxios";
@@ -14,6 +15,7 @@ const useOrder = () => {
       return res.data;
     },
   });
+  console.log(order)
 
   return [order, refetch];
 };

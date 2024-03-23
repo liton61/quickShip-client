@@ -2,20 +2,18 @@ import Image from "next/image";
 import { FaCheck } from "react-icons/fa";
 
 
-const page = () => {
+const About = () => {
     return (
         <div>
-      <div className=" mb-5 mx-auto max-w-screen-xl  ">
-        <div className="flex pb-8 mt-16 gap-10 flex-col  lg:flex-row">
-          <div className="lg:w-1/2    space-y-5 px-4">
-            <h3 className="text-xl  text-blue-500 font-bold">About Us</h3>
+      <div className="mb-5 mx-auto max-w-screen-xl py-24">
+        <div className="flex pb-8 pt-16 gap-10 flex-col  lg:flex-row">
+          <div className="lg:w-1/2 space-y-5 px-4">
+            <h3 className="text-xl text-blue-500 font-bold">About Us</h3>
             <h1 className="text-3xl font-bold">
               World’s Leading Contract Logistics Provider.
             </h1>
             <p className="py-3">
-              Trello is a visual and intuitive quickship platform that uses
-              boards, lists, and cards to organize tasks and projects. It is
-              known for its simplicity and flexibility.
+            QuickShip, the epitome of efficiency in the realm of international courier services, stands as a beacon for swift and reliable parcel deliveries across borders.
             </p>
             <p className="flex items-center gap-2">
               <FaCheck className="text-blue-500"></FaCheck>
@@ -38,7 +36,7 @@ const page = () => {
               Brilliant Services and all user management
             </p>
             <button className="btn btn-info bg-blue-500 text-white">
-              See More
+              Read More...
             </button>
           </div>
           <div className="lg:w-1/2 md:mb-6 relative mt-20">
@@ -87,4 +85,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default About;

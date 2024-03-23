@@ -1,11 +1,12 @@
-// ./src/app/layout.js
-import { Inter } from 'next/font/google';
+
+import { Toaster } from "react-hot-toast";
+import AuthProvider from "./providers/AuthProvider";
+import TanstackProvider from "./providers/TanstackProvider";
+import { Inter } from "next/font/google";
 import './globals.css';
-import TanstackProvider from '@/providers/TanstackProvider';
-import { Toaster } from 'react-hot-toast';
-import ChatBot from '@/components/chat/chat';
-import AuthProvider from '@/providers/AuthProvider';
-// import BottomtoTop from '@/components/bottomtotop/bottomtotop';
+
+import { Providers } from "./providers/NextUIProviders";
+
 
 
 
@@ -16,15 +17,14 @@ export const metadata = {
 
 
 
-export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="light">
       <body className={inter.className}>
         <TanstackProvider>
           <AuthProvider>
-            {/* <BottomtoTop /> */}
-            <ChatBot />
-            {children}
+            <Providers>
+              {children}
+            </Providers>
             <Toaster />
           </AuthProvider>
         </TanstackProvider>

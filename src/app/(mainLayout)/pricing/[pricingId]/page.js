@@ -1,29 +1,33 @@
 "use client";
-import useAuth from "@/components/hooks/useAuth";
-import usePublicAxios from "@/components/hooks/usePublicAxios";
+import useAuth from "../../../../components/hooks/useAuth";
+import usePublicAxios from "../../../../components/hooks/usePublicAxios";
 import { useState } from "react";
 import { FaCheck } from "react-icons/fa";
-import useOrder from "@/components/hooks/useOrder";
-import { useRouter } from 'next/navigation'
+import useOrder from "../../../../components/hooks/useOrder";
+import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import usePricing from "../../../../components/hooks/usePricing";
 
-const PricingId = ({params}) => {
+const PricingId = ({ params }) => {
   const { pricingId } = params;
-  // console.log(pricingId);
+  const [pricing] = usePricing()
 
-  const [order, refetch] = useOrder()
+  const findPrice = pricing?.find((item) => item?._id === pricingId)
+  console.log(findPrice);
 
+  const [order, refetch] = useOrder();
 
-  const {user} = useAuth()
+  const { user } = useAuth();
   const [deliveryDate, setDeliveryDate] = useState("");
   const [phone, setPhone] = useState("");
   const [productPrice, setProductPrice] = useState(0);
   const [productWeight, setProductWeight] = useState(0);
   const [area, setArea] = useState("");
 
-  const router = useRouter()
 
-  const publicAxios = usePublicAxios()
+  const router = useRouter();
+
+  const publicAxios = usePublicAxios();
 
   const addOrder = {
     name: user?.displayName,
@@ -32,19 +36,17 @@ const PricingId = ({params}) => {
     phone,
     productPrice,
     productWeight,
-    area
-  }
+    area,
+    status: "pending",
+  };
 
   const handleOrder = async (e) => {
     e.preventDefault();
-    const res = await publicAxios.post("/order", addOrder)
-    // console.log(res.data);
+    const res = await publicAxios.post("/order", addOrder);
     toast.success("Successfully Order");
-    refetch()
-    router.push("/payment")
+    refetch();
+    router.push("/payment");
   };
-
-
 
   return (
     <div>
@@ -75,7 +77,7 @@ const PricingId = ({params}) => {
               </li>
               <li className="mb-3 flex font-bold items-center gap-2">
                 <FaCheck className="text-blue-500" />
-                8:00 – 22:00 Every day
+                8:00 - 22:00 Every day
               </li>
             </ul>
             <div className="p-4">
@@ -160,6 +162,7 @@ const PricingId = ({params}) => {
                           required
                           placeholder="Price"
                           name="price"
+                          defaultValue={findPrice?.price}
                         />
                       </div>
                       <div className="py-2 w-1/2">
@@ -190,12 +193,12 @@ const PricingId = ({params}) => {
                       />
                     </div>
                     <div className="flex justify-center py-5">
-                        <button
-                          type="submit"
-                          className="font-bold py-2 px-6 rounded border border-blue-700 hover:bg-blue-600"
-                        >
-                          Make Order
-                        </button>
+                      <button
+                        type="submit"
+                        className="font-bold py-2 px-6 rounded border border-blue-700 hover:bg-blue-600"
+                      >
+                        Make Order
+                      </button>
                     </div>
                   </div>
                 </div>

@@ -1,10 +1,10 @@
+"use client"
 const SectionTitle = ({ header, miniHeader }) => {
+
   return (
-    <div className="flex flex-col space-y-2 justify-center items-center mb-8">
-      <p className="text-lg text-purple-400 italic">---{miniHeader}---</p>
-      <hr className="w-80 border" />
-      <h2 className="text-3xl font-semibold">{header}</h2>
-      <hr className="w-80 border" />
+    <div className="flex flex-col space-y-2 justify-center items-center mb-12">
+      <p className="text-xl">--- <span className="text-blue-600">{miniHeader}</span> ---</p>
+      <h2 className="text-4xl font-semibold uppercase">{header}</h2>
     </div>
   );
 };

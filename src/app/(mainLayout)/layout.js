@@ -1,8 +1,7 @@
-import Footer from '@/components/shared/Footer';
+import Footer from '../../components/shared/Footer';
 import Navbar from '@/components/shared/Navbar/Navbar';
-import React from 'react';
 
-const Layout = ({children}) => {
+const Layout = ({ children }) => {
     return (
         <div>
             <Navbar></Navbar>

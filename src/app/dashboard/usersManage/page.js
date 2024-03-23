@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client"
-import usePublicAxios from '@/components/hooks/usePublicAxios';
+import usePublicAxios from '../../../components/hooks/usePublicAxios';
 import { useQuery } from '@tanstack/react-query';
 import { FaTrash, FaUser } from 'react-icons/fa';
 import Swal from 'sweetalert2';
@@ -59,7 +59,7 @@ const page = () => {
         });
     }
     return (
-        <div className="lg:w-3/4 mx-auto lg:px-0 px-5 mt-10">
+        <div className="lg:w-3/4 mx-auto lg:px-0 px-5 py-10">
             <div className="stats shadow flex justify-center text-center">
                 <div className="stat">
                     <div className="stat-title">Total Users</div>

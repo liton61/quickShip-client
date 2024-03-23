@@ -1,11 +1,11 @@
-"use client"
-import usePricing from '@/components/hooks/usePricing';
-import Link from 'next/link';
-import React from 'react';
-import { FaCheck } from 'react-icons/fa';
+"use client";
+import usePricing from "../../../components/hooks/usePricing";
+import Link from "next/link";
+import React from "react";
+import { FaCheck } from "react-icons/fa";
 
 const Pricing = () => {
-  const [pricing, refetch] = usePricing()
+  const [pricing, refetch] = usePricing();
   return (
     <div>
       <div>

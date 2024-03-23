@@ -1,22 +1,36 @@
 "use client";
 import Link from "next/link";
-import { FaBoxOpen, FaHome, FaUsers } from "react-icons/fa";
-import { MdLogout } from "react-icons/md";
+import { FaBoxOpen, FaBriefcase, FaHome, FaUser, FaUsers } from "react-icons/fa";
+import { MdLogin, MdLogout } from "react-icons/md";
 import { GiReturnArrow } from "react-icons/gi";
 import { CgProfile } from "react-icons/cg";
 import { MdRateReview } from "react-icons/md";
 import { MdWorkHistory } from "react-icons/md";
 import { VscThreeBars } from "react-icons/vsc";
 import { FaJediOrder } from "react-icons/fa";
-import useAuth from "@/components/hooks/useAuth";
-import useUser from "@/components/hooks/useUser";
+import useAuth from "../../components/hooks/useAuth";
+import useUser from "../../components/hooks/useUser";
+import ChatBot from "../../components/chat/chat";
+import LottieEffect from "@/components/shared/Lottie";
+import logo from '../../../public/Logo (1).json';
+import { FaSignsPost } from "react-icons/fa6";
+import { BiLogOut } from "react-icons/bi";
+import toast from "react-hot-toast";
 
 const DashboardLayout = ({ children }) => {
-  const { user } = useAuth();
-  const isAdmin = true;
+  const { user, logout } = useAuth();
+
 
   const [users] = useUser();
-  console.log(users?.role);
+
+  const handleLogOut = () => {
+    logout()
+      .then(() => { })
+      .catch((error) => console.log(error));
+    toast.success("Log out successfully")
+  };
+
+  // console.log(users?.role);
 
   const UserSidebarLinks = (
     <>
@@ -44,7 +58,7 @@ const DashboardLayout = ({ children }) => {
         </Link>
       </li>
 
-      <li id="sidebar">
+      {/* <li id="sidebar">
         <Link
           href="/dashboard/return"
           className={({ isActive, isPending }) =>
@@ -54,7 +68,7 @@ const DashboardLayout = ({ children }) => {
           <GiReturnArrow></GiReturnArrow>
           Return Product
         </Link>
-      </li>
+      </li> */}
 
       <li id="sidebar">
         <Link
@@ -64,7 +78,7 @@ const DashboardLayout = ({ children }) => {
           }
         >
           <FaJediOrder></FaJediOrder>
-          All Order
+          My Order
         </Link>
       </li>
 
@@ -76,7 +90,7 @@ const DashboardLayout = ({ children }) => {
           }
         >
           <MdRateReview></MdRateReview>
-          Product Review
+          Review
         </Link>
       </li>
     </>
@@ -95,6 +109,18 @@ const DashboardLayout = ({ children }) => {
           Admin Profile
         </Link>
       </li>
+
+      <li id="sidebar">
+        <Link
+          href="/dashboard/addPost"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          <FaSignsPost></FaSignsPost>
+          Blog Add
+        </Link>
+      </li>
       <li id="sidebar">
         <Link
           href="/dashboard/parcelManage"
@@ -103,7 +129,7 @@ const DashboardLayout = ({ children }) => {
           }
         >
           <FaBoxOpen></FaBoxOpen>
-          Parcel Manage
+          Manage Parcels
         </Link>
       </li>
 
@@ -115,7 +141,69 @@ const DashboardLayout = ({ children }) => {
           }
         >
           <FaUsers></FaUsers>
-          User Management
+          Manage Users
+        </Link>
+      </li>
+      <li id="sidebar">
+        <Link
+          href="/dashboard/deliveryBoy"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          <FaUser></FaUser>
+          Delivery Boy
+        </Link>
+      </li>
+      <li id="sidebar">
+        <Link
+          href="/dashboard/application"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          <FaBriefcase></FaBriefcase>
+          Application
+        </Link>
+      </li>
+
+      <li id="sidebar">
+        <Link
+          href="/dashboard/returnOrder"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          <GiReturnArrow />
+          Return Order
+        </Link>
+      </li>
+    </>
+  );
+
+  const deliverySidebarLinks = (
+    <>
+      <li id="sidebar">
+        <Link
+          href="/"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          <CgProfile></CgProfile>
+          Delivery men Profile
+        </Link>
+      </li>
+
+      <li id="sidebar">
+        <Link
+          href="/dashboard/manageReturn"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          <CgProfile></CgProfile>
+          Manage Return
         </Link>
       </li>
     </>
@@ -139,12 +227,12 @@ const DashboardLayout = ({ children }) => {
               href={"/"}
               className="btn btn-ghost normal-case items-center text-xs md:text-xl"
             >
-              <span>{/* <img className="w-10" src={logo} alt="" /> */}</span>
-              <span className="text-white">Quick Ship</span>
+                <span className="text-white">Quick Ship</span>
             </Link>
           </div>
           {/* Page content here */}
           {children}
+          <ChatBot />
         </div>
         <div className="drawer-side">
           <label
@@ -158,22 +246,20 @@ const DashboardLayout = ({ children }) => {
               <div>
                 <Link
                   href={"/"}
-                  className="flex space-x-2 font-bold mt-5 normal-case items-center text-xs md:text-xl"
+                  className="flex flex-col space-x-2 font-bold mt-5 normal-case items-center text-xs md:text-xl"
                 >
-                  <span>
-                    {/* <img
-                      className="w-10"
-                      src={logo}
-                      alt=""
-                    /> */}
+                  <span className="w-32">
+                  <LottieEffect image={logo} />
                   </span>
-                  <span className="text-white">Quick Ship</span>
+                  <span className="text-blue-600 hover:text-white italic">Quick Ship</span>
                 </Link>
               </div>
               <div className="divider"></div>
               <div>{UserSidebarLinks}</div>
               <div className="divider"></div>
               {users?.role === "admin" ? AdminSidebarLinks : ""}
+              <div className="divider"></div>
+              {users?.role === "deliveryMen" || "admin" ? deliverySidebarLinks : ""}
               <div className="divider"></div>
             </div>
             <div>
@@ -190,25 +276,29 @@ const DashboardLayout = ({ children }) => {
                   Home
                 </Link>
               </li>
-              <div>
-                <li id="sidebar">
-                  {user ? (
-                    <button
-                      className={({ isActive, isPending }) =>
-                        isPending ? `pending` : isActive ? `active` : ""
-                      }
-                      // onClick={handleLogout}
-                    >
-                      <span>
-                        <MdLogout></MdLogout>
-                      </span>
-                      Logout
-                    </button>
-                  ) : (
-                    ""
-                  )}
-                </li>
-              </div>
+              <li id="sidebar">
+                {user ? (
+                <button
+                  onClick={handleLogOut}
+                  className="hover:font-bold flex items-center" /* to={"/login"} */
+                >
+                  <span className="">
+                    <BiLogOut></BiLogOut>
+                  </span>
+                  Logout
+                </button>
+              ) : (
+                <Link
+                  className="hover:font-bold flex items-center"
+                  href={"/login"}
+                >
+                  <span className="">
+                    <MdLogin></MdLogin>
+                  </span>
+                  Login
+                </Link>
+              )}
+              </li>
             </div>
           </ul>
         </div>

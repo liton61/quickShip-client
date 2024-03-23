@@ -1,3 +1,5 @@
+"use client"
+
 import { useQuery } from "@tanstack/react-query";
 import usePublicAxios from "./usePublicAxios";
 import useAuth from "./useAuth";
@@ -9,7 +11,6 @@ const usePayment = () => {
     queryKey: ["payment", user?.email],
     queryFn: async () => {
       const res = await publicAxios.get(`/payment?email=${user.email}`);
-    //   console.log(res.data);
       return res.data;
     },
   });

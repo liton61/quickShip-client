@@ -1,15 +1,17 @@
 "use client"
-import useAuth from "@/components/hooks/useAuth";
-import signUpImg from "../assets/signUp.png";
+import useAuth from "../../components/hooks/useAuth";
+import signUpImg from "../../assets/signUp.png";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 import Image from "next/image";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import usePublicAxios from "@/components/hooks/usePublicAxios";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const publicAxios = usePublicAxios()
   const {
     register,
     handleSubmit,
@@ -26,41 +28,33 @@ const SignUp = () => {
     await createUser(data?.email, data?.password)
       .then((result) => {
         console.log(result?.user);
-        toast.success("Successfully Sign Up");
-        router.push("/")
-        // const userInfo = {
-        //   name: data?.name,
-        //   email: data?.email,
-        //   image: data?.image,
-        // };
+        const userInfo = {
+          name: data?.name,
+          email: data?.email,
+        };
 
-        // publicAxios.post("/users", userInfo)
-        // .then(res =>{
-        //   if (res?.data?.insertedId) {
-        //     Swal.fire({
-        //       icon: "success",
-        //       title: "Wow...",
-        //       text: "Sign up Successfully....!!",
-        //     });
-        //     navigate("/");
-        //   }
-        // })
-        
+        publicAxios.post("/users", userInfo).then((res) => {
+          console.log(res.data);
+          toast.success("Successfully Sign Up");
+          router.push("/")
+        });
+
+
       })
       .catch((error) => {
-        // console.log(error?.message);
+        console.log(error?.message);
         toast.error("Something wrong....try agin");
       });
   };
 
   return (
-    <div>
-      <div className="md:flex py-14 lg:space-x-5 lg:flex-row-reverse bg-[#010313]">
-        <div className="flex w-1/2 justify-center items-center">
-          <Image src={signUpImg} className="md:h-[500px]" alt="signUp"></Image>
+    <div className="bg-[#010313]">
+      <div className="grid md:grid-cols-2 p-5" >
+        <div className="flex justify-center items-center" >
+          <Image src={signUpImg} className="w-full md:w-96" alt="signUp"></Image>
         </div>
 
-        <div className="card flex-shrink-0 w-1/2 max-w-sm shadow-2xl bg-[#0e0d21] ">
+        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-[#0e0d21] " >
           <Link
             href={"/"}
             className="text-3xl mt-4 font-extrabold text-center text-[#c29a4b] text-opacity-50"
@@ -168,12 +162,12 @@ const SignUp = () => {
                       viewBox="0 0 20 20"
                       fill="currentColor"
                       stroke="currentColor"
-                      // stroke-width="1"
+                    // stroke-width="1"
                     >
                       <path
                         //   fill-rule="evenodd"
                         d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        //   clip-rule="evenodd"
+                      //   clip-rule="evenodd"
                       ></path>
                     </svg>
                   </span>
@@ -188,7 +182,7 @@ const SignUp = () => {
                 </label>
               </div>
             </div>
-            <div className="form-control">
+            {/* <div className="form-control">
               <label className="label">
                 <span className="label-text text-white">
                   Photo URl <span className="text-red-700">*</span>
@@ -201,7 +195,7 @@ const SignUp = () => {
                 placeholder="Enter your Photo Url"
                 className="input bg-black text-white input-bordered placeholder:text-xs"
               />
-            </div>
+            </div> */}
             <div className="form-control mt-6">
               <input
                 type="submit"

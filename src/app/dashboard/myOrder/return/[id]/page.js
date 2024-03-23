@@ -1,56 +1,47 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
-import { getUdateOrder } from "@/components/hooks/useUpdate";
-import { useRouter } from "next/navigation";
-import React from "react";
-import Swal from "sweetalert2";
+import useAuth from "../../../../../components/hooks/useAuth";
+import useOrder from "../../../../../components/hooks/useOrder";
+import usePublicAxios from "../../../../../components/hooks/usePublicAxios";
+import React, { useState } from "react";
+import toast from "react-hot-toast";
+
+const returnPage = ({ params }) => {
+  const [productName, setProductName] = useState("")
+  const [productReason, setProductReason] = useState("")
+  const [productPayment, setProductPayment] = useState("")
+  const [productComment, setProductComment] = useState("")
+
+  const { user } = useAuth()
+  const axiosPublic = usePublicAxios();
+  const [order] = useOrder();
+
+  // const [returnProduct] = useReturn()
+
+  const newOrder = order.find((order) => order._id === params.id);
+  const returnOrder = {
+    name: user?.displayName,
+    email: user?.email,
+    productId: newOrder?._id,
+    productName,
+    productPrice: newOrder?.productPrice,
+    productWeight: newOrder?.productWeight,
+    productReason,
+    productPayment,
+    productComment,
+    status: "pending"
+  };
 
 
-const returnPage = async ({ params }) => {
-  const productReturn = await getUdateOrder(params.id);
-  // console.log(productReturn);
-
- 
-
-  const handleReturnOrder = (event) => {
+  const handleReturnOrder = async (event) => {
     event.preventDefault();
-    const form = event.target;
-    const name = form.name.value;
-    const email = form.email.value;
-    // const phone = form.phone.value;
-    const price = form.price.value;
-    const weight = form.weight.value;
-    // const time = form.time.value;
 
-    const returnOrder = {
-      name,
-      email,
-      // phone,
-      price,
-      weight,
-    };
-    console.log(returnOrder);
+    const res = await axiosPublic.post(`/return`, returnOrder);
 
-    fetch(`http://localhost:5000/order/${params.id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(returnOrder),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.modifiedCount > 0) {
-          Swal.fire({
-            title: "success",
-            text: "Return Request Submit Successfully",
-            icon: "success",
-            confirmButtonText: "OK",
-            
-          });
-         reset(); 
-        }
-      });
+
+    if (res.data.acknowledged === true) {
+      toast.success("Return Request Submit Successfully")
+    }
   };
   return (
     <div className="max-w-screen-xl mx-auto lg:py-10">
@@ -58,7 +49,7 @@ const returnPage = async ({ params }) => {
         <div className="">
           <form onSubmit={handleReturnOrder}>
             <div className="flex items-center justify-center ">
-              <div className="relative flex flex-col m-2 space-y-8 bg-blue-300 shadow-2xl rounded-2xl md:flex-row md:space-y-0">
+              <div className="relative flex flex-col m-2 space-y-8 bg-base-300 shadow-2xl rounded-2xl md:flex-row md:space-y-0">
                 <div className="flex flex-col justify-center  md:p-6 ">
                   <span className=" text-xl md:text-2xl lg:text-4xl text-center text-blue-500 font-bold">
                     Product Return
@@ -71,10 +62,10 @@ const returnPage = async ({ params }) => {
                       <input
                         className="w-full my-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
                         type="name"
-                        defaultValue={productReturn?.name}
+                        defaultValue={newOrder?.name}
                         required
                         placeholder="Enter Your Name"
-                        name="name"
+                        disabled
                       />
                     </div>
                     <div className="lg:py-2 ">
@@ -83,13 +74,13 @@ const returnPage = async ({ params }) => {
                         className="w-full my-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
                         type="email"
                         required
-                        defaultValue={productReturn?.email}
+                        defaultValue={newOrder?.email}
                         placeholder="Enter Your email"
-                        name="email"
+                        disabled
                       />
                     </div>
                   </div>
-                  {/* date and phone */}
+                  {/* Product Id */}
                   <div className="lg:gap-8 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 px-2 lg:px-5 ">
                     <div className="lg:py-2 ">
                       <span className=" font-bold text-md">Product Id</span>
@@ -100,6 +91,7 @@ const returnPage = async ({ params }) => {
                         defaultValue={params?.id}
                         placeholder="Product Id"
                         name="productId"
+                        disabled
                       />
                     </div>
                     <div className="lg:py-2 ">
@@ -110,6 +102,7 @@ const returnPage = async ({ params }) => {
                         required
                         placeholder="Enter Your Product Name"
                         name="Product Name"
+                        onBlur={(e) => setProductName(e.target.value)}
                       />
                     </div>
                   </div>
@@ -121,9 +114,10 @@ const returnPage = async ({ params }) => {
                         className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
                         type="number"
                         required
-                        defaultValue={productReturn?.productPrice}
+                        defaultValue={newOrder?.productPrice}
                         placeholder="Price"
                         name="price"
+                        disabled
                       />
                     </div>
                     <div className="lg:py-2 ">
@@ -134,9 +128,10 @@ const returnPage = async ({ params }) => {
                         className="w-full  mt-2 p-2 border border-blue-500  rounded-lg placeholder:font-light placeholder:text-gray-500"
                         type="number"
                         required
-                        defaultValue={productReturn?.productWeight}
+                        defaultValue={newOrder?.productWeight}
                         placeholder="Enter Product Quantity "
                         name="weight"
+                        disabled
                       />
                     </div>
                   </div>
@@ -149,7 +144,10 @@ const returnPage = async ({ params }) => {
                           Select A Reason
                         </span>
                       </div>
-                      <select className="select select-bordered w-full">
+                      <select select onBlur={
+                        (e) => setProductReason(e.target.value)
+                      }
+                        className="select select-bordered w-full" >
                         <option disabled selected>
                           Select Reason
                         </option>
@@ -175,7 +173,10 @@ const returnPage = async ({ params }) => {
                           Select Payment Option
                         </span>
                       </div>
-                      <select className="select select-bordered">
+                      <select select onBlur={
+                        (e) => setProductPayment(e.target.value)
+                      }
+                        className="select select-bordered" >
                         <option disabled selected>
                           Select Payment
                         </option>
@@ -195,6 +196,7 @@ const returnPage = async ({ params }) => {
                       <span className="label-text font-bold">Comments</span>
                     </div>
                     <textarea
+                      onBlur={(e) => setProductComment(e.target.value)}
                       className="textarea textarea-bordered h-24"
                       placeholder="Comments Here...."
                     ></textarea>

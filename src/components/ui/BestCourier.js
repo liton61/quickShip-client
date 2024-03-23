@@ -1,5 +1,5 @@
 import React from 'react';
-import deliveryimg from '../../asstes/delivery-boy.png';
+import deliveryimg from '../../assets/delivery-boy.png';
 import Image from 'next/image';
 
 const BestCourier = () => {
@@ -16,7 +16,7 @@ const BestCourier = () => {
                         <div className="flex justify-center items-center">
                             <div>
                                 <h1 className="text-3xl font-bold text-center py-5">
-                                    BEST <span className="text-[#f5ab35]">COURIER </span>
+                                    BEST <span className="text-[#ec3900]">COURIER </span>
                                     SERVICES{" "}
                                 </h1>
                                 <p className="text-justify lg:ml-10">

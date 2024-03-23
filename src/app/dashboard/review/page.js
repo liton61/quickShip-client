@@ -1,12 +1,39 @@
+"use client"
+import usePublicAxios from '@/components/hooks/usePublicAxios';
 import React from 'react';
+import Swal from 'sweetalert2';
 
 const Review = () => {
+    const axiosPublic = usePublicAxios();
+    const handleSubmit = e => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const rating = form.rating.value;
+        const details = form.details.value;
+
+        const userReviews = { name, rating, details };
+        console.log(userReviews);
+
+        axiosPublic.post('/reviews', userReviews)
+            .then(res => {
+                console.log(res);
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        title: "Good job !",
+                        text: "Review successfully added !",
+                        icon: "success"
+                    });
+                }
+                form.reset();
+            })
+    }
     return (
         <div>
-            <div className="py-48 lg:px-0 px-5">
+            <div className="py-12 lg:px-0 px-5">
                 <div className="lg:w-3/4 mx-auto bg-gray-200 p-10 rounded">
                     <h2 className="text-2xl font-semibold mb-4">Leave a Review</h2>
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <div className="mb-4">
                             <label className="text-gray-700 font-medium">Your Name</label>
                             <input type="text" id="name" name="name" placeholder="Your name" className="form-input mt-1 w-full rounded-md focus:outline-none p-2" />
